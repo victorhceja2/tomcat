@@ -1,0 +1,5 @@
+Permissions: all-permissions
+Application-Name: smartE3
+
+
+

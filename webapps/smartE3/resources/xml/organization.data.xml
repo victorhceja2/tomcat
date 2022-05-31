@@ -1,0 +1,733 @@
+<tree_struct>
+<levels>
+<level id = "10" name = "Marca" />
+<level id = "20" name = "Region" />
+<level id = "30" name = "Zona" />
+<level id = "40" name = "Area" />
+<level id = "50" name = "Restaurante" />
+</levels>
+<tree_options>
+<tree_option option_id = "FKFC" option_desc = "FRANQUICIAS KFC"  parent_id = "0" level = "10" sql_value = "FKFC" olap_value = "[organization].[h].&amp;[FKFC]" roid = "FKFC" />
+<tree_option option_id = "FK100" option_desc = "R FRANQUICIAS KFC"  parent_id = "FKFC" level = "20" sql_value = "FK100" olap_value = "[organization].[h].&amp;[FK100]" roid = "FKFC" />
+<tree_option option_id = "FK101" option_desc = "R. FRANQUICIAS KFC ZONA 1"  parent_id = "FKFC" level = "20" sql_value = "FK101" olap_value = "[organization].[h].&amp;[FK101]" roid = "FKFC" />
+<tree_option option_id = "FK110" option_desc = "FRANQUICIAS ZONA 1"  parent_id = "FK101" level = "30" sql_value = "FK110" olap_value = "[organization].[h].&amp;[FK110]" roid = "FKFC" />
+<tree_option option_id = "FK112" option_desc = "OPERADORA CUMORAH"  parent_id = "FK110" level = "40" sql_value = "FK112" olap_value = "[organization].[h].&amp;[FK112]" roid = "FKFC" />
+<tree_option option_id = "1188" option_desc = "1188 CD CUAUHTEMOC KFC"  parent_id = "FK112" level = "50" sql_value = "1188" olap_value = "[organization].[h].&amp;[1188]" roid = "FKFC" />
+<tree_option option_id = "FK113" option_desc = "OPERADORA KFC"  parent_id = "FK110" level = "40" sql_value = "FK113" olap_value = "[organization].[h].&amp;[FK113]" roid = "FKFC" />
+<tree_option option_id = "1079" option_desc = "1079 PLAZA LORETO KFC"  parent_id = "FK113" level = "50" sql_value = "1079" olap_value = "[organization].[h].&amp;[1079]" roid = "FKFC" />
+<tree_option option_id = "1134" option_desc = "1134 PUEBLA KFC"  parent_id = "FK113" level = "50" sql_value = "1134" olap_value = "[organization].[h].&amp;[1134]" roid = "FKFC" />
+<tree_option option_id = "1135" option_desc = "1135 PUEBLA ATLIXCO KFC"  parent_id = "FK113" level = "50" sql_value = "1135" olap_value = "[organization].[h].&amp;[1135]" roid = "FKFC" />
+<tree_option option_id = "1136" option_desc = "1136 PUEBLA CENTRO KFC"  parent_id = "FK113" level = "50" sql_value = "1136" olap_value = "[organization].[h].&amp;[1136]" roid = "FKFC" />
+<tree_option option_id = "1137" option_desc = "1137 CORDOBA KFC"  parent_id = "FK113" level = "50" sql_value = "1137" olap_value = "[organization].[h].&amp;[1137]" roid = "FKFC" />
+<tree_option option_id = "1138" option_desc = "1138 ANGELOPOLIS KFC"  parent_id = "FK113" level = "50" sql_value = "1138" olap_value = "[organization].[h].&amp;[1138]" roid = "FKFC" />
+<tree_option option_id = "1152" option_desc = "1152 MAYORAZGO KFC"  parent_id = "FK113" level = "50" sql_value = "1152" olap_value = "[organization].[h].&amp;[1152]" roid = "FKFC" />
+<tree_option option_id = "1186" option_desc = "1186 PUEBLA CAPU KFC"  parent_id = "FK113" level = "50" sql_value = "1186" olap_value = "[organization].[h].&amp;[1186]" roid = "FKFC" />
+<tree_option option_id = "1241" option_desc = "1241 KFC PLAZA SAN DIEGO"  parent_id = "FK113" level = "50" sql_value = "1241" olap_value = "[organization].[h].&amp;[1241]" roid = "FKFC" />
+<tree_option option_id = "FK122" option_desc = "OPERADORA CALLEJA"  parent_id = "FK110" level = "40" sql_value = "FK122" olap_value = "[organization].[h].&amp;[FK122]" roid = "FKFC" />
+<tree_option option_id = "1084" option_desc = "1084 LA PIEDAD KFC"  parent_id = "FK122" level = "50" sql_value = "1084" olap_value = "[organization].[h].&amp;[1084]" roid = "FKFC" />
+<tree_option option_id = "1158" option_desc = "1158 KFC MADERO ORIENTE"  parent_id = "FK122" level = "50" sql_value = "1158" olap_value = "[organization].[h].&amp;[1158]" roid = "FKFC" />
+<tree_option option_id = "1161" option_desc = "1161 ZAMORA KFC"  parent_id = "FK122" level = "50" sql_value = "1161" olap_value = "[organization].[h].&amp;[1161]" roid = "FKFC" />
+<tree_option option_id = "1199" option_desc = "1199 PASEO URUAPAN"  parent_id = "FK122" level = "50" sql_value = "1199" olap_value = "[organization].[h].&amp;[1199]" roid = "FKFC" />
+<tree_option option_id = "1200" option_desc = "1200 APATZINGAN"  parent_id = "FK122" level = "50" sql_value = "1200" olap_value = "[organization].[h].&amp;[1200]" roid = "FKFC" />
+<tree_option option_id = "1201" option_desc = "1201 URUAPAN SORIANA KFC"  parent_id = "FK122" level = "50" sql_value = "1201" olap_value = "[organization].[h].&amp;[1201]" roid = "FKFC" />
+<tree_option option_id = "1202" option_desc = "1202 LA HUERTA"  parent_id = "FK122" level = "50" sql_value = "1202" olap_value = "[organization].[h].&amp;[1202]" roid = "FKFC" />
+<tree_option option_id = "9063" option_desc = "9063 URUAPAN SORIANA KFC"  parent_id = "FK122" level = "50" sql_value = "9063" olap_value = "[organization].[h].&amp;[9063]" roid = "FKFC" />
+<tree_option option_id = "9074" option_desc = "9074 MORELIA LA HUERTA KF"  parent_id = "FK122" level = "50" sql_value = "9074" olap_value = "[organization].[h].&amp;[9074]" roid = "FKFC" />
+<tree_option option_id = "9614" option_desc = "9614 URUAPAN KFC"  parent_id = "FK122" level = "50" sql_value = "9614" olap_value = "[organization].[h].&amp;[9614]" roid = "FKFC" />
+<tree_option option_id = "9653" option_desc = "9653 APATZINGAN KFC"  parent_id = "FK122" level = "50" sql_value = "9653" olap_value = "[organization].[h].&amp;[9653]" roid = "FKFC" />
+<tree_option option_id = "FK123" option_desc = "ALIMENTOS Y FRANQUICIAS"  parent_id = "FK110" level = "40" sql_value = "FK123" olap_value = "[organization].[h].&amp;[FK123]" roid = "FKFC" />
+<tree_option option_id = "1102" option_desc = "1102 PLAZA VERSALLES KFC"  parent_id = "FK123" level = "50" sql_value = "1102" olap_value = "[organization].[h].&amp;[1102]" roid = "FKFC" />
+<tree_option option_id = "1103" option_desc = "1103 VERSALLES CUMBRES KF"  parent_id = "FK123" level = "50" sql_value = "1103" olap_value = "[organization].[h].&amp;[1103]" roid = "FKFC" />
+<tree_option option_id = "1104" option_desc = "1104 SANTO DOMINGO (Mty) "  parent_id = "FK123" level = "50" sql_value = "1104" olap_value = "[organization].[h].&amp;[1104]" roid = "FKFC" />
+<tree_option option_id = "1105" option_desc = "1105 LA PASTORA (Mty) KFC"  parent_id = "FK123" level = "50" sql_value = "1105" olap_value = "[organization].[h].&amp;[1105]" roid = "FKFC" />
+<tree_option option_id = "1106" option_desc = "1106 TORREON 1 KFC"  parent_id = "FK123" level = "50" sql_value = "1106" olap_value = "[organization].[h].&amp;[1106]" roid = "FKFC" />
+<tree_option option_id = "1107" option_desc = "1107 TORREON 2 KFC"  parent_id = "FK123" level = "50" sql_value = "1107" olap_value = "[organization].[h].&amp;[1107]" roid = "FKFC" />
+<tree_option option_id = "1108" option_desc = "1108 GOMEZ PALACIOS KFC"  parent_id = "FK123" level = "50" sql_value = "1108" olap_value = "[organization].[h].&amp;[1108]" roid = "FKFC" />
+<tree_option option_id = "FK124" option_desc = "AC POLLO"  parent_id = "FK110" level = "40" sql_value = "FK124" olap_value = "[organization].[h].&amp;[FK124]" roid = "FKFC" />
+<tree_option option_id = "1109" option_desc = "1109 SENDERO KFC"  parent_id = "FK124" level = "50" sql_value = "1109" olap_value = "[organization].[h].&amp;[1109]" roid = "FKFC" />
+<tree_option option_id = "1140" option_desc = "1140 VALLE ORIENTE KFC"  parent_id = "FK124" level = "50" sql_value = "1140" olap_value = "[organization].[h].&amp;[1140]" roid = "FKFC" />
+<tree_option option_id = "1157" option_desc = "1157 GALERIAS"  parent_id = "FK124" level = "50" sql_value = "1157" olap_value = "[organization].[h].&amp;[1157]" roid = "FKFC" />
+<tree_option option_id = "1170" option_desc = "1170 PLAZA CUMBRES KFC"  parent_id = "FK124" level = "50" sql_value = "1170" olap_value = "[organization].[h].&amp;[1170]" roid = "FKFC" />
+<tree_option option_id = "1182" option_desc = "1182 SUN MALL KFC"  parent_id = "FK124" level = "50" sql_value = "1182" olap_value = "[organization].[h].&amp;[1182]" roid = "FKFC" />
+<tree_option option_id = "1193" option_desc = "1193 San Pedro Mty KFC"  parent_id = "FK124" level = "50" sql_value = "1193" olap_value = "[organization].[h].&amp;[1193]" roid = "FKFC" />
+<tree_option option_id = "1204" option_desc = "1204 KFC PLAZA CENTRIKA"  parent_id = "FK124" level = "50" sql_value = "1204" olap_value = "[organization].[h].&amp;[1204]" roid = "FKFC" />
+<tree_option option_id = "1213" option_desc = "1213 CITADEL"  parent_id = "FK124" level = "50" sql_value = "1213" olap_value = "[organization].[h].&amp;[1213]" roid = "FKFC" />
+<tree_option option_id = "1219" option_desc = "1219 LINCOLN"  parent_id = "FK124" level = "50" sql_value = "1219" olap_value = "[organization].[h].&amp;[1219]" roid = "FKFC" />
+<tree_option option_id = "1220" option_desc = "1220 APODACA KFC"  parent_id = "FK124" level = "50" sql_value = "1220" olap_value = "[organization].[h].&amp;[1220]" roid = "FKFC" />
+<tree_option option_id = "1240" option_desc = "1240 PLAZA MEXICO"  parent_id = "FK124" level = "50" sql_value = "1240" olap_value = "[organization].[h].&amp;[1240]" roid = "FKFC" />
+<tree_option option_id = "1245" option_desc = "1245 PLAZA SAN AGUSTIN KF"  parent_id = "FK124" level = "50" sql_value = "1245" olap_value = "[organization].[h].&amp;[1245]" roid = "FKFC" />
+<tree_option option_id = "9602" option_desc = "9602 PLAZA MEXICO (Mty) K"  parent_id = "FK124" level = "50" sql_value = "9602" olap_value = "[organization].[h].&amp;[9602]" roid = "FKFC" />
+<tree_option option_id = "9603" option_desc = "9603 PLAZA SAN PEDRO KFC"  parent_id = "FK124" level = "50" sql_value = "9603" olap_value = "[organization].[h].&amp;[9603]" roid = "FKFC" />
+<tree_option option_id = "FK135" option_desc = "OPERADORA Y FRANQUICIAS DEL CENTRO"  parent_id = "FK110" level = "40" sql_value = "FK135" olap_value = "[organization].[h].&amp;[FK135]" roid = "FKFC" />
+<tree_option option_id = "1090" option_desc = "1090 EL DORADO SLP KFC"  parent_id = "FK135" level = "50" sql_value = "1090" olap_value = "[organization].[h].&amp;[1090]" roid = "FKFC" />
+<tree_option option_id = "1133" option_desc = "1133 PASAJE HIDALGO SLP K"  parent_id = "FK135" level = "50" sql_value = "1133" olap_value = "[organization].[h].&amp;[1133]" roid = "FKFC" />
+<tree_option option_id = "1154" option_desc = "1154 CARRETERA 57 KFC"  parent_id = "FK135" level = "50" sql_value = "1154" olap_value = "[organization].[h].&amp;[1154]" roid = "FKFC" />
+<tree_option option_id = "1187" option_desc = "1187 KFC FQR SENDERO"  parent_id = "FK135" level = "50" sql_value = "1187" olap_value = "[organization].[h].&amp;[1187]" roid = "FKFC" />
+<tree_option option_id = "1223" option_desc = "1223 TANGAMANGA"  parent_id = "FK135" level = "50" sql_value = "1223" olap_value = "[organization].[h].&amp;[1223]" roid = "FKFC" />
+<tree_option option_id = "1224" option_desc = "1224 ZACATECAS"  parent_id = "FK135" level = "50" sql_value = "1224" olap_value = "[organization].[h].&amp;[1224]" roid = "FKFC" />
+<tree_option option_id = "1242" option_desc = "1242 PLAZA SAN LUIS KFC"  parent_id = "FK135" level = "50" sql_value = "1242" olap_value = "[organization].[h].&amp;[1242]" roid = "FKFC" />
+<tree_option option_id = "FK136" option_desc = "GRUPO XALAPA"  parent_id = "FK110" level = "40" sql_value = "FK136" olap_value = "[organization].[h].&amp;[FK136]" roid = "FKFC" />
+<tree_option option_id = "1148" option_desc = "1148 JALAPA KFC"  parent_id = "FK136" level = "50" sql_value = "1148" olap_value = "[organization].[h].&amp;[1148]" roid = "FKFC" />
+<tree_option option_id = "1162" option_desc = "1162 VERACRUZ 1 KFC"  parent_id = "FK136" level = "50" sql_value = "1162" olap_value = "[organization].[h].&amp;[1162]" roid = "FKFC" />
+<tree_option option_id = "1163" option_desc = "1163 VERACRUZ 2 KFC"  parent_id = "FK136" level = "50" sql_value = "1163" olap_value = "[organization].[h].&amp;[1163]" roid = "FKFC" />
+<tree_option option_id = "1189" option_desc = "1189 PLAZA AMERICAS KFC"  parent_id = "FK136" level = "50" sql_value = "1189" olap_value = "[organization].[h].&amp;[1189]" roid = "FKFC" />
+<tree_option option_id = "1221" option_desc = "1221 LAS BRISAS"  parent_id = "FK136" level = "50" sql_value = "1221" olap_value = "[organization].[h].&amp;[1221]" roid = "FKFC" />
+<tree_option option_id = "FK145" option_desc = "OPERADORA DE RESTAURANTES DE COLIMA"  parent_id = "FK110" level = "40" sql_value = "FK145" olap_value = "[organization].[h].&amp;[FK145]" roid = "FKFC" />
+<tree_option option_id = "1180" option_desc = "1180 KFC COLIMA KFC"  parent_id = "FK145" level = "50" sql_value = "1180" olap_value = "[organization].[h].&amp;[1180]" roid = "FKFC" />
+<tree_option option_id = "1206" option_desc = "1206 CIUDAD GUZMAN"  parent_id = "FK145" level = "50" sql_value = "1206" olap_value = "[organization].[h].&amp;[1206]" roid = "FKFC" />
+<tree_option option_id = "1211" option_desc = "1211 MANZANILLO"  parent_id = "FK145" level = "50" sql_value = "1211" olap_value = "[organization].[h].&amp;[1211]" roid = "FKFC" />
+<tree_option option_id = "FK146" option_desc = "FAST FOOD NORESTE"  parent_id = "FK110" level = "40" sql_value = "FK146" olap_value = "[organization].[h].&amp;[FK146]" roid = "FKFC" />
+<tree_option option_id = "1190" option_desc = "1190 KFC FQR REYNOSA"  parent_id = "FK146" level = "50" sql_value = "1190" olap_value = "[organization].[h].&amp;[1190]" roid = "FKFC" />
+<tree_option option_id = "1191" option_desc = "1191 KFC FQR LAREDO"  parent_id = "FK146" level = "50" sql_value = "1191" olap_value = "[organization].[h].&amp;[1191]" roid = "FKFC" />
+<tree_option option_id = "1198" option_desc = "1198 PLAZA PERIFERICO KFC"  parent_id = "FK146" level = "50" sql_value = "1198" olap_value = "[organization].[h].&amp;[1198]" roid = "FKFC" />
+<tree_option option_id = "FK102" option_desc = "R. FRANQUICIAS KFC ZONA 2"  parent_id = "FKFC" level = "20" sql_value = "FK102" olap_value = "[organization].[h].&amp;[FK102]" roid = "FKFC" />
+<tree_option option_id = "FK130" option_desc = "FRANQUICIAS ZONA 2"  parent_id = "FK102" level = "30" sql_value = "FK130" olap_value = "[organization].[h].&amp;[FK130]" roid = "FKFC" />
+<tree_option option_id = "FK111" option_desc = "HOLDING DEL GOLFO"  parent_id = "FK130" level = "40" sql_value = "FK111" olap_value = "[organization].[h].&amp;[FK111]" roid = "FKFC" />
+<tree_option option_id = "1172" option_desc = "1172 VILLAHERMOSA 1 KFC"  parent_id = "FK111" level = "50" sql_value = "1172" olap_value = "[organization].[h].&amp;[1172]" roid = "FKFC" />
+<tree_option option_id = "1173" option_desc = "1173 VILLAHERMOSA 2 KFC"  parent_id = "FK111" level = "50" sql_value = "1173" olap_value = "[organization].[h].&amp;[1173]" roid = "FKFC" />
+<tree_option option_id = "1174" option_desc = "1174 SORIANA VILLAHERMOSA"  parent_id = "FK111" level = "50" sql_value = "1174" olap_value = "[organization].[h].&amp;[1174]" roid = "FKFC" />
+<tree_option option_id = "1175" option_desc = "1175 SAN JOAQUIN (Vhmsa) "  parent_id = "FK111" level = "50" sql_value = "1175" olap_value = "[organization].[h].&amp;[1175]" roid = "FKFC" />
+<tree_option option_id = "1176" option_desc = "1176 CD CARDENAS KFC"  parent_id = "FK111" level = "50" sql_value = "1176" olap_value = "[organization].[h].&amp;[1176]" roid = "FKFC" />
+<tree_option option_id = "1177" option_desc = "1177 CD DEL CARMEN KFC"  parent_id = "FK111" level = "50" sql_value = "1177" olap_value = "[organization].[h].&amp;[1177]" roid = "FKFC" />
+<tree_option option_id = "1178" option_desc = "1178 COATZACOALCOS KFC"  parent_id = "FK111" level = "50" sql_value = "1178" olap_value = "[organization].[h].&amp;[1178]" roid = "FKFC" />
+<tree_option option_id = "1195" option_desc = "1195 FORUM COATZACOALCOS"  parent_id = "FK111" level = "50" sql_value = "1195" olap_value = "[organization].[h].&amp;[1195]" roid = "FKFC" />
+<tree_option option_id = "1209" option_desc = "1209 CD INDUSTRIAL"  parent_id = "FK111" level = "50" sql_value = "1209" olap_value = "[organization].[h].&amp;[1209]" roid = "FKFC" />
+<tree_option option_id = "1225" option_desc = "1225 PASEO TABASCO"  parent_id = "FK111" level = "50" sql_value = "1225" olap_value = "[organization].[h].&amp;[1225]" roid = "FKFC" />
+<tree_option option_id = "1227" option_desc = "1227 CAMPECHE KFC"  parent_id = "FK111" level = "50" sql_value = "1227" olap_value = "[organization].[h].&amp;[1227]" roid = "FKFC" />
+<tree_option option_id = "1238" option_desc = "1238 GALERIAS"  parent_id = "FK111" level = "50" sql_value = "1238" olap_value = "[organization].[h].&amp;[1238]" roid = "FKFC" />
+<tree_option option_id = "FK125" option_desc = "GRUPO FRIDERAS"  parent_id = "FK130" level = "40" sql_value = "FK125" olap_value = "[organization].[h].&amp;[FK125]" roid = "FKFC" />
+<tree_option option_id = "1150" option_desc = "1150 TEPIC INSURGENTES KF"  parent_id = "FK125" level = "50" sql_value = "1150" olap_value = "[organization].[h].&amp;[1150]" roid = "FKFC" />
+<tree_option option_id = "1168" option_desc = "1168 LOS TULES VALLARTA K"  parent_id = "FK125" level = "50" sql_value = "1168" olap_value = "[organization].[h].&amp;[1168]" roid = "FKFC" />
+<tree_option option_id = "1169" option_desc = "1169 TEPIC CENTRO KFC"  parent_id = "FK125" level = "50" sql_value = "1169" olap_value = "[organization].[h].&amp;[1169]" roid = "FKFC" />
+<tree_option option_id = "1239" option_desc = "1239 FORUM TEPIC"  parent_id = "FK125" level = "50" sql_value = "1239" olap_value = "[organization].[h].&amp;[1239]" roid = "FKFC" />
+<tree_option option_id = "FK126" option_desc = "OPERADORA KFC DEL SURESTE"  parent_id = "FK130" level = "40" sql_value = "FK126" olap_value = "[organization].[h].&amp;[FK126]" roid = "FKFC" />
+<tree_option option_id = "1094" option_desc = "1094 CANCUN LOPEZ PORTILL"  parent_id = "FK126" level = "50" sql_value = "1094" olap_value = "[organization].[h].&amp;[1094]" roid = "FKFC" />
+<tree_option option_id = "1144" option_desc = "1144 CANCUN UXMAL"  parent_id = "FK126" level = "50" sql_value = "1144" olap_value = "[organization].[h].&amp;[1144]" roid = "FKFC" />
+<tree_option option_id = "1197" option_desc = "1197 KFC LA GRAN PLAZA"  parent_id = "FK126" level = "50" sql_value = "1197" olap_value = "[organization].[h].&amp;[1197]" roid = "FKFC" />
+<tree_option option_id = "FK131" option_desc = "ALIMENTOS Y FRANQUICIAS DE CHIAPAS"  parent_id = "FK130" level = "40" sql_value = "FK131" olap_value = "[organization].[h].&amp;[FK131]" roid = "FKFC" />
+<tree_option option_id = "1131" option_desc = "1131 OAXACA KFC"  parent_id = "FK131" level = "50" sql_value = "1131" olap_value = "[organization].[h].&amp;[1131]" roid = "FKFC" />
+<tree_option option_id = "1132" option_desc = "1132 TUXTLA GUTIERREZ KFC"  parent_id = "FK131" level = "50" sql_value = "1132" olap_value = "[organization].[h].&amp;[1132]" roid = "FKFC" />
+<tree_option option_id = "1142" option_desc = "1142 PLAZA MIRADOR KFC"  parent_id = "FK131" level = "50" sql_value = "1142" olap_value = "[organization].[h].&amp;[1142]" roid = "FKFC" />
+<tree_option option_id = "1212" option_desc = "1212 TUXTLA CENTRO"  parent_id = "FK131" level = "50" sql_value = "1212" olap_value = "[organization].[h].&amp;[1212]" roid = "FKFC" />
+<tree_option option_id = "FK134" option_desc = "OPERADORA DUAABSA"  parent_id = "FK130" level = "40" sql_value = "FK134" olap_value = "[organization].[h].&amp;[FK134]" roid = "FKFC" />
+<tree_option option_id = "1077" option_desc = "1077 CHILPANCINGO KFC"  parent_id = "FK134" level = "50" sql_value = "1077" olap_value = "[organization].[h].&amp;[1077]" roid = "FKFC" />
+<tree_option option_id = "FK141" option_desc = "OPERADORA EXE"  parent_id = "FK130" level = "40" sql_value = "FK141" olap_value = "[organization].[h].&amp;[FK141]" roid = "FKFC" />
+<tree_option option_id = "1097" option_desc = "1097 AMERICAS KFC"  parent_id = "FK141" level = "50" sql_value = "1097" olap_value = "[organization].[h].&amp;[1097]" roid = "FKFC" />
+<tree_option option_id = "1129" option_desc = "1129 MERIDA 1 KFC"  parent_id = "FK141" level = "50" sql_value = "1129" olap_value = "[organization].[h].&amp;[1129]" roid = "FKFC" />
+<tree_option option_id = "1164" option_desc = "1164 ITZAES KFC"  parent_id = "FK141" level = "50" sql_value = "1164" olap_value = "[organization].[h].&amp;[1164]" roid = "FKFC" />
+<tree_option option_id = "1165" option_desc = "1165 KFC GRAN PLAZA"  parent_id = "FK141" level = "50" sql_value = "1165" olap_value = "[organization].[h].&amp;[1165]" roid = "FKFC" />
+<tree_option option_id = "1215" option_desc = "1215 ALTABRISA"  parent_id = "FK141" level = "50" sql_value = "1215" olap_value = "[organization].[h].&amp;[1215]" roid = "FKFC" />
+<tree_option option_id = "1226" option_desc = "1226 MERIDA OTE."  parent_id = "FK141" level = "50" sql_value = "1226" olap_value = "[organization].[h].&amp;[1226]" roid = "FKFC" />
+<tree_option option_id = "1237" option_desc = "1237 KFC JUAREZ"  parent_id = "FK141" level = "50" sql_value = "1237" olap_value = "[organization].[h].&amp;[1237]" roid = "FKFC" />
+<tree_option option_id = "9000" option_desc = "1097 AMERICAS KFC (PROV)"  parent_id = "FK141" level = "50" sql_value = "9000" olap_value = "[organization].[h].&amp;[9000]" roid = "FKFC" />
+<tree_option option_id = "FK143" option_desc = "CONSORCIO LUNA"  parent_id = "FK130" level = "40" sql_value = "FK143" olap_value = "[organization].[h].&amp;[FK143]" roid = "FKFC" />
+<tree_option option_id = "1076" option_desc = "1076 KFC LOPEZ MATEOS"  parent_id = "FK143" level = "50" sql_value = "1076" olap_value = "[organization].[h].&amp;[1076]" roid = "FKFC" />
+<tree_option option_id = "1088" option_desc = "1088 TOLUCA CENTRO KFC"  parent_id = "FK143" level = "50" sql_value = "1088" olap_value = "[organization].[h].&amp;[1088]" roid = "FKFC" />
+<tree_option option_id = "1100" option_desc = "1100 TLACOPA KFC"  parent_id = "FK143" level = "50" sql_value = "1100" olap_value = "[organization].[h].&amp;[1100]" roid = "FKFC" />
+<tree_option option_id = "1121" option_desc = "1121 METEPEC KFC"  parent_id = "FK143" level = "50" sql_value = "1121" olap_value = "[organization].[h].&amp;[1121]" roid = "FKFC" />
+<tree_option option_id = "1122" option_desc = "1122 GAL METEPEC KFC"  parent_id = "FK143" level = "50" sql_value = "1122" olap_value = "[organization].[h].&amp;[1122]" roid = "FKFC" />
+<tree_option option_id = "1123" option_desc = "1123 CHEDRAUI TOLUCA KFC"  parent_id = "FK143" level = "50" sql_value = "1123" olap_value = "[organization].[h].&amp;[1123]" roid = "FKFC" />
+<tree_option option_id = "1167" option_desc = "1167 KFC LA ASUNCION"  parent_id = "FK143" level = "50" sql_value = "1167" olap_value = "[organization].[h].&amp;[1167]" roid = "FKFC" />
+<tree_option option_id = "1208" option_desc = "1208 KFC SENDERO LERMA"  parent_id = "FK143" level = "50" sql_value = "1208" olap_value = "[organization].[h].&amp;[1208]" roid = "FKFC" />
+<tree_option option_id = "FK144" option_desc = "OPERADORA YOLI"  parent_id = "FK130" level = "40" sql_value = "FK144" olap_value = "[organization].[h].&amp;[FK144]" roid = "FKFC" />
+<tree_option option_id = "1080" option_desc = "1080 PACHUCA CENTRO KFC"  parent_id = "FK144" level = "50" sql_value = "1080" olap_value = "[organization].[h].&amp;[1080]" roid = "FKFC" />
+<tree_option option_id = "1147" option_desc = "1147 PACHUCA KFC"  parent_id = "FK144" level = "50" sql_value = "1147" olap_value = "[organization].[h].&amp;[1147]" roid = "FKFC" />
+<tree_option option_id = "1153" option_desc = "1153 KFC GALERIAS PACHUCA"  parent_id = "FK144" level = "50" sql_value = "1153" olap_value = "[organization].[h].&amp;[1153]" roid = "FKFC" />
+<tree_option option_id = "FPH" option_desc = "FRANQUICIAS PH"  parent_id = "0" level = "10" sql_value = "FPH" olap_value = "[organization].[h].&amp;[FPH]" roid = "FPH" />
+<tree_option option_id = "FP100" option_desc = "R FRANQUICIAS PH"  parent_id = "FPH" level = "20" sql_value = "FP100" olap_value = "[organization].[h].&amp;[FP100]" roid = "FPH" />
+<tree_option option_id = "FP104" option_desc = "R. FRANQUICIAS PH ZONA 1"  parent_id = "FPH" level = "20" sql_value = "FP104" olap_value = "[organization].[h].&amp;[FP104]" roid = "FPH" />
+<tree_option option_id = "FP110" option_desc = "FRANQUICIAS ZONA 1"  parent_id = "FP104" level = "30" sql_value = "FP110" olap_value = "[organization].[h].&amp;[FP110]" roid = "FPH" />
+<tree_option option_id = "FP112" option_desc = "OPERADORA CUMORAH PH"  parent_id = "FP110" level = "40" sql_value = "FP112" olap_value = "[organization].[h].&amp;[FP112]" roid = "FPH" />
+<tree_option option_id = "1075" option_desc = "1075 CUAUHTEMOC PH"  parent_id = "FP112" level = "50" sql_value = "1075" olap_value = "[organization].[h].&amp;[1075]" roid = "FPH" />
+<tree_option option_id = "FP113" option_desc = "OPERADORA KFC PH"  parent_id = "FP110" level = "40" sql_value = "FP113" olap_value = "[organization].[h].&amp;[FP113]" roid = "FPH" />
+<tree_option option_id = "1052" option_desc = "1052 ANGELOPOLIS PH"  parent_id = "FP113" level = "50" sql_value = "1052" olap_value = "[organization].[h].&amp;[1052]" roid = "FPH" />
+<tree_option option_id = "1064" option_desc = "1064 PUEBLA PLAZA DORADA "  parent_id = "FP113" level = "50" sql_value = "1064" olap_value = "[organization].[h].&amp;[1064]" roid = "FPH" />
+<tree_option option_id = "1078" option_desc = "1078 PLAZA LORETO PH"  parent_id = "FP113" level = "50" sql_value = "1078" olap_value = "[organization].[h].&amp;[1078]" roid = "FPH" />
+<tree_option option_id = "1139" option_desc = "1139 Zavaleta PH"  parent_id = "FP113" level = "50" sql_value = "1139" olap_value = "[organization].[h].&amp;[1139]" roid = "FPH" />
+<tree_option option_id = "1203" option_desc = "1203 MAYORAZGO PH"  parent_id = "FP113" level = "50" sql_value = "1203" olap_value = "[organization].[h].&amp;[1203]" roid = "FPH" />
+<tree_option option_id = "1207" option_desc = "1207 SAN PEDRO"  parent_id = "FP113" level = "50" sql_value = "1207" olap_value = "[organization].[h].&amp;[1207]" roid = "FPH" />
+<tree_option option_id = "1243" option_desc = "1243 BOSQUES ANGELOPOLIS "  parent_id = "FP113" level = "50" sql_value = "1243" olap_value = "[organization].[h].&amp;[1243]" roid = "FPH" />
+<tree_option option_id = "1246" option_desc = "1246 PH SAN DIEGO"  parent_id = "FP113" level = "50" sql_value = "1246" olap_value = "[organization].[h].&amp;[1246]" roid = "FPH" />
+<tree_option option_id = "FP122" option_desc = "OPERADORA CALLEJA PH"  parent_id = "FP110" level = "40" sql_value = "FP122" olap_value = "[organization].[h].&amp;[FP122]" roid = "FPH" />
+<tree_option option_id = "1074" option_desc = "1074 MORELIA LA HUERTA PH"  parent_id = "FP122" level = "50" sql_value = "1074" olap_value = "[organization].[h].&amp;[1074]" roid = "FPH" />
+<tree_option option_id = "1210" option_desc = "1210 PASEO URUAPAN"  parent_id = "FP122" level = "50" sql_value = "1210" olap_value = "[organization].[h].&amp;[1210]" roid = "FPH" />
+<tree_option option_id = "FP124" option_desc = "AC POLLO PH"  parent_id = "FP110" level = "40" sql_value = "FP124" olap_value = "[organization].[h].&amp;[FP124]" roid = "FPH" />
+<tree_option option_id = "1062" option_desc = "1062 PLAZA GALERIAS (MTY)"  parent_id = "FP124" level = "50" sql_value = "1062" olap_value = "[organization].[h].&amp;[1062]" roid = "FPH" />
+<tree_option option_id = "1110" option_desc = "1110 PLAZA SENDERO PH"  parent_id = "FP124" level = "50" sql_value = "1110" olap_value = "[organization].[h].&amp;[1110]" roid = "FPH" />
+<tree_option option_id = "1141" option_desc = "1141 VALLE ORIENTE PH"  parent_id = "FP124" level = "50" sql_value = "1141" olap_value = "[organization].[h].&amp;[1141]" roid = "FPH" />
+<tree_option option_id = "1171" option_desc = "1171 CUMBRES PH"  parent_id = "FP124" level = "50" sql_value = "1171" olap_value = "[organization].[h].&amp;[1171]" roid = "FPH" />
+<tree_option option_id = "1181" option_desc = "1181 SUN MALL PH"  parent_id = "FP124" level = "50" sql_value = "1181" olap_value = "[organization].[h].&amp;[1181]" roid = "FPH" />
+<tree_option option_id = "1205" option_desc = "1205 PH PLAZA CENTRIKA"  parent_id = "FP124" level = "50" sql_value = "1205" olap_value = "[organization].[h].&amp;[1205]" roid = "FPH" />
+<tree_option option_id = "1214" option_desc = "1214 CITADEL"  parent_id = "FP124" level = "50" sql_value = "1214" olap_value = "[organization].[h].&amp;[1214]" roid = "FPH" />
+<tree_option option_id = "FP135" option_desc = "OPERADORA Y FRANQUICIAS DEL CENTRO PH"  parent_id = "FP110" level = "40" sql_value = "FP135" olap_value = "[organization].[h].&amp;[FP135]" roid = "FPH" />
+<tree_option option_id = "1155" option_desc = "1155 CARRETERA 57 PH"  parent_id = "FP135" level = "50" sql_value = "1155" olap_value = "[organization].[h].&amp;[1155]" roid = "FPH" />
+<tree_option option_id = "1218" option_desc = "1218 HIMNO NACIONAL"  parent_id = "FP135" level = "50" sql_value = "1218" olap_value = "[organization].[h].&amp;[1218]" roid = "FPH" />
+<tree_option option_id = "1244" option_desc = "1244 DORADO PHD"  parent_id = "FP135" level = "50" sql_value = "1244" olap_value = "[organization].[h].&amp;[1244]" roid = "FPH" />
+<tree_option option_id = "FP136" option_desc = "GRUPO XALAPA PH"  parent_id = "FP110" level = "40" sql_value = "FP136" olap_value = "[organization].[h].&amp;[FP136]" roid = "FPH" />
+<tree_option option_id = "1095" option_desc = "1095 AVILA CAMACHO PH"  parent_id = "FP136" level = "50" sql_value = "1095" olap_value = "[organization].[h].&amp;[1095]" roid = "FPH" />
+<tree_option option_id = "1096" option_desc = "1096 JALAPA ANIMAS PH"  parent_id = "FP136" level = "50" sql_value = "1096" olap_value = "[organization].[h].&amp;[1096]" roid = "FPH" />
+<tree_option option_id = "1149" option_desc = "1149 POZA RICA PH"  parent_id = "FP136" level = "50" sql_value = "1149" olap_value = "[organization].[h].&amp;[1149]" roid = "FPH" />
+<tree_option option_id = "FP105" option_desc = "R. FRANQUICIAS PH ZONA 2"  parent_id = "FPH" level = "20" sql_value = "FP105" olap_value = "[organization].[h].&amp;[FP105]" roid = "FPH" />
+<tree_option option_id = "FP120" option_desc = "FRANQUICIAS ZONA 2"  parent_id = "FP105" level = "30" sql_value = "FP120" olap_value = "[organization].[h].&amp;[FP120]" roid = "FPH" />
+<tree_option option_id = "FP125" option_desc = "GRUPO FRIDERAS PH"  parent_id = "FP120" level = "40" sql_value = "FP125" olap_value = "[organization].[h].&amp;[FP125]" roid = "FPH" />
+<tree_option option_id = "1179" option_desc = "1179 TEPIC PH"  parent_id = "FP125" level = "50" sql_value = "1179" olap_value = "[organization].[h].&amp;[1179]" roid = "FPH" />
+<tree_option option_id = "FP126" option_desc = "OPERADORA KFC DEL SURESTE PH"  parent_id = "FP120" level = "40" sql_value = "FP126" olap_value = "[organization].[h].&amp;[FP126]" roid = "FPH" />
+<tree_option option_id = "1081" option_desc = "1081 UXMAL PH"  parent_id = "FP126" level = "50" sql_value = "1081" olap_value = "[organization].[h].&amp;[1081]" roid = "FPH" />
+<tree_option option_id = "1192" option_desc = "1192 LA LUNA PH"  parent_id = "FP126" level = "50" sql_value = "1192" olap_value = "[organization].[h].&amp;[1192]" roid = "FPH" />
+<tree_option option_id = "1194" option_desc = "1194 LOPEZ PORTILLO PH"  parent_id = "FP126" level = "50" sql_value = "1194" olap_value = "[organization].[h].&amp;[1194]" roid = "FPH" />
+<tree_option option_id = "1971" option_desc = "1971 CANCUN LAGUNAS PH"  parent_id = "FP126" level = "50" sql_value = "1971" olap_value = "[organization].[h].&amp;[1971]" roid = "FPH" />
+<tree_option option_id = "FP131" option_desc = "ALIMENTOS Y FRANQUICIAS DE CHIAPAS PH A1"  parent_id = "FP120" level = "40" sql_value = "FP131" olap_value = "[organization].[h].&amp;[FP131]" roid = "FPH" />
+<tree_option option_id = "1067" option_desc = "1067 TUXTLA PONIENTE PH"  parent_id = "FP131" level = "50" sql_value = "1067" olap_value = "[organization].[h].&amp;[1067]" roid = "FPH" />
+<tree_option option_id = "1160" option_desc = "1160 PH TUXTLA ORIENTE PH"  parent_id = "FP131" level = "50" sql_value = "1160" olap_value = "[organization].[h].&amp;[1160]" roid = "FPH" />
+<tree_option option_id = "FP134" option_desc = "OPERADORA DUAABSA PH"  parent_id = "FP120" level = "40" sql_value = "FP134" olap_value = "[organization].[h].&amp;[FP134]" roid = "FPH" />
+<tree_option option_id = "1087" option_desc = "1087 CHILPANCINGO PH"  parent_id = "FP134" level = "50" sql_value = "1087" olap_value = "[organization].[h].&amp;[1087]" roid = "FPH" />
+<tree_option option_id = "FP141" option_desc = "OPERADORA EXE PH"  parent_id = "FP120" level = "40" sql_value = "FP141" olap_value = "[organization].[h].&amp;[FP141]" roid = "FPH" />
+<tree_option option_id = "1125" option_desc = "1125 PLAZA CARRILLON PH"  parent_id = "FP141" level = "50" sql_value = "1125" olap_value = "[organization].[h].&amp;[1125]" roid = "FPH" />
+<tree_option option_id = "1126" option_desc = "1126 ITZAES PH"  parent_id = "FP141" level = "50" sql_value = "1126" olap_value = "[organization].[h].&amp;[1126]" roid = "FPH" />
+<tree_option option_id = "1127" option_desc = "1127 PH MERIDA OTE."  parent_id = "FP141" level = "50" sql_value = "1127" olap_value = "[organization].[h].&amp;[1127]" roid = "FPH" />
+<tree_option option_id = "1128" option_desc = "1128 COZUMEL ISLA PH"  parent_id = "FP141" level = "50" sql_value = "1128" olap_value = "[organization].[h].&amp;[1128]" roid = "FPH" />
+<tree_option option_id = "1166" option_desc = "1166 PH AMERICAS PH"  parent_id = "FP141" level = "50" sql_value = "1166" olap_value = "[organization].[h].&amp;[1166]" roid = "FPH" />
+<tree_option option_id = "1217" option_desc = "1217 ALTABRISA"  parent_id = "FP141" level = "50" sql_value = "1217" olap_value = "[organization].[h].&amp;[1217]" roid = "FPH" />
+<tree_option option_id = "FP143" option_desc = "CONSORCIO LUNA PH"  parent_id = "FP120" level = "40" sql_value = "FP143" olap_value = "[organization].[h].&amp;[FP143]" roid = "FPH" />
+<tree_option option_id = "1086" option_desc = "1086 LOPEZ MATEOS PH"  parent_id = "FP143" level = "50" sql_value = "1086" olap_value = "[organization].[h].&amp;[1086]" roid = "FPH" />
+<tree_option option_id = "1099" option_desc = "1099 TLACOPA PH"  parent_id = "FP143" level = "50" sql_value = "1099" olap_value = "[organization].[h].&amp;[1099]" roid = "FPH" />
+<tree_option option_id = "1118" option_desc = "1118 MORELOS PH"  parent_id = "FP143" level = "50" sql_value = "1118" olap_value = "[organization].[h].&amp;[1118]" roid = "FPH" />
+<tree_option option_id = "1119" option_desc = "1119 METEPEC PH"  parent_id = "FP143" level = "50" sql_value = "1119" olap_value = "[organization].[h].&amp;[1119]" roid = "FPH" />
+<tree_option option_id = "1159" option_desc = "1159 LA ASUNCION PH"  parent_id = "FP143" level = "50" sql_value = "1159" olap_value = "[organization].[h].&amp;[1159]" roid = "FPH" />
+<tree_option option_id = "FP152" option_desc = "HOLDING DEL GOLFO"  parent_id = "FP120" level = "40" sql_value = "FP152" olap_value = "[organization].[h].&amp;[FP152]" roid = "FPH" />
+<tree_option option_id = "1054" option_desc = "1054 TABASCO 2000 (Vhmsa)"  parent_id = "FP152" level = "50" sql_value = "1054" olap_value = "[organization].[h].&amp;[1054]" roid = "FPH" />
+<tree_option option_id = "1066" option_desc = "1066 SORIANA VILLAHERMOSA"  parent_id = "FP152" level = "50" sql_value = "1066" olap_value = "[organization].[h].&amp;[1066]" roid = "FPH" />
+<tree_option option_id = "1085" option_desc = "1085 MINATITLAN PH"  parent_id = "FP152" level = "50" sql_value = "1085" olap_value = "[organization].[h].&amp;[1085]" roid = "FPH" />
+<tree_option option_id = "1216" option_desc = "1216 CIUDAD INDUSTRIAL"  parent_id = "FP152" level = "50" sql_value = "1216" olap_value = "[organization].[h].&amp;[1216]" roid = "FPH" />
+<tree_option option_id = "1231" option_desc = "1231 VILLAHERMOSA 27 FEB "  parent_id = "FP152" level = "50" sql_value = "1231" olap_value = "[organization].[h].&amp;[1231]" roid = "FPH" />
+<tree_option option_id = "1232" option_desc = "1232 VILLAHERMOSA 2 MENDE"  parent_id = "FP152" level = "50" sql_value = "1232" olap_value = "[organization].[h].&amp;[1232]" roid = "FPH" />
+<tree_option option_id = "1233" option_desc = "1233 CD CARMEN PH"  parent_id = "FP152" level = "50" sql_value = "1233" olap_value = "[organization].[h].&amp;[1233]" roid = "FPH" />
+<tree_option option_id = "1234" option_desc = "1234 COATZACOALCOS PH"  parent_id = "FP152" level = "50" sql_value = "1234" olap_value = "[organization].[h].&amp;[1234]" roid = "FPH" />
+<tree_option option_id = "1235" option_desc = "1235 CARDENAS PH"  parent_id = "FP152" level = "50" sql_value = "1235" olap_value = "[organization].[h].&amp;[1235]" roid = "FPH" />
+<tree_option option_id = "1236" option_desc = "1236 PH PALMIRA"  parent_id = "FP152" level = "50" sql_value = "1236" olap_value = "[organization].[h].&amp;[1236]" roid = "FPH" />
+<tree_option option_id = "FRANQ" option_desc = "FRANQUICIAS"  parent_id = "0" level = "10" sql_value = "FRANQ" olap_value = "[organization].[h].&amp;[FRANQ]" roid = "FRANQ" />
+<tree_option option_id = "KFC" option_desc = "KENTUCKY"  parent_id = "0" level = "10" sql_value = "KFC" olap_value = "[organization].[h].&amp;[KFC]" roid = "KFC" />
+<tree_option option_id = "K1000" option_desc = "KFC CENTRO 1"  parent_id = "KFC" level = "20" sql_value = "K1000" olap_value = "[organization].[h].&amp;[K1000]" roid = "KFC" />
+<tree_option option_id = "K10000" option_desc = "KFC BAJIO"  parent_id = "KFC" level = "20" sql_value = "K10000" olap_value = "[organization].[h].&amp;[K10000]" roid = "KFC" />
+<tree_option option_id = "K1110" option_desc = "ZONA CENTRO 1"  parent_id = "K1000" level = "30" sql_value = "K1110" olap_value = "[organization].[h].&amp;[K1110]" roid = "KFC" />
+<tree_option option_id = "K1201" option_desc = "AREA 10 CENTRO"  parent_id = "K1110" level = "40" sql_value = "K1201" olap_value = "[organization].[h].&amp;[K1201]" roid = "KFC" />
+<tree_option option_id = "234" option_desc = "234 ATIZAPAN"  parent_id = "K1201" level = "50" sql_value = "234" olap_value = "[organization].[h].&amp;[234]" roid = "KFC" />
+<tree_option option_id = "272" option_desc = "272 LAS ALAMEDAS"  parent_id = "K1201" level = "50" sql_value = "272" olap_value = "[organization].[h].&amp;[272]" roid = "KFC" />
+<tree_option option_id = "533" option_desc = "533 PLAZA ORIENTE"  parent_id = "K1201" level = "50" sql_value = "533" olap_value = "[organization].[h].&amp;[533]" roid = "KFC" />
+<tree_option option_id = "534" option_desc = "534 GUADALUPE"  parent_id = "K1201" level = "50" sql_value = "534" olap_value = "[organization].[h].&amp;[534]" roid = "KFC" />
+<tree_option option_id = "550" option_desc = "550 Flores Magon"  parent_id = "K1201" level = "50" sql_value = "550" olap_value = "[organization].[h].&amp;[550]" roid = "KFC" />
+<tree_option option_id = "K1202" option_desc = "AREA 11 CENTRO"  parent_id = "K1110" level = "40" sql_value = "K1202" olap_value = "[organization].[h].&amp;[K1202]" roid = "KFC" />
+<tree_option option_id = "237" option_desc = "237 GUSTAVO BAZ"  parent_id = "K1202" level = "50" sql_value = "237" olap_value = "[organization].[h].&amp;[237]" roid = "KFC" />
+<tree_option option_id = "266" option_desc = "266 KFC Valle Dorado"  parent_id = "K1202" level = "50" sql_value = "266" olap_value = "[organization].[h].&amp;[266]" roid = "KFC" />
+<tree_option option_id = "270" option_desc = "270 KFC Azcapotzalco"  parent_id = "K1202" level = "50" sql_value = "270" olap_value = "[organization].[h].&amp;[270]" roid = "KFC" />
+<tree_option option_id = "323" option_desc = "323 El Rosario"  parent_id = "K1202" level = "50" sql_value = "323" olap_value = "[organization].[h].&amp;[323]" roid = "KFC" />
+<tree_option option_id = "541" option_desc = "541 SANTA MONICA"  parent_id = "K1202" level = "50" sql_value = "541" olap_value = "[organization].[h].&amp;[541]" roid = "KFC" />
+<tree_option option_id = "548" option_desc = "548 PERINORTE"  parent_id = "K1202" level = "50" sql_value = "548" olap_value = "[organization].[h].&amp;[548]" roid = "KFC" />
+<tree_option option_id = "K1205" option_desc = "AREA 14 CENTRO"  parent_id = "K1110" level = "40" sql_value = "K1205" olap_value = "[organization].[h].&amp;[K1205]" roid = "KFC" />
+<tree_option option_id = "K1210" option_desc = "AREA 19 CENTRO"  parent_id = "K1110" level = "40" sql_value = "K1210" olap_value = "[organization].[h].&amp;[K1210]" roid = "KFC" />
+<tree_option option_id = "241" option_desc = "241 LINDAVISTA"  parent_id = "K1210" level = "50" sql_value = "241" olap_value = "[organization].[h].&amp;[241]" roid = "KFC" />
+<tree_option option_id = "263" option_desc = "263 NAUCALPAN KFC"  parent_id = "K1210" level = "50" sql_value = "263" olap_value = "[organization].[h].&amp;[263]" roid = "KFC" />
+<tree_option option_id = "269" option_desc = "269 KFC Tlalnepantla"  parent_id = "K1210" level = "50" sql_value = "269" olap_value = "[organization].[h].&amp;[269]" roid = "KFC" />
+<tree_option option_id = "276" option_desc = "276 KFC Tenayuca"  parent_id = "K1210" level = "50" sql_value = "276" olap_value = "[organization].[h].&amp;[276]" roid = "KFC" />
+<tree_option option_id = "334" option_desc = "334 KFC Tenayuca periferi"  parent_id = "K1210" level = "50" sql_value = "334" olap_value = "[organization].[h].&amp;[334]" roid = "KFC" />
+<tree_option option_id = "K1211" option_desc = "AREA 20 CENTRO"  parent_id = "K1110" level = "40" sql_value = "K1211" olap_value = "[organization].[h].&amp;[K1211]" roid = "KFC" />
+<tree_option option_id = "257" option_desc = "257 TULTITLAN KFC"  parent_id = "K1211" level = "50" sql_value = "257" olap_value = "[organization].[h].&amp;[257]" roid = "KFC" />
+<tree_option option_id = "258" option_desc = "258 KFC Cuautitlan Izcall"  parent_id = "K1211" level = "50" sql_value = "258" olap_value = "[organization].[h].&amp;[258]" roid = "KFC" />
+<tree_option option_id = "275" option_desc = "275 San Miguel Izcalli KF"  parent_id = "K1211" level = "50" sql_value = "275" olap_value = "[organization].[h].&amp;[275]" roid = "KFC" />
+<tree_option option_id = "281" option_desc = "281 Food Court Coacalco ("  parent_id = "K1211" level = "50" sql_value = "281" olap_value = "[organization].[h].&amp;[281]" roid = "KFC" />
+<tree_option option_id = "296" option_desc = "296 KFC San Felipe"  parent_id = "K1211" level = "50" sql_value = "296" olap_value = "[organization].[h].&amp;[296]" roid = "KFC" />
+<tree_option option_id = "527" option_desc = "527 CUAUTITLAN"  parent_id = "K1211" level = "50" sql_value = "527" olap_value = "[organization].[h].&amp;[527]" roid = "KFC" />
+<tree_option option_id = "549" option_desc = "549 LOPEZ PORTILLO"  parent_id = "K1211" level = "50" sql_value = "549" olap_value = "[organization].[h].&amp;[549]" roid = "KFC" />
+<tree_option option_id = "K1120" option_desc = "ZONA CENTRO 2"  parent_id = "K1000" level = "30" sql_value = "K1120" olap_value = "[organization].[h].&amp;[K1120]" roid = "KFC" />
+<tree_option option_id = "K1102" option_desc = "AREA 2 CENTRO"  parent_id = "K1120" level = "40" sql_value = "K1102" olap_value = "[organization].[h].&amp;[K1102]" roid = "KFC" />
+<tree_option option_id = "253" option_desc = "253 CHALCO KFC"  parent_id = "K1102" level = "50" sql_value = "253" olap_value = "[organization].[h].&amp;[253]" roid = "KFC" />
+<tree_option option_id = "254" option_desc = "254 IZTAPALUCA KFC"  parent_id = "K1102" level = "50" sql_value = "254" olap_value = "[organization].[h].&amp;[254]" roid = "KFC" />
+<tree_option option_id = "279" option_desc = "279 KFC Chalco"  parent_id = "K1102" level = "50" sql_value = "279" olap_value = "[organization].[h].&amp;[279]" roid = "KFC" />
+<tree_option option_id = "336" option_desc = "336 Tlaxcala"  parent_id = "K1102" level = "50" sql_value = "336" olap_value = "[organization].[h].&amp;[336]" roid = "KFC" />
+<tree_option option_id = "K1105" option_desc = "AREA 5 CENTRO"  parent_id = "K1120" level = "40" sql_value = "K1105" olap_value = "[organization].[h].&amp;[K1105]" roid = "KFC" />
+<tree_option option_id = "226" option_desc = "226 ARAGON"  parent_id = "K1105" level = "50" sql_value = "226" olap_value = "[organization].[h].&amp;[226]" roid = "KFC" />
+<tree_option option_id = "2301" option_desc = "2301 KFC KIOSCO PLAZA ARA"  parent_id = "K1105" level = "50" sql_value = "2301" olap_value = "[organization].[h].&amp;[2301]" roid = "KFC" />
+<tree_option option_id = "2303" option_desc = "2303 KFC KIOSCO Tecamac"  parent_id = "K1105" level = "50" sql_value = "2303" olap_value = "[organization].[h].&amp;[2303]" roid = "KFC" />
+<tree_option option_id = "243" option_desc = "243 LOS REYES"  parent_id = "K1105" level = "50" sql_value = "243" olap_value = "[organization].[h].&amp;[243]" roid = "KFC" />
+<tree_option option_id = "245" option_desc = "245 ARAGON FOOD COURT"  parent_id = "K1105" level = "50" sql_value = "245" olap_value = "[organization].[h].&amp;[245]" roid = "KFC" />
+<tree_option option_id = "252" option_desc = "252 KFC Texcoco"  parent_id = "K1105" level = "50" sql_value = "252" olap_value = "[organization].[h].&amp;[252]" roid = "KFC" />
+<tree_option option_id = "314" option_desc = "314 CHIMALHUACAN"  parent_id = "K1105" level = "50" sql_value = "314" olap_value = "[organization].[h].&amp;[314]" roid = "KFC" />
+<tree_option option_id = "341" option_desc = "341 Tecamac"  parent_id = "K1105" level = "50" sql_value = "341" olap_value = "[organization].[h].&amp;[341]" roid = "KFC" />
+<tree_option option_id = "K1206" option_desc = "AREA 15 CENTRO"  parent_id = "K1120" level = "40" sql_value = "K1206" olap_value = "[organization].[h].&amp;[K1206]" roid = "KFC" />
+<tree_option option_id = "282" option_desc = "282 F.C. CARREFOUR ANFORA"  parent_id = "K1206" level = "50" sql_value = "282" olap_value = "[organization].[h].&amp;[282]" roid = "KFC" />
+<tree_option option_id = "297" option_desc = "297 KFC Ermita Bomberos"  parent_id = "K1206" level = "50" sql_value = "297" olap_value = "[organization].[h].&amp;[297]" roid = "KFC" />
+<tree_option option_id = "301" option_desc = "301 KFC Meyehualco"  parent_id = "K1206" level = "50" sql_value = "301" olap_value = "[organization].[h].&amp;[301]" roid = "KFC" />
+<tree_option option_id = "305" option_desc = "305 KFC Fray Servando"  parent_id = "K1206" level = "50" sql_value = "305" olap_value = "[organization].[h].&amp;[305]" roid = "KFC" />
+<tree_option option_id = "538" option_desc = "538 TRONCOSO"  parent_id = "K1206" level = "50" sql_value = "538" olap_value = "[organization].[h].&amp;[538]" roid = "KFC" />
+<tree_option option_id = "545" option_desc = "545 ARNESES"  parent_id = "K1206" level = "50" sql_value = "545" olap_value = "[organization].[h].&amp;[545]" roid = "KFC" />
+<tree_option option_id = "K1207" option_desc = "AREA 16 CENTRO"  parent_id = "K1120" level = "40" sql_value = "K1207" olap_value = "[organization].[h].&amp;[K1207]" roid = "KFC" />
+<tree_option option_id = "2302" option_desc = "2302 KFC KIOSCO Mall Orie"  parent_id = "K1207" level = "50" sql_value = "2302" olap_value = "[organization].[h].&amp;[2302]" roid = "KFC" />
+<tree_option option_id = "293" option_desc = "293 Sor Juana KFC"  parent_id = "K1207" level = "50" sql_value = "293" olap_value = "[organization].[h].&amp;[293]" roid = "KFC" />
+<tree_option option_id = "294" option_desc = "294 KFC Carmelo Perez"  parent_id = "K1207" level = "50" sql_value = "294" olap_value = "[organization].[h].&amp;[294]" roid = "KFC" />
+<tree_option option_id = "311" option_desc = "311 KFC Peñon Viejo"  parent_id = "K1207" level = "50" sql_value = "311" olap_value = "[organization].[h].&amp;[311]" roid = "KFC" />
+<tree_option option_id = "337" option_desc = "337 Mall Oriente"  parent_id = "K1207" level = "50" sql_value = "337" olap_value = "[organization].[h].&amp;[337]" roid = "KFC" />
+<tree_option option_id = "539" option_desc = "539 ZARAGOZA"  parent_id = "K1207" level = "50" sql_value = "539" olap_value = "[organization].[h].&amp;[539]" roid = "KFC" />
+<tree_option option_id = "K1208" option_desc = "AREA 17 CENTRO"  parent_id = "K1120" level = "40" sql_value = "K1208" olap_value = "[organization].[h].&amp;[K1208]" roid = "KFC" />
+<tree_option option_id = "260" option_desc = "260 KFC Jardines de Morel"  parent_id = "K1208" level = "50" sql_value = "260" olap_value = "[organization].[h].&amp;[260]" roid = "KFC" />
+<tree_option option_id = "265" option_desc = "265 KFC Jardines de Guada"  parent_id = "K1208" level = "50" sql_value = "265" olap_value = "[organization].[h].&amp;[265]" roid = "KFC" />
+<tree_option option_id = "273" option_desc = "273 KFC Cerro Gordo"  parent_id = "K1208" level = "50" sql_value = "273" olap_value = "[organization].[h].&amp;[273]" roid = "KFC" />
+<tree_option option_id = "307" option_desc = "307 KFC Ecatepec Centro"  parent_id = "K1208" level = "50" sql_value = "307" olap_value = "[organization].[h].&amp;[307]" roid = "KFC" />
+<tree_option option_id = "331" option_desc = "331 KFC Santa Clara"  parent_id = "K1208" level = "50" sql_value = "331" olap_value = "[organization].[h].&amp;[331]" roid = "KFC" />
+<tree_option option_id = "332" option_desc = "332 AV CENTRAL KFC"  parent_id = "K1208" level = "50" sql_value = "332" olap_value = "[organization].[h].&amp;[332]" roid = "KFC" />
+<tree_option option_id = "546" option_desc = "546 ECATEPEC"  parent_id = "K1208" level = "50" sql_value = "546" olap_value = "[organization].[h].&amp;[546]" roid = "KFC" />
+<tree_option option_id = "K1130" option_desc = "ZONA CENTRO 3"  parent_id = "K1000" level = "30" sql_value = "K1130" olap_value = "[organization].[h].&amp;[K1130]" roid = "KFC" />
+<tree_option option_id = "K1103" option_desc = "AREA 3 CENTRO"  parent_id = "K1130" level = "40" sql_value = "K1103" olap_value = "[organization].[h].&amp;[K1103]" roid = "KFC" />
+<tree_option option_id = "524" option_desc = "524 CUITLAHUAC"  parent_id = "K1103" level = "50" sql_value = "524" olap_value = "[organization].[h].&amp;[524]" roid = "KFC" />
+<tree_option option_id = "536" option_desc = "536 TACUBA"  parent_id = "K1103" level = "50" sql_value = "536" olap_value = "[organization].[h].&amp;[536]" roid = "KFC" />
+<tree_option option_id = "542" option_desc = "542 SATELITE"  parent_id = "K1103" level = "50" sql_value = "542" olap_value = "[organization].[h].&amp;[542]" roid = "KFC" />
+<tree_option option_id = "543" option_desc = "543 POLANCO"  parent_id = "K1103" level = "50" sql_value = "543" olap_value = "[organization].[h].&amp;[543]" roid = "KFC" />
+<tree_option option_id = "K1106" option_desc = "AREA 6 CENTRO"  parent_id = "K1130" level = "40" sql_value = "K1106" olap_value = "[organization].[h].&amp;[K1106]" roid = "KFC" />
+<tree_option option_id = "250" option_desc = "250 JUAREZ HUMBOLDT"  parent_id = "K1106" level = "50" sql_value = "250" olap_value = "[organization].[h].&amp;[250]" roid = "KFC" />
+<tree_option option_id = "278" option_desc = "278 ZONA ROSA MOLL."  parent_id = "K1106" level = "50" sql_value = "278" olap_value = "[organization].[h].&amp;[278]" roid = "KFC" />
+<tree_option option_id = "526" option_desc = "526 LAZARO CARDENAS"  parent_id = "K1106" level = "50" sql_value = "526" olap_value = "[organization].[h].&amp;[526]" roid = "KFC" />
+<tree_option option_id = "529" option_desc = "529 SAN COSME"  parent_id = "K1106" level = "50" sql_value = "529" olap_value = "[organization].[h].&amp;[529]" roid = "KFC" />
+<tree_option option_id = "532" option_desc = "532 MADERO"  parent_id = "K1106" level = "50" sql_value = "532" olap_value = "[organization].[h].&amp;[532]" roid = "KFC" />
+<tree_option option_id = "547" option_desc = "547 CHAPULTEPEC"  parent_id = "K1106" level = "50" sql_value = "547" olap_value = "[organization].[h].&amp;[547]" roid = "KFC" />
+<tree_option option_id = "K1108" option_desc = "AREA 8 CENTRO"  parent_id = "K1130" level = "40" sql_value = "K1108" olap_value = "[organization].[h].&amp;[K1108]" roid = "KFC" />
+<tree_option option_id = "230" option_desc = "230 XOLA"  parent_id = "K1108" level = "50" sql_value = "230" olap_value = "[organization].[h].&amp;[230]" roid = "KFC" />
+<tree_option option_id = "231" option_desc = "231 CENTENARIO"  parent_id = "K1108" level = "50" sql_value = "231" olap_value = "[organization].[h].&amp;[231]" roid = "KFC" />
+<tree_option option_id = "277" option_desc = "277 F. C. PLAZA SANTA FE"  parent_id = "K1108" level = "50" sql_value = "277" olap_value = "[organization].[h].&amp;[277]" roid = "KFC" />
+<tree_option option_id = "308" option_desc = "308 KFC Molinito"  parent_id = "K1108" level = "50" sql_value = "308" olap_value = "[organization].[h].&amp;[308]" roid = "KFC" />
+<tree_option option_id = "544" option_desc = "544 TECAMACHALCO"  parent_id = "K1108" level = "50" sql_value = "544" olap_value = "[organization].[h].&amp;[544]" roid = "KFC" />
+<tree_option option_id = "K1140" option_desc = "ZONA CENTRO 4"  parent_id = "K1000" level = "30" sql_value = "K1140" olap_value = "[organization].[h].&amp;[K1140]" roid = "KFC" />
+<tree_option option_id = "K1109" option_desc = "AREA 9 CENTRO"  parent_id = "K1140" level = "40" sql_value = "K1109" olap_value = "[organization].[h].&amp;[K1109]" roid = "KFC" />
+<tree_option option_id = "223" option_desc = "223 UNIVERSIDAD"  parent_id = "K1109" level = "50" sql_value = "223" olap_value = "[organization].[h].&amp;[223]" roid = "KFC" />
+<tree_option option_id = "225" option_desc = "225 VILLA COAPA"  parent_id = "K1109" level = "50" sql_value = "225" olap_value = "[organization].[h].&amp;[225]" roid = "KFC" />
+<tree_option option_id = "242" option_desc = "242 TLAHUAC"  parent_id = "K1109" level = "50" sql_value = "242" olap_value = "[organization].[h].&amp;[242]" roid = "KFC" />
+<tree_option option_id = "249" option_desc = "249 CAFETALES"  parent_id = "K1109" level = "50" sql_value = "249" olap_value = "[organization].[h].&amp;[249]" roid = "KFC" />
+<tree_option option_id = "K1203" option_desc = "AREA 12 CENTRO"  parent_id = "K1140" level = "40" sql_value = "K1203" olap_value = "[organization].[h].&amp;[K1203]" roid = "KFC" />
+<tree_option option_id = "222" option_desc = "222 DIVISION DEL NORTE"  parent_id = "K1203" level = "50" sql_value = "222" olap_value = "[organization].[h].&amp;[222]" roid = "KFC" />
+<tree_option option_id = "224" option_desc = "224 REVOLUCION"  parent_id = "K1203" level = "50" sql_value = "224" olap_value = "[organization].[h].&amp;[224]" roid = "KFC" />
+<tree_option option_id = "228" option_desc = "228 COPILCO"  parent_id = "K1203" level = "50" sql_value = "228" olap_value = "[organization].[h].&amp;[228]" roid = "KFC" />
+<tree_option option_id = "232" option_desc = "232 SAN ANTONIO"  parent_id = "K1203" level = "50" sql_value = "232" olap_value = "[organization].[h].&amp;[232]" roid = "KFC" />
+<tree_option option_id = "312" option_desc = "312 MIXCOAC EXTREMADURA"  parent_id = "K1203" level = "50" sql_value = "312" olap_value = "[organization].[h].&amp;[312]" roid = "KFC" />
+<tree_option option_id = "K1204" option_desc = "AREA 13 CENTRO"  parent_id = "K1140" level = "40" sql_value = "K1204" olap_value = "[organization].[h].&amp;[K1204]" roid = "KFC" />
+<tree_option option_id = "229" option_desc = "229 PERISUR"  parent_id = "K1204" level = "50" sql_value = "229" olap_value = "[organization].[h].&amp;[229]" roid = "KFC" />
+<tree_option option_id = "262" option_desc = "262 Perisur"  parent_id = "K1204" level = "50" sql_value = "262" olap_value = "[organization].[h].&amp;[262]" roid = "KFC" />
+<tree_option option_id = "339" option_desc = "339 Miramontes KFC"  parent_id = "K1204" level = "50" sql_value = "339" olap_value = "[organization].[h].&amp;[339]" roid = "KFC" />
+<tree_option option_id = "525" option_desc = "525 SANTA URSULA"  parent_id = "K1204" level = "50" sql_value = "525" olap_value = "[organization].[h].&amp;[525]" roid = "KFC" />
+<tree_option option_id = "530" option_desc = "530 XOCHIMILCO"  parent_id = "K1204" level = "50" sql_value = "530" olap_value = "[organization].[h].&amp;[530]" roid = "KFC" />
+<tree_option option_id = "K1150" option_desc = "ZONA CENTRO 1A"  parent_id = "K1000" level = "30" sql_value = "K1150" olap_value = "[organization].[h].&amp;[K1150]" roid = "KFC" />
+<tree_option option_id = "K1160" option_desc = "ZONA CENTRO 2A"  parent_id = "K1000" level = "30" sql_value = "K1160" olap_value = "[organization].[h].&amp;[K1160]" roid = "KFC" />
+<tree_option option_id = "K1104" option_desc = "AREA 4 CENTRO"  parent_id = "K1160" level = "40" sql_value = "K1104" olap_value = "[organization].[h].&amp;[K1104]" roid = "KFC" />
+<tree_option option_id = "259" option_desc = "259 KFC RENACIMIENTO ACAP"  parent_id = "K1104" level = "50" sql_value = "259" olap_value = "[organization].[h].&amp;[259]" roid = "KFC" />
+<tree_option option_id = "274" option_desc = "274 KFC Cuautla"  parent_id = "K1104" level = "50" sql_value = "274" olap_value = "[organization].[h].&amp;[274]" roid = "KFC" />
+<tree_option option_id = "320" option_desc = "320 Acapulco Cuauhtemoc"  parent_id = "K1104" level = "50" sql_value = "320" olap_value = "[organization].[h].&amp;[320]" roid = "KFC" />
+<tree_option option_id = "324" option_desc = "324 KFC ZAPATA"  parent_id = "K1104" level = "50" sql_value = "324" olap_value = "[organization].[h].&amp;[324]" roid = "KFC" />
+<tree_option option_id = "340" option_desc = "340 KFC JIUTEPEC"  parent_id = "K1104" level = "50" sql_value = "340" olap_value = "[organization].[h].&amp;[340]" roid = "KFC" />
+<tree_option option_id = "562" option_desc = "562 ACAPULCO I"  parent_id = "K1104" level = "50" sql_value = "562" olap_value = "[organization].[h].&amp;[562]" roid = "KFC" />
+<tree_option option_id = "568" option_desc = "568 CUERNAVACA PLAN DE AY"  parent_id = "K1104" level = "50" sql_value = "568" olap_value = "[organization].[h].&amp;[568]" roid = "KFC" />
+<tree_option option_id = "570" option_desc = "570 CUERNAVACA MORELOS"  parent_id = "K1104" level = "50" sql_value = "570" olap_value = "[organization].[h].&amp;[570]" roid = "KFC" />
+<tree_option option_id = "575" option_desc = "575 ACAPULCO IV"  parent_id = "K1104" level = "50" sql_value = "575" olap_value = "[organization].[h].&amp;[575]" roid = "KFC" />
+<tree_option option_id = "K2000" option_desc = "KFC NORTE"  parent_id = "KFC" level = "20" sql_value = "K2000" olap_value = "[organization].[h].&amp;[K2000]" roid = "KFC" />
+<tree_option option_id = "K20000" option_desc = "KFC CENTRO 2"  parent_id = "KFC" level = "20" sql_value = "K20000" olap_value = "[organization].[h].&amp;[K20000]" roid = "KFC" />
+<tree_option option_id = "K2100" option_desc = "ZONA NORTE"  parent_id = "K2000" level = "30" sql_value = "K2100" olap_value = "[organization].[h].&amp;[K2100]" roid = "KFC" />
+<tree_option option_id = "K2102" option_desc = "AREA  2 MTY"  parent_id = "K2100" level = "40" sql_value = "K2102" olap_value = "[organization].[h].&amp;[K2102]" roid = "KFC" />
+<tree_option option_id = "610" option_desc = "610 RUPERTO MARTINEZ"  parent_id = "K2102" level = "50" sql_value = "610" olap_value = "[organization].[h].&amp;[610]" roid = "KFC" />
+<tree_option option_id = "614" option_desc = "614 COLON"  parent_id = "K2102" level = "50" sql_value = "614" olap_value = "[organization].[h].&amp;[614]" roid = "KFC" />
+<tree_option option_id = "623" option_desc = "623 ALAMEDA"  parent_id = "K2102" level = "50" sql_value = "623" olap_value = "[organization].[h].&amp;[623]" roid = "KFC" />
+<tree_option option_id = "625" option_desc = "625 COUNTRY"  parent_id = "K2102" level = "50" sql_value = "625" olap_value = "[organization].[h].&amp;[625]" roid = "KFC" />
+<tree_option option_id = "K2103" option_desc = "AREA  3 MTY"  parent_id = "K2100" level = "40" sql_value = "K2103" olap_value = "[organization].[h].&amp;[K2103]" roid = "KFC" />
+<tree_option option_id = "615" option_desc = "615 Pablo Livas"  parent_id = "K2103" level = "50" sql_value = "615" olap_value = "[organization].[h].&amp;[615]" roid = "KFC" />
+<tree_option option_id = "638" option_desc = "638 KFC ELOY CABAZOS"  parent_id = "K2103" level = "50" sql_value = "638" olap_value = "[organization].[h].&amp;[638]" roid = "KFC" />
+<tree_option option_id = "685" option_desc = "685 Molinete"  parent_id = "K2103" level = "50" sql_value = "685" olap_value = "[organization].[h].&amp;[685]" roid = "KFC" />
+<tree_option option_id = "686" option_desc = "686 Villa Juárez"  parent_id = "K2103" level = "50" sql_value = "686" olap_value = "[organization].[h].&amp;[686]" roid = "KFC" />
+<tree_option option_id = "K2104" option_desc = "AREA  4 MTY"  parent_id = "K2100" level = "40" sql_value = "K2104" olap_value = "[organization].[h].&amp;[K2104]" roid = "KFC" />
+<tree_option option_id = "609" option_desc = "609 GONZALITOS"  parent_id = "K2104" level = "50" sql_value = "609" olap_value = "[organization].[h].&amp;[609]" roid = "KFC" />
+<tree_option option_id = "630" option_desc = "630 KFC SOLIDARIDAD"  parent_id = "K2104" level = "50" sql_value = "630" olap_value = "[organization].[h].&amp;[630]" roid = "KFC" />
+<tree_option option_id = "676" option_desc = "676 KFC AZTLAN"  parent_id = "K2104" level = "50" sql_value = "676" olap_value = "[organization].[h].&amp;[676]" roid = "KFC" />
+<tree_option option_id = "683" option_desc = "683 San Bernabe"  parent_id = "K2104" level = "50" sql_value = "683" olap_value = "[organization].[h].&amp;[683]" roid = "KFC" />
+<tree_option option_id = "689" option_desc = "689 Lincoln Norte"  parent_id = "K2104" level = "50" sql_value = "689" olap_value = "[organization].[h].&amp;[689]" roid = "KFC" />
+<tree_option option_id = "K2107" option_desc = "SALTILLO"  parent_id = "K2100" level = "40" sql_value = "K2107" olap_value = "[organization].[h].&amp;[K2107]" roid = "KFC" />
+<tree_option option_id = "640" option_desc = "640 KFC Saltillo Fundador"  parent_id = "K2107" level = "50" sql_value = "640" olap_value = "[organization].[h].&amp;[640]" roid = "KFC" />
+<tree_option option_id = "641" option_desc = "641 Saltillo Multimarca"  parent_id = "K2107" level = "50" sql_value = "641" olap_value = "[organization].[h].&amp;[641]" roid = "KFC" />
+<tree_option option_id = "642" option_desc = "642 Saltillo II"  parent_id = "K2107" level = "50" sql_value = "642" olap_value = "[organization].[h].&amp;[642]" roid = "KFC" />
+<tree_option option_id = "666" option_desc = "666 Lourdes"  parent_id = "K2107" level = "50" sql_value = "666" olap_value = "[organization].[h].&amp;[666]" roid = "KFC" />
+<tree_option option_id = "682" option_desc = "682 MONCLOVA"  parent_id = "K2107" level = "50" sql_value = "682" olap_value = "[organization].[h].&amp;[682]" roid = "KFC" />
+<tree_option option_id = "K2110" option_desc = "ZONA SUR"  parent_id = "K2000" level = "30" sql_value = "K2110" olap_value = "[organization].[h].&amp;[K2110]" roid = "KFC" />
+<tree_option option_id = "K2101" option_desc = "AREA  1 MTY"  parent_id = "K2110" level = "40" sql_value = "K2101" olap_value = "[organization].[h].&amp;[K2101]" roid = "KFC" />
+<tree_option option_id = "611" option_desc = "611 SORIANA FE"  parent_id = "K2101" level = "50" sql_value = "611" olap_value = "[organization].[h].&amp;[611]" roid = "KFC" />
+<tree_option option_id = "618" option_desc = "618 Felix Galvan"  parent_id = "K2101" level = "50" sql_value = "618" olap_value = "[organization].[h].&amp;[618]" roid = "KFC" />
+<tree_option option_id = "624" option_desc = "624 LINDAVISTA"  parent_id = "K2101" level = "50" sql_value = "624" olap_value = "[organization].[h].&amp;[624]" roid = "KFC" />
+<tree_option option_id = "627" option_desc = "627 FELIX U. GOMEZ"  parent_id = "K2101" level = "50" sql_value = "627" olap_value = "[organization].[h].&amp;[627]" roid = "KFC" />
+<tree_option option_id = "637" option_desc = "637 KFC TORREMOLINOS"  parent_id = "K2101" level = "50" sql_value = "637" olap_value = "[organization].[h].&amp;[637]" roid = "KFC" />
+<tree_option option_id = "674" option_desc = "674 KFC EXPOSICION"  parent_id = "K2101" level = "50" sql_value = "674" olap_value = "[organization].[h].&amp;[674]" roid = "KFC" />
+<tree_option option_id = "K2105" option_desc = "AREA  5 MTY"  parent_id = "K2110" level = "40" sql_value = "K2105" olap_value = "[organization].[h].&amp;[K2105]" roid = "KFC" />
+<tree_option option_id = "619" option_desc = "619 KFC Escobedo MTY."  parent_id = "K2105" level = "50" sql_value = "619" olap_value = "[organization].[h].&amp;[619]" roid = "KFC" />
+<tree_option option_id = "629" option_desc = "629 KFC SENDERO"  parent_id = "K2105" level = "50" sql_value = "629" olap_value = "[organization].[h].&amp;[629]" roid = "KFC" />
+<tree_option option_id = "633" option_desc = "633 ANAHUAC"  parent_id = "K2105" level = "50" sql_value = "633" olap_value = "[organization].[h].&amp;[633]" roid = "KFC" />
+<tree_option option_id = "669" option_desc = "669 KFC Plaza Sendero"  parent_id = "K2105" level = "50" sql_value = "669" olap_value = "[organization].[h].&amp;[669]" roid = "KFC" />
+<tree_option option_id = "670" option_desc = "670 KFC CHAPULTEPEC"  parent_id = "K2105" level = "50" sql_value = "670" olap_value = "[organization].[h].&amp;[670]" roid = "KFC" />
+<tree_option option_id = "684" option_desc = "684 Fresnos"  parent_id = "K2105" level = "50" sql_value = "684" olap_value = "[organization].[h].&amp;[684]" roid = "KFC" />
+<tree_option option_id = "K2106" option_desc = "AREA  6 MTY"  parent_id = "K2110" level = "40" sql_value = "K2106" olap_value = "[organization].[h].&amp;[K2106]" roid = "KFC" />
+<tree_option option_id = "622" option_desc = "622 Santa Catarina MTY."  parent_id = "K2106" level = "50" sql_value = "622" olap_value = "[organization].[h].&amp;[622]" roid = "KFC" />
+<tree_option option_id = "628" option_desc = "628 KFC LINCOLN"  parent_id = "K2106" level = "50" sql_value = "628" olap_value = "[organization].[h].&amp;[628]" roid = "KFC" />
+<tree_option option_id = "671" option_desc = "671 KFC SAN SEBASTIAN"  parent_id = "K2106" level = "50" sql_value = "671" olap_value = "[organization].[h].&amp;[671]" roid = "KFC" />
+<tree_option option_id = "673" option_desc = "673 KFC RUIZ CORTINES"  parent_id = "K2106" level = "50" sql_value = "673" olap_value = "[organization].[h].&amp;[673]" roid = "KFC" />
+<tree_option option_id = "675" option_desc = "675 KFC PORTALES"  parent_id = "K2106" level = "50" sql_value = "675" olap_value = "[organization].[h].&amp;[675]" roid = "KFC" />
+<tree_option option_id = "690" option_desc = "690 La Puerta"  parent_id = "K2106" level = "50" sql_value = "690" olap_value = "[organization].[h].&amp;[690]" roid = "KFC" />
+<tree_option option_id = "K2108" option_desc = "TAMAULIPAS"  parent_id = "K2110" level = "40" sql_value = "K2108" olap_value = "[organization].[h].&amp;[K2108]" roid = "KFC" />
+<tree_option option_id = "653" option_desc = "653 CD. VICTORIA"  parent_id = "K2108" level = "50" sql_value = "653" olap_value = "[organization].[h].&amp;[653]" roid = "KFC" />
+<tree_option option_id = "660" option_desc = "660 TAMPICO II"  parent_id = "K2108" level = "50" sql_value = "660" olap_value = "[organization].[h].&amp;[660]" roid = "KFC" />
+<tree_option option_id = "677" option_desc = "677 Tampico Centro"  parent_id = "K2108" level = "50" sql_value = "677" olap_value = "[organization].[h].&amp;[677]" roid = "KFC" />
+<tree_option option_id = "681" option_desc = "681 KFC TAMPICO ZONA DORA"  parent_id = "K2108" level = "50" sql_value = "681" olap_value = "[organization].[h].&amp;[681]" roid = "KFC" />
+<tree_option option_id = "K2120" option_desc = "ZONA CHIHUAHUA"  parent_id = "K2000" level = "30" sql_value = "K2120" olap_value = "[organization].[h].&amp;[K2120]" roid = "KFC" />
+<tree_option option_id = "K4101" option_desc = "CD JUAREZ"  parent_id = "K2120" level = "40" sql_value = "K4101" olap_value = "[organization].[h].&amp;[K4101]" roid = "KFC" />
+<tree_option option_id = "647" option_desc = "647 JUAREZ I"  parent_id = "K4101" level = "50" sql_value = "647" olap_value = "[organization].[h].&amp;[647]" roid = "KFC" />
+<tree_option option_id = "649" option_desc = "649 JUAREZ II"  parent_id = "K4101" level = "50" sql_value = "649" olap_value = "[organization].[h].&amp;[649]" roid = "KFC" />
+<tree_option option_id = "661" option_desc = "661 KFC Arciniega Cd Juar"  parent_id = "K4101" level = "50" sql_value = "661" olap_value = "[organization].[h].&amp;[661]" roid = "KFC" />
+<tree_option option_id = "663" option_desc = "663 KFC LOMAS DE SAN JOSE"  parent_id = "K4101" level = "50" sql_value = "663" olap_value = "[organization].[h].&amp;[663]" roid = "KFC" />
+<tree_option option_id = "K4102" option_desc = "CHIHUAHUA"  parent_id = "K2120" level = "40" sql_value = "K4102" olap_value = "[organization].[h].&amp;[K4102]" roid = "KFC" />
+<tree_option option_id = "643" option_desc = "643 CHIHUAHUA UNIVERSIDAD"  parent_id = "K4102" level = "50" sql_value = "643" olap_value = "[organization].[h].&amp;[643]" roid = "KFC" />
+<tree_option option_id = "655" option_desc = "655 LA SIERRA"  parent_id = "K4102" level = "50" sql_value = "655" olap_value = "[organization].[h].&amp;[655]" roid = "KFC" />
+<tree_option option_id = "656" option_desc = "656 PLAZA LIBERTAD"  parent_id = "K4102" level = "50" sql_value = "656" olap_value = "[organization].[h].&amp;[656]" roid = "KFC" />
+<tree_option option_id = "657" option_desc = "657 PLAZA HOLLYWOOD"  parent_id = "K4102" level = "50" sql_value = "657" olap_value = "[organization].[h].&amp;[657]" roid = "KFC" />
+<tree_option option_id = "658" option_desc = "658 Plaza Vallarta"  parent_id = "K4102" level = "50" sql_value = "658" olap_value = "[organization].[h].&amp;[658]" roid = "KFC" />
+<tree_option option_id = "687" option_desc = "687 Fuentes Mares Chihuah"  parent_id = "K4102" level = "50" sql_value = "687" olap_value = "[organization].[h].&amp;[687]" roid = "KFC" />
+<tree_option option_id = "691" option_desc = "691 Dostoievsky"  parent_id = "K4102" level = "50" sql_value = "691" olap_value = "[organization].[h].&amp;[691]" roid = "KFC" />
+<tree_option option_id = "K3000" option_desc = "KFC OCCIDENTE"  parent_id = "KFC" level = "20" sql_value = "K3000" olap_value = "[organization].[h].&amp;[K3000]" roid = "KFC" />
+<tree_option option_id = "K10100" option_desc = "ZONA BAJIO"  parent_id = "K3000" level = "30" sql_value = "K10100" olap_value = "[organization].[h].&amp;[K10100]" roid = "KFC" />
+<tree_option option_id = "K3106" option_desc = "AREA  6 BAJIO"  parent_id = "K10100" level = "40" sql_value = "K3106" olap_value = "[organization].[h].&amp;[K3106]" roid = "KFC" />
+<tree_option option_id = "765" option_desc = "765 LEON CENTRO"  parent_id = "K3106" level = "50" sql_value = "765" olap_value = "[organization].[h].&amp;[765]" roid = "KFC" />
+<tree_option option_id = "768" option_desc = "768 KFC LEON LA GRAN PLAZ"  parent_id = "K3106" level = "50" sql_value = "768" olap_value = "[organization].[h].&amp;[768]" roid = "KFC" />
+<tree_option option_id = "770" option_desc = "770 KFC LEON PLAZA OBELIS"  parent_id = "K3106" level = "50" sql_value = "770" olap_value = "[organization].[h].&amp;[770]" roid = "KFC" />
+<tree_option option_id = "773" option_desc = "773 Mariano escobedo KFC"  parent_id = "K3106" level = "50" sql_value = "773" olap_value = "[organization].[h].&amp;[773]" roid = "KFC" />
+<tree_option option_id = "K3108" option_desc = "AREA  8 BAJIO"  parent_id = "K10100" level = "40" sql_value = "K3108" olap_value = "[organization].[h].&amp;[K3108]" roid = "KFC" />
+<tree_option option_id = "763" option_desc = "763 AGUASCALIENTES SAN MA"  parent_id = "K3108" level = "50" sql_value = "763" olap_value = "[organization].[h].&amp;[763]" roid = "KFC" />
+<tree_option option_id = "767" option_desc = "767 KFC AGS. III CENTRO"  parent_id = "K3108" level = "50" sql_value = "767" olap_value = "[organization].[h].&amp;[767]" roid = "KFC" />
+<tree_option option_id = "774" option_desc = "774 Villa Asunción"  parent_id = "K3108" level = "50" sql_value = "774" olap_value = "[organization].[h].&amp;[774]" roid = "KFC" />
+<tree_option option_id = "K3110" option_desc = "Area 10 BAJIO"  parent_id = "K10100" level = "40" sql_value = "K3110" olap_value = "[organization].[h].&amp;[K3110]" roid = "KFC" />
+<tree_option option_id = "569" option_desc = "569 CONSTITUYENTES-QRO I"  parent_id = "K3110" level = "50" sql_value = "569" olap_value = "[organization].[h].&amp;[569]" roid = "KFC" />
+<tree_option option_id = "573" option_desc = "573 BOULEVARES-QRO II"  parent_id = "K3110" level = "50" sql_value = "573" olap_value = "[organization].[h].&amp;[573]" roid = "KFC" />
+<tree_option option_id = "580" option_desc = "580 PLAZA DEL SOL-QRO III"  parent_id = "K3110" level = "50" sql_value = "580" olap_value = "[organization].[h].&amp;[580]" roid = "KFC" />
+<tree_option option_id = "K3113" option_desc = "AREA 7 BAJIO"  parent_id = "K10100" level = "40" sql_value = "K3113" olap_value = "[organization].[h].&amp;[K3113]" roid = "KFC" />
+<tree_option option_id = "567" option_desc = "567 CAMELINAS-MORELIA I"  parent_id = "K3113" level = "50" sql_value = "567" olap_value = "[organization].[h].&amp;[567]" roid = "KFC" />
+<tree_option option_id = "571" option_desc = "571 PIPILA-MORELIA II"  parent_id = "K3113" level = "50" sql_value = "571" olap_value = "[organization].[h].&amp;[571]" roid = "KFC" />
+<tree_option option_id = "572" option_desc = "572 CENTRO-MORELIA III"  parent_id = "K3113" level = "50" sql_value = "572" olap_value = "[organization].[h].&amp;[572]" roid = "KFC" />
+<tree_option option_id = "K3114" option_desc = "AREA 9 BAJIO"  parent_id = "K10100" level = "40" sql_value = "K3114" olap_value = "[organization].[h].&amp;[K3114]" roid = "KFC" />
+<tree_option option_id = "551" option_desc = "551 CELAYA"  parent_id = "K3114" level = "50" sql_value = "551" olap_value = "[organization].[h].&amp;[551]" roid = "KFC" />
+<tree_option option_id = "558" option_desc = "558 Celayas Americas"  parent_id = "K3114" level = "50" sql_value = "558" olap_value = "[organization].[h].&amp;[558]" roid = "KFC" />
+<tree_option option_id = "581" option_desc = "581 Salamanca"  parent_id = "K3114" level = "50" sql_value = "581" olap_value = "[organization].[h].&amp;[581]" roid = "KFC" />
+<tree_option option_id = "760" option_desc = "760 IRAPUATO"  parent_id = "K3114" level = "50" sql_value = "760" olap_value = "[organization].[h].&amp;[760]" roid = "KFC" />
+<tree_option option_id = "K4100" option_desc = "ZONA TIJUANA"  parent_id = "K3000" level = "30" sql_value = "K4100" olap_value = "[organization].[h].&amp;[K4100]" roid = "KFC" />
+<tree_option option_id = "K4103" option_desc = "TIJUANA I"  parent_id = "K4100" level = "40" sql_value = "K4103" olap_value = "[organization].[h].&amp;[K4103]" roid = "KFC" />
+<tree_option option_id = "801" option_desc = "801 TIJUANA I PALMAS"  parent_id = "K4103" level = "50" sql_value = "801" olap_value = "[organization].[h].&amp;[801]" roid = "KFC" />
+<tree_option option_id = "802" option_desc = "802 TIJUANA II PLAYAS"  parent_id = "K4103" level = "50" sql_value = "802" olap_value = "[organization].[h].&amp;[802]" roid = "KFC" />
+<tree_option option_id = "812" option_desc = "812 Insurgentes. Tijuana"  parent_id = "K4103" level = "50" sql_value = "812" olap_value = "[organization].[h].&amp;[812]" roid = "KFC" />
+<tree_option option_id = "818" option_desc = "818 KFC Calle Novena. Tij"  parent_id = "K4103" level = "50" sql_value = "818" olap_value = "[organization].[h].&amp;[818]" roid = "KFC" />
+<tree_option option_id = "K4104" option_desc = "TIJUANA II"  parent_id = "K4100" level = "40" sql_value = "K4104" olap_value = "[organization].[h].&amp;[K4104]" roid = "KFC" />
+<tree_option option_id = "803" option_desc = "803 TIJUANA III REVOLUCIO"  parent_id = "K4104" level = "50" sql_value = "803" olap_value = "[organization].[h].&amp;[803]" roid = "KFC" />
+<tree_option option_id = "810" option_desc = "810 KFC Ensenada"  parent_id = "K4104" level = "50" sql_value = "810" olap_value = "[organization].[h].&amp;[810]" roid = "KFC" />
+<tree_option option_id = "814" option_desc = "814 KFC Teheran. Tijuana"  parent_id = "K4104" level = "50" sql_value = "814" olap_value = "[organization].[h].&amp;[814]" roid = "KFC" />
+<tree_option option_id = "817" option_desc = "817 5 y 10 Tijuana B.C."  parent_id = "K4104" level = "50" sql_value = "817" olap_value = "[organization].[h].&amp;[817]" roid = "KFC" />
+<tree_option option_id = "K4403" option_desc = "MEXICALI"  parent_id = "K4100" level = "40" sql_value = "K4403" olap_value = "[organization].[h].&amp;[K4403]" roid = "KFC" />
+<tree_option option_id = "583" option_desc = "583 KFC SAN LUIS RIO COLO"  parent_id = "K4403" level = "50" sql_value = "583" olap_value = "[organization].[h].&amp;[583]" roid = "KFC" />
+<tree_option option_id = "815" option_desc = "815 Mexicali Vilanova"  parent_id = "K4403" level = "50" sql_value = "815" olap_value = "[organization].[h].&amp;[815]" roid = "KFC" />
+<tree_option option_id = "816" option_desc = "816 KFC Nuevo Mexicalli"  parent_id = "K4403" level = "50" sql_value = "816" olap_value = "[organization].[h].&amp;[816]" roid = "KFC" />
+<tree_option option_id = "824" option_desc = "824 Plaza Cachanilla"  parent_id = "K4403" level = "50" sql_value = "824" olap_value = "[organization].[h].&amp;[824]" roid = "KFC" />
+<tree_option option_id = "K4110" option_desc = "ZONA PACIFICO"  parent_id = "K3000" level = "30" sql_value = "K4110" olap_value = "[organization].[h].&amp;[K4110]" roid = "KFC" />
+<tree_option option_id = "K4105" option_desc = "PACIFICO 1"  parent_id = "K4110" level = "40" sql_value = "K4105" olap_value = "[organization].[h].&amp;[K4105]" roid = "KFC" />
+<tree_option option_id = "665" option_desc = "665 KFC ENCINAS"  parent_id = "K4105" level = "50" sql_value = "665" olap_value = "[organization].[h].&amp;[665]" roid = "KFC" />
+<tree_option option_id = "805" option_desc = "805 HERMOSILLO RODRIGUEZ"  parent_id = "K4105" level = "50" sql_value = "805" olap_value = "[organization].[h].&amp;[805]" roid = "KFC" />
+<tree_option option_id = "809" option_desc = "809 HERMOSILLO II NAVARRE"  parent_id = "K4105" level = "50" sql_value = "809" olap_value = "[organization].[h].&amp;[809]" roid = "KFC" />
+<tree_option option_id = "813" option_desc = "813 HERMOSILLO III TRIANG"  parent_id = "K4105" level = "50" sql_value = "813" olap_value = "[organization].[h].&amp;[813]" roid = "KFC" />
+<tree_option option_id = "822" option_desc = "822 KFC HERMOSILLO SUR"  parent_id = "K4105" level = "50" sql_value = "822" olap_value = "[organization].[h].&amp;[822]" roid = "KFC" />
+<tree_option option_id = "823" option_desc = "823 Nogales"  parent_id = "K4105" level = "50" sql_value = "823" olap_value = "[organization].[h].&amp;[823]" roid = "KFC" />
+<tree_option option_id = "K6621" option_desc = "PACIFICO 2"  parent_id = "K4110" level = "40" sql_value = "K6621" olap_value = "[organization].[h].&amp;[K6621]" roid = "KFC" />
+<tree_option option_id = "775" option_desc = "775 EJERCITO MEXICANO"  parent_id = "K6621" level = "50" sql_value = "775" olap_value = "[organization].[h].&amp;[775]" roid = "KFC" />
+<tree_option option_id = "776" option_desc = "776 TRES RIOS"  parent_id = "K6621" level = "50" sql_value = "776" olap_value = "[organization].[h].&amp;[776]" roid = "KFC" />
+<tree_option option_id = "806" option_desc = "806 LOS MOCHIS"  parent_id = "K6621" level = "50" sql_value = "806" olap_value = "[organization].[h].&amp;[806]" roid = "KFC" />
+<tree_option option_id = "807" option_desc = "807 OBREGON I"  parent_id = "K6621" level = "50" sql_value = "807" olap_value = "[organization].[h].&amp;[807]" roid = "KFC" />
+<tree_option option_id = "808" option_desc = "808 OBREGON II"  parent_id = "K6621" level = "50" sql_value = "808" olap_value = "[organization].[h].&amp;[808]" roid = "KFC" />
+<tree_option option_id = "k9200" option_desc = "ZONA GUADALAJARA"  parent_id = "K3000" level = "30" sql_value = "k9200" olap_value = "[organization].[h].&amp;[k9200]" roid = "KFC" />
+<tree_option option_id = "K3101" option_desc = "AREA  1 GUADALAJARA"  parent_id = "k9200" level = "40" sql_value = "K3101" olap_value = "[organization].[h].&amp;[K3101]" roid = "KFC" />
+<tree_option option_id = "712" option_desc = "712 PLAZA LAS AGUILAS"  parent_id = "K3101" level = "50" sql_value = "712" olap_value = "[organization].[h].&amp;[712]" roid = "KFC" />
+<tree_option option_id = "718" option_desc = "718 8 DE JULIO MODIF"  parent_id = "K3101" level = "50" sql_value = "718" olap_value = "[organization].[h].&amp;[718]" roid = "KFC" />
+<tree_option option_id = "737" option_desc = "737 Plaza del Sol"  parent_id = "K3101" level = "50" sql_value = "737" olap_value = "[organization].[h].&amp;[737]" roid = "KFC" />
+<tree_option option_id = "748" option_desc = "748 KFC El Zauz. GDL"  parent_id = "K3101" level = "50" sql_value = "748" olap_value = "[organization].[h].&amp;[748]" roid = "KFC" />
+<tree_option option_id = "K3102" option_desc = "AREA  2 GUADALAJARA"  parent_id = "k9200" level = "40" sql_value = "K3102" olap_value = "[organization].[h].&amp;[K3102]" roid = "KFC" />
+<tree_option option_id = "736" option_desc = "736 JUAREZ"  parent_id = "K3102" level = "50" sql_value = "736" olap_value = "[organization].[h].&amp;[736]" roid = "KFC" />
+<tree_option option_id = "745" option_desc = "745 Catedral GDL"  parent_id = "K3102" level = "50" sql_value = "745" olap_value = "[organization].[h].&amp;[745]" roid = "KFC" />
+<tree_option option_id = "753" option_desc = "753 Tepatitlan KFC"  parent_id = "K3102" level = "50" sql_value = "753" olap_value = "[organization].[h].&amp;[753]" roid = "KFC" />
+<tree_option option_id = "K3103" option_desc = "AREA  3 GUADALAJARA"  parent_id = "k9200" level = "40" sql_value = "K3103" olap_value = "[organization].[h].&amp;[K3103]" roid = "KFC" />
+<tree_option option_id = "715" option_desc = "715 BELISARIO"  parent_id = "K3103" level = "50" sql_value = "715" olap_value = "[organization].[h].&amp;[715]" roid = "KFC" />
+<tree_option option_id = "717" option_desc = "717 SAN PEDRO GDL KFC"  parent_id = "K3103" level = "50" sql_value = "717" olap_value = "[organization].[h].&amp;[717]" roid = "KFC" />
+<tree_option option_id = "739" option_desc = "739 Revolucion Guadalajar"  parent_id = "K3103" level = "50" sql_value = "739" olap_value = "[organization].[h].&amp;[739]" roid = "KFC" />
+<tree_option option_id = "740" option_desc = "740 Rio Nilo KFC Guadalaj"  parent_id = "K3103" level = "50" sql_value = "740" olap_value = "[organization].[h].&amp;[740]" roid = "KFC" />
+<tree_option option_id = "742" option_desc = "742 KFC Tonala. GDL."  parent_id = "K3103" level = "50" sql_value = "742" olap_value = "[organization].[h].&amp;[742]" roid = "KFC" />
+<tree_option option_id = "752" option_desc = "752 El Alamo"  parent_id = "K3103" level = "50" sql_value = "752" olap_value = "[organization].[h].&amp;[752]" roid = "KFC" />
+<tree_option option_id = "K3104" option_desc = "AREA  4 GUADALAJARA"  parent_id = "k9200" level = "40" sql_value = "K3104" olap_value = "[organization].[h].&amp;[K3104]" roid = "KFC" />
+<tree_option option_id = "713" option_desc = "713 PLAZA INDEPENDENCIA"  parent_id = "K3104" level = "50" sql_value = "713" olap_value = "[organization].[h].&amp;[713]" roid = "KFC" />
+<tree_option option_id = "714" option_desc = "714 CORDILLERAS"  parent_id = "K3104" level = "50" sql_value = "714" olap_value = "[organization].[h].&amp;[714]" roid = "KFC" />
+<tree_option option_id = "719" option_desc = "719 ACUEDUCTO GDL KFC"  parent_id = "K3104" level = "50" sql_value = "719" olap_value = "[organization].[h].&amp;[719]" roid = "KFC" />
+<tree_option option_id = "733" option_desc = "733 ALCALDE"  parent_id = "K3104" level = "50" sql_value = "733" olap_value = "[organization].[h].&amp;[733]" roid = "KFC" />
+<tree_option option_id = "738" option_desc = "738 INDEPENDENCIA"  parent_id = "K3104" level = "50" sql_value = "738" olap_value = "[organization].[h].&amp;[738]" roid = "KFC" />
+<tree_option option_id = "746" option_desc = "746 KFC Oblatos. GDL."  parent_id = "K3104" level = "50" sql_value = "746" olap_value = "[organization].[h].&amp;[746]" roid = "KFC" />
+<tree_option option_id = "K3112" option_desc = "AREA 5 GUADALAJARA"  parent_id = "k9200" level = "40" sql_value = "K3112" olap_value = "[organization].[h].&amp;[K3112]" roid = "KFC" />
+<tree_option option_id = "K4000" option_desc = "KFC TIJUANA"  parent_id = "KFC" level = "20" sql_value = "K4000" olap_value = "[organization].[h].&amp;[K4000]" roid = "KFC" />
+<tree_option option_id = "K5000" option_desc = "KFC APERTURAS"  parent_id = "KFC" level = "20" sql_value = "K5000" olap_value = "[organization].[h].&amp;[K5000]" roid = "KFC" />
+<tree_option option_id = "K1500" option_desc = "ZONA APERTURAS"  parent_id = "K5000" level = "30" sql_value = "K1500" olap_value = "[organization].[h].&amp;[K1500]" roid = "KFC" />
+<tree_option option_id = "K5100" option_desc = "KFC APERTURAS"  parent_id = "K5000" level = "30" sql_value = "K5100" olap_value = "[organization].[h].&amp;[K5100]" roid = "KFC" />
+<tree_option option_id = "K5101" option_desc = "KFC APERTURAS"  parent_id = "K5100" level = "40" sql_value = "K5101" olap_value = "[organization].[h].&amp;[K5101]" roid = "KFC" />
+<tree_option option_id = "238" option_desc = "238 COLON"  parent_id = "K5101" level = "50" sql_value = "238" olap_value = "[organization].[h].&amp;[238]" roid = "KFC" />
+<tree_option option_id = "244" option_desc = "244 KFC AEROPUERTO"  parent_id = "K5101" level = "50" sql_value = "244" olap_value = "[organization].[h].&amp;[244]" roid = "KFC" />
+<tree_option option_id = "255" option_desc = "255 KFC MIXCOAC"  parent_id = "K5101" level = "50" sql_value = "255" olap_value = "[organization].[h].&amp;[255]" roid = "KFC" />
+<tree_option option_id = "256" option_desc = "256 KFC INDIOS VERDES"  parent_id = "K5101" level = "50" sql_value = "256" olap_value = "[organization].[h].&amp;[256]" roid = "KFC" />
+<tree_option option_id = "261" option_desc = "261 KFC Canal de San Juan"  parent_id = "K5101" level = "50" sql_value = "261" olap_value = "[organization].[h].&amp;[261]" roid = "KFC" />
+<tree_option option_id = "264" option_desc = "264 KFC ZONA ROSA"  parent_id = "K5101" level = "50" sql_value = "264" olap_value = "[organization].[h].&amp;[264]" roid = "KFC" />
+<tree_option option_id = "267" option_desc = "267 KFC IZTACALCO"  parent_id = "K5101" level = "50" sql_value = "267" olap_value = "[organization].[h].&amp;[267]" roid = "KFC" />
+<tree_option option_id = "268" option_desc = "268 KFC VIA MORELOS"  parent_id = "K5101" level = "50" sql_value = "268" olap_value = "[organization].[h].&amp;[268]" roid = "KFC" />
+<tree_option option_id = "295" option_desc = "295 KFC TAPO"  parent_id = "K5101" level = "50" sql_value = "295" olap_value = "[organization].[h].&amp;[295]" roid = "KFC" />
+<tree_option option_id = "298" option_desc = "298 KFC COACALCO"  parent_id = "K5101" level = "50" sql_value = "298" olap_value = "[organization].[h].&amp;[298]" roid = "KFC" />
+<tree_option option_id = "299" option_desc = "299 KFC LAGUNILLA"  parent_id = "K5101" level = "50" sql_value = "299" olap_value = "[organization].[h].&amp;[299]" roid = "KFC" />
+<tree_option option_id = "302" option_desc = "302 KFC RIO CONSULADO"  parent_id = "K5101" level = "50" sql_value = "302" olap_value = "[organization].[h].&amp;[302]" roid = "KFC" />
+<tree_option option_id = "303" option_desc = "303 KFC SANTA MARTHA"  parent_id = "K5101" level = "50" sql_value = "303" olap_value = "[organization].[h].&amp;[303]" roid = "KFC" />
+<tree_option option_id = "304" option_desc = "304 KFC ECHEGARAY"  parent_id = "K5101" level = "50" sql_value = "304" olap_value = "[organization].[h].&amp;[304]" roid = "KFC" />
+<tree_option option_id = "306" option_desc = "306 KFC EL ROSARIO"  parent_id = "K5101" level = "50" sql_value = "306" olap_value = "[organization].[h].&amp;[306]" roid = "KFC" />
+<tree_option option_id = "309" option_desc = "309 KFC SAN PBLO XALPA"  parent_id = "K5101" level = "50" sql_value = "309" olap_value = "[organization].[h].&amp;[309]" roid = "KFC" />
+<tree_option option_id = "313" option_desc = "313 KFC SANTA FE BELEM"  parent_id = "K5101" level = "50" sql_value = "313" olap_value = "[organization].[h].&amp;[313]" roid = "KFC" />
+<tree_option option_id = "315" option_desc = "315 KFC CUAUTEPEC"  parent_id = "K5101" level = "50" sql_value = "315" olap_value = "[organization].[h].&amp;[315]" roid = "KFC" />
+<tree_option option_id = "316" option_desc = "316 KFC PLAZA LA HACIENDA"  parent_id = "K5101" level = "50" sql_value = "316" olap_value = "[organization].[h].&amp;[316]" roid = "KFC" />
+<tree_option option_id = "327" option_desc = "327 SAN MATEO"  parent_id = "K5101" level = "50" sql_value = "327" olap_value = "[organization].[h].&amp;[327]" roid = "KFC" />
+<tree_option option_id = "582" option_desc = "582 KFC QUERETARO ZARAGOZ"  parent_id = "K5101" level = "50" sql_value = "582" olap_value = "[organization].[h].&amp;[582]" roid = "KFC" />
+<tree_option option_id = "613" option_desc = "613 VASCONCELOS"  parent_id = "K5101" level = "50" sql_value = "613" olap_value = "[organization].[h].&amp;[613]" roid = "KFC" />
+<tree_option option_id = "639" option_desc = "639 KFC TRIUNFADORES"  parent_id = "K5101" level = "50" sql_value = "639" olap_value = "[organization].[h].&amp;[639]" roid = "KFC" />
+<tree_option option_id = "648" option_desc = "648 LAREDO I"  parent_id = "K5101" level = "50" sql_value = "648" olap_value = "[organization].[h].&amp;[648]" roid = "KFC" />
+<tree_option option_id = "664" option_desc = "664 KFC Del Rio Plaza. Re"  parent_id = "K5101" level = "50" sql_value = "664" olap_value = "[organization].[h].&amp;[664]" roid = "KFC" />
+<tree_option option_id = "667" option_desc = "667 KFC CARRETERA NACIONA"  parent_id = "K5101" level = "50" sql_value = "667" olap_value = "[organization].[h].&amp;[667]" roid = "KFC" />
+<tree_option option_id = "672" option_desc = "672 KFC SANTA MARIA"  parent_id = "K5101" level = "50" sql_value = "672" olap_value = "[organization].[h].&amp;[672]" roid = "KFC" />
+<tree_option option_id = "679" option_desc = "679 KFC MIGUEL ALEMAN"  parent_id = "K5101" level = "50" sql_value = "679" olap_value = "[organization].[h].&amp;[679]" roid = "KFC" />
+<tree_option option_id = "680" option_desc = "680 KFC EL ARCO MTY"  parent_id = "K5101" level = "50" sql_value = "680" olap_value = "[organization].[h].&amp;[680]" roid = "KFC" />
+<tree_option option_id = "743" option_desc = "743 KFC SAN ISIDRO"  parent_id = "K5101" level = "50" sql_value = "743" olap_value = "[organization].[h].&amp;[743]" roid = "KFC" />
+<tree_option option_id = "749" option_desc = "749 KFC EXPIATORIO (GDL)"  parent_id = "K5101" level = "50" sql_value = "749" olap_value = "[organization].[h].&amp;[749]" roid = "KFC" />
+<tree_option option_id = "750" option_desc = "750 KFC JAVIER MINA"  parent_id = "K5101" level = "50" sql_value = "750" olap_value = "[organization].[h].&amp;[750]" roid = "KFC" />
+<tree_option option_id = "751" option_desc = "751 KFC EL ALAMO GDL"  parent_id = "K5101" level = "50" sql_value = "751" olap_value = "[organization].[h].&amp;[751]" roid = "KFC" />
+<tree_option option_id = "755" option_desc = "755 Cd. Guzman"  parent_id = "K5101" level = "50" sql_value = "755" olap_value = "[organization].[h].&amp;[755]" roid = "KFC" />
+<tree_option option_id = "769" option_desc = "769 KFC HEROES MEXICANOS"  parent_id = "K5101" level = "50" sql_value = "769" olap_value = "[organization].[h].&amp;[769]" roid = "KFC" />
+<tree_option option_id = "819" option_desc = "819 KFC CABALLITO MEXICAL"  parent_id = "K5101" level = "50" sql_value = "819" olap_value = "[organization].[h].&amp;[819]" roid = "KFC" />
+<tree_option option_id = "820" option_desc = "820 KFC CENTRO CIVICO"  parent_id = "K5101" level = "50" sql_value = "820" olap_value = "[organization].[h].&amp;[820]" roid = "KFC" />
+<tree_option option_id = "K6000" option_desc = "KFC CAPACITACION"  parent_id = "KFC" level = "20" sql_value = "K6000" olap_value = "[organization].[h].&amp;[K6000]" roid = "KFC" />
+<tree_option option_id = "K6100" option_desc = "KFC CAPACITACION"  parent_id = "K6000" level = "30" sql_value = "K6100" olap_value = "[organization].[h].&amp;[K6100]" roid = "KFC" />
+<tree_option option_id = "K6101" option_desc = "KFC CAPACITACION"  parent_id = "K6100" level = "40" sql_value = "K6101" olap_value = "[organization].[h].&amp;[K6101]" roid = "KFC" />
+<tree_option option_id = "597" option_desc = "597 KFC ENTRENAMIENTO"  parent_id = "K6101" level = "50" sql_value = "597" olap_value = "[organization].[h].&amp;[597]" roid = "KFC" />
+<tree_option option_id = "599" option_desc = "599 KFC ENTRENAMIENTO"  parent_id = "K6101" level = "50" sql_value = "599" olap_value = "[organization].[h].&amp;[599]" roid = "KFC" />
+<tree_option option_id = "K1100" option_desc = "ZONA CENTRO"  parent_id = "K7000" level = "30" sql_value = "K1100" olap_value = "[organization].[h].&amp;[K1100]" roid = "KFC" />
+<tree_option option_id = "K3100" option_desc = "ZONA GUADALAJARA 2"  parent_id = "K7000" level = "30" sql_value = "K3100" olap_value = "[organization].[h].&amp;[K3100]" roid = "KFC" />
+<tree_option option_id = "K1101" option_desc = "AREA 1 CENTRO"  parent_id = "K7100" level = "40" sql_value = "K1101" olap_value = "[organization].[h].&amp;[K1101]" roid = "KFC" />
+<tree_option option_id = "K1107" option_desc = "AREA 7 CENTRO"  parent_id = "K7100" level = "40" sql_value = "K1107" olap_value = "[organization].[h].&amp;[K1107]" roid = "KFC" />
+<tree_option option_id = "K1209" option_desc = "AREA 18 CENTRO"  parent_id = "K7100" level = "40" sql_value = "K1209" olap_value = "[organization].[h].&amp;[K1209]" roid = "KFC" />
+<tree_option option_id = "K2109" option_desc = "AREA 7 MTY"  parent_id = "K7100" level = "40" sql_value = "K2109" olap_value = "[organization].[h].&amp;[K2109]" roid = "KFC" />
+<tree_option option_id = "K3105" option_desc = "AREA  5 BAJIO"  parent_id = "K7100" level = "40" sql_value = "K3105" olap_value = "[organization].[h].&amp;[K3105]" roid = "KFC" />
+<tree_option option_id = "K3107" option_desc = "AREA  7 GUADALAJARA"  parent_id = "K7100" level = "40" sql_value = "K3107" olap_value = "[organization].[h].&amp;[K3107]" roid = "KFC" />
+<tree_option option_id = "k3109" option_desc = "AREA 9 GUADALAJARA"  parent_id = "K7100" level = "40" sql_value = "k3109" olap_value = "[organization].[h].&amp;[k3109]" roid = "KFC" />
+<tree_option option_id = "K3111" option_desc = "AREA 11 GUADALAJARA"  parent_id = "K7100" level = "40" sql_value = "K3111" olap_value = "[organization].[h].&amp;[K3111]" roid = "KFC" />
+<tree_option option_id = "K8000" option_desc = "KFC COMBOS"  parent_id = "KFC" level = "20" sql_value = "K8000" olap_value = "[organization].[h].&amp;[K8000]" roid = "KFC" />
+<tree_option option_id = "K1400" option_desc = "ZONA COMBOS"  parent_id = "K8000" level = "30" sql_value = "K1400" olap_value = "[organization].[h].&amp;[K1400]" roid = "KFC" />
+<tree_option option_id = "K1401" option_desc = "AREA 1 COMBOS"  parent_id = "K1400" level = "40" sql_value = "K1401" olap_value = "[organization].[h].&amp;[K1401]" roid = "KFC" />
+<tree_option option_id = "10119" option_desc = "10119 Churubusco KFC"  parent_id = "K1401" level = "50" sql_value = "10119" olap_value = "[organization].[h].&amp;[10119]" roid = "KFC" />
+<tree_option option_id = "10166" option_desc = "10166 Culiacan KFC"  parent_id = "K1401" level = "50" sql_value = "10166" olap_value = "[organization].[h].&amp;[10166]" roid = "KFC" />
+<tree_option option_id = "10183" option_desc = "10183 Neza KFC"  parent_id = "K1401" level = "50" sql_value = "10183" olap_value = "[organization].[h].&amp;[10183]" roid = "KFC" />
+<tree_option option_id = "10190" option_desc = "10190 Plaza Oriente KFC"  parent_id = "K1401" level = "50" sql_value = "10190" olap_value = "[organization].[h].&amp;[10190]" roid = "KFC" />
+<tree_option option_id = "10404" option_desc = "10404 Aragon sur KFC"  parent_id = "K1401" level = "50" sql_value = "10404" olap_value = "[organization].[h].&amp;[10404]" roid = "KFC" />
+<tree_option option_id = "K1402" option_desc = "AREA 2 COMBOS"  parent_id = "K1400" level = "40" sql_value = "K1402" olap_value = "[organization].[h].&amp;[K1402]" roid = "KFC" />
+<tree_option option_id = "K1403" option_desc = "AREA 3 COMBOS"  parent_id = "K1400" level = "40" sql_value = "K1403" olap_value = "[organization].[h].&amp;[K1403]" roid = "KFC" />
+<tree_option option_id = "283" option_desc = "283 Food Court Plaza Sate"  parent_id = "K1403" level = "50" sql_value = "283" olap_value = "[organization].[h].&amp;[283]" roid = "KFC" />
+<tree_option option_id = "K9000" option_desc = "KFC REGION DUMMY"  parent_id = "KFC" level = "20" sql_value = "K9000" olap_value = "[organization].[h].&amp;[K9000]" roid = "KFC" />
+<tree_option option_id = "K9100" option_desc = "ZONA KFC DUMMY"  parent_id = "K9000" level = "30" sql_value = "K9100" olap_value = "[organization].[h].&amp;[K9100]" roid = "KFC" />
+<tree_option option_id = "K9101" option_desc = "KFC AREA DUMMY"  parent_id = "K9100" level = "40" sql_value = "K9101" olap_value = "[organization].[h].&amp;[K9101]" roid = "KFC" />
+<tree_option option_id = "999" option_desc = "999 KFC Store Dummy"  parent_id = "K9101" level = "50" sql_value = "999" olap_value = "[organization].[h].&amp;[999]" roid = "KFC" />
+<tree_option option_id = "PH" option_desc = "PIZZA HUT"  parent_id = "0" level = "10" sql_value = "PH" olap_value = "[organization].[h].&amp;[PH]" roid = "PH" />
+<tree_option option_id = "P1000" option_desc = "PH CENTRO"  parent_id = "PH" level = "20" sql_value = "P1000" olap_value = "[organization].[h].&amp;[P1000]" roid = "PH" />
+<tree_option option_id = "P1100" option_desc = "ZONA SUR"  parent_id = "P1000" level = "30" sql_value = "P1100" olap_value = "[organization].[h].&amp;[P1100]" roid = "PH" />
+<tree_option option_id = "P1200" option_desc = "Zona Norte"  parent_id = "P1000" level = "30" sql_value = "P1200" olap_value = "[organization].[h].&amp;[P1200]" roid = "PH" />
+<tree_option option_id = "P1300" option_desc = "Zona Combos - Poniente"  parent_id = "P1000" level = "30" sql_value = "P1300" olap_value = "[organization].[h].&amp;[P1300]" roid = "PH" />
+<tree_option option_id = "P1400" option_desc = "Zona 1"  parent_id = "P1000" level = "30" sql_value = "P1400" olap_value = "[organization].[h].&amp;[P1400]" roid = "PH" />
+<tree_option option_id = "P1101" option_desc = "MEXICO I"  parent_id = "P1400" level = "40" sql_value = "P1101" olap_value = "[organization].[h].&amp;[P1101]" roid = "PH" />
+<tree_option option_id = "116" option_desc = "116 Miguel Angel II"  parent_id = "P1101" level = "50" sql_value = "116" olap_value = "[organization].[h].&amp;[116]" roid = "PH" />
+<tree_option option_id = "132" option_desc = "132 Insurgentes Sur"  parent_id = "P1101" level = "50" sql_value = "132" olap_value = "[organization].[h].&amp;[132]" roid = "PH" />
+<tree_option option_id = "179" option_desc = "179 Tlahuac"  parent_id = "P1101" level = "50" sql_value = "179" olap_value = "[organization].[h].&amp;[179]" roid = "PH" />
+<tree_option option_id = "189" option_desc = "189 Perisur"  parent_id = "P1101" level = "50" sql_value = "189" olap_value = "[organization].[h].&amp;[189]" roid = "PH" />
+<tree_option option_id = "191" option_desc = "191 Cafetales"  parent_id = "P1101" level = "50" sql_value = "191" olap_value = "[organization].[h].&amp;[191]" roid = "PH" />
+<tree_option option_id = "401" option_desc = "401 San Jerónimo"  parent_id = "P1101" level = "50" sql_value = "401" olap_value = "[organization].[h].&amp;[401]" roid = "PH" />
+<tree_option option_id = "463" option_desc = "463 Miramontes"  parent_id = "P1101" level = "50" sql_value = "463" olap_value = "[organization].[h].&amp;[463]" roid = "PH" />
+<tree_option option_id = "486" option_desc = "486 Desierto de Los Leone"  parent_id = "P1101" level = "50" sql_value = "486" olap_value = "[organization].[h].&amp;[486]" roid = "PH" />
+<tree_option option_id = "P1102" option_desc = "MEXICO II"  parent_id = "P1400" level = "40" sql_value = "P1102" olap_value = "[organization].[h].&amp;[P1102]" roid = "PH" />
+<tree_option option_id = "101" option_desc = "101 Felix Cuevas"  parent_id = "P1102" level = "50" sql_value = "101" olap_value = "[organization].[h].&amp;[101]" roid = "PH" />
+<tree_option option_id = "110" option_desc = "110 Bosques de las Lomas"  parent_id = "P1102" level = "50" sql_value = "110" olap_value = "[organization].[h].&amp;[110]" roid = "PH" />
+<tree_option option_id = "413" option_desc = "413 Pie de la Cuesta / Vi"  parent_id = "P1102" level = "50" sql_value = "413" olap_value = "[organization].[h].&amp;[413]" roid = "PH" />
+<tree_option option_id = "417" option_desc = "417 Eje Central Portales"  parent_id = "P1102" level = "50" sql_value = "417" olap_value = "[organization].[h].&amp;[417]" roid = "PH" />
+<tree_option option_id = "429" option_desc = "429 Sante Fe"  parent_id = "P1102" level = "50" sql_value = "429" olap_value = "[organization].[h].&amp;[429]" roid = "PH" />
+<tree_option option_id = "452" option_desc = "452 San Pedro de los Pino"  parent_id = "P1102" level = "50" sql_value = "452" olap_value = "[organization].[h].&amp;[452]" roid = "PH" />
+<tree_option option_id = "488" option_desc = "488 Interlomas"  parent_id = "P1102" level = "50" sql_value = "488" olap_value = "[organization].[h].&amp;[488]" roid = "PH" />
+<tree_option option_id = "P1103" option_desc = "CUERNAVACA"  parent_id = "P1400" level = "40" sql_value = "P1103" olap_value = "[organization].[h].&amp;[P1103]" roid = "PH" />
+<tree_option option_id = "103" option_desc = "103 Plaza Cascada / Plan "  parent_id = "P1103" level = "50" sql_value = "103" olap_value = "[organization].[h].&amp;[103]" roid = "PH" />
+<tree_option option_id = "410" option_desc = "410 Morelos"  parent_id = "P1103" level = "50" sql_value = "410" olap_value = "[organization].[h].&amp;[410]" roid = "PH" />
+<tree_option option_id = "447" option_desc = "447 Cuautla"  parent_id = "P1103" level = "50" sql_value = "447" olap_value = "[organization].[h].&amp;[447]" roid = "PH" />
+<tree_option option_id = "464" option_desc = "464 Jiutepec"  parent_id = "P1103" level = "50" sql_value = "464" olap_value = "[organization].[h].&amp;[464]" roid = "PH" />
+<tree_option option_id = "495" option_desc = "495 Plan de Ayala"  parent_id = "P1103" level = "50" sql_value = "495" olap_value = "[organization].[h].&amp;[495]" roid = "PH" />
+<tree_option option_id = "518" option_desc = "518 Plaza Cuernavaca"  parent_id = "P1103" level = "50" sql_value = "518" olap_value = "[organization].[h].&amp;[518]" roid = "PH" />
+<tree_option option_id = "P1104" option_desc = "MEXICO III"  parent_id = "P1400" level = "40" sql_value = "P1104" olap_value = "[organization].[h].&amp;[P1104]" roid = "PH" />
+<tree_option option_id = "104" option_desc = "104 Punto / Point"  parent_id = "P1104" level = "50" sql_value = "104" olap_value = "[organization].[h].&amp;[104]" roid = "PH" />
+<tree_option option_id = "114" option_desc = "114 Polanco"  parent_id = "P1104" level = "50" sql_value = "114" olap_value = "[organization].[h].&amp;[114]" roid = "PH" />
+<tree_option option_id = "184" option_desc = "184 Xola"  parent_id = "P1104" level = "50" sql_value = "184" olap_value = "[organization].[h].&amp;[184]" roid = "PH" />
+<tree_option option_id = "186" option_desc = "186 Hamburgo"  parent_id = "P1104" level = "50" sql_value = "186" olap_value = "[organization].[h].&amp;[186]" roid = "PH" />
+<tree_option option_id = "193" option_desc = "193 Balderas"  parent_id = "P1104" level = "50" sql_value = "193" olap_value = "[organization].[h].&amp;[193]" roid = "PH" />
+<tree_option option_id = "505" option_desc = "505 Palma"  parent_id = "P1104" level = "50" sql_value = "505" olap_value = "[organization].[h].&amp;[505]" roid = "PH" />
+<tree_option option_id = "519" option_desc = "519 Galerias"  parent_id = "P1104" level = "50" sql_value = "519" olap_value = "[organization].[h].&amp;[519]" roid = "PH" />
+<tree_option option_id = "P1111" option_desc = "VERACRUZ"  parent_id = "P1400" level = "40" sql_value = "P1111" olap_value = "[organization].[h].&amp;[P1111]" roid = "PH" />
+<tree_option option_id = "127" option_desc = "127 Veracruz I"  parent_id = "P1111" level = "50" sql_value = "127" olap_value = "[organization].[h].&amp;[127]" roid = "PH" />
+<tree_option option_id = "139" option_desc = "139 Cordoba"  parent_id = "P1111" level = "50" sql_value = "139" olap_value = "[organization].[h].&amp;[139]" roid = "PH" />
+<tree_option option_id = "143" option_desc = "143 Oaxaca Plaza"  parent_id = "P1111" level = "50" sql_value = "143" olap_value = "[organization].[h].&amp;[143]" roid = "PH" />
+<tree_option option_id = "156" option_desc = "156 Veracruz II Matamoros"  parent_id = "P1111" level = "50" sql_value = "156" olap_value = "[organization].[h].&amp;[156]" roid = "PH" />
+<tree_option option_id = "454" option_desc = "454 El Coyol"  parent_id = "P1111" level = "50" sql_value = "454" olap_value = "[organization].[h].&amp;[454]" roid = "PH" />
+<tree_option option_id = "465" option_desc = "465 Boca del Rio"  parent_id = "P1111" level = "50" sql_value = "465" olap_value = "[organization].[h].&amp;[465]" roid = "PH" />
+<tree_option option_id = "494" option_desc = "494 Díaz Mirón"  parent_id = "P1111" level = "50" sql_value = "494" olap_value = "[organization].[h].&amp;[494]" roid = "PH" />
+<tree_option option_id = "499" option_desc = "499 Veracruz Norte"  parent_id = "P1111" level = "50" sql_value = "499" olap_value = "[organization].[h].&amp;[499]" roid = "PH" />
+<tree_option option_id = "P1500" option_desc = "Zona 2"  parent_id = "P1000" level = "30" sql_value = "P1500" olap_value = "[organization].[h].&amp;[P1500]" roid = "PH" />
+<tree_option option_id = "P1106" option_desc = "MEXICO IV"  parent_id = "P1500" level = "40" sql_value = "P1106" olap_value = "[organization].[h].&amp;[P1106]" roid = "PH" />
+<tree_option option_id = "118" option_desc = "118 Satelite Musicos"  parent_id = "P1106" level = "50" sql_value = "118" olap_value = "[organization].[h].&amp;[118]" roid = "PH" />
+<tree_option option_id = "131" option_desc = "131 Fuentes de Satelite"  parent_id = "P1106" level = "50" sql_value = "131" olap_value = "[organization].[h].&amp;[131]" roid = "PH" />
+<tree_option option_id = "185" option_desc = "185 Montevideo"  parent_id = "P1106" level = "50" sql_value = "185" olap_value = "[organization].[h].&amp;[185]" roid = "PH" />
+<tree_option option_id = "407" option_desc = "407 Cuitlahuac"  parent_id = "P1106" level = "50" sql_value = "407" olap_value = "[organization].[h].&amp;[407]" roid = "PH" />
+<tree_option option_id = "408" option_desc = "408 Buenavista"  parent_id = "P1106" level = "50" sql_value = "408" olap_value = "[organization].[h].&amp;[408]" roid = "PH" />
+<tree_option option_id = "421" option_desc = "421 Naucalpan"  parent_id = "P1106" level = "50" sql_value = "421" olap_value = "[organization].[h].&amp;[421]" roid = "PH" />
+<tree_option option_id = "456" option_desc = "456 El Rosario"  parent_id = "P1106" level = "50" sql_value = "456" olap_value = "[organization].[h].&amp;[456]" roid = "PH" />
+<tree_option option_id = "P1108" option_desc = "MEXICO V"  parent_id = "P1500" level = "40" sql_value = "P1108" olap_value = "[organization].[h].&amp;[P1108]" roid = "PH" />
+<tree_option option_id = "412" option_desc = "412 Jardines de Morelos"  parent_id = "P1108" level = "50" sql_value = "412" olap_value = "[organization].[h].&amp;[412]" roid = "PH" />
+<tree_option option_id = "422" option_desc = "422 Coacalco"  parent_id = "P1108" level = "50" sql_value = "422" olap_value = "[organization].[h].&amp;[422]" roid = "PH" />
+<tree_option option_id = "426" option_desc = "426 Coacalco"  parent_id = "P1108" level = "50" sql_value = "426" olap_value = "[organization].[h].&amp;[426]" roid = "PH" />
+<tree_option option_id = "427" option_desc = "427 Tenayuca"  parent_id = "P1108" level = "50" sql_value = "427" olap_value = "[organization].[h].&amp;[427]" roid = "PH" />
+<tree_option option_id = "442" option_desc = "442 Tlalnepantla"  parent_id = "P1108" level = "50" sql_value = "442" olap_value = "[organization].[h].&amp;[442]" roid = "PH" />
+<tree_option option_id = "443" option_desc = "443 Plaza Torres Lindavis"  parent_id = "P1108" level = "50" sql_value = "443" olap_value = "[organization].[h].&amp;[443]" roid = "PH" />
+<tree_option option_id = "478" option_desc = "478 Ojo de Agua"  parent_id = "P1108" level = "50" sql_value = "478" olap_value = "[organization].[h].&amp;[478]" roid = "PH" />
+<tree_option option_id = "P1109" option_desc = "MEXICO VI"  parent_id = "P1500" level = "40" sql_value = "P1109" olap_value = "[organization].[h].&amp;[P1109]" roid = "PH" />
+<tree_option option_id = "414" option_desc = "414 Jacarandas"  parent_id = "P1109" level = "50" sql_value = "414" olap_value = "[organization].[h].&amp;[414]" roid = "PH" />
+<tree_option option_id = "437" option_desc = "437 Alamedas"  parent_id = "P1109" level = "50" sql_value = "437" olap_value = "[organization].[h].&amp;[437]" roid = "PH" />
+<tree_option option_id = "438" option_desc = "438 Cuautitlan Izcalli"  parent_id = "P1109" level = "50" sql_value = "438" olap_value = "[organization].[h].&amp;[438]" roid = "PH" />
+<tree_option option_id = "441" option_desc = "441 Lomas Verdes"  parent_id = "P1109" level = "50" sql_value = "441" olap_value = "[organization].[h].&amp;[441]" roid = "PH" />
+<tree_option option_id = "476" option_desc = "476 Villas de la Hacienda"  parent_id = "P1109" level = "50" sql_value = "476" olap_value = "[organization].[h].&amp;[476]" roid = "PH" />
+<tree_option option_id = "522" option_desc = "522 Valle Dorado"  parent_id = "P1109" level = "50" sql_value = "522" olap_value = "[organization].[h].&amp;[522]" roid = "PH" />
+<tree_option option_id = "P1110" option_desc = "MEXICO VII"  parent_id = "P1500" level = "40" sql_value = "P1110" olap_value = "[organization].[h].&amp;[P1110]" roid = "PH" />
+<tree_option option_id = "180" option_desc = "180 Los Reyes"  parent_id = "P1110" level = "50" sql_value = "180" olap_value = "[organization].[h].&amp;[180]" roid = "PH" />
+<tree_option option_id = "183" option_desc = "183 Neza"  parent_id = "P1110" level = "50" sql_value = "183" olap_value = "[organization].[h].&amp;[183]" roid = "PH" />
+<tree_option option_id = "190" option_desc = "190 Plaza Oriente"  parent_id = "P1110" level = "50" sql_value = "190" olap_value = "[organization].[h].&amp;[190]" roid = "PH" />
+<tree_option option_id = "446" option_desc = "446 San Juan"  parent_id = "P1110" level = "50" sql_value = "446" olap_value = "[organization].[h].&amp;[446]" roid = "PH" />
+<tree_option option_id = "448" option_desc = "448 Texcoco"  parent_id = "P1110" level = "50" sql_value = "448" olap_value = "[organization].[h].&amp;[448]" roid = "PH" />
+<tree_option option_id = "451" option_desc = "451 Pachuca"  parent_id = "P1110" level = "50" sql_value = "451" olap_value = "[organization].[h].&amp;[451]" roid = "PH" />
+<tree_option option_id = "480" option_desc = "480 Aragón"  parent_id = "P1110" level = "50" sql_value = "480" olap_value = "[organization].[h].&amp;[480]" roid = "PH" />
+<tree_option option_id = "P1112" option_desc = "ACAPULCO"  parent_id = "P1500" level = "40" sql_value = "P1112" olap_value = "[organization].[h].&amp;[P1112]" roid = "PH" />
+<tree_option option_id = "477" option_desc = "477 Maxitunel"  parent_id = "P1112" level = "50" sql_value = "477" olap_value = "[organization].[h].&amp;[477]" roid = "PH" />
+<tree_option option_id = "514" option_desc = "514 Acapulco I Calinda"  parent_id = "P1112" level = "50" sql_value = "514" olap_value = "[organization].[h].&amp;[514]" roid = "PH" />
+<tree_option option_id = "515" option_desc = "515 Acapulco II Diana"  parent_id = "P1112" level = "50" sql_value = "515" olap_value = "[organization].[h].&amp;[515]" roid = "PH" />
+<tree_option option_id = "P1600" option_desc = "Zona 3"  parent_id = "P1000" level = "30" sql_value = "P1600" olap_value = "[organization].[h].&amp;[P1600]" roid = "PH" />
+<tree_option option_id = "P1800" option_desc = "Dine In"  parent_id = "P1000" level = "30" sql_value = "P1800" olap_value = "[organization].[h].&amp;[P1800]" roid = "PH" />
+<tree_option option_id = "P1113" option_desc = "DINE IN"  parent_id = "P1800" level = "40" sql_value = "P1113" olap_value = "[organization].[h].&amp;[P1113]" roid = "PH" />
+<tree_option option_id = "169" option_desc = "169 Plaza Satelite"  parent_id = "P1113" level = "50" sql_value = "169" olap_value = "[organization].[h].&amp;[169]" roid = "PH" />
+<tree_option option_id = "484" option_desc = "484 Ciudad Jardín"  parent_id = "P1113" level = "50" sql_value = "484" olap_value = "[organization].[h].&amp;[484]" roid = "PH" />
+<tree_option option_id = "502" option_desc = "502 Boulevares / Boulevar"  parent_id = "P1113" level = "50" sql_value = "502" olap_value = "[organization].[h].&amp;[502]" roid = "PH" />
+<tree_option option_id = "504" option_desc = "504 Pilares"  parent_id = "P1113" level = "50" sql_value = "504" olap_value = "[organization].[h].&amp;[504]" roid = "PH" />
+<tree_option option_id = "P2000" option_desc = "PH NORTE"  parent_id = "PH" level = "20" sql_value = "P2000" olap_value = "[organization].[h].&amp;[P2000]" roid = "PH" />
+<tree_option option_id = "P2100" option_desc = "ZONA NORTE MTY"  parent_id = "P2000" level = "30" sql_value = "P2100" olap_value = "[organization].[h].&amp;[P2100]" roid = "PH" />
+<tree_option option_id = "P2101" option_desc = "CHIHUAHUA"  parent_id = "P2100" level = "40" sql_value = "P2101" olap_value = "[organization].[h].&amp;[P2101]" roid = "PH" />
+<tree_option option_id = "P2102" option_desc = "LAGUNA"  parent_id = "P2100" level = "40" sql_value = "P2102" olap_value = "[organization].[h].&amp;[P2102]" roid = "PH" />
+<tree_option option_id = "137" option_desc = "137 Torreon Rosita"  parent_id = "P2102" level = "50" sql_value = "137" olap_value = "[organization].[h].&amp;[137]" roid = "PH" />
+<tree_option option_id = "152" option_desc = "152 Gomez Palacios"  parent_id = "P2102" level = "50" sql_value = "152" olap_value = "[organization].[h].&amp;[152]" roid = "PH" />
+<tree_option option_id = "164" option_desc = "164 Rio Grande Juarez"  parent_id = "P2102" level = "50" sql_value = "164" olap_value = "[organization].[h].&amp;[164]" roid = "PH" />
+<tree_option option_id = "455" option_desc = "455 Independencia"  parent_id = "P2102" level = "50" sql_value = "455" olap_value = "[organization].[h].&amp;[455]" roid = "PH" />
+<tree_option option_id = "462" option_desc = "462 Monclova"  parent_id = "P2102" level = "50" sql_value = "462" olap_value = "[organization].[h].&amp;[462]" roid = "PH" />
+<tree_option option_id = "P2103" option_desc = "MONTERREY III"  parent_id = "P2100" level = "40" sql_value = "P2103" olap_value = "[organization].[h].&amp;[P2103]" roid = "PH" />
+<tree_option option_id = "124" option_desc = "124 Country Revolucion"  parent_id = "P2103" level = "50" sql_value = "124" olap_value = "[organization].[h].&amp;[124]" roid = "PH" />
+<tree_option option_id = "142" option_desc = "142 DX Guadalupe"  parent_id = "P2103" level = "50" sql_value = "142" olap_value = "[organization].[h].&amp;[142]" roid = "PH" />
+<tree_option option_id = "172" option_desc = "172 La Fe"  parent_id = "P2103" level = "50" sql_value = "172" olap_value = "[organization].[h].&amp;[172]" roid = "PH" />
+<tree_option option_id = "192" option_desc = "192 Centro Monterrey"  parent_id = "P2103" level = "50" sql_value = "192" olap_value = "[organization].[h].&amp;[192]" roid = "PH" />
+<tree_option option_id = "194" option_desc = "194 Garza Sada Country"  parent_id = "P2103" level = "50" sql_value = "194" olap_value = "[organization].[h].&amp;[194]" roid = "PH" />
+<tree_option option_id = "411" option_desc = "411 Pablo Livas Monterrey"  parent_id = "P2103" level = "50" sql_value = "411" olap_value = "[organization].[h].&amp;[411]" roid = "PH" />
+<tree_option option_id = "433" option_desc = "433 Brisas"  parent_id = "P2103" level = "50" sql_value = "433" olap_value = "[organization].[h].&amp;[433]" roid = "PH" />
+<tree_option option_id = "P2104" option_desc = "MONTERREY II"  parent_id = "P2100" level = "40" sql_value = "P2104" olap_value = "[organization].[h].&amp;[P2104]" roid = "PH" />
+<tree_option option_id = "123" option_desc = "123 Cumbres"  parent_id = "P2104" level = "50" sql_value = "123" olap_value = "[organization].[h].&amp;[123]" roid = "PH" />
+<tree_option option_id = "405" option_desc = "405 Lindavista"  parent_id = "P2104" level = "50" sql_value = "405" olap_value = "[organization].[h].&amp;[405]" roid = "PH" />
+<tree_option option_id = "416" option_desc = "416 Felix Galvan Monterre"  parent_id = "P2104" level = "50" sql_value = "416" olap_value = "[organization].[h].&amp;[416]" roid = "PH" />
+<tree_option option_id = "457" option_desc = "457 Lincoln"  parent_id = "P2104" level = "50" sql_value = "457" olap_value = "[organization].[h].&amp;[457]" roid = "PH" />
+<tree_option option_id = "466" option_desc = "466 Solidaridad"  parent_id = "P2104" level = "50" sql_value = "466" olap_value = "[organization].[h].&amp;[466]" roid = "PH" />
+<tree_option option_id = "471" option_desc = "471 Aztlan"  parent_id = "P2104" level = "50" sql_value = "471" olap_value = "[organization].[h].&amp;[471]" roid = "PH" />
+<tree_option option_id = "P2105" option_desc = "MONTERREY I"  parent_id = "P2100" level = "40" sql_value = "P2105" olap_value = "[organization].[h].&amp;[P2105]" roid = "PH" />
+<tree_option option_id = "125" option_desc = "125 Santo Domingo"  parent_id = "P2105" level = "50" sql_value = "125" olap_value = "[organization].[h].&amp;[125]" roid = "PH" />
+<tree_option option_id = "418" option_desc = "418 Saltillo Ateneo"  parent_id = "P2105" level = "50" sql_value = "418" olap_value = "[organization].[h].&amp;[418]" roid = "PH" />
+<tree_option option_id = "434" option_desc = "434 Sendero"  parent_id = "P2105" level = "50" sql_value = "434" olap_value = "[organization].[h].&amp;[434]" roid = "PH" />
+<tree_option option_id = "445" option_desc = "445 Escobedo"  parent_id = "P2105" level = "50" sql_value = "445" olap_value = "[organization].[h].&amp;[445]" roid = "PH" />
+<tree_option option_id = "467" option_desc = "467 Lourdes Saltillo"  parent_id = "P2105" level = "50" sql_value = "467" olap_value = "[organization].[h].&amp;[467]" roid = "PH" />
+<tree_option option_id = "604" option_desc = "604 Anahuac"  parent_id = "P2105" level = "50" sql_value = "604" olap_value = "[organization].[h].&amp;[604]" roid = "PH" />
+<tree_option option_id = "P2107" option_desc = "TAMAULIPAS"  parent_id = "P2100" level = "40" sql_value = "P2107" olap_value = "[organization].[h].&amp;[P2107]" roid = "PH" />
+<tree_option option_id = "133" option_desc = "133 Tampico Hidalgo"  parent_id = "P2107" level = "50" sql_value = "133" olap_value = "[organization].[h].&amp;[133]" roid = "PH" />
+<tree_option option_id = "147" option_desc = "147 Cd. Valles"  parent_id = "P2107" level = "50" sql_value = "147" olap_value = "[organization].[h].&amp;[147]" roid = "PH" />
+<tree_option option_id = "440" option_desc = "440 Cd. Victoria"  parent_id = "P2107" level = "50" sql_value = "440" olap_value = "[organization].[h].&amp;[440]" roid = "PH" />
+<tree_option option_id = "469" option_desc = "469 Tampico Centro"  parent_id = "P2107" level = "50" sql_value = "469" olap_value = "[organization].[h].&amp;[469]" roid = "PH" />
+<tree_option option_id = "470" option_desc = "470 Cd. Madero"  parent_id = "P2107" level = "50" sql_value = "470" olap_value = "[organization].[h].&amp;[470]" roid = "PH" />
+<tree_option option_id = "P3000" option_desc = "PH OCCIDENTE"  parent_id = "PH" level = "20" sql_value = "P3000" olap_value = "[organization].[h].&amp;[P3000]" roid = "PH" />
+<tree_option option_id = "P3100" option_desc = "ZONA OCC"  parent_id = "P3000" level = "30" sql_value = "P3100" olap_value = "[organization].[h].&amp;[P3100]" roid = "PH" />
+<tree_option option_id = "P3101" option_desc = "AREA  1 OCC"  parent_id = "P3100" level = "40" sql_value = "P3101" olap_value = "[organization].[h].&amp;[P3101]" roid = "PH" />
+<tree_option option_id = "121" option_desc = "121 Ruben Dario"  parent_id = "P3101" level = "50" sql_value = "121" olap_value = "[organization].[h].&amp;[121]" roid = "PH" />
+<tree_option option_id = "126" option_desc = "126 Plaza del Sur"  parent_id = "P3101" level = "50" sql_value = "126" olap_value = "[organization].[h].&amp;[126]" roid = "PH" />
+<tree_option option_id = "140" option_desc = "140 Celaya"  parent_id = "P3101" level = "50" sql_value = "140" olap_value = "[organization].[h].&amp;[140]" roid = "PH" />
+<tree_option option_id = "158" option_desc = "158 Salamanca"  parent_id = "P3101" level = "50" sql_value = "158" olap_value = "[organization].[h].&amp;[158]" roid = "PH" />
+<tree_option option_id = "196" option_desc = "196 Rio Nilo"  parent_id = "P3101" level = "50" sql_value = "196" olap_value = "[organization].[h].&amp;[196]" roid = "PH" />
+<tree_option option_id = "P3102" option_desc = "AREA  2 OCC"  parent_id = "P3100" level = "40" sql_value = "P3102" olap_value = "[organization].[h].&amp;[P3102]" roid = "PH" />
+<tree_option option_id = "107" option_desc = "107 Queretaro Corregidora"  parent_id = "P3102" level = "50" sql_value = "107" olap_value = "[organization].[h].&amp;[107]" roid = "PH" />
+<tree_option option_id = "129" option_desc = "129 Aguascalientes Univer"  parent_id = "P3102" level = "50" sql_value = "129" olap_value = "[organization].[h].&amp;[129]" roid = "PH" />
+<tree_option option_id = "138" option_desc = "138 Queretaro Constituyen"  parent_id = "P3102" level = "50" sql_value = "138" olap_value = "[organization].[h].&amp;[138]" roid = "PH" />
+<tree_option option_id = "150" option_desc = "150 Aguascalientes II Jua"  parent_id = "P3102" level = "50" sql_value = "150" olap_value = "[organization].[h].&amp;[150]" roid = "PH" />
+<tree_option option_id = "160" option_desc = "160 Transito"  parent_id = "P3102" level = "50" sql_value = "160" olap_value = "[organization].[h].&amp;[160]" roid = "PH" />
+<tree_option option_id = "197" option_desc = "197 Las Aguilas (Gdj)"  parent_id = "P3102" level = "50" sql_value = "197" olap_value = "[organization].[h].&amp;[197]" roid = "PH" />
+<tree_option option_id = "415" option_desc = "415 Belisario Dominguez G"  parent_id = "P3102" level = "50" sql_value = "415" olap_value = "[organization].[h].&amp;[415]" roid = "PH" />
+<tree_option option_id = "702" option_desc = "702 Plaza Revolucion"  parent_id = "P3102" level = "50" sql_value = "702" olap_value = "[organization].[h].&amp;[702]" roid = "PH" />
+<tree_option option_id = "916" option_desc = "916 Santa Anita"  parent_id = "P3102" level = "50" sql_value = "916" olap_value = "[organization].[h].&amp;[916]" roid = "PH" />
+<tree_option option_id = "P3103" option_desc = "AREA  3 OCC"  parent_id = "P3100" level = "40" sql_value = "P3103" olap_value = "[organization].[h].&amp;[P3103]" roid = "PH" />
+<tree_option option_id = "915" option_desc = "915 Avila Camacho"  parent_id = "P3103" level = "50" sql_value = "915" olap_value = "[organization].[h].&amp;[915]" roid = "PH" />
+<tree_option option_id = "P3104" option_desc = "AREA  4 OCC"  parent_id = "P3100" level = "40" sql_value = "P3104" olap_value = "[organization].[h].&amp;[P3104]" roid = "PH" />
+<tree_option option_id = "120" option_desc = "120 Cordilleras"  parent_id = "P3104" level = "50" sql_value = "120" olap_value = "[organization].[h].&amp;[120]" roid = "PH" />
+<tree_option option_id = "136" option_desc = "136 Leon"  parent_id = "P3104" level = "50" sql_value = "136" olap_value = "[organization].[h].&amp;[136]" roid = "PH" />
+<tree_option option_id = "145" option_desc = "145 Irapuato"  parent_id = "P3104" level = "50" sql_value = "145" olap_value = "[organization].[h].&amp;[145]" roid = "PH" />
+<tree_option option_id = "403" option_desc = "403 8 de Julio"  parent_id = "P3104" level = "50" sql_value = "403" olap_value = "[organization].[h].&amp;[403]" roid = "PH" />
+<tree_option option_id = "701" option_desc = "701 Plaza del Sol"  parent_id = "P3104" level = "50" sql_value = "701" olap_value = "[organization].[h].&amp;[701]" roid = "PH" />
+<tree_option option_id = "705" option_desc = "705 Puerto Vallarta"  parent_id = "P3104" level = "50" sql_value = "705" olap_value = "[organization].[h].&amp;[705]" roid = "PH" />
+<tree_option option_id = "708" option_desc = "708 Circunvalacion"  parent_id = "P3104" level = "50" sql_value = "708" olap_value = "[organization].[h].&amp;[708]" roid = "PH" />
+<tree_option option_id = "P3105" option_desc = "AREA 5 OCC"  parent_id = "P3100" level = "40" sql_value = "P3105" olap_value = "[organization].[h].&amp;[P3105]" roid = "PH" />
+<tree_option option_id = "135" option_desc = "135 Autonoma / Guadalajar"  parent_id = "P3105" level = "50" sql_value = "135" olap_value = "[organization].[h].&amp;[135]" roid = "PH" />
+<tree_option option_id = "153" option_desc = "153 Cd. Guzman"  parent_id = "P3105" level = "50" sql_value = "153" olap_value = "[organization].[h].&amp;[153]" roid = "PH" />
+<tree_option option_id = "154" option_desc = "154 Morelia Michoacan"  parent_id = "P3105" level = "50" sql_value = "154" olap_value = "[organization].[h].&amp;[154]" roid = "PH" />
+<tree_option option_id = "159" option_desc = "159 Zamora"  parent_id = "P3105" level = "50" sql_value = "159" olap_value = "[organization].[h].&amp;[159]" roid = "PH" />
+<tree_option option_id = "420" option_desc = "420 Chapultepec"  parent_id = "P3105" level = "50" sql_value = "420" olap_value = "[organization].[h].&amp;[420]" roid = "PH" />
+<tree_option option_id = "423" option_desc = "423 San Pedro"  parent_id = "P3105" level = "50" sql_value = "423" olap_value = "[organization].[h].&amp;[423]" roid = "PH" />
+<tree_option option_id = "P3106" option_desc = "AREA 6 OCC"  parent_id = "P3100" level = "40" sql_value = "P3106" olap_value = "[organization].[h].&amp;[P3106]" roid = "PH" />
+<tree_option option_id = "P6000" option_desc = "PH CAPACITACION"  parent_id = "PH" level = "20" sql_value = "P6000" olap_value = "[organization].[h].&amp;[P6000]" roid = "PH" />
+<tree_option option_id = "P5100" option_desc = "PH APERTURAS"  parent_id = "P6000" level = "30" sql_value = "P5100" olap_value = "[organization].[h].&amp;[P5100]" roid = "PH" />
+<tree_option option_id = "P6100" option_desc = "PH CAPACITACION"  parent_id = "P6000" level = "30" sql_value = "P6100" olap_value = "[organization].[h].&amp;[P6100]" roid = "PH" />
+<tree_option option_id = "P5101" option_desc = "PH APERTURAS"  parent_id = "P6100" level = "40" sql_value = "P5101" olap_value = "[organization].[h].&amp;[P5101]" roid = "PH" />
+<tree_option option_id = "181" option_desc = "181 PH AEROPUERTO"  parent_id = "P5101" level = "50" sql_value = "181" olap_value = "[organization].[h].&amp;[181]" roid = "PH" />
+<tree_option option_id = "402" option_desc = "402 PH ACUEDUCTO"  parent_id = "P5101" level = "50" sql_value = "402" olap_value = "[organization].[h].&amp;[402]" roid = "PH" />
+<tree_option option_id = "406" option_desc = "406 PH HOLLYWOOD"  parent_id = "P5101" level = "50" sql_value = "406" olap_value = "[organization].[h].&amp;[406]" roid = "PH" />
+<tree_option option_id = "424" option_desc = "424 PH MULTIPLAZA IZCALLI"  parent_id = "P5101" level = "50" sql_value = "424" olap_value = "[organization].[h].&amp;[424]" roid = "PH" />
+<tree_option option_id = "435" option_desc = "435 PH ATIZAPAN"  parent_id = "P5101" level = "50" sql_value = "435" olap_value = "[organization].[h].&amp;[435]" roid = "PH" />
+<tree_option option_id = "P6101" option_desc = "PH CAPACITACION"  parent_id = "P6100" level = "40" sql_value = "P6101" olap_value = "[organization].[h].&amp;[P6101]" roid = "PH" />
+<tree_option option_id = "891" option_desc = "891 PH Entrenamiento Cent"  parent_id = "P6101" level = "50" sql_value = "891" olap_value = "[organization].[h].&amp;[891]" roid = "PH" />
+<tree_option option_id = "892" option_desc = "892 PH Entrenamiento Mont"  parent_id = "P6101" level = "50" sql_value = "892" olap_value = "[organization].[h].&amp;[892]" roid = "PH" />
+<tree_option option_id = "893" option_desc = "893 PH Entrenamiento Guad"  parent_id = "P6101" level = "50" sql_value = "893" olap_value = "[organization].[h].&amp;[893]" roid = "PH" />
+<tree_option option_id = "P1105" option_desc = "FOOD COURTS"  parent_id = "P7100" level = "40" sql_value = "P1105" olap_value = "[organization].[h].&amp;[P1105]" roid = "PH" />
+<tree_option option_id = "P1107" option_desc = "DELCOS V"  parent_id = "P7100" level = "40" sql_value = "P1107" olap_value = "[organization].[h].&amp;[P1107]" roid = "PH" />
+<tree_option option_id = "P9000" option_desc = "PH Region Dummy"  parent_id = "PH" level = "20" sql_value = "P9000" olap_value = "[organization].[h].&amp;[P9000]" roid = "PH" />
+<tree_option option_id = "P9100" option_desc = "PH Zona Dummy"  parent_id = "P9000" level = "30" sql_value = "P9100" olap_value = "[organization].[h].&amp;[P9100]" roid = "PH" />
+<tree_option option_id = "P9101" option_desc = "PH Area Dummy"  parent_id = "P9100" level = "40" sql_value = "P9101" olap_value = "[organization].[h].&amp;[P9101]" roid = "PH" />
+<tree_option option_id = "998" option_desc = "998 PH Store Dummy"  parent_id = "P9101" level = "50" sql_value = "998" olap_value = "[organization].[h].&amp;[998]" roid = "PH" />
+<tree_option option_id = "TB" option_desc = "TACO BELL"  parent_id = "0" level = "10" sql_value = "TB" olap_value = "[organization].[h].&amp;[TB]" roid = "TB" />
+<tree_option option_id = "T2000" option_desc = "TB NORTE"  parent_id = "TB" level = "20" sql_value = "T2000" olap_value = "[organization].[h].&amp;[T2000]" roid = "TB" />
+<tree_option option_id = "T2100" option_desc = "ZONA NORTE"  parent_id = "T2000" level = "30" sql_value = "T2100" olap_value = "[organization].[h].&amp;[T2100]" roid = "TB" />
+<tree_option option_id = "T2101" option_desc = "AREA 1"  parent_id = "T2100" level = "40" sql_value = "T2101" olap_value = "[organization].[h].&amp;[T2101]" roid = "TB" />
+<tree_option option_id = "905" option_desc = "905 TB Sendero MTY"  parent_id = "T2101" level = "50" sql_value = "905" olap_value = "[organization].[h].&amp;[905]" roid = "TB" />
+<tree_option option_id = "907" option_desc = "907 TB Lincoln"  parent_id = "T2101" level = "50" sql_value = "907" olap_value = "[organization].[h].&amp;[907]" roid = "TB" />
+</tree_options>
+</tree_struct>

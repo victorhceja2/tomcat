@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<options_definition width = "440" height="550" title = "Opciones">
+    <option_group title = "Organización" left = "70%" right = "*">
+        <option name = "tree_organization"  type="tree"  friendly_name = "Arbol de organización" file_url = "resources/xml/organization.data.xml" search_controls = "true" align = "left"  defaults = "_app_user_data.org_levels_granted" />
+        <option name = "chk_org_detail"  type="checkbox"  friendly_name = "Nivel de detalle de organización" align = "right" check_with_tree  = "tree_organization">
+            <checks>
+                <check id = "10" value = "[organization].[h].[company]">Marca</check>
+                <check id = "20" value = "[organization].[h].[region]">Region</check>
+                <check id = "30" value = "[organization].[h].[zone]">Zona</check>
+                <check id = "40" value = "[organization].[h].[area]">Area</check>
+                <check id = "50" value = "[organization].[h].[store]">Restaurante</check>
+            </checks>
+        </option>
+        <option name = "cmb_org_status"  type="combobox" friendly_name = "Status de organizaci&amp;oacute;n" width = "70" align = "right">
+            <maps>
+                <map id = "[status_store].[h].[All]">TODOS</map>
+                <map id = "[status_store].[h].[SAME STORE]">SAME STORE</map>
+                <map id = "[status_store].[h].[NOT SAME STORE]">NOT SAME STORE</map>
+            </maps>
+        </option>
+    </option_group>
+    <option_group title = "Tiempo PRB" left = "70%" right = "*">
+        <option name = "tree_time"  height = "170px" friendly_name = "Arbol de tiempo" type="tree" file_url = "resources/xml/time_week.data.xml" search_controls = "true" align = "left" extraAttributes = "hierarchy" hierarchy = "[time_prb].[h]" auto_fit_headers = "false"/>
+        <option name = "cmb_time"   friendly_name = "Nivel de tiempo" title = "periodo" type="combobox" width = "80" align = "right" select_with_tree = "tree_time" />
+        <option name = "cmb_from"   friendly_name = "Mes del" title = "del" type="combobox" width = "95" align = "right"  />
+        <option name = "cmb_to"   friendly_name = "Mes al" title = "al" type="combobox" width = "95" align = "right"   parent = "cmb_time" twin = "cmb_from"  fill_with_tree = "tree_time" tree_propertie = "olap_value" extraAttributes = "hierarchy" hierarchy = "[time_prb].[h]" />
+        <option name = "chk_only_totals"  friendly_name = "Solo totales" type="checkbox" align = "right" required = "false">
+            <checks>
+                <check id = "1" value = "[time_prb].[h].[TOTAL]">Solo Totales</check>
+            </checks>
+        </option>
+        <option name = "cmb_org_destiny"  type="combobox" friendly_name = "Destino" width = "90" align = "right">
+            <maps>
+                <map id = "[occasion].[h].[All]">Todos destinos</map>
+                <map id = "[occasion].[h].&amp;[10]">Dine In</map>
+                <map id = "[occasion].[h].&amp;[20]">Carry Out</map>
+                <map id = "[sub_occasion].[h].&amp;[22]">Carry Out - Restaurante</map>
+                <map id = "[sub_occasion].[h].&amp;[21]">Pick Up</map>
+                <map id = "[occasion].[h].&amp;[30]">Windows</map>
+                <map id = "[occasion].[h].&amp;[50]">Delivery Total</map>
+                <map id = "[sub_occasion].[h].&amp;[51]">Delivery - Contact</map>
+                <map id = "[sub_occasion].[h].&amp;[52]">Delivery - Online</map>
+                <map id = "[sub_occasion].[h].&amp;[53]">Delivery - Restaurante</map>
+            </maps>
+        </option>
+    </option_group>
+    <option_group title = "Tiempo Mes" left = "0%" right = "*" right_is_vertical = "false" >
+        <option name = "tree_time_month"  friendly_name = "Arbol de tiempo Mes" type="tree" file_url = "resources/xml/time_m.data.xml" search_controls = "true" align = "left"/>
+        <option name = "cmb_time_month"   friendly_name = "Nivel de tiempo" title = "Mes" type="combobox" width = "80" align = "right" select_with_tree = "tree_time_month" />
+        <option name = "cmb_from_month"   friendly_name = "Mes del" title = "del" type="combobox" width = "95" align = "right"  />
+        <option name = "cmb_to_month"   friendly_name = "Mes al" title = "al" type="combobox" width = "95" align = "right"   parent = "cmb_time_month" twin = "cmb_from_month"  fill_with_tree = "tree_time_month" tree_propertie = "olap_value"  extraAttributes = "hierarchy" hierarchy = "[time_prb].[m]" />
+        <option name = "chk_only_totals_m"  friendly_name = "Solo totales" type="checkbox" align = "right" required = "false">
+            <checks>
+                <check id = "1" value = "[time_prb].[m].[TOTAL]">Solo Totales</check>
+            </checks>
+        </option>
+    </option_group>
+    
+</options_definition>

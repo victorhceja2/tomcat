@@ -1,0 +1,352 @@
+a.onsite:link {color: #000099; background: transparent; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px;}
+a.internal {color: green; background: white; }
+a:hover {color: #000099; background: transparent; }
+a.onsite:visited {color: #000099; background: transparent; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px;}
+
+A.TinyIconMenuLink {
+    display: block;
+    width: 15px;
+    text-align: center;
+    text-decoration: none;
+    color:white; 
+    background-color:gainsboro;
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 10pt;
+    font-weight:bold;
+    BORDER: none;
+    border: solid 1px #126DBC;
+}
+
+A.TinyIconMenuLink:hover {
+    color:white;
+    background-color:white;
+    BORDER: none;
+    border: solid 1px #126DBC;
+} 
+
+A.TinyMenuLink {
+    display: block;
+    width: 90px;
+    text-align: center;
+    text-decoration: none;
+    color:white; 
+    background-color:#06107B;
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 7pt;
+    font-weight:bold;
+    BORDER: none;
+    border: solid 1px #126DBC;
+}
+
+A.TinyMenuLink:hover {
+    color:white;
+    background-color:#1B95E6;
+    BORDER: none;
+    border: solid 1px #126DBC;
+} 
+
+A.SmallMenuLink {
+    display: block;
+    width: 195px;
+    text-align: left;
+    text-decoration: none;
+    color:white; 
+    background-color:#06107B;
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 8pt;
+    font-weight:bold;
+    BORDER: none;
+    border: solid 1px #126DBC;
+}
+
+A.SmallMenuLink:hover {
+    color:white;
+    background-color:#1B95E6;
+    BORDER: none;
+    border: solid 1px #126DBC;
+} 
+
+A.MediumMenuLink {
+    display: block;
+    width: 250px;
+    text-align: left;
+    text-decoration: none;
+    color:white; 
+    background-color:#06107B;
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 8pt;
+    font-weight:bold;
+    BORDER: none;
+    border: solid 1px #FFFFFF;
+}
+
+A.MediumMenuLink:hover {
+    color:white;
+    background-color:#1B95E6;
+    border: solid 1px #6100C1;
+}
+
+
+A.LargeMenuLink {
+    display: block;
+    width: 400px;
+    text-align: center;
+    text-decoration: none;
+    color:white; 
+    background-color:#06107B;
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 8pt;
+    font-weight:bold;
+    BORDER: none;
+    border: solid 1px #FFFFFF;
+}
+
+A.LargeMenuLink:hover {
+    color:white;
+    background-color:#1B95E6;
+    border: solid 1px #6100C1;
+}
+
+.subheadA {color:#003366; font:bold 14pt verdana}
+.subheadB {color:#1C3D79; font:bold 12px verdana}
+.subheadC {color:#1C3D79; font:bold 10px verdana}
+.subheadBPrn {color:#1C3D79; font:bold 8px verdana}
+.description {color:#000099; font:italic 8pt verdana}
+.body {color:black; font:10pt verdana;} 
+.footer {color:#000000; font:bold 9pt verdana}
+.navlink {color:white; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-size: 10pt}
+.littleOptions {color:white; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-weight: normal; font-size: 8pt}
+.options {color:white; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-weight: bold; font-size: 10pt}
+.titleOptions {color:white; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-weight: bold; font-size: 13pt}
+.entryOptions {color:white; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-weight: bold; font-size: 12pt}
+.bodyWhite {color:white; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-weight: bold; font-size: 10pt}
+.bodylink {color:#0000FF; font:normal 10pt verdana}
+.emailaddress {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; color: #000099}
+
+.datagrid-leyend { color:navy; font-family: Arial, Helvetica, Verdana; font-style:normal; font-size: 12px }
+.maintitle { color:red; font-family: Verdana; font-style:normal; font-weight: bold; font-size: 18pt }
+.mainsubtitle { color:red; font-family: Verdana; font-style:normal; font-weight: bold; font-size: 11pt }
+.mainsubtitlePrn { color:red; font-family: Verdana; font-style:normal; font-weight: bold; font-size: 9pt }
+.Seleccion {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small; font-style: normal; font-weight: bold; font-variant: small-caps; color: #FF0000}
+ 
+.SubSeleccion {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: xx-small; font-weight: bold; font-variant: small-caps; color: #FF0000}
+.descriptionTabla { color:#000099; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px }
+.ctrlDisabled { color:gray; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px }
+.tdBgColor { background-color:#E6E6FA; }
+.descriptionTablaPrn { color:#000099; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 6px }
+.descTablaHeader { color:#FF0000; font:bold 8pt verdana }
+.mainsubtitleReports { color:#FF0000; font: bolder small-caps normal 16px verdana; font-weight:bold ; text-decoration: underline}
+.Combos {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px}
+.fontPrint {font-family: Verdana, Arial, Helvetica, sans-serif}
+
+
+table.rotulo {background: rgb(255,0,0)}
+
+.head {
+	font-family: arial;
+	font-size: 12px;
+	font-weight: normal;
+}
+.text {
+	font-family: arial;
+	font-size: 12px;
+	font-weight: normal;
+	padding: 2px;
+}
+#popupcalendar {
+	width: 185px;
+	height:130px;
+	left: 0px;
+	top: 0px;
+	background-color: white;
+	position: absolute;
+	visibility: hidden;
+}
+a.cal-DayLink {
+    font-family: Verdana,  Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: normal;
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
+}
+a.cal-DayLink:hover {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: transparent;
+    color: Blue;
+}
+a.cal-DayLink:active {
+   font-family: Verdana,  Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: normal;
+    text-decoration: none;
+    background-color: transparent;
+    color: #0066FF;
+}
+.cal-TextBox{
+    color: Black;
+    font-family: Verdana,  Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: normal;
+    background-color: #FFFFCC;
+}
+a.cal-TodayLink {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: bold;
+    text-decoration: none;
+    color: red;
+    background-color: transparent;
+}
+a.cal-TodayLink:hover {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: transparent;
+    color: Blue;
+}
+a.cal-TodayLink:active {
+    font-family: Verdana,  Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: transparent;
+    color: #0066FF;
+}
+.cal-GreyDate {
+    font-family: Verdana,  Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: normal;
+    text-decoration: none;
+	background-color: #FFFFCC;
+    color: #999999;
+}
+.cal-GreyInvalidDate {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: normal;
+    text-decoration: line-through;
+	background-color: #FFFFCC;
+    color: #999999;
+}
+.cal-DayCell {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: normal;
+	background-color:White; /*#FFFFCC;*/
+}
+.cal-HeadCell {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 8pt;
+    font-weight: bold;
+	background-color: #99CCCC;/* #CCCC99; */
+}
+.cal-Table{
+	border-top-color: #99CCCC;
+	border-left-color: #99CCCC;
+	border-right-color: #99CCCC;
+	border-bottom-color:  #99CCCC;
+	background-color:black;
+}
+
+  TD.solid-blue  { border: 2px dashed blue;}
+  TD.solid-green { background: yellow; border: 2px solid green;}
+  TD.Con-Borde   { background: white; border: 1px solid gray;}
+  TD.Linea       { background: gray; }
+  TD.Sombreado	 { background: gray; }
+
+
+
+.BodyColor{ background-color: #FFFFFF; }
+.TableMainInnerColor{  background-color: #FFFFFF;  } 
+.FrameColor{ background-color: #ffffff;   }
+.FrameColor2{ background-color: #ffffff;   }
+.FrameColor3{ background-color: #ffffff;   }
+.PlecasColor{ background-color: #DD6272;  }
+.PlecasColor2{ background-color: #E5E5DF;  }
+.TitleTableColor{ background-color: #66ccff;  }
+ 
+.SearchFrameColor { background-color: #8C70FE; }
+.TextBodyDesc{ 	font-family: arial;
+                font-size: 12px;
+                font-weight: normal;
+                color: #000080;
+                text-decoration: none;
+                background-color: transparent;  }
+.TextBodySmallDesc{ 	font-family: arial;
+                font-size: 10px;
+                font-weight: normal;
+                color: #000080;
+                text-decoration: none;
+                background-color: transparent;  }
+
+.TextBodySmallwhite{ 	font-family: arial;
+                font-size: 10px;
+                font-weight: normal;
+                color: #ffffff;
+                text-decoration: none;
+                background-color: transparent;  }
+
+.TextBodyTitle{ font-family: arial;
+                font-size: 12px;
+                font-weight: bold;
+                color: white; 
+                background-color: transparent; 
+ }
+.TextTitlePlecas{ font-family: arial;
+                font-size: 12px;
+                font-weight: bold;
+                color: #FFFFFF;  
+                background-color: transparent; 
+}
+
+.Link {
+               font-family: arial;
+                font-size: 12px;
+                font-weight: bold;
+                color: white; 
+                background-color: transparent; 
+}
+.Link:hover {
+                font-family: arial;
+                font-size: 12px;
+                font-weight: bold;
+                color: #000080; 
+                background-color: transparent; 
+}
+
+.detail-desc
+{
+	background-color: #E6E6FA;
+    color: #000099;
+	font-size:   11px;
+    font-weight: bold;
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    padding-left: 10px;
+}
+.detail-cont
+{
+	background-color: #EFEFEF;
+	font-size:   12px;
+    color: #000099;
+    font-family: Verdana, Arial, Helvetica, sans-serif; 
+    padding-left: 5px;
+	filter:alpha(opacity=85);  
+	opacity:.85;
+}
+
+.detail-aqua
+{
+	background-image: url(/Images/Generals/marcanemo.gif); 
+	background-repeat: repeat-y;
+	background-position: center;
+}
+div.print{
+	display:block;
+}
+
+

@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  </head>
+  <body  onLoad="javascript:executeAppletCommand();">
+      <script>
+          function exec() {
+                var lsURL = window.location.search.substr(1);
+                var applet = '';
+                applet+='<applet id ="aplOpenCallRecord"  codebase = "/smartE3/development/apps/finance/it/ccot/applets/records" name = "aplOpenCallRecord" code="OpenCallRecord.class" archive="OpenCallRecord.jar" width="270" height="160">';
+                applet+='   <param name="psFilePath" value="C:\\Program Files\\Windows Media Player\\wmplayer.exe">';
+                applet+='   <param name="psFileURL" value="' + lsURL + '">'
+                applet+='</applet>';
+
+                //alert(applet);
+
+                var body = document.getElementsByTagName("body")[0];
+                var div = document.createElement("div");
+                div.innerHTML = applet;
+                body.appendChild(div);
+
+                //setTimeout("alert(window.parent._e3_ccot_new_call_data_)",5000);
+            }
+
+            function executeAppletCommand() {
+                exec();
+            }
+    </script>
+  </body>
+</html>

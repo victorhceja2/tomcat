@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <body>
+       <button id="load-more" style="margin: 150px;" class="btn btn-color-2">  Cargar más </button>
+
+       <script>
+           $('#load-more').click(function () {
+               $.get('http://192.168.110.113:8084/smartE3/MobileDataService?psService=getQueryJSONArea6&psParam=1', function (data) {
+                   console.log(data);
+                   alert(data.json_result);
+               })
+           });
+       </script>
+       <!--script type="text/javascript">
+           $('#load-more').click(function () {
+               /*
+               $(document).ready(function () {
+     
+        $.ajax({
+                
+                       url: 'https://account-d.docusign.com/oauth/userinfo',
+                       type: 'GET',
+                       headers:{'Access-Control-Allow-Origin:*','Authorization: Bearer eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQoAAAABAAUABwAAxXMqwjbXSAgAAAWXOAU310gCAJuEHBSF8IdHhd1Ijfd8w3gVAAEAAAAYAAkAAAAFAAAAKwAAAC0AAAAvAAAAMQAAADIAAAA4AAAAMwAAADUAAAANACQAAABmMGYyN2YwZS04NTdkLTRhNzEtYTRkYS0zMmNlY2FlM2E5NzgSAAEAAAALAAAAaW50ZXJhY3RpdmUwAACYQinCNtdINwBmMDIDswb5QahL_TOxs9ka.srFUYa8ylGuvh33QsdWB1VYehI5UqvKeoBnuLCicitvN2-AZXG9r6kAGGTtZI6RBMEcquUq8v7do5F_RLQrb-Qc8_SiupkCoMBcAnVuTjzL23ljkp2Tu9GpuwkvkAvs7ee3JCZt21fCaj16gvusSO2AGPVKR7cLF7WJQFvFxKvV7Ei1QwB0DbrNWdImAlSRsVL9XGwZ6VG63hi4ugwB9jblWaT5DCW8sbeBT24z22Tre2a2NxMNLfAfTgxOx0NXFhMw1Rlc0xHe5rNWi5dldaCSLEpnIxev4HZN4bNmsITMIsevHavTcCWm3_NUKtJ_uIjALsoxdUZ5YMk7_zE4_pA'}    
+                       success: function (data) {
+                           console.log(data);
+
+                       },
+                       error: function () {
+                           alert('boo!');
+                       }
+                   });
+                   
+               });
+               */
+              var pfAmout = parseFloat("1208.70");
+              var pfRestrictedAmount = parseFloat("71.10");
+              if(pfAmount%pfRestrictedAmount != 0){
+                if(Math.abs((pfAmount%pfRestrictedAmount)-pfRestrictedAmount) < 0.1){
+                    alert("true");
+                }
+                else {
+                    alert("false");
+                }
+            }
+            else 
+                alert("true");
+           });
+       </script-->
+
+   </body>
+</html>

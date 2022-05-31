@@ -1,0 +1,85 @@
+/* 
+    Document   : OperationDashboard
+    Created on : 10/09/2014, 04:13:40 PM
+    Author     : DAB1379
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.trLigthHeader{
+    color:gray;
+    font-family: Tahoma;
+    font-weight: bold;
+}
+.trLigthFooter{
+    color:gray;
+    font-family: Tahoma;
+    font-weight: bold;
+    background-color: #F8ECE0;
+}
+.trLigthFooter_green{
+    color:greenyellow;
+    font-family: Tahoma;
+    font-weight: bold;
+    background-color: #F8ECE0;
+}
+.trLigthFooter_yellow{
+    color:yellow;
+    font-family: Tahoma;
+    font-weight: bold;
+    background-color: #F8ECE0;
+}
+.trLigthFooter_red{
+    color:red;
+    font-family: Tahoma;
+    font-weight: bold;
+    background-color: #F8ECE0;
+}
+.speedHeader{
+    color:gray;
+    font-family: Tahoma;
+    font-weight: bold;
+}
+.speedFooter{
+    color:gray;
+    font-family: Tahoma;
+    font-weight: bold;
+    background-color: #F8ECE0;
+}
+.barHeader{
+    color:gray;
+    font-family: Tahoma;
+    font-weight: bold;
+}
+.barValues{
+    color:gray;
+    font-family: Tahoma;
+    font-weight: bold;
+    background-color: white;
+}
+.barFooter{
+    color:gray;
+    font-family: Tahoma;
+    font-weight: bold;
+    background-color: #F8ECE0;
+}
+ .gradient{
+    background: white; /* Old browsers */
+    background: -moz-linear-gradient(top, white 0%,  #E6E6E6 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white),  color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #1e5799 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, white 0%,#E6E6E6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, white 0%,#E6E6E6 100%); /* IE10+ */
+    background: linear-gradient(to bottom, white 0%,#E6E6E6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E6E6E6', endColorstr='white',GradientType=0 ); /* IE6-9 */
+    color:navy;
+    font-weight: bold;
+    font-size:25px;
+    font-family: Tahoma; 
+    text-align: center;
+    border-radius: 10px;
+                  }

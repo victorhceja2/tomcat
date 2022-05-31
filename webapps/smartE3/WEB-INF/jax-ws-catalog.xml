@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://192.168.110.36:8084/smartE3/UploadData?wsdl" uri="wsdl/192.168.110.36_8084/smartE3/UploadData.wsdl"/>
+    <system systemId="http://192.168.110.36:8084/smartE3/UploadData?xsd=1" uri="wsdl/192.168.110.36_8084/smartE3/UploadData.xsd_1.xsd"/>
+    <system systemId="http://intranet.v3.prb.net:8084/smartE3/UploadData?wsdl" uri="wsdl/intranet.v3.prb.net_8084/smartE3/UploadData.wsdl"/>
+    <system systemId="http://intranet.v3.prb.net:8084/smartE3/UploadData?xsd=1" uri="wsdl/intranet.v3.prb.net_8084/smartE3/UploadData.xsd_1.xsd"/>
+    <system systemId="http://mexapp39:3000/eInvoice/InvoiceRequest?wsdl" uri="wsdl/mexapp39_3000/eInvoice/InvoiceRequest.wsdl"/>
+    <system systemId="http://mexapp39:3000/eInvoice/InvoiceRequest?xsd=1" uri="wsdl/mexapp39_3000/eInvoice/InvoiceRequest.xsd_1.xsd"/>
+    <system systemId="http://192.168.110.48:8084/eInvoice/InvoiceRequest?wsdl" uri="wsdl/192.168.110.48_8084/eInvoice/InvoiceRequest.wsdl"/>
+    <system systemId="http://192.168.110.48:8084/eInvoice/InvoiceRequest?xsd=1" uri="wsdl/192.168.110.48_8084/eInvoice/InvoiceRequest.xsd_1.xsd"/>
+</catalog>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <title>CCOT GM</title>
+        <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/smartE3/resources/css/showcase.css">
+        <link rel="stylesheet" href="/smartE3/resources/css/generals.css">
+
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?client=gme-serviciosadministrativos&sensor=false&libraries=places"></script>
+        <script type="text/javascript">
+            var goMap;
+            var goGeocoder;
+            var goInfowindow;
+            var goMarker;
+            var goInitLoacation;
+            var gaPolygons = new Array();
+            var gaOOBMarkers = new Array();
+
+            var gaMapData = window.parent._e3_ccot_gaMapData;
+            var goCFCInterval = null;
+            var gaLastGMAddressData = null;
+
+            window.parent._e3_ccot_gbSearchAddrFromGoogleFlag = false;
+            window.parent._e3_ccot_gbSaveOutOfBoundsPointFlag = false;
+            window.parent._e3_ccot_gaLastLatLngPosition = new Array(0.0,0.0);
+            window.parent._e3_ccot_gsLastStoreIdFromPosition = "-1";
+
+            if (!google.maps.Polygon.prototype.getBounds) {
+                google.maps.Polygon.prototype.getBounds = function(latLng) {
+                    var loBounds = new google.maps.LatLngBounds();
+                    var loAllPaths = this.getPaths();
+
+                    for (var p = 0; p < loAllPaths.getLength(); p++) {
+                        var loPath = loAllPaths.getAt(p);
+                        for (var i = 0; i < loPath.getLength(); i++) {
+                            loBounds.extend(loPath.getAt(i));
+                        }
+                    }
+
+                    return loBounds;
+                }
+            }
+
+            google.maps.Polygon.prototype.containsLatLng = function(poLatLng) {
+                var loBounds = this.getBounds();
+                if(!loBounds.contains(poLatLng)) {
+                    return false;
+                }
+
+                var ldLat = poLatLng.lat();
+                var ldLng = poLatLng.lng();
+                var lbInPoly = false;
+
+                for(var liPI = 0; liPI < this.getPaths().getLength(); liPI++) {
+                    var loPath = this.getPaths().getAt(liPI);
+                    var liNumPoints = loPath.getLength();
+                    var liJI = liNumPoints-1;
+
+                    for(var liII=0; liII < liNumPoints; liII++) {
+                        var loVertex1 = loPath.getAt(liII);
+                        var loVertex2 = loPath.getAt(liJI);
+
+                        if (loVertex1.lng() < ldLng && loVertex2.lng() >= ldLng || loVertex2.lng() < ldLng && loVertex1.lng() >= ldLng) {
+                            if (loVertex1.lat() + (ldLng - loVertex1.lng()) / (loVertex2.lng() - loVertex1.lng()) * (loVertex2.lat() - loVertex1.lat()) < ldLat) {
+                                lbInPoly = !lbInPoly;
+                            }
+                        }
+
+                        liJI = liII;
+                    }
+                }
+
+                return lbInPoly;
+            }
+
+            function initPage() {
+                goInitLocation = new google.maps.LatLng(19.432608,-99.133208);
+                goMap = new google.maps.Map(document.getElementById("divMapCanvas"), {zoom: 15, center: goInitLocation, mapTypeId: google.maps.MapTypeId.ROADMAP});
+                google.maps.event.addListener(goMap, 'click', function(event) {
+                    geoCodeLatLng(event.latLng);
+                });
+
+                goGeocoder = new google.maps.Geocoder();
+                goInfoWindow = new google.maps.InfoWindow({content: ""});
+
+                for (var li = 0; li < gaMapData.length; li++) {
+                    gaPolygons[li] = new google.maps.Polygon({
+                        path: getPolyCordsFromString(gaMapData[li][5]," "),
+                        strokeColor: gaMapData[li][6],
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2,
+                        map: goMap
+                    });
+
+                    if (!(gaMapData[li][3]*1==0 && gaMapData[li][4]*1==0)) {
+                        createBrandMarker(gaMapData[li][2], "<b>" + gaMapData[li][1] + "</b>", new google.maps.LatLng(gaMapData[li][3]*1, gaMapData[li][4]*1));
+                    }
+
+                    google.maps.event.addListener(gaPolygons[li], 'click', function(poEvent) {
+                        geoCodeLatLng(poEvent.latLng);
+                    });
+                }
+
+                window.parent._e3_ccot_centerMap();
+            }
+
+            window.parent._e3_ccot_centerMap = function() {
+                if (goMarker) goMarker.setMap(null);
+
+                goMarker = new google.maps.Marker({
+                    position: goInitLocation,
+                    map: goMap
+                 });
+
+                 goMap.panTo(goInitLocation);
+            }
+
+            window.parent._e3_ccot_searchAddress = function() {
+                    populateSearchFields();
+                    geoCodeAddress();
+            }
+
+            window.parent._e3_ccot_showOutOfBoundsCalls = function(psOOBCalls,psOOBCount) {
+                var laOOBCalls = psOOBCalls.split("|");
+                var laOOBCount = psOOBCount.split("|");
+                var laCenterPosition = laOOBCalls[0].split(",");
+                var li = 1;
+
+               
+                goMap.panTo(new google.maps.LatLng(laCenterPosition[0]*1,laCenterPosition[1]*1));
+
+                for (li = 0; li < gaOOBMarkers.length; li++) {
+                    gaOOBMarkers[li].setMap(null);
+                }
+
+                for (li = 1; li < laOOBCalls.length; li++) {
+                    var lsImageString = "";
+
+                    laOOBCount[li]=laOOBCount[li]*1;
+                    if (laOOBCount[li]>=1 && laOOBCount[li]<=2) {
+                        lsImageString = "oob_green_pin.png";
+                    } else if (laOOBCount[li]>=3 && laOOBCount[li]<=5) {
+                        lsImageString = "oob_blue_pin.png";
+                    } else {
+                        lsImageString = "oob_red_pin.png";
+                    }
+
+                    //lsImageString = (laOOBCount[li]>=1 && laOOBCount[li]<=5)?"oob_green_pin.png":"";
+                    //lsImageString =(laOOBCount[li]>=6 && laOOBCount[li]<=10)?"oob_blue_pin.png":"";
+                    //lsImageString =(laOOBCount[li]>10)?"oob_red_pin.png":"";
+
+                    var laOOBPosition = laOOBCalls[li].split(",");
+                    var loPosition = new google.maps.LatLng(laOOBPosition[0]*1,laOOBPosition[1]*1);
+
+                    gaOOBMarkers[li-1] = new google.maps.Marker({position: loPosition, map: goMap, icon: new google.maps.MarkerImage(lsImageString)});
+                }
+            }
+
+            function populateSearchFields() {
+                //alert(window.parent._e3_ccot_gsStreet);
+                document.frmMaster.txtCountry.value = window.parent._e3_ccot_gsCountry;
+                document.frmMaster.txtState.value = window.parent._e3_ccot_gsState;
+                document.frmMaster.txtCity.value = window.parent._e3_ccot_gsCity;
+                document.frmMaster.txtLocation.value = window.parent._e3_ccot_gsLocation;
+                document.frmMaster.txtStreet.value = window.parent._e3_ccot_gsStreet;
+                document.frmMaster.txtNumber.value = window.parent._e3_ccot_gsNumber;
+            }
+
+            function createBrandMarker(psImage, psContent, poLatLng) {
+                var loImage = new google.maps.MarkerImage(psImage,new google.maps.Size(37, 45), new google.maps.Point(0,0), new google.maps.Point(18, 45));
+                var loMarker = new google.maps.Marker({position: poLatLng, map: goMap, icon: loImage});
+
+                google.maps.event.addListener(loMarker, "click", function() {
+                    if (goInfoWindow) goInfoWindow.close();
+                    goInfoWindow.setContent(psContent);
+                    goInfoWindow.open(goMap, loMarker);
+                });
+
+                return loMarker;
+            }
+
+            function getPolyCordsFromString(psCords, psSeparator) {
+                var lsCordinates = psCords;
+                var laCordinates = lsCordinates.split(psSeparator);
+                var laPolyCords = new Array(laCordinates.length);
+
+                for (var li=0; li < laCordinates.length; li++) {
+                    var ldLat = laCordinates[li].split(",")[1]*1.00;
+                    var ldLng = laCordinates[li].split(",")[0]*1.00;
+                    laPolyCords[li] = new google.maps.LatLng(ldLat, ldLng);
+                }
+
+                return laPolyCords;
+            }
+
+            function getLatLngInsidePolygon(poLocation) {
+                var liPolyIdx = -1;
+
+                for (var li = 0; li < gaPolygons.length; li++) {
+                    if (gaPolygons[li].containsLatLng(poLocation)) {
+                        liPolyIdx = li;
+                        break;
+                    }
+                }
+
+                return liPolyIdx;
+            }
+
+            function isLatLngInsidePolygon(poLocation) {
+                return (getLatLngInsidePolygon(poLocation)>-1);
+            }
+
+            function putMarkerInLatLng(poLocation) {
+                goMarker.setMap(null);
+
+                goMarker = new google.maps.Marker({
+                    position: poLocation,
+                    map: goMap
+                });
+
+                goMap.panTo(poLocation);
+            }
+
+            function geoCodeLatLng(poLocation) {
+                goGeocoder.geocode({'latLng': poLocation}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            var liPIPIdx = storeLastGMAddressData(results);
+                            var lsFormattedAddress = getAddressWindow(results,liPIPIdx>-1);
+
+                            google.maps.event.addListener(goMarker, 'click', function(){
+                                    goInfoWindow.setContent(lsFormattedAddress);
+                                    goInfoWindow.open(goMap, goMarker);
+                            });
+
+                            goInfoWindow.setContent(lsFormattedAddress);
+                            goInfoWindow.open(goMap, goMarker);
+                        } else {
+                            alert('No results found');
+                        }
+                    } else {
+                        alert('Geocoder failed due to: ' + status);
+                    }
+                });
+            }
+
+            function geoCodeAddress(psAddress) {
+                var cleaner = document.getElementById("tblResults").rows.length - 2;
+
+                for(var li=1;li<=cleaner;li++){
+                    document.getElementById("tblResults").deleteRow(document.getElementById("tblResults").rows.length-1);
+                }
+
+                goGeocoder.geocode( { 'address': getAddress(psAddress)}, function(results, status) {
+                    document.frmMaster.txtAddress.value = getAddress(psAddress);
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        var liPIPIdx = storeLastGMAddressData(results);
+                        var lsFormattedAddress = getAddressWindow(results, liPIPIdx > -1);
+
+                        google.maps.event.addListener(goMarker, 'click', function(){
+                                goInfoWindow.setContent(lsFormattedAddress);
+                                goInfoWindow.open(goMap, goMarker);
+                        });
+
+                        goInfoWindow.setContent(lsFormattedAddress);
+                        goInfoWindow.open(goMap, goMarker);
+
+                        for(var j=0;j<results.length;j++){
+                            addNewRow(results[j].formatted_address);
+                        }
+                      } else {
+                        alert("Geocode was not successful for the following reason: " + status);
+                      }
+                  });
+              }
+
+            function getAddress(psAddress) {
+                var lsAddress = "";
+
+                if (typeof psAddress == 'undefined') {
+                    var laValues =  new Array(6);
+                    laValues[0] = document.frmMaster.txtNumber.value;
+                    laValues[1] = document.frmMaster.txtStreet.value;
+                    laValues[2] = document.frmMaster.txtLocation.value;
+                    laValues[3] = document.frmMaster.txtCity.value;
+                    laValues[4] = document.frmMaster.txtState.value;
+                    laValues[5] = document.frmMaster.txtCountry.value;
+
+                    for(var li=0; li<laValues.length; li++){
+                       if (laValues[li] != "") lsAddress+=laValues[li]+",";
+                    }
+                } else {
+                    lsAddress = psAddress;
+                }
+
+                return lsAddress;
+            }
+
+            function storeLastGMAddressData(poResults) {
+                var liPolyIdx = getLatLngInsidePolygon(poResults[0].geometry.location);
+
+                putMarkerInLatLng(poResults[0].geometry.location);
+
+                gaLastGMAddressData = getAddressData(poResults);
+                window.parent._e3_ccot_gaLastLatLngPosition = new Array(poResults[0].geometry.location.lat(),poResults[0].geometry.location.lng());
+                window.parent._e3_ccot_gsLastStoreIdFromPosition = (liPolyIdx>-1)?gaMapData[liPolyIdx][0]:"-1";
+
+                //alert(window.parent._e3_ccot_gsLastStoreIdFromPosition);
+
+                return liPolyIdx;
+            }
+
+            function getAddressWindow(poResults, pbInPIP) {
+                var laAddresLabels = new Array("No","Calle","Colonia","Delegaci&oacute;n o municipio","C.P.","Ciudad","Estado","Pais");
+                var laAddressData = getAddressData(poResults);
+                var lsDataTable = "";
+
+                lsDataTable+= "<table border = '1' cellspacing = '0' cellpadding = '0'>";
+                for (var li = laAddressData.length-1; li>= 0; li--) {
+                    if (laAddressData[li]==null) continue;
+
+                    lsDataTable+="<tr>";
+
+                    lsDataTable+="<td>";
+                    lsDataTable+="<b>" + laAddresLabels[li] + "&nbsp;&nbsp;</b>";
+                    lsDataTable+="</td>";
+
+                    lsDataTable+="<td>";
+                    lsDataTable+=laAddressData[li];
+                    lsDataTable+="</td>";
+
+                    lsDataTable+="</tr>";
+                }
+
+                lsDataTable+= "<tr>";
+                lsDataTable+= "<td colspan = '2' align = 'center'>";
+                lsDataTable+= "<input type = 'button' name = 'btnCloseInfoWindow' value = 'Cerrar' onClick = 'closeInfoWindow();'>";
+                lsDataTable+= "</td>";
+                lsDataTable+= "</tr>";
+
+                lsDataTable+= "</table>";
+
+                return lsDataTable;
+            }
+
+            function getAddressData(poResults) {
+                var laAddressData = new Array(8);
+
+                for (var li = 0; li < poResults[0].address_components.length; li++) {
+                    var liIdx = findAddrComponentType(poResults[0].address_components[li].types[0]);
+                    if (liIdx>-1) {
+                        laAddressData[liIdx] = poResults[0].address_components[li].long_name;
+                    }
+                }
+
+                if (laAddressData[3]==null && laAddressData[5]!=null) {
+                    laAddressData[3] = laAddressData[5];
+                    laAddressData[5] = null;
+                }
+
+                return laAddressData;
+            }
+
+            function findAddrComponentType(psType) {
+                var laAddresComponents = new Array("street_number","route","neighborhood","sublocality","postal_code","locality","administrative_area_level_1","country");
+                var liIdx = -1;
+
+                for (var li = 0; li < laAddresComponents.length; li++) {
+                    if (laAddresComponents[li]==psType) {
+                        liIdx = li;
+                        break;
+                    }
+                }
+
+                return liIdx;
+            }
+
+            function otherResult(psValue) {
+                var infowindow = new google.maps.InfoWindow();
+                var address = psValue;
+
+                goGeocoder.geocode( { 'address': address}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    goMap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: goMap,
+                        position: results[0].geometry.location
+                    });
+                    google.maps.event.addListener(marker, 'click', function(){
+                        infowindow.setContent(results[0].formatted_address);
+                        infowindow.open(goMap, marker);
+                    });
+                    infowindow.setContent(results[0].formatted_address);
+                    infowindow.open(goMap, marker);
+                  } else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                  }
+                });
+            }
+
+            function upperCase(loObject){
+                var x = loObject.value;
+                loObject.value = x.toUpperCase();
+            }
+
+            function addNewRow(psObj) {
+                var TABLE = document.getElementById("tblResults");
+                var TROW = document.getElementById("row");
+                var newRow = TABLE.insertRow(-1);
+                newRow.className = TROW.attributes['class'].value;
+                var newCell = newRow.insertCell(newRow.cells.length);
+                var txt = psObj;
+                var value = "'"+psObj+"'";
+
+                newCell.innerHTML ='<a href="javascript:otherResult('+value+');">&#8226;'+txt+'</a>';
+            }
+
+            function doKeyPress(poEvent) {
+                var liKeyCode = poEvent.keyCode;
+
+                if (liKeyCode==13) {
+                    searchAddressFromSemantic();
+                }
+            }
+
+            function searchAddressFromSemantic() {
+                var lsAddress = document.frmMaster.txtAddress.value;
+
+                if (lsAddress!="") {
+                    geoCodeAddress(lsAddress);
+                }
+            }
+
+            function clearAddress() {
+                document.frmMaster.txtAddress.value = "";
+            }
+
+            function normalizeAddressComponent(psAddressComponent) {
+                return replaceAccents(psAddressComponent).toUpperCase();
+            }
+
+            function replaceAccents(psText) {
+                var lsAccent = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç";
+                var lsSource = "AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc";
+
+                for (var li=0; li<lsAccent.length; li++) {
+                    psText = psText.replace(lsAccent.charAt(li), lsSource.charAt(li));
+                }
+                return psText;
+            }
+
+            function closeInfoWindow() {
+                if (goInfoWindow) goInfoWindow.close();
+            }
+
+        </script>
+    </head>
+
+    <body onload="initPage();">
+        <table width = "100%" border = "1" cellspacing = "0">
+            <tr>
+                <td colspan = "2">
+                    <form id="frmMaster" name="frmMaster" onSubmit = "return false;">
+                        <input type="hidden" id="txtCountry" name="txtCountry" value="MEXICO"/>
+                        <input type="hidden" id="txtState" name="txtState" value="ESTADO DE MEXICO"/>
+                        <input type="hidden" id="txtCity" name="txtCity" value="" onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+                        <input type="hidden" id="txtLocation" name="txtLocation" value="" onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+                        <input type="hidden" id="txtStreet" name="txtStreet" value=""  onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+                        <input type="hidden" id="txtNumber" name="txtNumber" value=""  onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+
+                        <center>
+                            <input type="hidden" style="width:480px" id="txtAddress" name="txtAddress" value=""  onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+                            <!--
+                                <input type="button" id="btnSearch" name="btnSearch" value="Buscar" onClick = "searchAddressFromSemantic();"/>
+                                <input type="button" id="btnClean" name="btnClean" value="Limpiar" onClick = "clearAddress();"/>
+                            -->
+                        </center>
+
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td width = "100%">
+                    <center>
+                        <div id="divMapCanvas" style="height:530px;width:98%;border:2px solid black;"></div>
+                    </center>
+                </td>
+                <td width = "0%" valign = "top">
+                    <center>
+                        <div id="divSearchResults" style="height:0px;width:0px;border:0px solid black; overflow-y:auto; overflow-x:hidden;">
+                            <table width = "95%" id="tblResults" class = "smallCaptionBlack" border ="0">
+                                <tr>
+                                    <td width = "100%">
+                                        <b>Resultados de la busqueda</b>
+                                    </td>
+                                </tr>
+                                <tr id="row" class="smallCaptionBlack">
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+

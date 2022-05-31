@@ -1,0 +1,12 @@
+2022-04-19 02:32:14,721 INFO main transferpremio.TransferPremio - Ejecutando invdrprd.s..
+2022-04-19 02:32:14,750 INFO main transferpremio.TransferPremio - Fin de ejecucion invdrprd.s..
+2022-04-19 02:32:14,751 INFO main transferpremio.TransferPremio - ------------ Informacion General ---------------
+2022-04-19 02:32:14,752 INFO main transferpremio.TransferPremio - Fecha de sistema:22-04-19
+2022-04-19 02:32:14,753 INFO main transferpremio.TransferPremio - Hoy es:MARTES
+2022-04-19 02:32:14,788 INFO main transferpremio.TransferPremio - Fecha Invtran : period:01 week:1
+2022-04-19 02:32:14,808 INFO main transferpremio.TransferPremio - Esta cerrado Inventario? false
+2022-04-19 02:32:14,873 INFO main transferpremio.TransferPremio - Store ID: 219
+2022-04-19 02:32:14,873 INFO main transferpremio.TransferPremio - Fecha y hora de sistema:2022-04-19 02:32:14
+2022-04-19 02:32:14,873 INFO main transferpremio.TransferPremio - ---------------------------------------------------------
+2022-04-19 02:32:14,874 INFO main transferpremio.TransferPremio - Inicia proceso
+2022-04-19 02:32:14,874 FATAL main transferpremio.TransferPremio - IOException: /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/transferpremio/transfers.txt (No such file or directory)

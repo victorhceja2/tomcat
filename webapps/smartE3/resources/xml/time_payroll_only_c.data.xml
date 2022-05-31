@@ -1,0 +1,48 @@
+<tree_struct>
+<levels>
+<level id = "10" name = "A&amp;ntilde;o" default = "2017"/>
+<level id = "20" name = "Periodo" default = "2017.13"/>
+</levels>
+<tree_options>
+<tree_option option_id = "2016" option_desc = "2016" list_option_desc = "2016" parent_id = "0" level = "10" sql_value = "2016" olap_value = "[time].[h].[2016]" />
+<tree_option option_id = "2016.2" option_desc = "C2 (05/01/2016 - 18/01/2016)" list_option_desc = "2016.2" parent_id = "2016" level = "20" sql_value = "2016.2" olap_value = "[time].[h].[2016].[2]" />
+<tree_option option_id = "2016.3" option_desc = "C3 (19/01/2016 - 01/02/2016)" list_option_desc = "2016.3" parent_id = "2016" level = "20" sql_value = "2016.3" olap_value = "[time].[h].[2016].[3]" />
+<tree_option option_id = "2016.4" option_desc = "C4 (02/02/2016 - 15/02/2016)" list_option_desc = "2016.4" parent_id = "2016" level = "20" sql_value = "2016.4" olap_value = "[time].[h].[2016].[4]" />
+<tree_option option_id = "2016.5" option_desc = "C5 (16/02/2016 - 29/02/2016)" list_option_desc = "2016.5" parent_id = "2016" level = "20" sql_value = "2016.5" olap_value = "[time].[h].[2016].[5]" />
+<tree_option option_id = "2016.6" option_desc = "C6 (01/03/2016 - 14/03/2016)" list_option_desc = "2016.6" parent_id = "2016" level = "20" sql_value = "2016.6" olap_value = "[time].[h].[2016].[6]" />
+<tree_option option_id = "2016.7" option_desc = "C7 (15/03/2016 - 28/03/2016)" list_option_desc = "2016.7" parent_id = "2016" level = "20" sql_value = "2016.7" olap_value = "[time].[h].[2016].[7]" />
+<tree_option option_id = "2016.8" option_desc = "C8 (29/03/2016 - 11/04/2016)" list_option_desc = "2016.8" parent_id = "2016" level = "20" sql_value = "2016.8" olap_value = "[time].[h].[2016].[8]" />
+<tree_option option_id = "2016.9" option_desc = "C9 (12/04/2016 - 25/04/2016)" list_option_desc = "2016.9" parent_id = "2016" level = "20" sql_value = "2016.9" olap_value = "[time].[h].[2016].[9]" />
+<tree_option option_id = "2016.10" option_desc = "C10 (26/04/2016 - 09/05/2016)" list_option_desc = "2016.10" parent_id = "2016" level = "20" sql_value = "2016.10" olap_value = "[time].[h].[2016].[10]" />
+<tree_option option_id = "2016.11" option_desc = "C11 (10/05/2016 - 23/05/2016)" list_option_desc = "2016.11" parent_id = "2016" level = "20" sql_value = "2016.11" olap_value = "[time].[h].[2016].[11]" />
+<tree_option option_id = "2016.12" option_desc = "C12 (24/05/2016 - 06/06/2016)" list_option_desc = "2016.12" parent_id = "2016" level = "20" sql_value = "2016.12" olap_value = "[time].[h].[2016].[12]" />
+<tree_option option_id = "2016.13" option_desc = "C13 (07/06/2016 - 20/06/2016)" list_option_desc = "2016.13" parent_id = "2016" level = "20" sql_value = "2016.13" olap_value = "[time].[h].[2016].[13]" />
+<tree_option option_id = "2016.14" option_desc = "C14 (21/06/2016 - 04/07/2016)" list_option_desc = "2016.14" parent_id = "2016" level = "20" sql_value = "2016.14" olap_value = "[time].[h].[2016].[14]" />
+<tree_option option_id = "2016.15" option_desc = "C15 (05/07/2016 - 18/07/2016)" list_option_desc = "2016.15" parent_id = "2016" level = "20" sql_value = "2016.15" olap_value = "[time].[h].[2016].[15]" />
+<tree_option option_id = "2016.16" option_desc = "C16 (19/07/2016 - 01/08/2016)" list_option_desc = "2016.16" parent_id = "2016" level = "20" sql_value = "2016.16" olap_value = "[time].[h].[2016].[16]" />
+<tree_option option_id = "2016.17" option_desc = "C17 (02/08/2016 - 15/08/2016)" list_option_desc = "2016.17" parent_id = "2016" level = "20" sql_value = "2016.17" olap_value = "[time].[h].[2016].[17]" />
+<tree_option option_id = "2016.18" option_desc = "C18 (16/08/2016 - 29/08/2016)" list_option_desc = "2016.18" parent_id = "2016" level = "20" sql_value = "2016.18" olap_value = "[time].[h].[2016].[18]" />
+<tree_option option_id = "2016.19" option_desc = "C19 (30/08/2016 - 12/09/2016)" list_option_desc = "2016.19" parent_id = "2016" level = "20" sql_value = "2016.19" olap_value = "[time].[h].[2016].[19]" />
+<tree_option option_id = "2016.20" option_desc = "C20 (13/09/2016 - 26/09/2016)" list_option_desc = "2016.20" parent_id = "2016" level = "20" sql_value = "2016.20" olap_value = "[time].[h].[2016].[20]" />
+<tree_option option_id = "2016.21" option_desc = "C21 (27/09/2016 - 10/10/2016)" list_option_desc = "2016.21" parent_id = "2016" level = "20" sql_value = "2016.21" olap_value = "[time].[h].[2016].[21]" />
+<tree_option option_id = "2016.22" option_desc = "C22 (11/10/2016 - 24/10/2016)" list_option_desc = "2016.22" parent_id = "2016" level = "20" sql_value = "2016.22" olap_value = "[time].[h].[2016].[22]" />
+<tree_option option_id = "2016.23" option_desc = "C23 (25/10/2016 - 07/11/2016)" list_option_desc = "2016.23" parent_id = "2016" level = "20" sql_value = "2016.23" olap_value = "[time].[h].[2016].[23]" />
+<tree_option option_id = "2016.24" option_desc = "C24 (08/11/2016 - 21/11/2016)" list_option_desc = "2016.24" parent_id = "2016" level = "20" sql_value = "2016.24" olap_value = "[time].[h].[2016].[24]" />
+<tree_option option_id = "2016.25" option_desc = "C25 (22/11/2016 - 05/12/2016)" list_option_desc = "2016.25" parent_id = "2016" level = "20" sql_value = "2016.25" olap_value = "[time].[h].[2016].[25]" />
+<tree_option option_id = "2016.26" option_desc = "C26 (06/12/2016 - 19/12/2016)" list_option_desc = "2016.26" parent_id = "2016" level = "20" sql_value = "2016.26" olap_value = "[time].[h].[2016].[26]" />
+<tree_option option_id = "2017" option_desc = "2017" list_option_desc = "2017" parent_id = "0" level = "10" sql_value = "2017" olap_value = "[time].[h].[2017]" />
+<tree_option option_id = "2017.1" option_desc = "C1 (20/12/2016 - 02/01/2017)" list_option_desc = "2017.1" parent_id = "2017" level = "20" sql_value = "2017.1" olap_value = "[time].[h].[2017].[1]" />
+<tree_option option_id = "2017.2" option_desc = "C2 (03/01/2017 - 16/01/2017)" list_option_desc = "2017.2" parent_id = "2017" level = "20" sql_value = "2017.2" olap_value = "[time].[h].[2017].[2]" />
+<tree_option option_id = "2017.3" option_desc = "C3 (17/01/2017 - 30/01/2017)" list_option_desc = "2017.3" parent_id = "2017" level = "20" sql_value = "2017.3" olap_value = "[time].[h].[2017].[3]" />
+<tree_option option_id = "2017.4" option_desc = "C4 (31/01/2017 - 13/02/2017)" list_option_desc = "2017.4" parent_id = "2017" level = "20" sql_value = "2017.4" olap_value = "[time].[h].[2017].[4]" />
+<tree_option option_id = "2017.5" option_desc = "C5 (14/02/2017 - 27/02/2017)" list_option_desc = "2017.5" parent_id = "2017" level = "20" sql_value = "2017.5" olap_value = "[time].[h].[2017].[5]" />
+<tree_option option_id = "2017.6" option_desc = "C6 (28/02/2017 - 13/03/2017)" list_option_desc = "2017.6" parent_id = "2017" level = "20" sql_value = "2017.6" olap_value = "[time].[h].[2017].[6]" />
+<tree_option option_id = "2017.7" option_desc = "C7 (14/03/2017 - 27/03/2017)" list_option_desc = "2017.7" parent_id = "2017" level = "20" sql_value = "2017.7" olap_value = "[time].[h].[2017].[7]" />
+<tree_option option_id = "2017.8" option_desc = "C8 (28/03/2017 - 10/04/2017)" list_option_desc = "2017.8" parent_id = "2017" level = "20" sql_value = "2017.8" olap_value = "[time].[h].[2017].[8]" />
+<tree_option option_id = "2017.9" option_desc = "C9 (11/04/2017 - 24/04/2017)" list_option_desc = "2017.9" parent_id = "2017" level = "20" sql_value = "2017.9" olap_value = "[time].[h].[2017].[9]" />
+<tree_option option_id = "2017.10" option_desc = "C10 (25/04/2017 - 08/05/2017)" list_option_desc = "2017.10" parent_id = "2017" level = "20" sql_value = "2017.10" olap_value = "[time].[h].[2017].[10]" />
+<tree_option option_id = "2017.11" option_desc = "C11 (09/05/2017 - 22/05/2017)" list_option_desc = "2017.11" parent_id = "2017" level = "20" sql_value = "2017.11" olap_value = "[time].[h].[2017].[11]" />
+<tree_option option_id = "2017.12" option_desc = "C12 (23/05/2017 - 05/06/2017)" list_option_desc = "2017.12" parent_id = "2017" level = "20" sql_value = "2017.12" olap_value = "[time].[h].[2017].[12]" />
+<tree_option option_id = "2017.13" option_desc = "C13 (06/06/2017 - 19/06/2017)" list_option_desc = "2017.13" parent_id = "2017" level = "20" sql_value = "2017.13" olap_value = "[time].[h].[2017].[13]" />
+</tree_options>
+</tree_struct>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="-1">
+        <title>CCOT GM</title>
+        <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/smartE3/resources/css/showcase.css">
+        <link rel="stylesheet" href="/smartE3/resources/css/generals.css">
+
+        <!--
+            <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.exp&client=gme-serviciosadministrativos&sensor=false&libraries=places"></script>
+            <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+        -->
+
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?client=gme-serviciosadministrativos&sensor=false&libraries=places"></script>
+
+        <script type="text/javascript">
+            var goMap;
+            var goGeocoder;
+            var goInfowindow;
+            var goMarker;
+            var goAutocomplete;
+
+            var goInitLocation;
+            var gaPolygons;
+            var gaBrandMarkers;
+            var gaAgebData;
+
+            var gaMapData = null;
+            var goCFCInterval = null;
+            var gaLastGMAddressData = null;
+            
+            window.parent._e3_ccot_gbGmapsLoadedFlag = false;
+            window.parent._e3_ccot_gbGeoCodeIsFinished = false;
+            window.parent._e3_ccot_gaLastLatLngPosition = new Array(0.0,0.0);
+            window.parent._e3_ccot_gsLastStoreIdFromPosition = "-1";
+            window.parent._e3_ccot_gsLastAgebFromPosition = "X-01";
+
+            if (!google.maps.Polygon.prototype.getBounds) {
+                google.maps.Polygon.prototype.getBounds = function(latLng) {
+                    var loBounds = new google.maps.LatLngBounds();
+                    var loAllPaths = this.getPaths();
+
+                    for (var p = 0; p < loAllPaths.getLength(); p++) {
+                        var loPath = loAllPaths.getAt(p);
+                        for (var i = 0; i < loPath.getLength(); i++) {
+                            loBounds.extend(loPath.getAt(i));
+                        }
+                    }
+
+                    return loBounds;
+                }
+            }
+
+            google.maps.Polygon.prototype.containsLatLng = function(poLatLng) {
+                var loBounds = this.getBounds();
+                if(!loBounds.contains(poLatLng)) {
+                    return false;
+                }
+
+                var ldLat = poLatLng.lat();
+                var ldLng = poLatLng.lng();
+                var lbInPoly = false;
+
+                for(var liPI = 0; liPI < this.getPaths().getLength(); liPI++) {
+                    var loPath = this.getPaths().getAt(liPI);
+                    var liNumPoints = loPath.getLength();
+                    var liJI = liNumPoints-1;
+
+                    for(var liII=0; liII < liNumPoints; liII++) {
+                        var loVertex1 = loPath.getAt(liII);
+                        var loVertex2 = loPath.getAt(liJI);
+
+                        if (loVertex1.lng() < ldLng && loVertex2.lng() >= ldLng || loVertex2.lng() < ldLng && loVertex1.lng() >= ldLng) {
+                            if (loVertex1.lat() + (ldLng - loVertex1.lng()) / (loVertex2.lng() - loVertex1.lng()) * (loVertex2.lat() - loVertex1.lat()) < ldLat) {
+                                lbInPoly = !lbInPoly;
+                            }
+                        }
+
+                        liJI = liII;
+                    }
+                }
+
+                return lbInPoly;
+            }
+
+            function initPage() {
+                //alert(replaceAccents("AVENIDA  LZARO   CÁRDENAS"));
+                //if (true) return;
+
+                goInitLocation = new google.maps.LatLng(19.432608,-99.133208);
+                goMap = new google.maps.Map(document.getElementById("divMapCanvas"), {zoom: 15, center: goInitLocation, mapTypeId: google.maps.MapTypeId.ROADMAP});
+                google.maps.event.addListener(goMap, 'click', function(event) {
+                    geoCodeLatLng(event.latLng);
+                });
+
+                goGeocoder = new google.maps.Geocoder();
+                goInfoWindow = new google.maps.InfoWindow({content: ""});
+
+                goAutocomplete = new google.maps.places.Autocomplete(document.getElementById("txtAddress"));
+                goAutocomplete.bindTo('bounds', goMap);
+
+                window.parent._e3_ccot_centerMap();
+                drawAllMapData();
+            }
+
+            window.parent._e3_ccot_centerMap = function() {
+                if (goMarker) goMarker.setMap(null);
+
+                goMarker = new google.maps.Marker({
+                    position: goInitLocation,
+                    map: goMap
+                 });
+
+                 goMap.panTo(goInitLocation);
+            }
+
+            window.parent._e3_ccot_redrawMapData = function() {
+                window.parent._e3_ccot_gbGmapsLoadedFlag = false;
+                clearAllMapData();
+                drawAllMapData();
+                //setTimeout('drawAllMapData();',1000);
+            }
+
+            window.parent._e3_ccot_searchAddress = function() {
+                populateSearchFields();
+                geoCodeAddress();
+            }
+
+            window.parent._e3_ccot_putMarkerInLatLng = function(pdLat, pdLng) {
+                geoCodeLatLng(new google.maps.LatLng(pdLat, pdLng));
+                //putMarkerInLatLng(new google.maps.LatLng(pdLat, pdLng));
+            }
+            
+            function drawAllMapData() {
+                gaMapData = window.parent._e3_ccot_gaMapData;
+                gaPolygons = new Array();
+                gaAgebData = new Array();
+                gaBrandMarkers = new Array();
+
+                for (var li = 0; li < gaMapData.length; li++) {
+                    gaPolygons[li] = new google.maps.Polygon({
+                        path: getPolyCordsFromString(gaMapData[li][5]," "),
+                        strokeColor: gaMapData[li][6],
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2,
+                        map: goMap
+                    });
+
+                    if (!(gaMapData[li][3]*1==0 && gaMapData[li][4]*1==0)) {
+                        gaBrandMarkers[li] = createBrandMarker(gaMapData[li][2], "<b>" + gaMapData[li][1] + "</b>", new google.maps.LatLng(gaMapData[li][3]*1, gaMapData[li][4]*1));
+                    }
+
+                    google.maps.event.addListener(gaPolygons[li], 'click', function(poEvent) {
+                        geoCodeLatLng(poEvent.latLng);
+                    });
+
+                    if (gaMapData[li][8]!="") {
+                        var laAllAgebsData = gaMapData[li][8].split("_||_");
+                        gaAgebData[li] = new Array();
+                        for (var lj = 0; lj < laAllAgebsData.length; lj++) {
+                            var laAgebData = laAllAgebsData[lj].split("_|||_");
+                            if (laAgebData.length == 2) {
+                                //alert(laAgebData[1]);
+                                gaAgebData[li][lj] = new Array();
+                                gaAgebData[li][lj][0] = laAgebData[0];
+                                gaAgebData[li][lj][1] = new google.maps.Polygon({
+                                                            path: getPolyCordsFromString(laAgebData[1]," "),
+                                                            strokeColor: "white",
+                                                            strokeOpacity: 1,
+                                                            strokeWeight: 1,
+                                                            map: null
+                                                        });
+                                /*
+                                    google.maps.event.addListener(gaAgebData[li][lj][1], 'click', function(poEvent) {
+                                        geoCodeLatLng(poEvent.latLng);
+                                    });
+                                */
+                            }
+                        }
+                    }
+                }
+
+                window.parent._e3_ccot_gbGmapsLoadedFlag = true;
+            }
+
+            function clearAllMapData() {
+                for (var li = 0; li < gaMapData.length; li++) {
+                    if (typeof gaAgebData[li] != 'undefined') {
+                        for (var lj = 0; lj < gaAgebData[li].length; lj++) {
+                            gaAgebData[li][lj][1].setMap(null);
+                        }
+                    }
+
+                    if (typeof gaAgebData[li] != 'undefined') gaAgebData[li] = null;
+                    if (typeof gaBrandMarkers[li] != 'undefined') gaBrandMarkers[li].setMap(null);
+                    if (typeof gaPolygons[li] != 'undefined') gaPolygons[li].setMap(null);
+                }
+
+                gaPolygons = null;
+                gaAgebData = null;
+                gaBrandMarkers = null;
+            }
+
+            function populateSearchFields() {
+                //alert(window.parent._e3_ccot_gsStreet);
+                document.frmMaster.txtCountry.value = window.parent._e3_ccot_gsCountry;
+                document.frmMaster.txtState.value = window.parent._e3_ccot_gsState;
+                document.frmMaster.txtCity.value = window.parent._e3_ccot_gsCity;
+                document.frmMaster.txtLocation.value = window.parent._e3_ccot_gsLocation;
+                document.frmMaster.txtStreet.value = window.parent._e3_ccot_gsStreet;
+                document.frmMaster.txtNumber.value = window.parent._e3_ccot_gsNumber;
+            }
+
+            function createBrandMarker(psImage, psContent, poLatLng) {
+                var loImage = new google.maps.MarkerImage(psImage,new google.maps.Size(37, 45), new google.maps.Point(0,0), new google.maps.Point(18, 45));
+                var loMarker = new google.maps.Marker({position: poLatLng, map: goMap, icon: loImage});
+
+                google.maps.event.addListener(loMarker, "click", function() {
+                    if (goInfoWindow) goInfoWindow.close();
+                    goInfoWindow.setContent(psContent);
+                    goInfoWindow.open(goMap, loMarker);
+                });
+
+                return loMarker;
+            }
+
+            function getPolyCordsFromString(psCords, psSeparator) {
+                var lsCordinates = psCords;
+                var laCordinates = lsCordinates.split(psSeparator);
+                var laPolyCords = new Array(laCordinates.length);
+
+                for (var li=0; li < laCordinates.length; li++) {
+                    var ldLat = laCordinates[li].split(",")[1]*1.00;
+                    var ldLng = laCordinates[li].split(",")[0]*1.00;
+                    laPolyCords[li] = new google.maps.LatLng(ldLat, ldLng);
+                }
+
+                return laPolyCords;
+            }
+
+            function getAgebInsidePoligon(piPolyIdx, poLocation) {
+                var laAgebPolygons = gaAgebData[piPolyIdx];
+                var lsAgeb = "X-01";
+
+                if (piPolyIdx<=-1 || typeof laAgebPolygons == 'undefined') {
+                    return lsAgeb;
+                }
+                
+                for (var li = 0; li < laAgebPolygons.length; li++) {
+                    if (laAgebPolygons[li][1].containsLatLng(poLocation)) {
+                        lsAgeb = laAgebPolygons[li][0];
+                        break;
+                    }
+                }
+                
+                return lsAgeb;
+            }
+
+            function getLatLngInsidePolygon(poLocation) {
+                var liPolyIdx = -1;
+
+                for (var li = 0; li < gaPolygons.length; li++) {
+                    if (gaPolygons[li].containsLatLng(poLocation)) {
+                        liPolyIdx = li;
+                        break;
+                    }
+                }
+
+                return liPolyIdx;
+            }
+            
+            function isLatLngInsidePolygon(poLocation) {
+                return (getLatLngInsidePolygon(poLocation)>-1);
+            }
+
+            function putMarkerInLatLng(poLocation) {
+                goMarker.setMap(null);
+
+                goMarker = new google.maps.Marker({
+                    position: poLocation,
+                    map: goMap
+                });
+
+                goMap.panTo(poLocation);
+            }
+
+            function geoCodeLatLng(poLocation) {
+                window.parent._e3_ccot_gbGeoCodeIsFinished = false;
+                goGeocoder.geocode({'latLng': poLocation}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            var liPIPIdx = storeLastGMAddressData(results);
+                            var lsFormattedAddress = getAddressWindow(results,liPIPIdx>-1);
+
+                            google.maps.event.addListener(goMarker, 'click', function(){
+                                    goInfoWindow.setContent(lsFormattedAddress);
+                                    goInfoWindow.open(goMap, goMarker);
+                            });
+
+                            goInfoWindow.setContent(lsFormattedAddress);
+                            goInfoWindow.open(goMap, goMarker);
+
+                            window.parent._e3_ccot_gbGeoCodeIsFinished = true;
+                        } else {
+                            alert('No results found');
+                        }
+                    } else {
+                        alert('Geocoder failed due to: ' + status);
+                    }
+                });
+            }
+
+            function geoCodeAddress(psAddress) {
+                window.parent._e3_ccot_gbGeoCodeIsFinished = false;
+                var cleaner = document.getElementById("tblResults").rows.length - 2;
+
+                for(var li=1;li<=cleaner;li++){
+                    document.getElementById("tblResults").deleteRow(document.getElementById("tblResults").rows.length-1);
+                }
+
+                goGeocoder.geocode( { 'address': getAddress(psAddress)}, function(results, status) {
+                    document.frmMaster.txtAddress.value = getAddress(psAddress);
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        var liPIPIdx = storeLastGMAddressData(results);
+                        var lsFormattedAddress = getAddressWindow(results, liPIPIdx > -1);
+
+                        google.maps.event.addListener(goMarker, 'click', function(){
+                                goInfoWindow.setContent(lsFormattedAddress);
+                                goInfoWindow.open(goMap, goMarker);
+                        });
+
+                        goInfoWindow.setContent(lsFormattedAddress);
+                        goInfoWindow.open(goMap, goMarker);
+                        window.parent._e3_ccot_gbGeoCodeIsFinished = true;
+                      } else {
+                        alert("Geocode was not successful for the following reason: " + status);
+                      }
+                  });
+              }
+
+            function getAddress(psAddress) {
+                var lsAddress = "";
+
+                if (typeof psAddress == 'undefined') {
+                    var laValues =  new Array(6);
+                    laValues[0] = "";
+                    laValues[1] = document.frmMaster.txtStreet.value;
+                    laValues[2] = document.frmMaster.txtLocation.value;
+                    laValues[3] = document.frmMaster.txtCity.value;
+                    laValues[4] = document.frmMaster.txtState.value;
+                    laValues[5] = document.frmMaster.txtCountry.value;
+
+                    for(var li=0; li<laValues.length; li++){
+                       if (laValues[li] != "") lsAddress+=laValues[li]+",";
+                    }
+                } else {
+                    lsAddress = psAddress;
+                }
+
+                return lsAddress;
+            }
+
+            function storeLastGMAddressData(poResults) {
+                var liPolyIdx = getLatLngInsidePolygon(poResults[0].geometry.location);
+
+                putMarkerInLatLng(poResults[0].geometry.location);
+                
+                gaLastGMAddressData = getAddressData(poResults);
+
+                window.parent._e3_ccot_gsCountry = normalizeAddressComponent(gaLastGMAddressData[7]);
+                window.parent._e3_ccot_gsState = normalizeAddressComponent(gaLastGMAddressData[6]);
+                window.parent._e3_ccot_gsCity = normalizeAddressComponent(gaLastGMAddressData[3]);
+                window.parent._e3_ccot_gsLocation = normalizeAddressComponent(gaLastGMAddressData[2]);
+                window.parent._e3_ccot_gsPC = normalizeAddressComponent(gaLastGMAddressData[4]);
+                window.parent._e3_ccot_gsStreet = normalizeAddressComponent(gaLastGMAddressData[1]);
+
+                window.parent._e3_ccot_gaLastLatLngPosition = new Array(poResults[0].geometry.location.lat(),poResults[0].geometry.location.lng());
+                window.parent._e3_ccot_gsLastStoreIdFromPosition = (liPolyIdx>-1)?gaMapData[liPolyIdx][0]:"-1";
+                window.parent._e3_ccot_gsLastAgebFromPosition = getAgebInsidePoligon(liPolyIdx,poResults[0].geometry.location);
+
+                //alert("TESTS: " + window.parent._e3_ccot_gsLastAgebFromPosition);
+                //alert(poResults[0].geometry.location.lat() + " " + poResults[0].geometry.location.lng());
+                //alert(poResults[0].geometry.location.lat() + " " + poResults[0].geometry.location.lng() + " - " + "Distancia: " + getDistanceBetweenPositions(goInitLocation, poResults[0].geometry.location));
+
+                if (liPolyIdx>-1) {
+                    callEnableImportStreetFromGoogleMaps();
+                } else {
+                    callEnableSaveOutOfBoundsPoint();
+
+                    //Pruebas de insercion de calles
+                    //callEnableImportStreetFromGoogleMaps();
+                    //window.parent._e3_ccot_gsLastStoreIdFromPosition = "739";
+                    //window.parent._e3_ccot_gsLastAgebFromPosition = "H-10";
+                }
+
+                return liPolyIdx;
+            }
+
+            function callEnableImportStreetFromGoogleMaps() {
+                window.parent._e3_ccot_enableImportStreetFromGoogleMaps();
+            }
+
+            function callEnableImportCornerFromGoogleMaps() {
+                window.parent._e3_ccot_enableImportCornerFromGoogleMaps();
+            }
+
+            function callEnableSaveOutOfBoundsPoint() {
+                window.parent._e3_ccot_enableSaveOutOfBoundsPoint();
+            }
+
+            function getAddressWindow(poResults, pbInPIP) {
+                var laAddresLabels = new Array("No","Calle","Colonia","Delegaci&oacute;n o municipio","C.P.","Ciudad","Estado","Pais");
+                var laAddressData = getAddressData(poResults);
+                var lsDataTable = "";
+
+                lsDataTable+= "<table border = '1' cellspacing = '0' cellpadding = '0'>";
+                for (var li = laAddressData.length-1; li>= 0; li--) {
+                    if (laAddressData[li]==null) continue;
+
+                    lsDataTable+="<tr>";
+
+                    lsDataTable+="<td class = 'htmlTableBody' nowrap>";
+                    lsDataTable+="<b>" + laAddresLabels[li] + "&nbsp;&nbsp;</b>";
+                    lsDataTable+="</td>";
+
+                    lsDataTable+="<td class = 'htmlTableBody'>";
+                    lsDataTable+= laAddressData[li];
+                    lsDataTable+="</td>";
+
+                    lsDataTable+="</tr>";
+                }
+
+                lsDataTable+= "<tr>";
+                lsDataTable+= "<td colspan = '2' align = 'center'>";
+
+                /*
+                if (pbInPIP) {
+                    lsDataTable+= "<input type = 'button' name = 'btnSendStreetToOT' value = '<-- Calle' onClick = 'sendStreetToOT();'>";
+                    lsDataTable+= "<input type = 'button' name = 'btnSendCornerToOT' value = '<-- Esquina' onClick = 'sendCornerToOT();'>";
+                }
+                */
+
+                //lsDataTable+= "<input type = 'button' name = 'btnCloseInfoWindow' value = 'Cerrar' onClick = 'closeInfoWindow();'>";
+                lsDataTable+= "<a href = 'javascript:closeInfoWindow();' ><font face = 'arial'><b>Cerrar</b></font></a>";
+
+                lsDataTable+= "</td>";
+                lsDataTable+= "</tr>";
+
+                lsDataTable+= "</table>";
+
+                return lsDataTable;
+            }
+
+            function getAddressData(poResults) {
+                var laAddressData = new Array(8);
+
+                for (var li = 0; li < poResults[0].address_components.length; li++) {
+                    var liIdx = findAddrComponentType(poResults[0].address_components[li].types[0]);
+                    if (liIdx>-1) {
+                        laAddressData[liIdx] = poResults[0].address_components[li].long_name;
+                    }
+                }
+
+                if (laAddressData[3]==null && laAddressData[5]!=null) {
+                    laAddressData[3] = laAddressData[5];
+                    laAddressData[5] = null;
+                }
+
+                return laAddressData;
+            }
+
+            function findAddrComponentType(psType) {
+                var laAddresComponents = new Array("street_number","route","neighborhood","sublocality","postal_code","locality","administrative_area_level_1","country");
+                var liIdx = -1;
+
+                for (var li = 0; li < laAddresComponents.length; li++) {
+                    if (laAddresComponents[li]==psType) {
+                        liIdx = li;
+                        break;
+                    }
+                }
+
+                return liIdx;
+            }
+
+            function upperCase(loObject){
+                var x = loObject.value;
+                loObject.value = x.toUpperCase();
+            }
+
+            function doKeyPress(poEvent) {
+                var liKeyCode = poEvent.keyCode;
+
+                if (liKeyCode==13) {
+                    searchAddressFromSemantic();
+                }
+            }
+
+            function sendStreetToOT() {
+                alert("populate street");
+            }
+
+            function sendCornerToOT() {
+                alert("populate corner");
+            }
+
+            function searchAddressFromSemantic() {
+                //var lsAddress = getAddress();
+                var lsAddress = document.frmMaster.txtAddress.value;
+
+                if (lsAddress!="") {
+                    geoCodeAddress(lsAddress);
+                }
+            }
+
+            function clearAddress() {
+                document.frmMaster.txtAddress.value = "";
+                /*
+                document.frmMaster.txtCountry.value = "";
+                document.frmMaster.txtState.value = "";
+                document.frmMaster.txtCity.value = "";
+                document.frmMaster.txtLocation.value = "";
+                document.frmMaster.txtStreet.value = "";
+                document.frmMaster.txtNumber.value = "";
+                */
+            }
+
+            function normalizeAddressComponent(psAddressComponent) {
+                var lsNC = "";
+
+                lsNC = replaceAccents(psAddressComponent);
+                lsNC = replaceOtherChars(lsNC);
+
+                return lsNC.toUpperCase();
+            }
+
+            function replaceOtherChars(psText) {
+                if (typeof psText == 'undefined') return "";
+
+                var lsChars = ".;:,-/";
+
+                for (var li=0; li<lsChars.length; li++) {
+                    psText = psText.replace(lsChars.charAt(li), "", "g");
+                }
+
+                return psText;
+            }
+
+            function replaceAccents(psText) {
+                if (typeof psText == 'undefined' || psText == null) return "";
+
+                var lsAccent = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç";
+                var lsSource = "AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc";
+                var laWords = psText.split(" ");
+
+                //alert(laWords.length);
+
+                for (var lp = 0; lp < laWords.length; lp++) {
+                    for (var li=0; li<lsAccent.length; li++) {
+                        psText = psText.replace(lsAccent.charAt(li), lsSource.charAt(li));
+                    }
+                }
+
+                return psText;
+            }
+
+            function closeInfoWindow() {
+                if (goInfoWindow) goInfoWindow.close();
+            }
+
+            function getDistanceBetweenPositions(poPos1, poPos2) {
+                return getDistanceBetweenLatLngPair(poPos1.lat(), poPos1.lng(), poPos2.lat(), poPos2.lng());
+            }
+
+            function getDistanceBetweenLatLngPair(pdLat1, pdLon1, pdLat2, pdLon2) {
+                return getDistanceBetweenLatLngPairInRadians(getRadians(pdLat1), getRadians(pdLon1), getRadians(pdLat2), getRadians(pdLon2));
+            }
+            
+            function getDistanceBetweenLatLngPairInRadians(pdLat1, pdLon1, pdLat2, pdLon2) {
+                var ldEarthRadius = 6371;
+
+                var ldDistance =    Math.acos(Math.sin(pdLat1)*Math.sin(pdLat2) +
+                                    Math.cos(pdLat1)*Math.cos(pdLat2) *
+                                    Math.cos(pdLon2-pdLon1)) * ldEarthRadius;
+
+                return ldDistance;
+            }
+
+            function getRadians(pdValue) {
+                var PI = 3.141592653589793;
+
+                return pdValue*PI/180;
+            }
+
+        </script>
+    </head>
+
+    <body onload="initPage();">
+        <table width = "100%" border = "1" cellspacing = "0">
+            <tr>
+                <td colspan = "2">
+                    <form id="frmMaster" name="frmMaster" onSubmit = "return false;">
+                        <input type="hidden" id="txtNumber" name="txtNumber" value=""  onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+                        <input type="hidden" id="txtCountry" name="txtCountry" value="" onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+
+                        <center>
+                            <table cellpadding = "1" cellspacing = "1" border = "0">
+                                <tr class = "rptHeaders">
+                                    <td>
+                                        <b>N&uacute;mero, Calle, Colonia, Deleg/Municipio, Estado</b>
+                                    </td>
+                                    <td rowspan = "2">
+                                        <center>
+                                            <input class = "rptHeaders" type="button" id="btnSearch" name="btnSearch" value="Buscar" style = "width:60px;" onClick = "searchAddressFromSemantic();"/>
+                                            <input class = "rptHeaders" type="button" id="btnClean" name="btnClean" value="Limpiar" style = "width:60px;" onClick = "clearAddress();"/>
+                                        </center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input class = "rptHeaders" type="text" style="width:480px" id="txtAddress" name="txtAddress" value=""  onblur="upperCase(this);" onKeyPress ="doKeyPress(event);" placeholder = "" />
+                                        <input class = "rptHeaders" type="hidden" id="txtStreet" name="txtStreet" value=""  onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+                                        <input class = "rptHeaders" type="hidden" id="txtLocation" name="txtLocation" value="" onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+                                        <input class = "rptHeaders" type="hidden" id="txtCity" name="txtCity" value="" onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+                                        <input class = "rptHeaders" type="hidden" id="txtState" name="txtState" value="" onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!--
+                                <input type="text" style="width:480px" id="txtAddress" name="txtAddress" value=""  onblur="upperCase(this);" onKeyPress ="doKeyPress(event);"/>
+                            -->
+                        </center>
+
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td width = "100%">
+                    <center>
+                        <div id="divMapCanvas" style="height:512px;width:98%;border:2px solid black;"></div>
+                    </center>
+                </td>
+                <td width = "0%" valign = "top">
+                    <center>
+                        <div id="divSearchResults" style="height:0px;width:0px;border:0px solid black; overflow-y:auto; overflow-x:hidden;">
+                            <table width = "95%" id="tblResults" class = "smallCaptionBlack" border ="0">
+                                <tr>
+                                    <td width = "100%">
+                                        <b>Resultados de la busqueda</b>
+                                    </td>
+                                </tr>
+                                <tr id="row" class="smallCaptionBlack">
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+

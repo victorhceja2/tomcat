@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>GPS Gerencial</title>
+        <meta charset="ISO-8859-1">
+        <link rel="icon" href="/smartE3/images/e3/ui/explorer/favicon.ico" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="/smartE3/resources/js/jquery/jquery-1.6.2.min.js"></script>
+        
+        <script src="/smartE3/resources/js/generals/gps_utils.js"></script>
+        <link rel="stylesheet" type="text/css" class="ui" href="/smartE3/resources/semantic/semantic.min.css">
+        <script src="/smartE3/resources/js/jquery/jquery.min.js"></script>
+        <script src="/smartE3/resources/js/jquery/jquery.dropotron.min.js"></script>
+        <script src="/smartE3/resources/js/jquery/jquery.scrollgress.min.js"></script>
+        <script src="/smartE3/resources/js/jquery/jquery.scrolly.min.js"></script>
+        <script src="/smartE3/resources/js/jquery/jquery.slidertron.min.js"></script>
+        <script src="/smartE3/resources/js/jquery/skel.min.js"></script>
+        <script src="/smartE3/resources/js/jquery/skel-layers.min.js"></script>
+        <script src="/smartE3/resources/semantic/semantic.min.js"></script>
+        <style>
+            .hidden{
+                visibility: hidden;
+            }
+            </style>
+     <script>
+            
+           
+            $(function() {
+                $('#show-sidebar').click(function() {
+                  openMenu();
+                });
+
+                $('#hide-sidebar').click(function() {
+                  hideMenu();
+                });
+                $('#show-search-sidebar').click(function() {
+                  openSearch();
+                });
+
+                $('#hide-search-sidebar').click(function() {
+                  hideSearch();
+                });
+                $('#show-options-sidebar').click(function() {
+                  openOptions();
+                });
+                $('#hide-options-sidebar').click(function() {
+                  hideOptions();
+                });
+              });
+             /* $(document).ready(function(){
+               $(document).mousemove(function(event){
+                   if(event.pageY > 30){
+                       hideBtmShowSession();
+                   } else{
+                       showBtmShowSession();
+                   }
+                });
+             });*/
+             
+        </script>
+    </head>
+    
+    <body>
+        <div id="divPRBLoading" class="ui fixed inverted dimmer">
+            <div class="ui small inverted text loader">Cargando</div>
+        </div>
+        <div id="divAlert" class="ui fixed long modal">
+                <div class="header">Alerta</div>
+                <div class="content">
+                  <p id="divAlertMsg"></p>
+                </div>
+                <div class="actions" id="divAlertAction">
+                  <div id="btnAlertOk" class="ui ok green basic button">Aceptar</div>
+                  <div id="btnAlertCancel" class="ui cancel red basic button">Cancelar</div>
+                </div>
+        </div>
+        
+       
+        <div id="divSessionMenu" class="ui fixed menu" >
+        <a class="item" id="show-sidebar">
+          <i class="sidebar icon"></i>
+          Men&uacute;
+        </a>
+        <a class="item">
+          <i class="food green icon"></i>
+          <span id="spnUserLabel">N/A</span>
+        </a>
+        <!--a class="item" href="javascript:hideSessionMenu()">
+          <i class="chevron up icon"></i>
+          Ocultar
+        </a-->
+        <div class="right mini menu">
+            <div class="item">
+                <i class="calendar icon"></i><span id="spnDateTime"></span>
+           </div>
+            <div class="item">
+                <img class="ui mini circular image" src="/smartE3/images/e3/ui/explorer/premium.png"/>
+           </div>
+           <div class="item">
+                <img class="ui mini circular image" src="/smartE3/images/e3/ui/explorer/kfc.png"/>
+            </div>
+           <div class="item">
+                <img class="ui mini circular image" src="/smartE3/images/e3/ui/explorer/ph.png"/>
+           </div>
+        </div>
+      </div>
+    <center>
+        <button id="btnShowSessionMenu" class="ui big hidden fixed button" style="color:green;opacity: 0.3;">
+            <i class="chevron green down icon"></i>
+            Mostrar
+        </button>
+            <script>
+                openSessionMenu();
+                $("#btnShowSessionMenu").click(
+                        function(){
+                            openSessionMenu();
+                        }
+                );
+                $("#btnShowSessionMenu").hover(function(){
+                    $(this).css("opacity","1");
+                },function(){
+                    $(this).css("opacity","0.3");
+                });
+            </script>
+        
+    </center>
+    <br><br><br>
+    
+      <!--Menu-->
+      <div class="ui left inverted vertical menu sidebar" id="divPRBMenu">
+      <div class="item">
+        <div id="hide-sidebar" class="button">
+            <font color=white>Cerrar
+            <i class="close icon"></i></font>
+        </div>
+      </div>
+      </div>
+        <script>
+        $("#divPRBMenu" ).contextmenu(function(e) {
+                e.preventDefault();
+            });
+       
+        </script>
+       
+         <div class="pusher" id="divMainContainer">
+          <div id="divMainPRBTabSet">
+             
+              <div id="divMainPRBTabSetHeader" class="ui top attached tabular menu">
+                <a class="active item" data-tab="first">Principal</a>
+              </div>
+              <!--div id="divMainPRBTabSetDetail"-->
+                 <div id="divBigMenuPRBTab" class="ui bottom attached active tab segment" data-tab="first">
+                    <center>
+                        <h2 class="ui header">Bienvenido al GPS Gerencial electr&oacute;nico</h2>
+                        <img src="/smartE3/images/e3/ui/explorer/premium.png" width="200px"/>
+                        <h3>Para comenzar selecciona una secci&oacute;n en el men&uacute;</h3>
+                        
+                    </center>
+                </div>
+            <!--/div-->
+          </div>
+             <div class="ui bottom attached label" id="divOptionHelpContainer" style="overflow:auto;position:relative;bottom:0px;">
+                
+             </div>
+        </div>
+        
+        <script>
+             $('#divMainPRBTabSet .menu .item').tab();
+             $('#divBigMenuPRBTab').outerHeight(window.innerHeight*0.8+"px");
+             $("#divOptionHelpContainer").hide();
+        </script>
+        <script>
+            //$('#divMainContentPRB').load("Tester.html");
+            initAppHandler();
+            validateAppHandler();
+        </script>
+       
+        
+    </body>
+</html>

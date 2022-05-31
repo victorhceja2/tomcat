@@ -1,0 +1,36 @@
+<!--
+##########################################################################################################
+# Nombre Archivo  : YumOptions.html
+# Compañia        : Yum Brands Intl
+# Autor           : JPG
+# Objetivo        : pagina para probar el applet de opciones para e-Yum
+# Fecha Creacion  : 29/Enero/2004
+# Inc/requires    : 
+# Modificaciones  :
+# Fecha           Programador     Observaciones
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+##########################################################################################################
+-->
+
+<html>
+    <head>
+       <title>Applet HTML Page</title>
+    </head>
+    <script language = 'javascript'>
+
+        function loadOptions() {
+            document.getElementById('aplOptions').updateRptOptions('23','','KFC,PH|50,20');
+        }
+
+    </script>
+    <body>
+        <applet id = 'aplOptions' name = 'aplOptions' codebase = '/applets' code='YumOptions.class' archive = 'YumOptions.jar, Swing.jar'width='320' height='420' alt = 'No corrio el applet' mayscript>
+            <param name = 'psUserLevel' value = '10'>
+            <param name = 'psUserOptions' value = 'KFC,PH'>
+            <param name = 'psUserAgent' value = 'MSIE'>
+        </applet>
+        <br>
+        <input type = 'button' value = 'carga opciones' OnClick = 'loadOptions();'>
+    </body>
+</html>
+    

@@ -1,0 +1,50 @@
+.sgwtTitleOrange {
+    font-family:Arial,Verdana,tahoma,serif;
+    //color:#F59D3F;
+    color:#CB700E;
+    font-size:13px;
+}
+
+.sgwtTitleBlack {
+    font-family:Arial,Verdana,tahoma,serif;
+    color:#454545;
+    font-size:18px;
+}
+
+.sgwToolStrip {    
+    background-color: #FFFFFF; 
+}
+
+.sgwToolStripDefault {    
+    background-color: #D6E3F4;     
+    border: 1px solid #9CBFEF;    
+}
+
+.sgwToolStripSection {    
+    background-color: #C0DAFD;     
+    border: 1px solid #9CBFEF;    
+}
+
+
+.sgwDynamicForm {    
+    background-color: #FFFFFF; 
+}
+
+/*Blue cell (no hover)*/
+.olapRptBlueCellNoHover {
+    font-family:Verdana,sans-serif; font-size:11px;
+    color: white;
+    border-bottom:1px solid #a0a0a0; border-right:1px solid #a0a0a0;
+    background-color:#58D3F7;
+}
+
+.sgwDynamicConcil {    
+    border: 1px solid #165FA7; 
+}
+
+.embPDF {
+    width: 100%;
+    min-height: 100px;
+    height: 100%;    
+}
+

@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta name='gwt:module' content='yum.e3.Main=yum.e3.Main'>
+        <meta name="gwt:property" content="locale=es">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="-1">
+        <title>Reporteador V3.0</title>
+        <link rel='shortcut icon' href='images/e3/ui/explorer/favicon.ico' type="image/x-icon">
+        <link rel="stylesheet" href="resources/css/showcase.css">
+        <link rel="stylesheet" href="resources/css/generals.css">
+        <link rel="stylesheet" href="resources/css/ChatStyles.css">
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/e3/GUIUtils.js"></script>
+        <style type="text/css"> 
+
+            body { overflow:hidden }
+            
+            .loading {
+                border: 1px solid #ccc;
+                position:relative;
+                width:300px;
+                padding: 2px;
+                z-index: 20001;
+                height: auto;
+            }
+
+            .waiting {
+                border: 5px solid gray;
+                background-color: white;
+                position:relative;
+                width:300px;
+                padding: 2px;
+                z-index: 20001;
+                height: auto;
+            }
+
+            .loading a {
+                color: #225588;
+            }
+
+            .loading .loadingIndicator {
+                background: white;
+                font: bold 13px tahoma, arial, helvetica;
+                padding: 10px;
+                margin: 0;
+                height: auto;
+                color: #444;
+            }
+
+            .loadingMsg {
+                font: normal 12px arial, tahoma, sans-serif;
+            }
+            
+            .loadingNote {
+                font: normal 10px arial, tahoma, sans-serif;
+            }
+
+            .waitingMsg {
+                font: bold 11px arial, tahoma, sans-serif;
+            }
+            
+        </style> 
+    </head>
+    
+    <body style = "overflow:hidden;" onResize ="adjustSizing()" onUnload="return returnValue();">
+        <script>
+            var moLoadWindow;
+            
+            var moWaitWindow;
+            var moLockLayer;
+            var moWWMsg;
+            
+            var moDWWaitWindow;
+            var moDWLockLayer;
+            var moDWWWMsg;
+
+            function initObjects() {
+                moLoadWindow = document.getElementById('divLoadingWrapper');
+                
+                moWaitWindow = document.getElementById('divWaitWindowWrapper');
+                moLockLayer = document.getElementById('divLockLayer');
+                moWWMsg = document.getElementById('spnWaitNote');
+                
+                moDWWaitWindow = document.getElementById('divDWWaitWindowWrapper');
+                moDWLockLayer = document.getElementById('divDWLockLayer');
+                moDWWWMsg = document.getElementById('spnDWWaitNote');
+            }
+
+            function adjustSizing() {
+                if (moLoadWindow==null) initObjects();
+
+                showLoadWindow();
+                centerWaitWindow();
+            }
+
+            function showLoadWindow() {
+                centerObject(moLoadWindow, 150,70);
+                moLoadWindow.style.visibility = 'visible';
+            }
+
+            function centerWaitWindow() {
+                centerObject(moWaitWindow, 150,70);
+                centerObject(moDWWaitWindow, 150,70);
+            }
+
+            window.showWaitWindow = function(psMessage) {
+                var lsMsg = (psMessage)?psMessage:"Procesando información, espere por favor...";
+                
+                moWaitWindow.style.visibility = 'visible';
+                moLockLayer.style.visibility = 'visible';
+
+                moWWMsg.innerHTML = lsMsg;
+            }
+
+            window.hideWaitWindow = function() {
+                moWaitWindow.style.visibility = 'hidden';
+                moLockLayer.style.visibility = 'hidden';
+            }
+
+            function centerObject(poObject, piOffsetX, piOffsetY){
+                poObject.style.left = window.getWidth()/2 - piOffsetX;
+                poObject.style.top = window.getHeight()/2 - piOffsetY;
+            }
+            
+           
+            function showCellDetail(poObject, psText){
+                var liXpos = 0;
+                var liYpos = 0;
+                
+                liXpos += (poObject.offsetLeft - poObject.scrollLeft - poObject.clientLeft);
+                liYpos += (poObject.offsetTop  - poObject.scrollTop - poObject.clientTop);
+                
+                if(poObject.childElementCount==0){
+                    var loDetailDiv = document.createElement('div');
+                    loDetailDiv.id = "divReportCellDetail";
+                    loDetailDiv.className = "customtooltiptext";
+                    loDetailDiv.innerHTML = psText;
+                    poObject.appendChild(loDetailDiv);
+                }
+            }
+            
+            function hideCellDetail(poObject){
+                var element = document.getElementById("divReportCellDetail");
+                element.parentNode.removeChild(element);                
+            }
+            
+
+            function returnValue() {
+                return false;
+            }
+
+        </script>
+        
+        <!---->
+        <div id="divLoadingWrapper" style ="position:absolute;visibility:hidden;"> 
+            <div id="divLoading" class = "loading" align ="left">
+                <div class="loadingIndicator"> 
+                    <img src="images/e3/ui/explorer/loading.gif" width="32" height="32" />Reporteador V3.0 (E3) <br> 
+                    <span id="spnLoadingMsg" class = "loadingMsg">Cargando dependencias... </span>
+                    <br>
+                    <br>
+                    <span id="spnLoadingNote" class = "loadingNote"><b>Nota:</b> Este proceso puede tardar un par de minutos si es la primera vez que entras...  </span>
+                </div> 
+            </div> 
+        </div>
+
+        <div id = "divLockLayer" style ="position:absolute;visibility:hidden; z-index:9999999;top:0px;left:0px;width:2000px;height:1600px;background-color:black; opacity:.3;filter: alpha(opacity=30);"></div>
+        <div id="divWaitWindowWrapper" style ="position:absolute;visibility:hidden; z-index:9999999; opacity:.8; filter: alpha(opacity=80);">
+            <div id="divWWLoading" align ="left">
+                <div class="loadingIndicator waiting">
+                    <table width = "100%">
+                        <tr>
+                            <td>
+                                <img src="images/e3/ui/explorer/loading.gif" width="32" height="32" />
+                            </td>
+                            <td valign = "center" align = "left">
+                                <span id = "spnWaitNote" class = "waitingMsg">Procesando informaci&oacute;n, espere por favor...</span>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        <div id = "divDWLockLayer" style ="position:absolute;visibility:hidden; z-index:9999999;top:0px;left:0px;width:2000px;height:1600px;background-color:black; opacity:.3;filter: alpha(opacity=30);"></div>
+        <div id="divDWWaitWindowWrapper" style ="position:absolute;visibility:hidden; z-index:9999999; opacity:.8; filter: alpha(opacity=80);">
+            <div id="divDWWWLoading" align ="left">
+                <div class="loadingIndicator waiting">
+                    <table width = "100%">
+                        <tr>
+                            <td>
+                                <img src="images/e3/ui/explorer/loading.gif" width="32" height="32" />
+                            </td>
+                            <td valign = "center" align = "left">
+                                <span id = "spnDWWaitNote" class = "waitingMsg">Procesando informaci&oacute;n, espere por favor...</span>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+
+        <script> adjustSizing(); </script>
+        
+        <iframe id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+        <script>var isomorphicDir = "yum.e3.Main/sc/"</script>
+        <script src="yum.e3.Main/sc/modules/ISC_Core.js?isc_version=7.0beta.js"></script>
+        <script src="yum.e3.Main/sc/modules/ISC_Foundation.js?isc_version=7.0beta.js"></script>
+        <script src="yum.e3.Main/sc/modules/ISC_Containers.js?isc_version=7.0beta.js"></script>
+        <script src="yum.e3.Main/sc/modules/ISC_Grids.js?isc_version=7.0beta.js"></script>
+        <script src="yum.e3.Main/sc/modules/ISC_Forms.js?isc_version=7.0beta.js"></script>
+        <!--<script src="yum.e3.Main/sc/modules/ISC_RichTextEditor.js?isc_version=7.0beta.js"></script>-->
+        <script src="yum.e3.Main/sc/modules/ISC_Calendar.js?isc_version=7.0beta.js"></script>
+        <script src="yum.e3.Main/sc/modules/ISC_DataBinding.js?isc_version=7.0beta.js"></script>
+        
+        <!---->
+        <script> document.getElementById('spnLoadingMsg').innerHTML = 'Cargando componentes visuales...'; </script>
+        <script type="text/javascript" src="yum.e3.Main/sc/skins/Enterprise/load_skin.js?isc_version=7.0beta.js"></script>
+        
+        <!---->
+        <script> document.getElementById('spnLoadingMsg').innerHTML = 'Cargando aplicaciones de usuario...'; </script>
+        <script language="javascript" src="yum.e3.Main/yum.e3.Main.nocache.js"></script>
+        
+    </body>
+</html>
+

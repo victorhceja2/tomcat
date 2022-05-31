@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Grafica de PLC</title>
+        <link rel="stylesheet" href="/smartE3/resources/css/generals.css">
+        <!--[if IE]><script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/excanvas.pack.js"></script><![endif]-->
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.js"></script>
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.js"></script>
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/e3/GUIUtils.js"></script>
+    </head>
+    <body style = "overflow:hidden;">
+        <table width ="100%" border ="0">
+            <tr>
+                <td width = "95%" valign ="top">
+                    <script>document.write(window.parent._e3_gsHeader);</script>
+                </td>
+                <td>
+                    <div id="divMiniature"  style ="position:relative;"> 
+                        <div id="divOverview" onDblClick ="resetMainPlot();" style="width:150px;height:90px"></div> 
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div id="divMainPlot" onDblClick ="resetMainPlot();" style="position:relative; left:20; width:640px;height:300px"></div>
+        
+        <script id="source" language="javascript" type="text/javascript">
+            
+            
+            var gsDataSetLabel01 = "";
+            var gaDataSet01 = window.parent._e3_gaDataSet01;
+            var moMainPlot = null;
+            var moOverview = null;
+            
+            var miXMin = 0;
+            var miXMax = 0;
+            var miYMin = 0;
+            var miYMax = 0;
+            
+            //alert(gaDataSet01[0][0] + "  " + gaDataSet01[0][1]);
+            initMainPlot();
+            
+            function initMainPlot() {
+                document.getElementById("divMainPlot").style.width = window.getWidth()-60;
+                document.getElementById("divMainPlot").style.height = window.getHeight()-150;
+            }
+            
+            function updateAxisLimits() {
+                miXMin = moMainPlot.getAxes().xaxis.min;
+                miXMax = moMainPlot.getAxes().xaxis.max;
+                miYMin = moMainPlot.getAxes().yaxis.min;
+                miYMax = moMainPlot.getAxes().yaxis.max;
+            }
+            
+            function resetMainPlot() {
+                moOverview.setSelection({ xaxis: { from: miXMin, to: miXMax}, yaxis: { from: miYMin, to: miYMax } });
+                moOverview.clearSelection();
+            }
+            
+            $(function () {
+                var moAllData = [{ data: gaDataSet01, label: gsDataSetLabel01}];
+                var moPlotOptions = {
+                    lines: { show: true },
+                    selection: { mode: "xy" },
+                    grid: { hoverable: true, clickable: true },
+                    colors: [ "blue", "green"],
+                    xaxis: { mode: "time", ticks:7},
+                    //yaxis: { min: -20, max:30 },
+                    yaxis: { autoscaleMargin:null}
+                    //y2axis: { min: -24, max: 24}
+                };
+                var moOverviewOptions = {
+                    //legend: { show: true, container: $("#divOverviewLegend") },
+                    lines: { show: true, lineWidth: 1 },
+                    shadowSize: 0,
+                    xaxis: { ticks: [], mode: "time" },
+                    yaxis: { autoscaleMargin:null, ticks: 2},
+                    //colors: [ "red"],
+                    selection: { mode: "xy" }
+                }
+                
+                moMainPlot = $.plot($("#divMainPlot"), moAllData, moPlotOptions);
+                moOverview = $.plot($("#divOverview"), moAllData,moOverviewOptions);
+                
+                //Liga overview y plot
+                $("#divMainPlot").bind("plotselected", function (poEvent, poRanges) {
+                    // clamp the zooming to prevent eternal zoom
+                    if (poRanges.xaxis.to - poRanges.xaxis.from < 0.00001)
+                        poRanges.xaxis.to = poRanges.xaxis.from + 0.00001;
+                    if (poRanges.yaxis.to - poRanges.yaxis.from < 0.00001)
+                        poRanges.yaxis.to = poRanges.yaxis.from + 0.00001;
+
+                    // do the zooming
+                    moMainPlot  = $.plot($("#divMainPlot"), [gaDataSet01],
+                                  $.extend(true, {}, moPlotOptions, {
+                                      xaxis: { min: poRanges.xaxis.from, max: poRanges.xaxis.to },
+                                      yaxis: { min: poRanges.yaxis.from, max: poRanges.yaxis.to }
+                                  }));
+
+                    // don't fire event on the overview to prevent eternal loop
+                    moOverview.setSelection(poRanges, true);
+                });
+                
+                $("#divOverview").bind("plotselected", function (poEvent, poRanges) {
+                    moMainPlot.setSelection(poRanges);
+                });
+                
+
+                var moPreviousPoint = null;
+                $("#divMainPlot").bind("plothover", function (poEvent, poPos, poItem) {
+                    if (poItem) {
+                        if (moPreviousPoint != poItem.datapoint) {
+                            moPreviousPoint = poItem.datapoint;
+
+                            $("#tooltip").remove();
+                            var liX = poItem.datapoint[0].toFixed(0);
+                            var liY = poItem.datapoint[1].toFixed(0);
+                            
+                            var liXMins = ((liX/1000)%86400)/60;
+                            var liHours = "" + parseInt(liXMins/60);
+                            var liMinutes = "" + parseInt(liXMins%60);
+
+                            liHours = (liHours.length<2)?"0" +liHours:liHours;
+                            liMinutes = (liMinutes.length<2)?"0" + liMinutes:liMinutes;
+                            showTooltip(poItem.pageX, poItem.pageY, " Valor a las <b>" +  liHours + ":" + liMinutes +  " Hrs = " + liY + "</b>");
+                        }
+                    }
+                    else {
+                        $("#tooltip").remove();
+                        moPreviousPoint = null;            
+                    }
+                });
+
+                $("#divMainPlot").bind("plotclick", function (poEvent, poPos, poItem) {
+                    if (poItem) {
+                        moMainPlot.highlight(poItem.series, poItem.datapoint);
+                    }
+                });
+                
+                function showTooltip(piX,piY, psContents) {
+                    $('<div id="tooltip" class = "grfToolTips">' + psContents + '</div>').css( {
+                        position: 'absolute',
+                        display: 'none',
+                        top: piY + 10,
+                        left: piX - 35,
+                        border: '1px solid #0066FF',
+                        padding: '2px',
+                        'background-color': '#99CCFF',
+                        opacity: 0.85
+                    }).appendTo("body").fadeIn(300);
+                }
+                
+                updateAxisLimits();
+            });
+            
+        </script>
+    </body>
+</html>

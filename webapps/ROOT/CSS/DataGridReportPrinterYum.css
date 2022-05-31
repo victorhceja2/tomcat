@@ -1,0 +1,117 @@
+.bsDg_table {
+	tableLayout: fixed;
+}
+.bsTotals {
+  color: #000099;
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+  font-size:   9;
+  font-weight: bold;
+}
+
+/* Para todos los encabezados */
+.bsDb_tr_header {
+  background-color: #FFFFFF;
+  color: #000099;
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+  font-size:   7px;
+  font-weight: bold;
+}
+/* Para un encabezado por default */
+.bsDb_td_header_default{
+    border-left: 0px;
+    border-top: 2px solid #CCCCCC;
+    border-right: 0px;
+    border-bottom: 1px solid #CCCCCC;
+}
+/* Para un encabezado izquierdo */
+.bsDb_td_header_left {
+    border-left: 2px solid #CCCCCC;
+    border-top: 2px solid #CCCCCC;
+    border-right: 0px;
+    border-bottom: 1px solid #CCCCCC;
+}
+/* Para un encabezado derecho */
+.bsDb_td_header_right {
+    border-left: 0px;
+    border-top: 2px solid #CCCCCC;
+    border-right: 2px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+}
+/* Para un encabezado al centro */
+.bsDb_td_header_center {
+    border-left: 2px solid #CCCCCC;
+    border-top: 2px solid #CCCCCC;
+    border-right: 2px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+}
+/* Para un encabezado vacio */
+.bsDb_td_header_empty {
+    border-left: 0px;
+    border-top: 2px solid #FFFFFF;
+    border-right: 0px;
+    border-bottom: 1px solid #CCCCCC;
+    background-color: white;
+}
+/* Para un encabezado de ordenamiento */
+.bsDb_td_header_sort {
+  border: 1px groove;
+  border-right:1px solid white;
+}
+
+/* Para las filas de datos */
+.bsDg_tr_row_zebra_0 {
+	background-color: #FFFFFF;
+    color: #000099;
+	font-size:   7px;
+    font-family: Arial, Helvetica, Verdana sans-serif; 
+}
+.bsDg_tr_row_zebra_1 {
+	background-color: #EFEFEF;
+    color: #000099;
+	font-size:   7px;
+    font-family: Arial, Helvetica, Verdana sans-serif; 
+}
+
+/* Celdas de datos por default */
+.bsDg_td_row_zebra_0 {
+    border-top: 1px solid #CCCCCC;
+}
+.bsDg_td_row_zebra_1 {
+    border-top: 1px solid #CCCCCC;
+}
+
+/* Para una celda izquierda */
+.bsDg_td_left {
+    border-left: 2px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+}
+/* Para un celda derecha */
+.bsDg_td_right {
+    border-right: 2px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+}
+.bsDg_td_sright {
+    border-right: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+}
+
+.bsDg_td_entry {
+    background-color: #CCFFFF;
+}
+
+.bsDg_td_colspan
+{
+    background-color: #FFFFFF;
+    color: #ff0000;
+    font-family: Arial, Helvetica, Verdana, sans-serif; 
+    font-size:   10px;
+    font-weight: bold;
+    border-top: 1px solid #CCCCCC;
+    padding-top: 13px;
+}
+
+.alarm
+{
+    background-color: #ff0000;
+    color: #ffffff;
+}

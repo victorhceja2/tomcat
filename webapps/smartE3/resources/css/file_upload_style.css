@@ -1,0 +1,97 @@
+/* 
+    Document   : fule_upload_style
+    Created on : 6/02/2018, 04:54:15 PM
+    Author     : RIB8912
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body{
+    font-family: "Segoe UI", Tahoma, Helvetica, freesans, sans-serif;
+    font-size: 90%;
+    margin: 10px;
+    color: #333;
+    background-color: #fff;
+    width: 85%;
+    height: 100%;
+}
+
+h1, h2{
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+h2{
+    font-size: 1.3em;
+}
+
+legend{
+    font-weight: bold;
+    color: #333;
+}
+
+#filedrag{
+    display: none;
+    font-weight: bold;
+    text-align: center;
+    padding: 1em 0;
+    margin: auto;
+    border-radius: 7px;
+    cursor: default;
+    height: 464px;
+    width: 464px;
+    background-image: url('../../images/e3/ui/templates/closed_box.png');
+    background-position: center;
+    background-size: cover;
+}
+
+#filedrag.hover{
+    background-image: url('../../images/e3/ui/templates/open_box_3.png');
+}
+
+img{
+    max-width: 100%;
+}
+
+pre{
+    width: 95%;
+    height: 8em;
+    font-family: monospace;
+    font-size: 0.9em;
+    padding: 1px 2px;
+    margin: 0 0 1em auto;
+    border: 1px inset #666;
+    background-color: #eee;
+    overflow: auto;
+}
+
+#messages{
+    padding: 1em 0;
+    margin: 1em 0;
+    border: 0px solid #999;
+    width: 100%;
+}
+
+#progress p{
+    display: block;
+    width: 240px;
+    padding: 2px 5px;
+    margin: 2px 0;
+    border: 1px inset #446;
+    border-radius: 5px;
+    background: #eee url("progress.png") 100% 0 repeat-y;
+}
+
+#progress p.success{
+    background: #0c0 none 0 0 no-repeat;
+}
+
+#progress p.failed{
+    background: #c00 none 0 0 no-repeat;
+}
+
+#submitbutton{
+    display: none;
+    alignment-adjust: central;
+    alignment-baseline: central;
+}

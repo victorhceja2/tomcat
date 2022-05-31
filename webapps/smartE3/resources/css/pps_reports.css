@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28/04/2016, 11:51:15 AM
+    Author     : DAB1379
+*/
+
+ @font-face {
+           font-family: myFirstFont;
+            src: url(sansation_light.woff);
+        }
+        body{
+            background-color: #E6E6E6;
+            font-family: myFirstFont;
+        }
+        div{
+            text-align: center;
+        }

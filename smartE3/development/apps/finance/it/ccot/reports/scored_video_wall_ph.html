@@ -1,0 +1,249 @@
+ <style type="text/css">
+ .centrada {margin: 0 auto; width: 650px;}
+
+ </style>
+<html>
+ <head>
+  <title>Scored videowall</title>
+  
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="/smartE3/resources/css/generals.css">
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.selection.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.pie.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/e3/GUIUtils.js"></script>
+        <script type='text/javascript' src='https://www.google.com/jsapi'></script>   
+ </head>
+
+ <body onLoad = "initPage();" style="overflow:hidden">
+ 
+    <script type="text/javascript">
+        var maGraphicData = null;
+        var maCallData = null;
+        var laData = null;
+        var mocolorbar = null;
+        var dato_llamada =0;
+
+
+        var maOptions = {
+                series: {                    
+                    pie: {
+                           show: true,
+                            combine: {
+                                color: '#999',
+                                threshold: 0.01
+                        },
+                        show: true,
+                        radius: 1,
+                        tilt: 1,
+                        label:{
+                            radius: 11/12,
+                            formatter: function (label, series) {                                
+                                //if (series.data[0][1]<1) {
+                                //    return "";
+                                //} else {
+                                    return '<div style="border:0px solid black;font-size:18pt; font-family:arial;text-align:center;padding:8px;color:white;"><b>' + label + '<br/>' + series.data[0][1] + ' </b></div>';
+                                //}
+                            },
+                          background: {
+                            opacity: 0.60,
+                            color: '#000'
+                          }
+                        }
+                    }
+                        },
+                legend: {
+                    show: false,
+                        radius: 0.80
+                }
+            };
+
+        var maOptions_calls = {
+                       bars: {show: true},
+                       yaxis: { min: 0 },
+                       xaxis: {ticks:  [
+                                         [0.5, "Llamada con mas tiempo en espera"]
+                                         //,[1.5, "Maynard Schumm"]
+                                        ]
+                               
+
+                            },
+                        font:'arial'
+
+                      };
+
+        var moUpdateInterval = null;
+        var moClockInterval = null;
+        var mbReentryFlag = true;
+
+        function initPage() {
+            moClockInterval = setInterval('showtime();',1000);
+            moUpdateInterval = setInterval('updateAllData();',5000);
+
+        }
+
+        function  updateAllData(){
+            if (!mbReentryFlag) return;
+
+            mbReentryFlag = false;
+
+            $.post("/smartE3/DataService",{psService: "getQueryData", psQuery: "EXEC it_ccs_sp_get_scored_video_wall '_e3_server_session_id_', '_e3_client_ip_', '_e3_client_host_name_', 1", psConnectionPool: "jdbc/CallCenter"},
+            function(poData) {
+                    laData = poData.split('_|||_');
+                    if (laData[0]!='0') {
+                        
+                        maGraphicData = [
+                            {label: "Llamada", data:laData[12]*1, color: "#58ACFA" },
+                            {label: "Disponible", data: laData[11]*1, color: "#FF8000"},
+                            {label: "Descanso", data: laData[1]*1, color: "#DE000F"},
+                            {label: "Ba&ntilde;o", data: laData[2]*1, color: "#F4FA58" },
+                            {label: "Comida", data: laData[3]*1, color: "#992B00"},
+                            {label: "Retroalimentacion", data: laData[4]*1, color: "#DE000F"},
+                            {label: "Capacitacion", data: laData[5]*1, color: "#0000FF" },
+                            {label: "Reunion", data: laData[6]*1, color:"#266985"},
+                            {label: "Back Office", data: laData[7]*1, color:"#21610B"},
+                            {label: "Seguimiento", data: laData[8]*1,color:"#6666FF"},
+                            {label: "call-back", data: laData[9]*1,color:"#6666FF"},
+                            {label: "Training", data: laData[10]*1,color:"#66FF00"},
+                            {label: "Wrap", data: laData[13]*1,color:"#088A85"},
+                            {label: "Not ready", data: laData[14]*1,color:"#BDBDBD"},
+                            {label: "Calidad", data: laData[15]*1,color:"#B40404"},
+                            {label: "ATC", data: laData[16]*1,color:"#0101DF"}
+
+                        ];
+                    } else {
+                        maGraphicData = [];
+                    }
+
+
+
+               mocolorbar = "#ACFA58";
+               dato_llamada = parseInt(laData[18]);
+               if (dato_llamada <= 20){
+                       mocolorbar = "#00FF00";
+               }else if (dato_llamada >= 21 && dato_llamada <= 40){
+                   mocolorbar = "#FFFF00";
+               }else if (dato_llamada >= 41 && dato_llamada <= 60){
+                   mocolorbar = "##FF4000";
+               }else if (dato_llamada > 60){
+                   mocolorbar = "#FF0000 ";
+               }
+                $.plot($("#flotcontainer"), maGraphicData , maOptions);
+                //alert(mocolorbar)
+                    maCallData = [
+                        {label: "", data:[[0,laData[18]]], color: mocolorbar },
+                    ];
+
+                //$.plot($("#flotwaitingcalls"), maCallData , maOptions_calls);
+                //document.getElementById("divDataTable").innerHTML = getTableData(null);
+                //alert(laData[15])
+                document.getElementById("divDataTablecalls").innerHTML = laData[20];
+                //alert(laData[20]);
+                document.getElementById("divDataTablestore").innerHTML = laData[22];
+                //alert(laData[22]);
+                document.getElementById("divDataTablcallback").innerHTML = laData[25];
+                //alert(laData[25]);
+                document.getElementById("divDataTableforecast").innerHTML = laData[26];
+                //alert(laData[26]);
+                document.getElementById("divagents_data").innerHTML = laData[0];
+                //alert(laData[0]);
+
+                mbReentryFlag = true;
+            },"text");
+        }
+
+
+        function showtime(){
+                if (!document.layers&&!document.all&&!document.getElementById) return
+
+                var Digital=new Date()
+                var hours=Digital.getHours()
+                var minutes=Digital.getMinutes()
+                var seconds=Digital.getSeconds()
+
+                var dn="PM"
+                if (hours<12)
+                    dn="AM"
+                if (hours>12)
+                    hours=hours-12
+                if (hours==0)
+                    hours=12
+                 if (minutes<=9)
+                    minutes="0"+minutes
+                 if (seconds<=9)
+                    seconds="0"+seconds
+                //cambia el tama�o de fuente
+                myclock="<b><font face = 'arial' size = '6pt'>" + hours+":"+minutes+":" +seconds+" "+dn+"</b></font></b>"
+
+                document.getElementById("divLiveClock").innerHTML=myclock
+            }
+
+
+
+    </script>
+
+    <!-- HTML -->
+
+    <center>
+        <table border="0" cellpadding = "0" cellspacing = "0">
+            <tr>
+                <!--td>
+                     <div id="divDataTableHD" class="centrada"> </div>
+                </td-->
+                <td>
+                    <!--div id="divDataTablepercent" class="centrada"></div-->
+                    <div id="divDataTablecalls" class="centrada"></div>
+                </td>
+                <td>
+                    <div id="flotcontainer" style="width:700px;height:550px;" class="centrada"> </div>
+                </td>
+            </tr>
+            <!--tr>
+                <td>
+                    <div id="divDataTablecalls" class="centrada"></div>
+                </td>
+            </tr-->
+            <tr>
+                <td>                    
+                    <!--div id="divDataTableagents" class="centrada"></div-->
+                    <div id="divDataTablestore" class="centrada"></div>
+                    <div id="divDataTableforecast" class="centrada"></div>
+                </td>
+               <td>                        
+                    <div id="divDataTablcallback" class="centrada"></div>
+                        <!--div id = "flotwaitingcalls" style ="border:0px solid blue;width:600px;height:100px;"></div-->
+                </td>
+            </tr>
+        </table>
+    </center>
+    <div id = "divLogo" style = "position:absolute;top:10px;left:1240px;">
+        <table border="0" cellpadding = "0" cellspacing = "0" width = "150px">
+            <tr>
+                <td align = "right">
+                    <img src="/smartE3/images/e3/ui/ccot/ph_video_wall.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td align = "right" nowrap>
+                    <div id="divLiveClock"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id = "divagents" style = "position:absolute;top:500px;left:1200px;">
+        <table border="0" cellpadding = "0" cellspacing = "0" width = "150px">
+
+            <tr>
+                <td align = "right" nowrap>
+                    <font face="arial" size=6 color="red">Agentes:</font>
+                </td>
+                <td align = "right" nowrap>
+                    <font face="arial" size=6 color="red"><div id="divagents_data"></div></font>
+                </td>
+            </tr>
+        </table>
+    </div>
+ </body>
+</html>

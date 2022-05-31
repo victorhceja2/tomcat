@@ -1,0 +1,108 @@
+<solution id = "">
+    <options>
+        <option file_url = "development/reports/options/default_options.def.xml" />
+    </options>
+    <fields header_height = "60" header_span_height = "20">
+        <drillthrough  action = "/smartE3/development/reports/operations/yum/plc/rpt/temperatures_kfc_graphic.html" param_field = "CD18" />
+
+        <field name = "CD0" header_span = "Temp. Camara Congelación" title = "Efic" param1 = "30" />
+        <field name = "CD1" header_span = "Temp. Camara Congelación" title = "Min" param1 = "30"/>
+        <field name = "CD2" header_span = "Temp. Camara Congelación" title = "Max" param1 = "30"/>
+        <field name = "CD3" header_span = "Temp. Camara Congelación" title = "D.S." param1 = "30"/>
+
+        <field name = "CD4" header_span = "Temp. Camara Refri. (trasera)" title = "Efic" param1 = "40"/>
+        <field name = "CD5" header_span = "Temp. Camara Refri. (trasera)" title = "Min" param1 = "40"/>
+        <field name = "CD6" header_span = "Temp. Camara Refri. (trasera)" title = "Max" param1 = "40"/>
+        <field name = "CD7" header_span = "Temp. Camara Refri. (trasera)" title = "D.S." param1 = "40"/>
+
+        <field name = "CD8" header_span = "Temp. Camara Refri. (frente)" title = "Efic" param1 = "40"/>
+        <field name = "CD9" header_span = "Temp. Camara Refri. (frente)" title = "Min" param1 = "40"/>
+        <field name = "CD10" header_span = "Temp. Camara Refri. (frente)" title = "Max" param1 = "40"/>
+        <field name = "CD11" header_span = "Temp. Camara Refri. (frente)" title = "D.S." param1 = "40"/>
+
+        <field name = "CD12" header_span = "Temperatura ambiente" title = "Efic" />
+        <field name = "CD13" header_span = "Temperatura ambiente" title = "Min" />
+        <field name = "CD14" header_span = "Temperatura ambiente" title = "Max" />
+        <field name = "CD15" header_span = "Temperatura ambiente" title = "D.S." />
+
+        <field name = "CD16" header_span = "Puertas" title = "Cam. Cong" />
+        <field name = "CD17" header_span = "Puertas" title = "Cam. Ref" />
+
+        <field name = "CD18" header_span = "" title = "" ctrl_field = "false" />
+    </fields>
+    <queries>
+        <query language = "MDX">
+            <string_wrapper>
+                <![CDATA[
+                    <b>Stores afectados: </b> {1} de  {2}, <b>porcentaje: </b>{3}
+                ]]>
+            </string_wrapper>
+            <query_def>
+                <![CDATA[
+                    WITH
+                                    SET org_members AS '{_param_1_}'
+                                    SET time_members AS '{_param_2_}'
+                                    MEMBER [Measures].[affected] AS 'COUNT(FILTER(NONEMPTYCROSSJOIN(NONEMPTYCROSSJOIN( {DESCENDANTS({org_members},[organization].[h].[store],SELF)},{_param_3_}),{time_members}), [Measures].[total_sample]> 0))/time_members.count', FORMAT_STRING = '#'  
+                                    MEMBER [Measures].[all]  AS 'COUNT(CROSSJOIN(NONEMPTYCROSSJOIN(DESCENDANTS({org_members},[Organization].[h].[Store],SELF),{_param_3_}),{time_members}))/time_members.count', FORMAT_STRING = '#'
+                                    MEMBER [Measures].[percentage] AS '([Measures].[affected]/[Measures].[all])', FORMAT_STRING = '0.00%'
+                    SELECT { 
+                                    [Measures].[affected],
+                                    [Measures].[all], 
+                                    [Measures].[percentage] 
+                    } ON COLUMNS 
+                    FROM [op_plc_data]
+                ]]>
+            </query_def>
+            <params>
+                <param id = "1" show_in_header = "false">tree_organization.olap_value</param>
+                <param id = "2" show_in_header = "false">tree_time.olap_value|cmb_to</param>
+                <param id = "3" show_in_header = "false">cmb_org_status</param>
+            </params>
+        </query>
+        <query language = "MDX" type = "data_grid">
+            <query_def>
+                <![CDATA[
+
+                    WITH
+                    SET org_set AS '{_param_1_}'
+                    SET time_set AS '{_param_2_}'
+                    SET temps_set AS '{[op_plc_sensor].[sensor_id].&[30],[op_plc_sensor].[sensor_id].&[40],[op_plc_sensor].[sensor_id].&[41],[op_plc_sensor].[sensor_id].&[42]}'
+                    SET temps_mtrx_set AS '{[measures].[eficiency], [measures].[min_temp], [measures].[max_temp], [measures].[std_deviation]}'
+                    SET doors_set AS '{[op_plc_sensor].[sensor_id].&[71], [op_plc_sensor].[sensor_id].&[70]}'
+                    
+                    MEMBER [time].[h].[TOTAL] AS 'SUM({time_set})'
+                    MEMBER [measures].[store_count] AS 'COUNT(FILTER(CROSSJOIN(CROSSJOIN(DESCENDANTS([Organization].[h].CurrentMember,[organization].[h].[store],SELF),{IIF([time].[h].CurrentMember.Level.Name<>"(all)",[Time].[h].CurrentMember,time_set)}),[store_status].[h].CurrentMember),[Measures].[total_sample]>0))', solve_order = 1
+                    MEMBER [measures].[eficiency] AS 'IIF([Measures].[total_sample]>0,1-([Measures].[out_range]/[Measures].[total_sample]),null)', FORMAT_STRING = '#.00%' + IIF([measures].[eficiency]<.5,'|style=olapRptRedCell','')
+                    MEMBER [measures].[min_temp] AS 'IIF([measures].[store_count]>0,[measures].[min]/[measures].[store_count],0)', FORMAT_STRING = '#.00'
+                    MEMBER [measures].[max_temp] AS 'IIF([measures].[store_count]>0,[measures].[max]/[measures].[store_count],0)', FORMAT_STRING = '#.00'
+                    MEMBER [measures].[std_deviation] AS 'IIF([measures].[store_count]>0,[measures].[std_dev]/[measures].[store_count],0)', FORMAT_STRING = '#.00'
+
+                    MEMBER [measures].[dt_time_params] AS 'IIF([time].[h].CurrentMember.Level.Name<>"(all)" AND [organization].[h].CurrentMember.Level.Name = "store",IIF([time].[h].CurrentMember.Level.Name="date",[time].[h].CurrentMember.Name,[time].[h].CurrentMember.UniqueName),null)'
+                    --MEMBER [measures].[dt_org_params] AS 'IIF([time].[h].CurrentMember.Level.Name<>"(all)" AND [organization].[h].CurrentMember.Level.Name = "store",[organization].[h].CurrentMember.UniqueName,null)'
+
+                    SELECT {
+                        --CROSSJOIN({[op_plc_sensor]},{[measures].[store_count]}),
+                        CROSSJOIN({temps_set},{temps_mtrx_set}),
+                        CROSSJOIN({doors_set},{[measures].[eficiency]}),
+                        CROSSJOIN({[op_plc_sensor]},{[measures].[dt_time_params]})
+                    }ON COLUMNS,{
+                    CROSSJOIN(
+                                    {NONEMPTYCROSSJOIN(
+                                                   {DESCENDANTS({org_set},_param_4_,SELF_AND_BEFORE)}
+                                    ,{_param_5_})}
+                    ,{_param_6_})
+                    }ON ROWS
+                    FROM [op_plc_data]
+                    
+                ]]>
+            </query_def>
+            <params>
+                <param id = "1">tree_organization.olap_value</param>
+                <param id = "2">tree_time.olap_value|cmb_to</param>
+                <param id = "4" type = "server_side" server_param = "olap_level_detail" client_param  = "chk_org_detail">chk_org_detail.last_true_value</param>
+                <param id = "5">cmb_org_status</param>
+                <param id = "6" show_in_header = "false" type = "olap_time_set" linked_dimension = "time" only_totals = "chk_only_totals">tree_time.olap_value|cmb_to</param>
+            </params>
+        </query>
+    </queries>
+</solution>

@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Previo de impresi&oacute;n</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-13">
+        <link rel="stylesheet" href="/smartE3/resources/css/generals.css">
+    </head>
+    <script>
+        
+        function showDataToPrint() {
+            document.write(window.parent._e3_gsDataToPrint);
+        }
+        
+        function doPrint() {
+            if (confirm('Deseas Imprimir este documento?')) {
+              focus();
+              print();
+            }
+        }
+                    
+    </script>
+    <body onload ='doPrint()'>
+        <script>
+            showDataToPrint();
+        </script>
+    </body>
+</html>

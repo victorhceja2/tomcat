@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script type="text/javascript">
+            function load()
+            {   
+                var lsVideoName = window.parent._e3_gaVideoName;
+                var lsVideoSize = window.parent._e3_gaVideoSize;
+                document.getElementById("video1").src = "/smartE3/development/apps/marketing/emenu/video/"+lsVideoName;
+                document.getElementById("video1").style.width = lsVideoSize+"px";
+                
+            }
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body onload="load()"> 
+<video id="video1" onclick="playPause()" autoplay>
+  
+</video>
+
+<script> 
+    
+    var myVideo = document.getElementById("video1"); 
+
+    function playPause() { 
+        if (myVideo.paused) 
+            myVideo.play(); 
+        else 
+            myVideo.pause(); 
+    } 
+</script> 
+</body> 
+</html>

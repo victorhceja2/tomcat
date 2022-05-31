@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SMTPS>
+  <smtp1>
+    <host host="smtp.gmail.com" port="587" user="user@frmex.net" passw="pass" domain="frmex.net" auth="yes">GMAIL</host>
+    <receiver  domain="prb.com.mx" ></receiver>
+  </smtp1>
+</SMTPS>

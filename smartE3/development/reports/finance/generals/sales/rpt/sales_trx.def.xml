@@ -1,0 +1,127 @@
+<solution id = "">
+    <options>
+        <option file_url = "development/reports/options/default_options.def.xml" />
+    </options>
+    <fields header_height = "45" header_span_height = "0" use_level_styles = "true">
+        <field name = "CD0">
+            <title><![CDATA[<br>Sale<br>$]]></title>
+        </field>
+        <field name = "CD1">
+            <title><![CDATA[Sale<br>Fcst<br>$]]></title>
+        </field>
+        <field name = "CD2">
+            <title><![CDATA[Idx Vs<br>Fcst<br>%]]></title>
+        </field>
+        <field name = "CD3">
+            <title><![CDATA[sale<br>PY<br>$]]></title>
+        </field>
+        <field name = "CD4">
+            <title><![CDATA[Idx Vs<br>PY<br>%]]></title>
+        </field>
+        <field name = "CD5">
+            <title><![CDATA[sale<br>Miss<br>$]]></title>
+        </field>
+        <field name = "CD6">
+            <title><![CDATA[<br>Trx<br>#]]></title>
+        </field>
+        <field name = "CD7">
+            <title><![CDATA[Trx<br>Fcst<br>#]]></title>
+        </field>
+        <field name = "CD8">
+            <title><![CDATA[Idx Vs<br>Fcst<br>%]]></title>
+        </field>
+        <field name = "CD9">
+            <title><![CDATA[Trx<br>PY<br>#]]></title>
+        </field>
+        <field name = "CD10">
+            <title><![CDATA[Idx Vs<br>PY<br>%]]></title>
+        </field>
+        <field name = "CD11">
+            <title><![CDATA[Trx<br>Miss<br>$]]></title>
+        </field>
+        <field name = "CD12">
+            <title><![CDATA[<br>T.A.<br>$]]></title>
+        </field>
+        <field name = "CD13">
+            <title><![CDATA[<br>Missings<br>#]]></title>
+        </field>
+    </fields>
+    <queries>
+        <query language = "MDX">
+            <string_wrapper>
+                <![CDATA[
+                    <b>Stores afectados: </b> {1} de  {2}, <b>porcentaje: </b>{3}
+                ]]>
+            </string_wrapper>
+            <query_def>
+                <![CDATA[
+                --TOTALES (VENTAS Y TRANSACCIONES)
+                    WITH
+                                    SET org_members AS '{_param_1_}'
+                                    SET time_members AS '{_param_2_}'
+                                    MEMBER [Measures].[affected] AS 'COUNT(FILTER(NONEMPTYCROSSJOIN(NONEMPTYCROSSJOIN( {DESCENDANTS({org_members},[organization].[h].[store],SELF)},{_param_3_}),{time_members}),[Measures].[missing] = 0))/time_members.count', FORMAT_STRING = '#'  
+                                    MEMBER [Measures].[all]     AS 'COUNT(NONEMPTYCROSSJOIN(NONEMPTYCROSSJOIN(DESCENDANTS({org_members},[Organization].[h].[Store],SELF),{_param_3_}),{time_members}))/time_members.count', FORMAT_STRING = '#'
+                                    MEMBER [Measures].[percentage] AS '([Measures].[affected]/[Measures].[all])', FORMAT_STRING = '0.00%'
+                    SELECT { 
+                                    [Measures].[affected],
+                                    [Measures].[all], 
+                                    [Measures].[percentage] 
+                    } ON COLUMNS 
+                    FROM [op_grl_sale_fcst]
+                ]]>
+            </query_def>
+            <params>
+                <param id = "1" show_in_header = "false">tree_organization.olap_value</param>
+                <param id = "2" show_in_header = "false">tree_time.olap_value|cmb_to</param>
+                <param id = "3" show_in_header = "false">cmb_org_status</param>
+            </params>
+        </query>
+        <query language = "MDX" type = "data_grid">
+            <query_def>
+                <![CDATA[
+                
+                    --REPORTE DE VENTAS Y TRANSACCIONES
+                    WITH  
+                                    MEMBER [Time].[h].[TOTAL] AS 'SUM({_param_4_})' ,solve_order = 0
+                                    MEMBER [Measures].[t_a]  AS ' IIF([Measures].[trx] = 0,0,[Measures].[sale]/[Measures].[trx]) ' , FORMAT_STRING = "#0.##", solve_Order = 1
+                                    MEMBER [Measures].[idx_vfcst]  AS ' IIF([Measures].[sale_fcst]=0,0,[Measures].[sale]/[Measures].[sale_fcst]) ' , FORMAT_STRING = "Percent", solve_Order = 1
+                                    MEMBER [Measures].[idx_tfcst]  AS ' IIF([Measures].[trx_fcst]=0,0,[Measures].[trx]/[Measures].[trx_fcst]) ' , FORMAT_STRING = "Percent", solve_Order = 1
+                                    MEMBER [Measures].[idx_vpy]  AS ' IIF ([Measures].[sale_py]=0,0,[Measures].[sale]/[Measures].[sale_py]) ' , FORMAT_STRING = "Percent", solve_Order = 1
+                                    MEMBER [Measures].[idx_tpy]  AS ' IIF([Measures].[trx_py] = 0,0,[Measures].[trx]/[Measures].[trx_py]) ' , FORMAT_STRING = "Percent", solve_Order = 1
+                    SELECT { 
+                                    [Measures].[sale],               
+                                    [Measures].[sale_fcst],      
+                                    [Measures].[idx_vfcst],       
+                                    [Measures].[sale_py],         
+                                    [Measures].[idx_vpy],                 
+                                    [Measures].[sale_miss],
+                                    [Measures].[trx],   
+                                    [Measures].[trx_fcst],          
+                                    [Measures].[idx_tfcst],        
+                                    [Measures].[trx_py],            
+                                    [Measures].[idx_tpy],                 
+                                    [Measures].[trx_miss],       
+                                    [Measures].[t_a],                 
+                                    [Measures].[missing]
+                    } ON COLUMNS,
+                     {             CROSSJOIN(
+                                                                   NONEMPTYCROSSJOIN(
+                                                                                                   {DESCENDANTS({_param_1_},_param_2_,SELF_AND_BEFORE )}
+                                                                                                  ,{_param_3_}
+                                                                   ),{_param_5_})
+                    } 
+                    ON ROWS 
+                    FROM [op_grl_sale_fcst]
+                   
+                ]]>
+            </query_def>
+            <params>
+                <param id = "1">tree_organization.olap_value</param>
+                <param id = "2" type = "server_side" server_param = "olap_level_detail" client_param  = "chk_org_detail">chk_org_detail.last_true_value</param>
+                <param id = "3">cmb_org_status</param>
+                <param id = "4">tree_time.olap_value|cmb_to</param>
+                <param id = "5" show_in_header = "false" type = "olap_time_set" linked_dimension = "time" only_totals = "chk_only_totals">tree_time.olap_value|cmb_to</param>
+            </params>
+        </query>
+    </queries>
+</solution>

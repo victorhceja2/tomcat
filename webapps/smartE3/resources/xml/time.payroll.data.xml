@@ -1,0 +1,146 @@
+<tree_struct>
+<levels>
+<level id = "10" name = "A&amp;ntilde;o" default = "2014"/>
+<level id = "20" name = "Periodo" default = "2014.5"/>
+</levels>
+<tree_options>
+<tree_option option_id = "2009" option_desc = "2009" list_option_desc = "2009" parent_id = "0" level = "10" sql_value = "2009" olap_value = "[time].[h].[2009]" />
+<tree_option option_id = "2009.22" option_desc = "C22 (20/10/2009-02/11/2009)" list_option_desc = "2009.22" parent_id = "2009" level = "20" sql_value = "2009.22" olap_value = "[time].[h].[2009].[22]" />
+<tree_option option_id = "2009.23" option_desc = "C23 (03/11/2009-16/11/2009)" list_option_desc = "2009.23" parent_id = "2009" level = "20" sql_value = "2009.23" olap_value = "[time].[h].[2009].[23]" />
+<tree_option option_id = "2009.24" option_desc = "C24 (17/11/2009-30/11/2009)" list_option_desc = "2009.24" parent_id = "2009" level = "20" sql_value = "2009.24" olap_value = "[time].[h].[2009].[24]" />
+<tree_option option_id = "2009.99" option_desc = "C99 ( AGUINALDO )" list_option_desc = "2009.99" parent_id = "2009" level = "20" sql_value = "2009.99" olap_value = "[time].[h].[2009].[99]" />
+<tree_option option_id = "2009.25" option_desc = "C25 (01/12/2009-14/12/2009)" list_option_desc = "2009.25" parent_id = "2009" level = "20" sql_value = "2009.25" olap_value = "[time].[h].[2009].[25]" />
+<tree_option option_id = "2009.26" option_desc = "C26 (15/12/2009-28/12/2009)" list_option_desc = "2009.26" parent_id = "2009" level = "20" sql_value = "2009.26" olap_value = "[time].[h].[2009].[26]" />
+<tree_option option_id = "2010" option_desc = "2010" list_option_desc = "2010" parent_id = "0" level = "10" sql_value = "2010" olap_value = "[time].[h].[2010]" />
+<tree_option option_id = "2010.1" option_desc = "C1 (29/12/2009-11/01/2010)" list_option_desc = "2010.1" parent_id = "2010" level = "20" sql_value = "2010.1" olap_value = "[time].[h].[2010].[1]" />
+<tree_option option_id = "2010.50" option_desc = "( F.A. PRESTAMO )" list_option_desc = "2010.50" parent_id = "2010" level = "20" sql_value = "2010.50" olap_value = "[time].[h].[2010].[50]" />
+<tree_option option_id = "2010.2" option_desc = "C2 (12/01/2010-25/01/2010)" list_option_desc = "2010.2" parent_id = "2010" level = "20" sql_value = "2010.2" olap_value = "[time].[h].[2010].[2]" />
+<tree_option option_id = "2010.3" option_desc = "C3 (26/01/2010-08/02/2010)" list_option_desc = "2010.3" parent_id = "2010" level = "20" sql_value = "2010.3" olap_value = "[time].[h].[2010].[3]" />
+<tree_option option_id = "2010.4" option_desc = "C4 (09/02/2010-22/02/2010)" list_option_desc = "2010.4" parent_id = "2010" level = "20" sql_value = "2010.4" olap_value = "[time].[h].[2010].[4]" />
+<tree_option option_id = "2010.5" option_desc = "C5 (23/02/2010-08/03/2010)" list_option_desc = "2010.5" parent_id = "2010" level = "20" sql_value = "2010.5" olap_value = "[time].[h].[2010].[5]" />
+<tree_option option_id = "2010.6" option_desc = "C6 (09/03/2010-22/03/2010)" list_option_desc = "2010.6" parent_id = "2010" level = "20" sql_value = "2010.6" olap_value = "[time].[h].[2010].[6]" />
+<tree_option option_id = "2010.7" option_desc = "C7 (23/03/2010-05/04/2010)" list_option_desc = "2010.7" parent_id = "2010" level = "20" sql_value = "2010.7" olap_value = "[time].[h].[2010].[7]" />
+<tree_option option_id = "2010.8" option_desc = "C8 (06/04/2010-19/04/2010)" list_option_desc = "2010.8" parent_id = "2010" level = "20" sql_value = "2010.8" olap_value = "[time].[h].[2010].[8]" />
+<tree_option option_id = "2010.9" option_desc = "C9 (20/04/2010-03/05/2010)" list_option_desc = "2010.9" parent_id = "2010" level = "20" sql_value = "2010.9" olap_value = "[time].[h].[2010].[9]" />
+<tree_option option_id = "2010.98" option_desc = "( BONO )" list_option_desc = "2010.98" parent_id = "2010" level = "20" sql_value = "2010.98" olap_value = "[time].[h].[2010].[98]" />
+<tree_option option_id = "2010.10" option_desc = "C10 (04/05/2010-17/05/2010)" list_option_desc = "2010.10" parent_id = "2010" level = "20" sql_value = "2010.10" olap_value = "[time].[h].[2010].[10]" />
+<tree_option option_id = "2010.11" option_desc = "C11 (18/05/2010-31/05/2010)" list_option_desc = "2010.11" parent_id = "2010" level = "20" sql_value = "2010.11" olap_value = "[time].[h].[2010].[11]" />
+<tree_option option_id = "2010.12" option_desc = "C12 (01/06/2010-14/06/2010)" list_option_desc = "2010.12" parent_id = "2010" level = "20" sql_value = "2010.12" olap_value = "[time].[h].[2010].[12]" />
+<tree_option option_id = "2010.13" option_desc = "C13 (15/06/2010-28/06/2010)" list_option_desc = "2010.13" parent_id = "2010" level = "20" sql_value = "2010.13" olap_value = "[time].[h].[2010].[13]" />
+<tree_option option_id = "2010.51" option_desc = "( F.A. LIQUIDACIÓN )" list_option_desc = "2010.51" parent_id = "2010" level = "20" sql_value = "2010.51" olap_value = "[time].[h].[2010].[51]" />
+<tree_option option_id = "2010.14" option_desc = "C14 (29/06/2010-12/07/2010)" list_option_desc = "2010.14" parent_id = "2010" level = "20" sql_value = "2010.14" olap_value = "[time].[h].[2010].[14]" />
+<tree_option option_id = "2010.15" option_desc = "C15 (13/07/2010-26/07/2010)" list_option_desc = "2010.15" parent_id = "2010" level = "20" sql_value = "2010.15" olap_value = "[time].[h].[2010].[15]" />
+<tree_option option_id = "2010.16" option_desc = "C16 (27/07/2010-09/08/2010)" list_option_desc = "2010.16" parent_id = "2010" level = "20" sql_value = "2010.16" olap_value = "[time].[h].[2010].[16]" />
+<tree_option option_id = "2010.17" option_desc = "C17 (10/08/2010-23/08/2010)" list_option_desc = "2010.17" parent_id = "2010" level = "20" sql_value = "2010.17" olap_value = "[time].[h].[2010].[17]" />
+<tree_option option_id = "2010.18" option_desc = "C18 (24/08/2010-06/09/2010)" list_option_desc = "2010.18" parent_id = "2010" level = "20" sql_value = "2010.18" olap_value = "[time].[h].[2010].[18]" />
+<tree_option option_id = "2010.19" option_desc = "C19 (07/09/2010-20/09/2010)" list_option_desc = "2010.19" parent_id = "2010" level = "20" sql_value = "2010.19" olap_value = "[time].[h].[2010].[19]" />
+<tree_option option_id = "2010.20" option_desc = "C20 (21/09/2010-04/10/2010)" list_option_desc = "2010.20" parent_id = "2010" level = "20" sql_value = "2010.20" olap_value = "[time].[h].[2010].[20]" />
+<tree_option option_id = "2010.21" option_desc = "C21 (05/10/2010-18/10/2010)" list_option_desc = "2010.21" parent_id = "2010" level = "20" sql_value = "2010.21" olap_value = "[time].[h].[2010].[21]" />
+<tree_option option_id = "2010.22" option_desc = "C22 (19/10/2010-01/11/2010)" list_option_desc = "2010.22" parent_id = "2010" level = "20" sql_value = "2010.22" olap_value = "[time].[h].[2010].[22]" />
+<tree_option option_id = "2010.23" option_desc = "C23 (02/11/2010-15/11/2010)" list_option_desc = "2010.23" parent_id = "2010" level = "20" sql_value = "2010.23" olap_value = "[time].[h].[2010].[23]" />
+<tree_option option_id = "2010.24" option_desc = "C24 (16/11/2010-29/11/2010)" list_option_desc = "2010.24" parent_id = "2010" level = "20" sql_value = "2010.24" olap_value = "[time].[h].[2010].[24]" />
+<tree_option option_id = "2010.99" option_desc = "C99 ( AGUINALDO )" list_option_desc = "2010.99" parent_id = "2010" level = "20" sql_value = "2010.99" olap_value = "[time].[h].[2010].[99]" />
+<tree_option option_id = "2010.25" option_desc = "C25 (30/11/2010-13/12/2010)" list_option_desc = "2010.25" parent_id = "2010" level = "20" sql_value = "2010.25" olap_value = "[time].[h].[2010].[25]" />
+<tree_option option_id = "2010.26" option_desc = "C26 (14/12/2010-27/12/2010)" list_option_desc = "2010.26" parent_id = "2010" level = "20" sql_value = "2010.26" olap_value = "[time].[h].[2010].[26]" />
+<tree_option option_id = "2011" option_desc = "2011" list_option_desc = "2011" parent_id = "0" level = "10" sql_value = "2011" olap_value = "[time].[h].[2011]" />
+<tree_option option_id = "2011.50" option_desc = "( F.A. PRESTAMO )" list_option_desc = "2011.50" parent_id = "2011" level = "20" sql_value = "2011.50" olap_value = "[time].[h].[2011].[50]" />
+<tree_option option_id = "2011.1" option_desc = "C1 (28/12/2010-10/01/2011)" list_option_desc = "2011.1" parent_id = "2011" level = "20" sql_value = "2011.1" olap_value = "[time].[h].[2011].[1]" />
+<tree_option option_id = "2011.2" option_desc = "C2 (11/01/2011-24/01/2011)" list_option_desc = "2011.2" parent_id = "2011" level = "20" sql_value = "2011.2" olap_value = "[time].[h].[2011].[2]" />
+<tree_option option_id = "2011.3" option_desc = "C3 (25/01/2011-07/02/2011)" list_option_desc = "2011.3" parent_id = "2011" level = "20" sql_value = "2011.3" olap_value = "[time].[h].[2011].[3]" />
+<tree_option option_id = "2011.4" option_desc = "C4 (08/02/2011-21/02/2011)" list_option_desc = "2011.4" parent_id = "2011" level = "20" sql_value = "2011.4" olap_value = "[time].[h].[2011].[4]" />
+<tree_option option_id = "2011.5" option_desc = "C5 (22/02/2011-07/03/2011)" list_option_desc = "2011.5" parent_id = "2011" level = "20" sql_value = "2011.5" olap_value = "[time].[h].[2011].[5]" />
+<tree_option option_id = "2011.6" option_desc = "C6 (08/03/2011-21/03/2011)" list_option_desc = "2011.6" parent_id = "2011" level = "20" sql_value = "2011.6" olap_value = "[time].[h].[2011].[6]" />
+<tree_option option_id = "2011.7" option_desc = "C7 (22/03/2011-04/04/2011)" list_option_desc = "2011.7" parent_id = "2011" level = "20" sql_value = "2011.7" olap_value = "[time].[h].[2011].[7]" />
+<tree_option option_id = "2011.8" option_desc = "C8 (05/04/2011-18/04/2011)" list_option_desc = "2011.8" parent_id = "2011" level = "20" sql_value = "2011.8" olap_value = "[time].[h].[2011].[8]" />
+<tree_option option_id = "2011.9" option_desc = "C9 (19/04/2011-02/05/2011)" list_option_desc = "2011.9" parent_id = "2011" level = "20" sql_value = "2011.9" olap_value = "[time].[h].[2011].[9]" />
+<tree_option option_id = "2011.10" option_desc = "C10 (03/05/2011-16/05/2011)" list_option_desc = "2011.10" parent_id = "2011" level = "20" sql_value = "2011.10" olap_value = "[time].[h].[2011].[10]" />
+<tree_option option_id = "2011.11" option_desc = "C11 (17/05/2011-30/05/2011)" list_option_desc = "2011.11" parent_id = "2011" level = "20" sql_value = "2011.11" olap_value = "[time].[h].[2011].[11]" />
+<tree_option option_id = "2011.12" option_desc = "C12 (31/05/2011-13/06/2011)" list_option_desc = "2011.12" parent_id = "2011" level = "20" sql_value = "2011.12" olap_value = "[time].[h].[2011].[12]" />
+<tree_option option_id = "2011.13" option_desc = "C13 (14/06/2011-27/06/2011)" list_option_desc = "2011.13" parent_id = "2011" level = "20" sql_value = "2011.13" olap_value = "[time].[h].[2011].[13]" />
+<tree_option option_id = "2011.51" option_desc = "( F.A. LIQUIDACIÓN )" list_option_desc = "2011.51" parent_id = "2011" level = "20" sql_value = "2011.51" olap_value = "[time].[h].[2011].[51]" />
+<tree_option option_id = "2011.14" option_desc = "C14 (28/06/2011-11/07/2011)" list_option_desc = "2011.14" parent_id = "2011" level = "20" sql_value = "2011.14" olap_value = "[time].[h].[2011].[14]" />
+<tree_option option_id = "2011.15" option_desc = "C15 (12/07/2011-25/07/2011)" list_option_desc = "2011.15" parent_id = "2011" level = "20" sql_value = "2011.15" olap_value = "[time].[h].[2011].[15]" />
+<tree_option option_id = "2011.16" option_desc = "C16 (26/07/2011-08/08/2011)" list_option_desc = "2011.16" parent_id = "2011" level = "20" sql_value = "2011.16" olap_value = "[time].[h].[2011].[16]" />
+<tree_option option_id = "2011.17" option_desc = "C17 (09/08/2011-22/08/2011)" list_option_desc = "2011.17" parent_id = "2011" level = "20" sql_value = "2011.17" olap_value = "[time].[h].[2011].[17]" />
+<tree_option option_id = "2011.18" option_desc = "C18 (23/08/2011-05/09/2011)" list_option_desc = "2011.18" parent_id = "2011" level = "20" sql_value = "2011.18" olap_value = "[time].[h].[2011].[18]" />
+<tree_option option_id = "2011.19" option_desc = "C19 (06/09/2011-19/09/2011)" list_option_desc = "2011.19" parent_id = "2011" level = "20" sql_value = "2011.19" olap_value = "[time].[h].[2011].[19]" />
+<tree_option option_id = "2011.20" option_desc = "C20 (20/09/2011-03/10/2011)" list_option_desc = "2011.20" parent_id = "2011" level = "20" sql_value = "2011.20" olap_value = "[time].[h].[2011].[20]" />
+<tree_option option_id = "2011.21" option_desc = "C21 (04/10/2011-17/10/2011)" list_option_desc = "2011.21" parent_id = "2011" level = "20" sql_value = "2011.21" olap_value = "[time].[h].[2011].[21]" />
+<tree_option option_id = "2011.22" option_desc = "C22 (18/10/2011-31/10/2011)" list_option_desc = "2011.22" parent_id = "2011" level = "20" sql_value = "2011.22" olap_value = "[time].[h].[2011].[22]" />
+<tree_option option_id = "2011.23" option_desc = "C23 (01/11/2011-14/11/2011)" list_option_desc = "2011.23" parent_id = "2011" level = "20" sql_value = "2011.23" olap_value = "[time].[h].[2011].[23]" />
+<tree_option option_id = "2011.24" option_desc = "C24 (15/11/2011-28/11/2011)" list_option_desc = "2011.24" parent_id = "2011" level = "20" sql_value = "2011.24" olap_value = "[time].[h].[2011].[24]" />
+<tree_option option_id = "2011.99" option_desc = "C99 ( AGUINALDO )" list_option_desc = "2011.99" parent_id = "2011" level = "20" sql_value = "2011.99" olap_value = "[time].[h].[2011].[99]" />
+<tree_option option_id = "2011.25" option_desc = "C25 (29/11/2011-12/12/2011)" list_option_desc = "2011.25" parent_id = "2011" level = "20" sql_value = "2011.25" olap_value = "[time].[h].[2011].[25]" />
+<tree_option option_id = "2011.26" option_desc = "C26 (13/12/2011-26/12/2011)" list_option_desc = "2011.26" parent_id = "2011" level = "20" sql_value = "2011.26" olap_value = "[time].[h].[2011].[26]" />
+<tree_option option_id = "2012" option_desc = "2012" list_option_desc = "2012" parent_id = "0" level = "10" sql_value = "2012" olap_value = "[time].[h].[2012]" />
+<tree_option option_id = "2011.27" option_desc = "C27 (27/12/2011-09/01/2012)" list_option_desc = "2011.27" parent_id = "2011" level = "20" sql_value = "2011.27" olap_value = "[time].[h].[2011].[27]" />
+<tree_option option_id = "2012.1" option_desc = "C1 (27/12/2011-09/01/2012)" list_option_desc = "2012.1" parent_id = "2012" level = "20" sql_value = "2012.1" olap_value = "[time].[h].[2012].[1]" />
+<tree_option option_id = "2012.50" option_desc = "( F.A. PRESTAMO )" list_option_desc = "2012.50" parent_id = "2012" level = "20" sql_value = "2012.50" olap_value = "[time].[h].[2012].[50]" />
+<tree_option option_id = "2012.2" option_desc = "C2 (10/01/2012-23/01/2012)" list_option_desc = "2012.2" parent_id = "2012" level = "20" sql_value = "2012.2" olap_value = "[time].[h].[2012].[2]" />
+<tree_option option_id = "2012.3" option_desc = "C3 (24/01/2012-06/02/2012)" list_option_desc = "2012.3" parent_id = "2012" level = "20" sql_value = "2012.3" olap_value = "[time].[h].[2012].[3]" />
+<tree_option option_id = "2012.4" option_desc = "C4 (07/02/2012-20/02/2012)" list_option_desc = "2012.4" parent_id = "2012" level = "20" sql_value = "2012.4" olap_value = "[time].[h].[2012].[4]" />
+<tree_option option_id = "2012.5" option_desc = "C5 (21/02/2012-05/03/2012)" list_option_desc = "2012.5" parent_id = "2012" level = "20" sql_value = "2012.5" olap_value = "[time].[h].[2012].[5]" />
+<tree_option option_id = "2012.6" option_desc = "C6 (06/03/2012-19/03/2012)" list_option_desc = "2012.6" parent_id = "2012" level = "20" sql_value = "2012.6" olap_value = "[time].[h].[2012].[6]" />
+<tree_option option_id = "2012.7" option_desc = "C7 (20/03/2012-02/04/2012)" list_option_desc = "2012.7" parent_id = "2012" level = "20" sql_value = "2012.7" olap_value = "[time].[h].[2012].[7]" />
+<tree_option option_id = "2012.8" option_desc = "C8 (03/04/2012-16/04/2012)" list_option_desc = "2012.8" parent_id = "2012" level = "20" sql_value = "2012.8" olap_value = "[time].[h].[2012].[8]" />
+<tree_option option_id = "2012.9" option_desc = "C9 (17/04/2012-30/04/2012)" list_option_desc = "2012.9" parent_id = "2012" level = "20" sql_value = "2012.9" olap_value = "[time].[h].[2012].[9]" />
+<tree_option option_id = "2012.10" option_desc = "C10 (01/05/2012-14/05/2012)" list_option_desc = "2012.10" parent_id = "2012" level = "20" sql_value = "2012.10" olap_value = "[time].[h].[2012].[10]" />
+<tree_option option_id = "2012.11" option_desc = "C11 (15/05/2012-28/05/2012)" list_option_desc = "2012.11" parent_id = "2012" level = "20" sql_value = "2012.11" olap_value = "[time].[h].[2012].[11]" />
+<tree_option option_id = "2012.98" option_desc = "( UTILIDADES 2011 )" list_option_desc = "2012.98" parent_id = "2012" level = "20" sql_value = "2012.98" olap_value = "[time].[h].[2012].[98]" />
+<tree_option option_id = "2012.12" option_desc = "C12 (29/05/2012-11/06/2012)" list_option_desc = "2012.12" parent_id = "2012" level = "20" sql_value = "2012.12" olap_value = "[time].[h].[2012].[12]" />
+<tree_option option_id = "2012.13" option_desc = "C13 (12/06/2012-25/06/2012)" list_option_desc = "2012.13" parent_id = "2012" level = "20" sql_value = "2012.13" olap_value = "[time].[h].[2012].[13]" />
+<tree_option option_id = "2012.14" option_desc = "C14 (26/06/2012-09/07/2012)" list_option_desc = "2012.14" parent_id = "2012" level = "20" sql_value = "2012.14" olap_value = "[time].[h].[2012].[14]" />
+<tree_option option_id = "2012.51" option_desc = "( F.A. LIQUIDACIÓN )" list_option_desc = "2012.51" parent_id = "2012" level = "20" sql_value = "2012.51" olap_value = "[time].[h].[2012].[51]" />
+<tree_option option_id = "2012.15" option_desc = "C15 (10/07/2012-23/07/2012)" list_option_desc = "2012.15" parent_id = "2012" level = "20" sql_value = "2012.15" olap_value = "[time].[h].[2012].[15]" />
+<tree_option option_id = "2012.16" option_desc = "C16 (24/07/2012-06/08/2012)" list_option_desc = "2012.16" parent_id = "2012" level = "20" sql_value = "2012.16" olap_value = "[time].[h].[2012].[16]" />
+<tree_option option_id = "2012.17" option_desc = "C17 (07/08/2012-20/08/2012)" list_option_desc = "2012.17" parent_id = "2012" level = "20" sql_value = "2012.17" olap_value = "[time].[h].[2012].[17]" />
+<tree_option option_id = "2012.18" option_desc = "C18 (21/08/2012-03/09/2012)" list_option_desc = "2012.18" parent_id = "2012" level = "20" sql_value = "2012.18" olap_value = "[time].[h].[2012].[18]" />
+<tree_option option_id = "2012.19" option_desc = "C19 (04/09/2012-17/09/2012)" list_option_desc = "2012.19" parent_id = "2012" level = "20" sql_value = "2012.19" olap_value = "[time].[h].[2012].[19]" />
+<tree_option option_id = "2012.20" option_desc = "C20 (18/09/2012-01/10/2012)" list_option_desc = "2012.20" parent_id = "2012" level = "20" sql_value = "2012.20" olap_value = "[time].[h].[2012].[20]" />
+<tree_option option_id = "2012.21" option_desc = "C21 (02/10/2012-15/10/2012)" list_option_desc = "2012.21" parent_id = "2012" level = "20" sql_value = "2012.21" olap_value = "[time].[h].[2012].[21]" />
+<tree_option option_id = "2012.22" option_desc = "C22 (16/10/2012-29/10/2012)" list_option_desc = "2012.22" parent_id = "2012" level = "20" sql_value = "2012.22" olap_value = "[time].[h].[2012].[22]" />
+<tree_option option_id = "2012.23" option_desc = "C23 (30/10/2012-12/11/2012)" list_option_desc = "2012.23" parent_id = "2012" level = "20" sql_value = "2012.23" olap_value = "[time].[h].[2012].[23]" />
+<tree_option option_id = "2012.24" option_desc = "C24 (13/11/2012-26/11/2012)" list_option_desc = "2012.24" parent_id = "2012" level = "20" sql_value = "2012.24" olap_value = "[time].[h].[2012].[24]" />
+<tree_option option_id = "2012.99" option_desc = "C99 ( AGUINALDO )" list_option_desc = "2012.99" parent_id = "2012" level = "20" sql_value = "2012.99" olap_value = "[time].[h].[2012].[99]" />
+<tree_option option_id = "2012.25" option_desc = "C25 (27/11/2012-10/12/2012)" list_option_desc = "2012.25" parent_id = "2012" level = "20" sql_value = "2012.25" olap_value = "[time].[h].[2012].[25]" />
+<tree_option option_id = "2012.26" option_desc = "C26 (11/12/2012-24/12/2012)" list_option_desc = "2012.26" parent_id = "2012" level = "20" sql_value = "2012.26" olap_value = "[time].[h].[2012].[26]" />
+<tree_option option_id = "2013" option_desc = "2013" list_option_desc = "2013" parent_id = "0" level = "10" sql_value = "2013" olap_value = "[time].[h].[2013]" />
+<tree_option option_id = "2013.1" option_desc = "C1 (25/12/2012-07/01/2013)" list_option_desc = "2013.1" parent_id = "2013" level = "20" sql_value = "2013.1" olap_value = "[time].[h].[2013].[1]" />
+<tree_option option_id = "2013.50" option_desc = "( F.A. PRESTAMO )" list_option_desc = "2013.50" parent_id = "2013" level = "20" sql_value = "2013.50" olap_value = "[time].[h].[2013].[50]" />
+<tree_option option_id = "2013.2" option_desc = "C2 (08/01/2013-21/01/2013)" list_option_desc = "2013.2" parent_id = "2013" level = "20" sql_value = "2013.2" olap_value = "[time].[h].[2013].[2]" />
+<tree_option option_id = "2013.3" option_desc = "C3 (22/01/2013-04/02/2013)" list_option_desc = "2013.3" parent_id = "2013" level = "20" sql_value = "2013.3" olap_value = "[time].[h].[2013].[3]" />
+<tree_option option_id = "2013.4" option_desc = "C4 (05/02/2013-18/02/2013)" list_option_desc = "2013.4" parent_id = "2013" level = "20" sql_value = "2013.4" olap_value = "[time].[h].[2013].[4]" />
+<tree_option option_id = "2013.5" option_desc = "C5 (19/02/2013-04/03/2013)" list_option_desc = "2013.5" parent_id = "2013" level = "20" sql_value = "2013.5" olap_value = "[time].[h].[2013].[5]" />
+<tree_option option_id = "2013.6" option_desc = "C6 (05/03/2013-18/03/2013)" list_option_desc = "2013.6" parent_id = "2013" level = "20" sql_value = "2013.6" olap_value = "[time].[h].[2013].[6]" />
+<tree_option option_id = "2013.7" option_desc = "C7 (19/03/2013-01/04/2013)" list_option_desc = "2013.7" parent_id = "2013" level = "20" sql_value = "2013.7" olap_value = "[time].[h].[2013].[7]" />
+<tree_option option_id = "2013.8" option_desc = "C8 (02/04/2013-15/04/2013)" list_option_desc = "2013.8" parent_id = "2013" level = "20" sql_value = "2013.8" olap_value = "[time].[h].[2013].[8]" />
+<tree_option option_id = "2013.9" option_desc = "C9 (16/04/2013-29/04/2013)" list_option_desc = "2013.9" parent_id = "2013" level = "20" sql_value = "2013.9" olap_value = "[time].[h].[2013].[9]" />
+<tree_option option_id = "2013.10" option_desc = "C10 (30/04/2013-13/05/2013)" list_option_desc = "2013.10" parent_id = "2013" level = "20" sql_value = "2013.10" olap_value = "[time].[h].[2013].[10]" />
+<tree_option option_id = "2013.11" option_desc = "C11 (14/05/2013-27/05/2013)" list_option_desc = "2013.11" parent_id = "2013" level = "20" sql_value = "2013.11" olap_value = "[time].[h].[2013].[11]" />
+<tree_option option_id = "2013.98" option_desc = "( UTILIDADES 2012 )" list_option_desc = "2013.98" parent_id = "2013" level = "20" sql_value = "2013.98" olap_value = "[time].[h].[2013].[98]" />
+<tree_option option_id = "2013.12" option_desc = "C12 (28/05/2013-10/06/2013)" list_option_desc = "2013.12" parent_id = "2013" level = "20" sql_value = "2013.12" olap_value = "[time].[h].[2013].[12]" />
+<tree_option option_id = "2013.13" option_desc = "C13 (11/06/2013-24/06/2013)" list_option_desc = "2013.13" parent_id = "2013" level = "20" sql_value = "2013.13" olap_value = "[time].[h].[2013].[13]" />
+<tree_option option_id = "2013.14" option_desc = "C14 (25/06/2013-08/07/2013)" list_option_desc = "2013.14" parent_id = "2013" level = "20" sql_value = "2013.14" olap_value = "[time].[h].[2013].[14]" />
+<tree_option option_id = "2013.51" option_desc = "( F.A. LIQUIDACIÓN )" list_option_desc = "2013.51" parent_id = "2013" level = "20" sql_value = "2013.51" olap_value = "[time].[h].[2013].[51]" />
+<tree_option option_id = "2013.15" option_desc = "C15 (09/07/2013-22/07/2013)" list_option_desc = "2013.15" parent_id = "2013" level = "20" sql_value = "2013.15" olap_value = "[time].[h].[2013].[15]" />
+<tree_option option_id = "2013.16" option_desc = "C16 (23/07/2013-05/08/2013)" list_option_desc = "2013.16" parent_id = "2013" level = "20" sql_value = "2013.16" olap_value = "[time].[h].[2013].[16]" />
+<tree_option option_id = "2013.17" option_desc = "C17 (06/08/2013-19/08/2013)" list_option_desc = "2013.17" parent_id = "2013" level = "20" sql_value = "2013.17" olap_value = "[time].[h].[2013].[17]" />
+<tree_option option_id = "2013.18" option_desc = "C18 (20/08/2013-02/09/2013)" list_option_desc = "2013.18" parent_id = "2013" level = "20" sql_value = "2013.18" olap_value = "[time].[h].[2013].[18]" />
+<tree_option option_id = "2013.19" option_desc = "C19 (03/09/2013-16/09/2013)" list_option_desc = "2013.19" parent_id = "2013" level = "20" sql_value = "2013.19" olap_value = "[time].[h].[2013].[19]" />
+<tree_option option_id = "2013.20" option_desc = "C20 (17/09/2013-30/09/2013)" list_option_desc = "2013.20" parent_id = "2013" level = "20" sql_value = "2013.20" olap_value = "[time].[h].[2013].[20]" />
+<tree_option option_id = "2013.21" option_desc = "C21 (01/10/2013-14/10/2013)" list_option_desc = "2013.21" parent_id = "2013" level = "20" sql_value = "2013.21" olap_value = "[time].[h].[2013].[21]" />
+<tree_option option_id = "2013.22" option_desc = "C22 (15/10/2013-28/10/2013)" list_option_desc = "2013.22" parent_id = "2013" level = "20" sql_value = "2013.22" olap_value = "[time].[h].[2013].[22]" />
+<tree_option option_id = "2013.23" option_desc = "C23 (29/10/2013-11/11/2013)" list_option_desc = "2013.23" parent_id = "2013" level = "20" sql_value = "2013.23" olap_value = "[time].[h].[2013].[23]" />
+<tree_option option_id = "2013.24" option_desc = "C24 (12/11/2013-25/11/2013)" list_option_desc = "2013.24" parent_id = "2013" level = "20" sql_value = "2013.24" olap_value = "[time].[h].[2013].[24]" />
+<tree_option option_id = "2013.25" option_desc = "C25 (26/11/2013-09/12/2013)" list_option_desc = "2013.25" parent_id = "2013" level = "20" sql_value = "2013.25" olap_value = "[time].[h].[2013].[25]" />
+<tree_option option_id = "2013.99" option_desc = "C99 ( AGUINALDO )" list_option_desc = "2013.99" parent_id = "2013" level = "20" sql_value = "2013.99" olap_value = "[time].[h].[2013].[99]" />
+<tree_option option_id = "2013.26" option_desc = "C26 (10/12/2013-23/12/2013)" list_option_desc = "2013.26" parent_id = "2013" level = "20" sql_value = "2013.26" olap_value = "[time].[h].[2013].[26]" />
+<tree_option option_id = "2014" option_desc = "2014" list_option_desc = "2014" parent_id = "0" level = "10" sql_value = "2014" olap_value = "[time].[h].[2014]" />
+<tree_option option_id = "2014.1" option_desc = "C1 (24/12/2013-06/01/2014)" list_option_desc = "2014.1" parent_id = "2014" level = "20" sql_value = "2014.1" olap_value = "[time].[h].[2014].[1]" />
+<tree_option option_id = "2014.2" option_desc = "C2 (07/01/2014-20/01/2014)" list_option_desc = "2014.2" parent_id = "2014" level = "20" sql_value = "2014.2" olap_value = "[time].[h].[2014].[2]" />
+<tree_option option_id = "2014.50" option_desc = "( F.A. PRESTAMO )" list_option_desc = "2014.50" parent_id = "2014" level = "20" sql_value = "2014.50" olap_value = "[time].[h].[2014].[50]" />
+<tree_option option_id = "2014.3" option_desc = "C3 (21/01/2014-03/02/2014)" list_option_desc = "2014.3" parent_id = "2014" level = "20" sql_value = "2014.3" olap_value = "[time].[h].[2014].[3]" />
+<tree_option option_id = "2014.4" option_desc = "C4 (04/02/2014-17/02/2014)" list_option_desc = "2014.4" parent_id = "2014" level = "20" sql_value = "2014.4" olap_value = "[time].[h].[2014].[4]" />
+<tree_option option_id = "2014.5" option_desc = "C5 (18/02/2014-03/03/2014)" list_option_desc = "2014.5" parent_id = "2014" level = "20" sql_value = "2014.5" olap_value = "[time].[h].[2014].[5]" />
+</tree_options>
+</tree_struct>

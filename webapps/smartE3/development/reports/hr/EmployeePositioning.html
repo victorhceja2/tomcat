@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <style>
+		 
+	
+	    </style>  
+            <title>World Class Operations</title>
+            <link rel="icon" href="/smartE3/images/e3/ui/wco/user.png" type="image/x-icon" />
+            <link rel="stylesheet" type="text/css" href="/smartE3/resources/css/posit_generals.css" media="screen" />
+	    <script type="text/javascript" src="/smartE3/resources/js/jquery/jquery-1.6.2.min.js"></script>
+            <script type="text/javascript" src="/smartE3/resources/js/generals/utils.js"></script>
+            <script type="text/javascript" src="/smartE3/resources/js/generals/wco_positioning.js"></script>
+            <script>
+                 var moAppHandler = new AppHandler();
+                  
+             function adjustZoom(piZoom){  
+                document.body.style.zoom=""+piZoom.trim()+"%";
+                }
+            
+            </script>
+    </head>
+    <body onload="setIntitialData()">
+        <table style="width:100%">
+            <tr class="gradient">
+                <td colspan="2" align="center">
+                    <table style="width: 100%">
+                         <tr>
+                            <td width="100" rowspan="2">
+                            <img id="imgHeader" src="/smartE3/images/e3/ui/wco/help.png" width="150px" />
+                            </td>
+                            <td rowspan="2" width="500px">
+                                Posicionamiento
+                            </td>
+                            <td width="70" rowspan="2" align="rigth">
+                                <img  src="/smartE3/images/e3/ui/wco/clock_pos.png" width="40px" />
+                            </td>
+                            <td  rowspan="2" id="tdHour" width="250">
+                                <font size="7px">0:00-0:00</font> 
+                            </td>
+                             <td id="tdStatus" width="700"  rowspan="2" align="center">
+                                <font size="6px"></font> 
+                            </td>
+                            <td width="70" rowspan="2" align="rigth">
+                                <img src="/smartE3/images/e3/ui/wco/plan.png" width="60px" />
+                               
+                            </td>
+                             <td id="tdIdeal" align="right" width="60">
+                                0
+                            </td>
+                            <td align="center" rowspan="2" width="30px">
+                                <img src="/smartE3/images/e3/ui/wco/line2.png" width="10px" height="110px" />
+                            </td>
+                            <td id="tdReal" align="left" width="60">
+                                0
+                            </td>
+                             <td width="60" rowspan="2" align="left">
+                               <img  src="/smartE3/images/e3/ui/wco/fp.png" width="60px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="" width="60">
+                                <font size="5px">Ideal</font> 
+                            </td>
+                          
+                            <td align="left" width="60">
+                                <font size="5px">Real</font> 
+                            </td>
+                        </tr>
+                        <!--tr>
+                         
+                            <td width="60" align="rigth">
+                                <img id="imgHeader" src="smartE3/images/e3/ui/wco/fp.png" width="60px" />
+                                <font size="3px">Número<br>(Huella)</font>
+                               
+                            </td>
+                          
+                            <td width="50" align="left">
+                               <img id="imgHeader" src="smartE3/images/e3/ui/wco/plan.png" width="70px" />
+                                <font size="3px">Número(Horarios)</font>
+                            </td>
+                        </tr-->
+                      
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <!--td width="646px">
+                    <div style="position:relative">
+                    <img id="imgLayout" src="smartE3/images/e3/ui/wco/loading_.gif" onerror="src='images/e3/ui/wco/loading_.gif'" width="720px" height="850px"/>
+                    <div style="position:absolute; top:0; left:0;"-->
+                        <!--img border="0"  src="smartE3/images/e3/ui/wco/help.png" width="50" height="50" />
+                        <div style="position:absolute; top:0; left:0;">
+                            <img border="0"  src="smartE3/images/e3/ui/wco/lala.png" onerror="this.src='images/e3/ui/wco/transparent.png'" width="50" height="50" />
+                        </div-->    
+                    <!--/div>    
+                    </div>
+                    
+                </td-->    
+                <td>
+                    
+                    <table id="tblEmployee" style="width: 100%;height:100%;overflow-y: auto" align="top">
+                    </table>
+                    
+                </td>
+            </tr>
+            
+
+        </table>
+    </body>
+</html>

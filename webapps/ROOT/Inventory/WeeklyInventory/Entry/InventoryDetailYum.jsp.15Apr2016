@@ -1,0 +1,162 @@
+<jsp:include page = '/Include/ValidateSessionYum.jsp'/>
+
+<%--
+##########################################################################################################
+# Nombre Archivo  : InventoryDetailYum.jsp
+# Compania        : Yum Brands Intl
+# Autor           : EZM
+# Objetivo        : Mostrar los productos del inventario. Permitir la captura del inventario final y merma.
+# Fecha Creacion  : 27/Julio/2005
+# Inc/requires    : ../Proc/InventoryLibYum.jsp
+# Observaciones   : Se tiene que declarar un objecto moAbcUtils para que se pueda hacer 
+#                   uso de los metodos en la libreria InventoryLibYum.jsp
+##########################################################################################################
+--%>
+
+<%@ page contentType="text/html" %>
+<%@ page import="java.util.*, java.io.*" %>
+<%@ page import="generals.*" %>
+<%@ page import="jinvtran.inventory.*" %>
+<%@ page import="jinvtran.inventory.utils.*" %>
+<%@ include file="../Proc/InventoryLibYum.jsp" %>   
+
+<%! 
+	AbcUtils moAbcUtils;
+	String msYear, msPeriod, msWeek;
+	String msFamilyId;
+	String msSales;
+	String [] maFileUnBlock = null;
+	//String msFilePeriod, msFileWeek;
+	String lsUnBlock = "0";
+%>	
+
+<%
+	moAbcUtils = new AbcUtils();
+	msYear     = getInvYear();
+	msPeriod   = getInvPeriod();
+	msWeek     = getInvWeek();
+
+    try
+    {
+		msFamilyId = request.getParameter("hidFamily");
+		msSales    = getSales(msYear, msPeriod, msWeek);
+		maFileUnBlock = inventoryFileUnBlock().split("\\|");
+	        System.out.println("ANIO "+maFileUnBlock[0]+" PERIODO "+maFileUnBlock[1]+" SEMANA "+maFileUnBlock[2]);	
+    }
+    catch(Exception e)
+    {
+		System.out.println("InventoryDetail.jsp ... " + e);
+		
+    }
+    
+    if(msYear.equals(maFileUnBlock[0]) && msPeriod.equals(maFileUnBlock[1]) && msWeek.equals(maFileUnBlock[2])){
+        lsUnBlock = "1";
+    }
+
+    HtmlAppHandler moHtmlAppHandler = (HtmlAppHandler)session.getAttribute(request.getRemoteAddr());
+    moHtmlAppHandler.setPresentation("VIEWPORT");
+    moHtmlAppHandler.initializeHandler();
+    moHtmlAppHandler.msReportTitle = getCustomHeader("Productos del inventario", "Preview");
+    moHtmlAppHandler.updateHandler();
+    moHtmlAppHandler.validateHandler();
+%>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/CSS/GeneralStandardsYum.css"/>
+        <link rel="stylesheet" type="text/css" href="/CSS/DataGridDefaultYum.css"/>
+        <link rel="stylesheet" type="text/css" href="/CSS/TooltipsYum.css"/>
+
+        <script src="/Scripts/MathUtilsYum.js"></script>
+        <script src="/Scripts/AbcUtilsYum.js"></script>
+        <script src="/Scripts/ArrayUtilsYum.js"></script>
+        <script src="/Scripts/MiscLibYum.js"></script>
+        <script src="/Scripts/DataGridClassYum.js"></script>
+        <script src="/Scripts/StringUtilsYum.js"></script>
+        <script src="/Scripts/HtmlUtilsYum.js"></script>
+
+    
+        <script src="../Scripts/InventoryLibYum.js"></script>
+        <script src="../Scripts/InventoryConfigYum.js"></script>
+        <script src="../Scripts/InventoryDetailYum.js"></script>
+
+        <script type="text/javascript">
+
+		var gaDataset = new Array();
+		<%= getDataset() %>
+		var netSale = <%= msSales %>;
+
+        function submitUpdate()
+        {
+            if(giNumRows > 0)
+            {
+		document.frmGrid.hidNumItems.value = giNumRows;
+                dest = window.open("","destino","width=1100,height=700");
+                document.frmGrid.target = "destino";
+                document.frmGrid.action = "InventoryPreviewYum.jsp";
+                document.frmGrid.submit();
+            }
+            else
+                alert("No hay productos que actualizar");
+        }
+
+		function submitChanges(newFamily)
+		{
+			document.frmGrid.hidNumItems.value = giNumRows;
+			document.frmGrid.action = "SaveChangesYum.jsp?newFamily="+newFamily;
+			document.frmGrid.submit();
+		}
+
+
+		function submitPrint()
+		{
+			document.frmGrid.hidFamily.value = "-1";
+            document.frmGrid.target = "ifrProcess";
+            document.frmGrid.action = "CaptureFormatYum.jsp";
+            document.frmGrid.submit();
+		}
+        </script>
+    </head>
+
+    <body bgcolor="white" onLoad="initDataGrid(true,true,<%=lsUnBlock%>); parent.hideWaitMessage();"
+		  style="margin-left: 4px; margin-right: 0px">
+
+        <script src="/Scripts/TooltipsYum.js"></script>
+        <script src="/Scripts/FixedTooltipsYum.js"></script>
+
+		<form name="frmGrid" id="frmGrid" method="post">
+        <table align="center" width="100%" border="0" cellspacing="3">
+        <tr>
+            <td class="descriptionTabla" width="90%"> 
+                <input type="button" value="Guardar cambios" onClick="submitUpdate()">
+            </td>
+			<td width="10%" align="center">
+				<a href="javascript: submitPrint()"><img src="/Images/Menu/print_button.gif" 
+				onMouseOver="ddrivetip('Imprimir formato de captura de inventario.')" onMouseOut="hideddrivetip()" border="0"></a>
+			</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="goDataGrid"></div>
+            </td>
+        </tr>
+        </table>
+		<input type="hidden" name="hidYear" value="<%= msYear %>">
+		<input type="hidden" name="hidPeriod" value="<%= msPeriod %>">
+		<input type="hidden" name="hidWeek" value="<%= msWeek %>">
+		<input type="hidden" name="hidFamily" value="<%= msFamilyId %>">
+    		<input type="hidden" name="hidSales" id="hidSales" value="<%= msSales %>">
+		<input type="hidden" name="hidNumItems" value="0">
+		<input type="hidden" name="hidHasChanges" value="false">
+		</form>
+
+    <jsp:include page = '/Include/TerminatePageYum.jsp'/>
+    </body>
+</html>
+
+<%!
+	String getDataset()
+	{
+		return getDataset(true, msYear,msPeriod,msWeek,msFamilyId);
+	}
+%>

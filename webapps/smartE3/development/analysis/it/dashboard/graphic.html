@@ -1,0 +1,282 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Graficos</title>
+        <link rel="stylesheet" href="/smartE3/resources/css/generals.css">
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/excanvas.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.selection.min.js"></script>
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/e3/GUIUtils.js"></script>
+        <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.threshold.min.js"></script>
+    </head>
+    <body style = "overflow:hidden;">
+        <table width ="100%" border ="0">
+            <tr>
+                <td width = "95%" valign ="top">
+                    <script>document.write(window.parent._e3_gsHeader);</script>
+                </td>
+                <td width = "45%">
+                    <div id="divLegend"  style ="position:relative;width:300px;"></div>
+                </td>
+                <td>
+                    <div id="divMiniature"  style ="position:relative;"> 
+                        <div id="divOverview" onDblClick ="resetMainPlot();" style="width:150px;height:90px"></div> 
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div id="divMainPlot" onDblClick ="resetMainPlot();" style="position:relative; left:20; width:640px;height:300px"></div>
+        
+        <script id="source" language="javascript" type="text/javascript">
+
+            if(window.parent._e3_gaLabels==null)
+            var gsDataSetLabel01 = "POLLO";
+            var gaLabels = window.parent._e3_gaLabels;
+            var gaTickSet = window.parent._e3_gaTickSet;
+            var gaDataSet01 = window.parent._e3_gaDataSet01;
+            var gaDataSet02 = window.parent._e3_gaDataSet02;
+            var gaDataSet03 = window.parent._e3_gaDataSet03;
+            var gaDataSet04 = window.parent._e3_gaDataSet04;
+            /*var gaColors = window.parent._e3_gaColors;
+            var gaDataSemaphore01 = window.parent._e3_gaDataSemaphore01;
+            var gaDataSemaphore02 = window.parent._e3_gaDataSemaphore02;
+            var gaDataSemaphore03 = window.parent._e3_gaDataSemaphore03;
+            var gaDataSemaphore04 = window.parent._e3_gaDataSemaphore04;
+            var gaDataSemaphore05 = window.parent._e3_gaDataSemaphore05;*/
+            var gaSemaphoreArea = window.parent._e3_gaSemaphoreArea;
+            var moMainPlot = null;
+            var moOverview = null;
+
+            var miXMin = 0;
+            var miXMax = 0;
+            var miYMin = 0;
+            var miYMax = 0;
+
+            var lscolors = new Array();
+            var laMarkings = new Array();
+            
+            initMainPlot();
+            
+            function initMainPlot() {
+                //alert(gaDataSet02);
+                //alert(gaLabels);
+                //alert(gaSemaphoreArea);
+                getColors();
+                getSemaphoreAreas();
+                document.getElementById("divMainPlot").style.width = window.getWidth()-60;
+                document.getElementById("divMainPlot").style.height = window.getHeight()-150;
+            }
+            
+            function updateAxisLimits() {
+                miXMin = moMainPlot.getAxes().xaxis.min;
+                miXMax = moMainPlot.getAxes().xaxis.max;
+                miYMin = moMainPlot.getAxes().yaxis.min;
+                miYMax = moMainPlot.getAxes().yaxis.max;
+            }
+            
+            function resetMainPlot() {
+                moOverview.setSelection({ xaxis: { from: miXMin, to: miXMax}, yaxis: { from: miYMin, to: miYMax } });
+                moOverview.clearSelection();
+            }
+
+            function randomColor(){
+                return '#'+Math.floor(Math.random()*16777216).toString(16);
+            }
+
+            function getColors(){
+                for (li=0;li<4;li++){
+                    lscolors[li]=randomColor();
+                    if (lscolors[li]>0 && lscolors[li]==lscolors[li-1]){
+                        lscolors[li]=randomColor();
+                    }
+                }
+                return lscolors;
+            }
+
+            function getSemaphoreAreas(){
+                var laSemaphoreArea = new Array();
+                var laSemaphoreColor = new Array();
+                var laSemaphoreCongig = new Array();
+                var laLastSemaphoreColor = new Array();
+                var laLastSemaphoreCongig = new Array();
+                var liMarking = 0;
+
+                laSemaphoreArea = gaSemaphoreArea;
+                //var lstest = "";
+                for (liSA=0;liSA<laSemaphoreArea.length;liSA++){
+                    if (laSemaphoreArea[liSA] == null){return;}
+                    laSemaphoreColor =laSemaphoreArea[liSA].split(",");
+                    //semaforo pasado
+                    var liLast = parseInt(liSA)-1
+                    //laLastSemaphoreColor = (parseInt(liSA)>0)?laSemaphoreArea[liLast].split(","):laSemaphoreArea[liSA].split(",");
+                    for (liSC=0;liSC<laSemaphoreColor.length;liSC++){
+                        laSemaphoreCongig = laSemaphoreColor[liSC].split("|");
+                        //laLastSemaphoreCongig = laLastSemaphoreColor[liSC].split("|");
+
+                        var lsfrom= (laSemaphoreCongig[1]!='')?laSemaphoreCongig[1]:null;
+                        var lsTo= (laSemaphoreCongig[2]!='')?laSemaphoreCongig[2]:null;
+                        var liTo =parseInt(liSA)+1;
+
+                        /*
+                        var lsFrom1 = (laLastSemaphoreCongig[1]!='')?laLastSemaphoreCongig[1]:null;
+                        var lsTo1= (laLastSemaphoreCongig[2]!='')?laLastSemaphoreCongig[2]:null;
+
+                        var lsfromMD= ((parseInt(lsfrom)-parseInt(lsFrom1))/2)+parseInt(lsfrom)
+                        var lsToMD= ((parseInt(lsTo)-parseInt(lsTo1))/2)+parseInt(lsTo)
+                        var liToM =(parseInt(liSA)+liTo)/2;
+                        */
+                        laMarkings[liMarking]={yaxis: { from:lsfrom ,to:lsTo}, xaxis:{from:liSA, to:liTo}, color:laSemaphoreCongig[0].toString()};
+                        //liMarking++
+                        //laMarkings[liMarking]={yaxis: { from:lsfromMD ,to:lsTo}, xaxis:{from:liToM, to:liTo}, color:laSemaphoreCongig[0].toString()};
+
+                        //lstest = lstest+"\n1::Y::from::"+lsfromMD+"::to::"+lsToMD+"::X::from::"+liSA+"::to::"+liToM+"::color::"+laSemaphoreCongig[0].toString();
+                        //lstest = lstest+"\n2::Y::from::"+lsfrom+"::to::"+lsTo+"::X::from::"+liToM+"::to::"+liTo+"::color::"+laSemaphoreCongig[0].toString();
+                        
+                        liMarking++;
+                    }
+                }
+                //alert(lstest);
+            }
+
+            $(function () {
+                //var moAllData = [{ data: gaDataSet01, label: gaLabels[0],lines: {show: true,fill: true,  fillColor: { colors: [ { opacity: 0.6 }, { opacity: 0.1 } ] } } }, { data: gaDataSet02, label: gaLabels[1], lines: {show: true}, points: {show: true}}, { data: gaDataSet03 , label: gaLabels[2], lines: {show: true}, points: {show: true}}, { data: gaDataSet04, lines: {show: true}, points: {show: true}}];
+                /*var moAllData = [{ data: gaDataSet01, label: gaLabels[0] ,lines: {show: true} }
+                    , { data: gaDataSet02, lines: {show: true,fill: false,  fillColor: { colors: [ { opacity: 0.6 }, { opacity: 0.1 } ] } }, points: {show: false}}
+                    , { data: gaDataSet03, lines: {show: true,fill: false,  fillColor: { colors: [ { opacity: 0.6 }, { opacity: 0.1 } ] } }, points: {show: false}}
+                    , { data: gaDataSet04, lines: {show: true,fill: false,  fillColor: { colors: [ { opacity: 0.6 }, { opacity: 0.1 } ] } }, points: {show: false}}];
+                    */
+                var moAllData = [{ data: gaDataSet01, label: gaLabels[0]}
+                        , { data: gaDataSet02, label: gaLabels[1], lines: {show: true}, points: {show: true}}
+                        , { data: gaDataSet03 , label: gaLabels[2], lines: {show: true}, points: {show: true}}
+                        , { data: gaDataSet04, label: gaLabels[3], lines: {show: true}, points: {show: true}}
+                        //, { data: gaDataSemaphore01, lines: {show: true,fill: false,  fillColor: { colors: [ { opacity: 0.6 }, { opacity: 0.1 } ] } }, points: {show: false} }
+                        //, { data: gaDataSemaphore02, lines: {show: true,fill: false,  fillColor: { colors: [ { opacity: 0.6 }, { opacity: 0.1 } ] } }, points: {show: false} }
+                        //, { data: gaDataSemaphore03, lines: {show: true,fill: false,  fillColor: { colors: [ { opacity: 0.6 }, { opacity: 0.1 } ] } }, points: {show: false} }
+                        //, { data: gaDataSemaphore04, lines: {show: true,fill: false,  fillColor: { colors: [ { opacity: 0.6 }, { opacity: 0.1 } ] } }, points: {show: false} }
+                        //, { data: gaDataSemaphore05, lines: {show: true,fill: false,  fillColor: { colors: [ { opacity: 0.6 }, { opacity: 0.1 } ] } }, points: {show: false} }
+                    ];
+                var moPlotOptions = {
+                    lines: { show: true},
+                    points: {show: true, radius: 2},
+                    selection: { mode: "xy" },
+                    grid: { hoverable: true, clickable: true  , markings:laMarkings },
+                    //colors: ["black","purple","silver","brown",gaColors[0],gaColors[1],gaColors[2],gaColors[3],gaColors[4]],
+                    colors: ["black","purple","silver","brown"],
+                    //colors: ["orange","red","blue","green"],
+                    //colors: lscolors,
+                    
+                    //xaxis: { ticks: gaTickSet, tickFormatter: function (v, axis) {return ((v + "").substring(5,6))}},
+                    xaxis: {
+                            tickFormatter: function (v, axis) {
+                                var lsTick = "";
+
+                                if ((v+"").indexOf(".")==-1) {
+                                    if (gaTickSet[v]) {
+                                        lsTick = gaTickSet[v][1];
+                                    } 
+                                }
+
+                                return lsTick;
+                            }
+                    },
+                    legend: {show: true, container: $("#divLegend")},
+                    //yaxis: { min: -20, max:30 },
+                    yaxis: { autoscaleMargin:null}
+                    //y2axis: { min: -24, max: 24}
+                };
+                var moOverviewOptions = {
+                    legend: { show: true, container: $("#divOverviewLegend") },
+                    lines: { show: true, lineWidth: 1 },
+                    shadowSize: 0,
+                    xaxis: { ticks: []},
+                    yaxis: { autoscaleMargin:null, ticks: 2},
+                    grid:{markings:laMarkings},
+                    //colors: ["black","purple","silver","brown",gaColors[0],gaColors[1],gaColors[2],gaColors[3],gaColors[4]],
+                    colors: ["black","purple","silver","brown"],
+                    //colors: ["blue","green","yellow","red"],
+                    //colors: ["orange","red","blue","green"],
+                    //colors: lscolors,
+                    selection: { mode: "xy" }
+                }
+                
+                moMainPlot = $.plot($("#divMainPlot"), moAllData,moPlotOptions);
+                moOverview = $.plot($("#divOverview"), [gaDataSet01, gaDataSet02, gaDataSet03, gaDataSet04],moOverviewOptions);
+                    //,gaDataSemaphore01,gaDataSemaphore02,gaDataSemaphore03,gaDataSemaphore04,gaDataSemaphore05
+                
+                //Liga overview y plot
+                $("#divMainPlot").bind("plotselected", function (poEvent, poRanges) {
+                    // clamp the zooming to prevent eternal zoom
+                    if (poRanges.xaxis.to - poRanges.xaxis.from < 0.00001)
+                        poRanges.xaxis.to = poRanges.xaxis.from + 0.00001;
+                    if (poRanges.yaxis.to - poRanges.yaxis.from < 0.00001)
+                        poRanges.yaxis.to = poRanges.yaxis.from + 0.00001;
+
+                    // do the zooming
+                    moMainPlot = $.plot($("#divMainPlot"), moAllData,
+                                  $.extend(true, {}, moPlotOptions, {
+                                      xaxis: { min: poRanges.xaxis.from, max: poRanges.xaxis.to },
+                                      yaxis: { min: poRanges.yaxis.from, max: poRanges.yaxis.to }
+                                  }));
+
+                    // don't fire event on the overview to prevent eternal loop
+                    moOverview.setSelection(poRanges, true);
+                });
+                
+                $("#divOverview").bind("plotselected", function (poEvent, poRanges) {
+                    moMainPlot.setSelection(poRanges);
+                });
+                
+
+                var moPreviousPoint = null;
+                $("#divMainPlot").bind("plothover", function (poEvent, poPos, poItem) {
+                    if (poItem) {
+                        if (moPreviousPoint != poItem.datapoint) {
+                            moPreviousPoint = poItem.datapoint;
+
+                            $("#tooltip").remove();
+                            var liX = gaTickSet[poItem.datapoint[0]][1];
+                            var liY = poItem.datapoint[1].toFixed(2);
+                                      
+                            showTooltip(poItem.pageX, poItem.pageY, "" + liX + ": <b>" +  liY + "</b>");
+                        }
+                    }
+                    else {
+                        $("#tooltip").remove();
+                        moPreviousPoint = null;            
+                    }
+                });
+
+                $("#divMainPlot").bind("plotclick", function (poEvent, poPos, poItem) {
+                    if (poItem) {
+                        moMainPlot.highlight(poItem.series, poItem.datapoint);
+                    }
+                });
+                
+                function showTooltip(piX,piY, psContents) {
+                    $('<div id="tooltip" class = "grfToolTips">' + psContents + '</div>').css( {
+                        position: 'absolute',
+                        display: 'none',
+                        top: piY + 10,
+                        left: piX - 35,
+                        border: '1px solid #FF8000',
+                        'border-radius': '5px 5px',
+                        '-moz-border-radius': '5px',
+                        '-webkit-border-radius': '5px',
+                        'box-shadow': '5px 5px 5px rgba(0, 0, 0, 0.3)',
+                        '-webkit-box-shadow': '5px 5px rgba(0, 0, 0, 0.3)',
+                        '-moz-box-shadow': '5px 5px rgba(0, 0, 0, 0.3)',
+                        padding: '2px',
+                        'background-color': '#F5D0A9',
+                        opacity: 0.85,
+                        'font-size':'13px',
+                        'font-family': 'Trebuchet MS, Helvetica, sans-serif'
+                    }).appendTo("body").fadeIn(300);
+                }
+                
+                updateAxisLimits();
+            });
+            
+        </script>
+    </body>
+</html>

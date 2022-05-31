@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <servlet>
+    <servlet-name>YumData</servlet-name>
+    <servlet-class>generals.servlets.YumData</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DialogOptions</servlet-name>
+    <servlet-class>generals.servlets.DialogOptions</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ProfileOptions</servlet-name>
+    <servlet-class>generals.servlets.ProfileOptions</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Servlet_generals.servlets.GeneralData</servlet-name>
+    <servlet-class>generals.servlets.GeneralData</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CalendarYum</servlet-name>
+    <servlet-class>generals.servlets.CalendarYumServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ShowQuantity</servlet-name>
+    <servlet-class>generals.servlets.images.ShowQuantityServlet</servlet-class>
+  </servlet>
+<!--
+	Servlet para Inventario
+-->
+  <servlet>
+    <servlet-name>CheckInventory</servlet-name>
+    <servlet-class>generals.servlets.CheckInventory</servlet-class>
+
+	<load-on-startup>3</load-on-startup>
+  </servlet>
+<!--
+	Servlet para generacion de graficas
+-->
+  <servlet>
+    <servlet-name>DisplayChart</servlet-name>
+    <servlet-class>org.jfree.chart.servlet.DisplayChart</servlet-class>
+  </servlet>
+  
+<!--
+	Servlet para confirmar tansferencias especiales
+-->
+  <servlet>
+    <servlet-name>SpecialTransfer</servlet-name>
+    <servlet-class>generals.servlets.SpecialTransfer</servlet-class>
+  </servlet>
+  
+   <servlet-mapping>
+    <servlet-name>ShowQuantity</servlet-name>
+    <url-pattern>/ShowQuantity/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>YumData</servlet-name>
+    <url-pattern>/servlet/generals.servlets.YumData</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DialogOptions</servlet-name>
+    <url-pattern>/servlet/generals.servlets.DialogOptions</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProfileOptions</servlet-name>
+    <url-pattern>/servlet/generals.servlets.ProfileOptions</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Servlet_generals.servlets.GeneralData</servlet-name>
+    <url-pattern>/servlet/generals.servlets.GeneralData</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CalendarYum</servlet-name>
+    <url-pattern>/servlet/CalendarYumServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SpecialTransfer</servlet-name>
+    <url-pattern>/SpecialTransfer/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+        <servlet-name>DisplayChart</servlet-name>
+        <url-pattern>/servlet/DisplayChart</url-pattern>
+  </servlet-mapping>
+  
+  <session-config>
+    <session-timeout>
+            360
+    </session-timeout>
+  </session-config>
+  <welcome-file-list>
+    <welcome-file>
+        WelcomeYum.jsp
+    </welcome-file>
+  </welcome-file-list>
+</web-app>

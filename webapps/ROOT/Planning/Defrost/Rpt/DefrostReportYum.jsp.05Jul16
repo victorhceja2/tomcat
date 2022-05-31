@@ -1,0 +1,383 @@
+
+<jsp:include page = '/Include/ValidateSessionYum.jsp' />
+
+<%--
+##########################################################################################################
+# Nombre Archivo  : DefrostReportYum.jsp
+# Compania        : PRB
+# Autor           : Sergio Cuellar
+# Objetivo        : Reporte de Marinado y descongelado KFC
+# Fecha Creacion  : 02/July/2013
+# Inc/requires    :
+# Modificaciones  : tiras isp 11 oct 13
+#                   13 Feb 14 favoritas coronel, coronel supreme
+##########################################################################################################
+--%>
+
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.*" %>
+<%@ page import="java.io.*" %>
+<%@ page import="generals.*" %>
+
+<%@ include file="/Include/CommonLibYum.jsp" %>
+<%@ include file="../Proc/DefrostLibYum.jsp" %>
+
+<%!
+AbcUtils moAbcUtils = new AbcUtils();
+
+String msYear;
+String msPeriod;
+String msWeek;
+String msWeekId;
+String msDay;
+String msReport;
+String msMessage;
+String mixCruji;
+String mixSecreta;
+String mixHCruji;
+String mstransCong;
+String mspzasTrans;
+String msSelectedDate;
+String msBCToday;
+String msBCTomorrow;
+String msBCAfterTomorrow;
+String msFCToday;
+String msFCTomorrow;
+String msFCAfterTomorrow;
+String msCSToday;
+String msCSTomorrow;
+String msCSAfterTomorrow;
+String msWingsToday;
+String msWingsTomorrow;
+String msWingsNext3Days;
+String msTendersToday;
+String msTendersTomorrow;
+String msTendersNext3Days;
+String msTotalBC;
+String msTotalFC;
+String msTotalCS;
+String msTotalWings;
+String msTotalTenders;
+String msTotalCrujiTomorrow;
+String msTotalSecretaTomorrow;
+String msTotalHCTomorrow;
+String msPorcCruji17;
+String msPorcSecre17;
+String msPorcHC17;
+String msTodayHH;
+String ms24HH;
+String ms48HH;
+String msCrujiTarde;
+String msSecretaTarde;
+String msHotTarde;
+String msAlitasTarde;
+String msTendersTarde;
+String msTarget;
+String msPrintOption;
+
+
+boolean reportOk;
+%>
+
+<%
+try
+{
+    msYear    		= request.getParameter("hidSelectedYear");
+    msPeriod  		= request.getParameter("hidSelectedPeriod");
+    msWeek    		= request.getParameter("hidSelectedWeek");
+    msDay     		= request.getParameter("hidSelectedDay");
+    msReport  		= request.getParameter("hidReportType");
+
+    msMessage = "";
+    reportOk  = false;
+
+    if(!msWeek.equals("0"))
+    {
+        msWeekId = getWeekId(msYear, msPeriod, msWeek);
+    }
+
+    if(msReport.equals("3"))//Se tiene que escoger un dia
+    {
+        reportOk  = true;
+        try {
+
+            String lsCommand = "/usr/bin/ph/databases/graphics/bin/carga_rsg.pl";
+            
+            try {
+                Runtime runtime = Runtime.getRuntime();
+                Process process = runtime.exec(lsCommand);
+                process.waitFor();
+            } catch(Exception e) {
+                System.out.println(e);
+            }
+
+
+            msSelectedDate = getDate(msWeek, msYear, msPeriod, msDay);
+            String date = msSelectedDate.substring(2, 10);
+
+            String yesterdaydate    = getYesterdayDate(date);
+            String tomorrowdate     = getTomorrowDate(date);
+            String dayaftertomorrow = getNDate(date, 2);
+
+
+            String msCurrentHour = getCurrentHour();
+
+            msTodayHH = date+" "+msCurrentHour;
+            ms24HH = tomorrowdate+" "+msCurrentHour;
+            ms48HH = dayaftertomorrow+" "+msCurrentHour;
+
+            String resODmix = getODmix(yesterdaydate);
+            mstransCong = getTransCong(tomorrowdate);
+            mspzasTrans = getPzaxTrans(tomorrowdate);
+
+            String [] recetasMix = resODmix.split(",");
+            mixCruji   = recetasMix[0];
+            mixHCruji  = recetasMix[1];
+            mixSecreta = recetasMix[2];
+
+            String [] cmdtemp = {"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" bc"};
+            msBCToday         = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+tomorrowdate+" bc"};
+            msBCTomorrow       = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+dayaftertomorrow+" bc"};
+            msBCAfterTomorrow = executeCommand(cmdtemp);
+            msTotalBC = String.valueOf( Float.parseFloat(msBCToday) + Float.parseFloat(msBCTomorrow) +
+                        Float.parseFloat(msBCAfterTomorrow) );
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" fc"};
+            msFCToday         = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+tomorrowdate+" fc"};
+            msFCTomorrow       = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+dayaftertomorrow+" fc"};
+            msFCAfterTomorrow = executeCommand(cmdtemp);
+
+            msTotalFC = String.valueOf( Float.parseFloat(msFCToday) + Float.parseFloat(msFCTomorrow) +
+                        Float.parseFloat(msFCAfterTomorrow) );
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" cs"};
+            msCSToday         = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+tomorrowdate+" cs"};
+            msCSTomorrow       = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+dayaftertomorrow+" cs"};
+            msCSAfterTomorrow = executeCommand(cmdtemp);
+
+            msTotalCS = String.valueOf( Float.parseFloat(msCSToday) + Float.parseFloat(msCSTomorrow) +
+                        Float.parseFloat(msCSAfterTomorrow) );
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" a"};
+            msWingsToday = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+tomorrowdate+" a"};
+            msWingsTomorrow = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+dayaftertomorrow+" a"};
+            String msWingsAfterTom = executeCommand(cmdtemp);
+
+            String daat = getNDate(date, 3);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+daat+" a"};
+            String msWingsAfterAfterTom = executeCommand(cmdtemp);
+
+            msWingsNext3Days = String.valueOf( Float.parseFloat(msWingsTomorrow.equals("")?"0":msWingsTomorrow) + Float.parseFloat(msWingsAfterTom.equals("")?"0":msWingsAfterTom) +
+                               Float.parseFloat(msWingsAfterAfterTom.equals("")?"0":msWingsAfterAfterTom) );
+
+            msTotalWings = String.valueOf( Float.parseFloat(msWingsNext3Days.equals("")?"0":msWingsNext3Days) + 
+                            Float.parseFloat(msWingsToday.equals("")?"0":msWingsToday) );
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" t"};
+            msTendersToday = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+tomorrowdate+" t"};
+            msTendersTomorrow = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+dayaftertomorrow+" t"};
+            String msTendersAfterTom = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+daat+" t"};
+            String msTendersAfterAfterTom = executeCommand(cmdtemp);
+
+            msTendersNext3Days = String.valueOf( Float.parseFloat(msTendersTomorrow) + Float.parseFloat(msTendersAfterTom) +
+                               Float.parseFloat(msTendersAfterAfterTom) );
+
+            msTotalTenders = String.valueOf( Float.parseFloat(msTendersNext3Days) + 
+                            Float.parseFloat(msTendersToday) );
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+tomorrowdate+" c"};
+            msTotalCrujiTomorrow = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+tomorrowdate+" s"};
+            msTotalSecretaTomorrow = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+tomorrowdate+" hc"};
+            msTotalHCTomorrow = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" c p"};
+            msPorcCruji17 = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" s p"};
+            msPorcSecre17 = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" hc p"};
+            msPorcHC17 = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" c 17"};
+            msCrujiTarde = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" s 17"};
+            msSecretaTarde = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" hc 17"};
+            msHotTarde = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" a 17"};
+            msAlitasTarde = executeCommand(cmdtemp);
+
+            cmdtemp = new String[]{"/bin/sh", "-c", "/usr/bin/ph/perllib/bin/defrost.pl "+date+" t 17"};
+            msTendersTarde = executeCommand(cmdtemp);
+
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            msTarget = "Preview";
+        }
+    }
+    else
+    {
+        if(msReport.equals("0"))
+        msMessage = "Seleccione alg&uacute;n d&iacute;a del calendario Yum.";
+        else
+        msMessage = "Para obtener el reporte, seleccione un d&iacute; del calendario Yum";
+    }
+    if(msTarget == null) msTarget="Preview"; 
+    if(msTarget.equals("Preview"))
+        msPrintOption = "yes";
+    else
+        msPrintOption = "no";
+}
+catch(Exception e)
+{
+    System.out.println("Exception .. " + e);
+}
+%>
+
+<html>
+    <head>
+        <%@ include file="/Include/CalendarLibYum.jsp" %>
+        <script language="javascript" src="/Scripts/HtmlUtilsYum.js"></script>
+        <script language="javascript" src="/Scripts/AbcUtilsYum.js"></script>
+        <link rel="stylesheet" href="/CSS/WaitMessageYum.css" type="text/css">
+        <script>
+            var reportOk =<%= reportOk %>;
+
+            function submitFrame(frameName)
+            {
+                document.mainform.target = frameName;
+
+                if(frameName=='preview')
+                document.mainform.hidTarget.value = "Preview";
+
+                if(frameName=='printer')
+                document.mainform.hidTarget.value = "Printer";
+
+                document.mainform.submit();
+            }
+            function submitFrames()
+            {
+                setTimeout("submitFrame('printer')", 1000);
+                //Despues de 2 seg se carga el segundo frame
+                setTimeout("submitFrame('preview')", 3000);
+            }
+
+            function doAction()
+            {
+
+                if(reportOk == true)
+                {
+                    submitFrames();
+                }
+                else
+                {
+                    document.mainform.action = '/MessageYum.jsp';
+                    addHidden(document.mainform, 'hidTitle', 'Plan de Marinado/Descongelado');
+                    addHidden(document.mainform, 'hidSplit', 'true');
+                    submitFrame('preview');
+                }
+            }
+
+        </script>
+        <div id="divWaitGSO" style="width: 300px; height: 150px" class="wait-gso">
+            <br>
+            <br>Espere
+            por favor...
+            <br>
+            <br>
+        </div>
+    </head>
+    <body onLoad="doAction()" style="margin-left: 0px; margin-right: 0px">
+        <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="100%">
+                    <iframe name="preview" width="100%" height="530" frameborder="0"></iframe>
+                </td>
+            </tr>
+            <tr>
+                <td width="100%">
+                    <iframe name="printer" width="100%" height="5" frameborder="0"></iframe>
+                </td>
+            </tr>
+        </table>
+        <form name="mainform" action="DefrostReportFrm.jsp">
+            <input type="hidden" name="year" value="<%= msYear %>">
+            <input type="hidden" name="period" value="<%= msPeriod %>">
+            <input type="hidden" name="week" value="<%= msWeekId %>">
+            <input type="hidden" name="hidTarget">
+            <input type="hidden" name="hidMessage" value="<%= msMessage %>">
+            <input type="hidden" name="mixCruji" value="<%= mixCruji %>">
+            <input type="hidden" name="mixSecreta" value="<%= mixSecreta %>">
+            <input type="hidden" name="mixHCruji" value="<%= mixHCruji %>">
+            <input type="hidden" name="mstransCong" value="<%= mstransCong%>">
+            <input type="hidden" name="mspzasTrans" value="<%= mspzasTrans%>">
+            <input type="hidden" name="msBCToday" value="<%= msBCToday%>">
+            <input type="hidden" name="msBCTomorrow" value="<%= msBCTomorrow%>">
+            <input type="hidden" name="msBCAfterTomorrow" value="<%= msBCAfterTomorrow%>">
+            <input type="hidden" name="msFCToday" value="<%= msFCToday%>">
+            <input type="hidden" name="msFCTomorrow" value="<%= msFCTomorrow%>">
+            <input type="hidden" name="msFCAfterTomorrow" value="<%= msFCAfterTomorrow%>">
+            <input type="hidden" name="msCSToday" value="<%= msCSToday%>">
+            <input type="hidden" name="msCSTomorrow" value="<%= msCSTomorrow%>">
+            <input type="hidden" name="msCSAfterTomorrow" value="<%= msCSAfterTomorrow%>">
+            <input type="hidden" name="msWingsToday" value="<%= msWingsToday%>">
+            <input type="hidden" name="msWingsTomorrow" value="<%= msWingsTomorrow%>">
+            <input type="hidden" name="msWingsNext3Days" value="<%= msWingsNext3Days%>">
+            <input type="hidden" name="msTendersToday" value="<%= msTendersToday%>">
+            <input type="hidden" name="msTendersTomorrow" value="<%= msTendersTomorrow%>">
+            <input type="hidden" name="msTendersNext3Days" value="<%= msTendersNext3Days%>">
+            <input type="hidden" name="msTotalBC" value="<%= msTotalBC%>">
+            <input type="hidden" name="msTotalFC" value="<%= msTotalFC%>">
+            <input type="hidden" name="msTotalCS" value="<%= msTotalCS%>">
+            <input type="hidden" name="msTotalWings" value="<%= msTotalWings%>">
+            <input type="hidden" name="msTotalTenders" value="<%= msTotalTenders%>">
+            <input type="hidden" name="msTotalCrujiTomorrow" value="<%= msTotalCrujiTomorrow%>">
+            <input type="hidden" name="msTotalSecretaTomorrow" value="<%= msTotalSecretaTomorrow%>">
+            <input type="hidden" name="msTotalHCTomorrow" value="<%= msTotalHCTomorrow%>">
+            <input type="hidden" name="msPorcCruji17" value="<%= msPorcCruji17%>">
+            <input type="hidden" name="msPorcSecre17" value="<%= msPorcSecre17%>">
+            <input type="hidden" name="msPorcHC17" value="<%= msPorcHC17%>">
+            <input type="hidden" name="ms24HH" value="<%= ms24HH%>">
+            <input type="hidden" name="ms48HH" value="<%= ms48HH%>">
+            <input type="hidden" name="msTodayHH" value="<%= msTodayHH%>">
+            <input type="hidden" name="msCrujiTarde" value="<%= msCrujiTarde%>">
+            <input type="hidden" name="msSecretaTarde" value="<%= msSecretaTarde%>">
+            <input type="hidden" name="msHotTarde" value="<%= msHotTarde%>">
+            <input type="hidden" name="msAlitasTarde" value="<%= msAlitasTarde%>">
+            <input type="hidden" name="msTendersTarde" value="<%= msTendersTarde%>">
+        </form>
+    </body>
+</html>
+

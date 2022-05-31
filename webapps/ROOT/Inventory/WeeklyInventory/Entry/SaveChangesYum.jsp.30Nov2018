@@ -1,0 +1,55 @@
+<%--
+##########################################################################################################
+# Nombre Archivo  : SaveChangesYum.jsp
+# Compania        : Yum Brands Intl
+# Autor           : EZM
+# Objetivo        : Guarda los datos que han sido capturados en el inventario final.
+# Fecha Creacion  : 06/Septiembre/2005
+# Inc/requires    : ../Proc/InventoryLibYum.jsp
+# Observaciones   : Se tiene que declarar un objecto moAbcUtils para que se pueda hacer 
+#                   uso de los metodos en la libreria InventoryLibYum.jsp
+##########################################################################################################
+--%>
+
+<%@ page import="java.util.*, java.io.*" %>
+<%@ page import="generals.*" %>
+<%@ page import="jinvtran.inventory.*" %>
+<%@ page import="jinvtran.inventory.utils.*" %>
+<%@ include file="../Proc/InventoryLibYum.jsp" %>   
+
+<%! 
+	AbcUtils moAbcUtils;
+	String msFamilyId;
+	String msYear;
+	String msPeriod;
+	String msWeek;
+%>
+
+<%
+	moAbcUtils = new AbcUtils();
+	msYear     = request.getParameter("hidYear");
+	msPeriod   = request.getParameter("hidPeriod");
+	msWeek     = request.getParameter("hidWeek");
+	msFamilyId = request.getParameter("newFamily");
+%>
+<html>
+	<head>
+        <link rel="stylesheet" type="text/css" href="/CSS/GeneralStandardsYum.css"/>
+		<script>
+			function showProducts()
+			{
+				setTimeout("parent.showProducts(<%= msFamilyId %>);", 3000);
+			}
+		</script>
+	</head>
+	<body onLoad="showProducts()" bgcolor="white">
+		<p class="TextBodyDesc">
+		Guardando cambios ...
+		</p>
+	</body>
+</html>
+<%
+	updateStepInventory(request);
+
+	saveChanges(msYear, msPeriod, msWeek);
+%>

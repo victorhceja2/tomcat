@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html>
+    <link href="/smartE3/resources/css/OperationsDashboard.css" rel="stylesheet" type="text/css" />
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <link rel="icon" href="/smartE3/images/OpDashboard/graph.png" type="image/x-icon" />
+        <title>Gráfico Modelo de Labor</title>
+        <style>
+             .gradient{
+                        
+                        background: white; /* Old browsers */
+                        background: -moz-linear-gradient(top, white 0%,  #E6E6E6 100%); /* FF3.6+ */
+                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white),  color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+                        background: -webkit-linear-gradient(top, #1e5799 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+                        background: -o-linear-gradient(top, white 0%,#E6E6E6 100%); /* Opera 11.10+ */
+                        background: -ms-linear-gradient(top, white 0%,#E6E6E6 100%); /* IE10+ */
+                        background: linear-gradient(to bottom, white 0%,#E6E6E6 100%); /* W3C */
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E6E6E6', endColorstr='white',GradientType=0 ); /* IE6-9 */
+                        /*color:#A4A4A4;*/
+                        color:navy;
+                        font-weight: bold;
+                        font-size:10px;
+                        font-family: Tahoma; 
+                  }
+                  .gradient-detail{
+                        
+                        background: white; /* Old browsers */
+                        background: -moz-linear-gradient(top, white 0%,  #E6E6E6 100%); /* FF3.6+ */
+                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white),  color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+                        background: -webkit-linear-gradient(top, #1e5799 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+                        background: -o-linear-gradient(top, white 0%,#E6E6E6 100%); /* Opera 11.10+ */
+                        background: -ms-linear-gradient(top, white 0%,#E6E6E6 100%); /* IE10+ */
+                        background: linear-gradient(to bottom, white 0%,#E6E6E6 100%); /* W3C */
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E6E6E6', endColorstr='white',GradientType=0 ); /* IE6-9 */
+                        /*color:#A4A4A4;*/
+                        color:gray;
+                        font-size:10px;
+                        font-family: Tahoma; 
+                  }
+        </style>
+    </head>
+    <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/excanvas.min.js"></script>
+    <script type="text/javascript" src="/smartE3/resources/js/flot/jquery.min.js"></script>
+    <script type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.min.js"></script>
+    
+    <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.fillbetween.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.symbol.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.categories.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.flot.navigate.min.js"></script>
+    <script type="text/javascript" src="/smartE3/resources/js/justgage/justgage.1.0.1.min.js"></script>
+    <script type="text/javascript" src="/smartE3/resources/js/justgage/raphael.2.1.0.min.js"></script>
+    <script type="text/javascript" src="/smartE3/resources/js/justgage/justgage.js"></script>
+    
+    
+    <script>
+    var gaTickSet = window.parent._e3_gaTickSet;
+    var gaLabels = window.parent._e3_gaLabels;
+    var gaDataSet = window.parent._e3_gaDataSet;
+    var loCuopDataSet = new Array();
+    for(var li=0;li<gaLabels.length;li++){
+        loCuopDataSet.push({ id:gaLabels[li][0]+"|P", label: gaLabels[li][0], data: gaDataSetByName(gaLabels[li][0]+"|P"), lines: { show: false },points: { symbol: "cross" },dashes:{show:true,dashLength: 2}, color: gaLabels[li][1] });
+        loCuopDataSet.push({ id:gaLabels[li][0], label: gaLabels[li][0], data: gaDataSetByName(gaLabels[li][0]), lines: { show: true },points: { symbol: "square" },dashes:{show:false}, color: gaLabels[li][1] });
+        
+    }
+    var loCoupMarkings = [];
+    function gaDataSetByName(psName){
+        for(var li=0;li<gaDataSet.length;li++){
+            if(gaDataSet[li][0] == psName)
+                return gaDataSet[li][1];
+        }
+        return new Array();
+    }    
+    function plotAccordingToChoices() {
+        cleanDetTable();
+        addRow(gaTickSet,"HORAS");
+        var loDataSet = [];
+	loChoiceContainer.find("input:checked").each(function () {
+            var lsName = $(this).attr("name");
+            $.each(loCuopDataSet, function(key, val) {
+                var lsHeader = val.id.replace("|P"," SUGERIDOS")
+                var lsCleanValue = val.id;
+                var lsValue = val.id.replace("|P","");
+                if(lsValue == lsName){
+                        loDataSet.push(loCuopDataSet[key]);
+                        addRow(gaDataSetByName(lsCleanValue),lsHeader);
+                }
+            });
+	});
+        
+        print_line("divMain",loDataSet,loCoupMarkings,"#F2F2F2",gaTickSet);
+    }
+    function cleanDetTable(){
+        var loTable = document.getElementById("tblDetailHours");
+        loTable.innerHTML = "";
+    }
+    function addRow(psData,psHeader){
+        var laData = psData;
+        var ldTotal = 0;
+        var loTable = document.getElementById("tblDetailHours");
+        var loTr = loTable.insertRow(loTable.rows.length);
+        if(psHeader == "HORAS")
+            loTr.setAttribute("class","gradient");
+        else
+            loTr.setAttribute("class","gradient-detail");
+        var loTd1 = loTr.insertCell(loTr.cells.length);
+        loTd1.innerHTML=psHeader;
+        for(var li=0;li<laData.length;li++){
+            var loTdTmp = loTr.insertCell(loTr.cells.length);
+            var ldValue = (typeof laData[li][1] == "undefined" || laData[li][1] == "")?"0":laData[li][1];
+            loTdTmp.innerHTML=(typeof laData[li][1] == "undefined" || laData[li][1] == "")?"0":laData[li][1];
+            ldTotal+=parseInt(ldValue);
+        }
+        var loTd12 = loTr.insertCell(loTr.cells.length);
+        if(psHeader == "HORAS")
+            loTd12.innerHTML="TOTAL";
+        else
+            loTd12.innerHTML=ldTotal;
+    }
+    function print_line(psDiv,poDataSet,poMarkings,psBgColor,poTicks){
+        if(typeof poTicks == "undefined"){
+            poTicks= [];
+        }
+        if(typeof poMarkings == "undefined"){
+            poMarkings= [];
+        }
+	var loOptions = {            
+             series: {
+                lines: { show: true, lineWidth: 2 },
+                shadowSize: 0,
+                points: {show: true
+			}
+            },
+            grid: {
+                backgroundColor:psBgColor,
+                hoverable: true,
+		clickable: true
+                
+            },
+            xaxis:{
+                mode:"categories",
+                tickLength:0,
+                ticks:poTicks
+                
+            },
+            legend: {
+                show: false
+            },
+            zoom: {
+		interactive: true
+	    },
+	    pan: {
+		interactive: true
+	    }
+            
+            
+        };
+        // insert checkboxes 
+        
+        var plot = $.plot("#"+psDiv, poDataSet,loOptions);
+        $("<div id='tooltip'></div>").css({
+			position: "absolute",
+			display: "none",
+			border: "1px solid #fdd",
+			padding: "2px",
+			"background-color": "#fee",
+			opacity: 0.80
+		}).appendTo("body");
+        $("#"+psDiv).bind("plothover", function (event, pos, item) {
+                var str = "(" + pos.x.toFixed(2) + ", " + pos.y.toFixed(2) + ")";
+         	$("#hoverdata").text(str);
+                if (item && item.series.id != "range") {
+                    	var x = item.datapoint[0].toFixed(2),
+			y = item.datapoint[1].toFixed(2);
+         		$("#tooltip").html("Estación: <b>"+item.series.id.replace("|P"," SUGERIDAS") + "</b><br> Hora:<b>" + poTicks[parseInt(x)][1] + " </b><br> Asociados: <b>" + y+"</b>")
+                 	.css({top: item.pageY+5, left: item.pageX+5})
+			.fadeIn(200);
+                } else {
+			$("#tooltip").hide();
+                }
+            
+	});        
+    }
+    function getMainGraph(){
+        print_line("divMain",loCuopDataSet,loCoupMarkings,"#F2F2F2",gaTickSet);
+        
+    }
+    
+</script>    
+    <body onload="getMainGraph()">
+    <center>
+        <table>
+            
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                 <div style="background-color:white;width:900px;height:550px;border:solid 2px #0DC4A7;border-radius:15px;">
+                                     <center>
+                                        <div id="divMain" style="position:relative;margin-top: 5px;background-color:white;width:880px;height:520px;"></div>
+                                      
+                                     </center>
+                                       
+                                </div>
+                            </td>
+                            <td>
+                                <p id="choices" style="float:right; width:235px;height:550px;overflow: auto"></p>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table id="tblDetailHours">
+                        
+                    </table>
+                </td>
+            </tr>
+        </table>
+        
+        
+    </center>
+    <script>
+         var loChoiceContainer = $("#choices");
+         addRow(gaTickSet,"HORAS");
+         loChoiceContainer.append("<table>");
+            $.each(loCuopDataSet, function(key, val) {
+                if(!val.id.endsWith("|P")){
+                    loChoiceContainer.append("<tr><td><input type='checkbox' name='" + val.label +
+                    "' checked='checked' id='" + key + "'></input></td><td><div style='background-color:"+val.color+";width:20px;border:1px solid gray;'>&nbsp;</div> " +
+                    "</td><td><label style='color:gray;font-size:10px;font-family:Tahoma' for='id" + key + "'>"
+                    + val.label + "</label></td></tr>");
+                }
+                var lsHeader = val.id.replace("|P"," SUGERIDOS")
+                addRow(gaDataSetByName(val.id),lsHeader);
+                
+	    }
+         
+         );
+    loChoiceContainer.append("</table>");
+    loChoiceContainer.find("input").click(plotAccordingToChoices);
+    </script>
+    </body>
+</html>

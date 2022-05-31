@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-13">
+    <script language="javascript" type="text/javascript" src="/smartE3/resources/js/flot/jquery.min.js"></script>
+    <script>
+
+        function showContacts() {
+            $.post("/smartE3/DataService",{psService: "getQueryData", psQuery: "SELECT * FROM  ss_itu_fn_get_failed_login_msg(2)"},
+            function(poData) {
+                document.getElementById("divContacts").innerHTML = poData;
+            },"text");
+        }
+
+    </script>
+
+  </head>
+  <body onLoad = "showContacts();" style = 'font-family:Verdana,Bitstream Vera Sans,sans-serif; font-size:12px;'>
+      <div id = 'divContacts' style ='font-family:Verdana,Bitstream Vera Sans,sans-serif; font-size:12px;'>
+      </div>
+      <center>
+            <b>ATTE</b><br>
+            <i>Data Warehouse Development Team</i><br><br>
+            <table style = 'height:130px;'>
+                <tr>
+                    <td>
+                        <img src = '/smartE3/images/e3/ui/explorer/data_warehouse_dt_small.gif' >
+                    </td>
+                    <td>
+                        <img src = '/smartE3/images/e3/ui/explorer/company_logo.jpg'>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>

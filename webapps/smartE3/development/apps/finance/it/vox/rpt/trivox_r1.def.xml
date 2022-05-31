@@ -1,0 +1,39 @@
+<solution id = "">
+    <default_data_source type = "RDBS" name = "jdbc/TRIVOX" />
+    <fields header_height = "45" header_span_height = "0">
+    </fields>
+    <queries>
+        <query language = "SQL" type = "data_grid">
+            <query_def>
+                <![CDATA[
+                
+                /*SELECT color_desc AS CD0, priority_desc, store_id, report_no, wait_time, ISNULL(max_time,wait_time)-wait_time AS critic_time
+                    , (wait_time-med_time)  / ( (((ISNULL(max_time,wait_time)-med_time)/2)+med_time ) - (((med_time-min_time)/2)+min_time)) AS variance , report_type
+                    ,ISNULL(max_time,wait_time) AS max_time,  med_time , min_time --comentar esta linea, es solo para verificar la información.  la varianza es 
+                    FROM (
+                                    SELECT color_desc,priority_desc,store_id, report_no, CAST(CAST( DATEDIFF(SECOND,m1.date_id,GETDATE()) AS DECIMAL(12,2))/60 AS DECIMAL(12,2))       AS wait_time, min_time
+                                     , (ISNULL(max_time,CAST(CAST( DATEDIFF(SECOND,m1.date_id,GETDATE()) AS DECIMAL(12,2))/60 AS DECIMAL(12,2)))+min_time)/2 AS med_time ,max_time, report_type, color_order, priority_order, m1.date_id
+                                    FROM  ss_tvx_report m1 
+                                    INNER JOIN ss_cat_time m2 ON ( CONVERT(VARCHAR,m1.date_id,112) = m2.date_id)
+                                    INNER JOIN ss_tvx_cat_priority m3 ON (m1.priority_id = m3.priority_id AND m3.status=1)
+                                    INNER JOIN ss_tvx_priority_color m4 ON (m2.weekday_id = m4.weekday_id AND m1.priority_id = m4.priority_id)
+                                    INNER JOIN ss_tvx_cat_code_color m5 ON  (m4.code_color_id = m5.code_color_id AND CAST(CAST( DATEDIFF(SECOND,m1.date_id,GETDATE()) AS DECIMAL(12,2))/60 AS DECIMAL(12,2))  BETWEEN min_time AND ISNULL(max_time,CAST(CAST( DATEDIFF(SECOND,m1.date_id,GETDATE()) AS DECIMAL(12,2))/60 AS DECIMAL(12,2)) ))
+                                    INNER JOIN ss_tvx_cat_color m6 ON (m5.color_id = m6.color_id)
+                                    INNER JOIN ss_tvx_cat_report_type m7 ON (m1.report_type_id = m7.report_type_id)
+                    )t1
+                    WHERE report_no>= 17*/
+                    
+                select	cast(store_id as varchar) + '||' +
+		case 
+			when store_id < 500 then 'olapRptRedCell'
+			when store_id between 500 and 1000 then 'olapRptGreenCell'
+			when store_id >= 1000 then 'olapRptYellowCell'
+		end AS store_id, 
+		store_desc 
+                from ss_cat_store where store_id in (101,222,2301,814)
+                    
+                ]]>
+            </query_def>
+        </query>
+    </queries>
+</solution>

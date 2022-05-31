@@ -1,0 +1,32 @@
+<%--
+############################################################
+# Nombre Archivo  : InventoryReportYum.jsp
+# Compania        : Yum Brands Intl
+# Autor           : Quetzalcoatl Pantoja Hinojosa
+# Objetivo        : .
+# Fecha Creacion  : 18/Ago/09
+# Inc/requires    :
+# Modificaciones  : 22/Nov/10 - Encuesta de servicio 2010
+############################################################
+--%>
+
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.*" %>
+<%@ page import="generals.*" %>
+<link href="../../CSS/GeneralStandardsYum.css" type="text/css" rel="stylesheet">
+<html>
+	<head>
+		<script language="javascript" src="/Scripts/HtmlUtilsYum.js"></script>
+	</head>
+	<body onLoad="doAction()">
+	     <p class="detail-desc" align="center">Ultimos avisos</p>
+	     <br>
+	     <div id="survey" >
+	     <!-- <iframe name ='ifrMainContainer' id ='ifrMainContainer' src="http://192.168.101.72/survey/index.php?sid=87491&lang=es-MX" width='100%' height='90%'
+	                   frameborder = '1' bordercolor="#E6E6FA" color="#E6E6FA" ></iframe> -->
+	     <iframe name ='ifrMainContainer' id ='ifrMainContainer' src="http://192.168.101.146/limesurvey/index.php?sid=439722&lang=es-MX" width='100%' height='90%'
+	      frameborder = '1' bordercolor="#E6E6FA" color="#E6E6FA" ></iframe> 
+	     </div>
+	</body>
+</html>
+

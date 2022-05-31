@@ -1,0 +1,67 @@
+--
+-- PostgreSQL database dump
+--
+
+SET client_encoding = 'SQL_ASCII';
+SET check_function_bodies = false;
+
+SET SESSION AUTHORIZATION 'postgres';
+
+SET search_path = public, pg_catalog;
+
+--
+-- TOC entry 3 (OID 63540)
+-- Name: op_inv_inventory_detail; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE op_inv_inventory_detail (
+    inv_id character(6) NOT NULL,
+    inv_beg numeric(12,2),
+    receptions numeric(12,2),
+    itransfers numeric(12,2),
+    otransfers numeric(12,2),
+    prv_inv_end numeric(12,2),
+    inv_inv_end numeric(12,2),
+    rec_inv_end numeric(12,2),
+    decreases numeric(12,2),
+    ideal_use numeric(12,2),
+    unit_cost numeric(12,2),
+    prv_conversion_factor numeric(12,2),
+    rcp_conversion_factor numeric(12,2),
+    prv_unit_measure character(4),
+    inv_unit_measure character(4),
+    misc boolean,
+    date_id timestamp without time zone NOT NULL,
+    year_no smallint NOT NULL,
+    period_no smallint NOT NULL,
+    week_no smallint NOT NULL
+);
+
+
+--
+-- Data for TOC entry 5 (OID 63540)
+-- Name: op_inv_inventory_detail; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY op_inv_inventory_detail (inv_id, inv_beg, receptions, itransfers, otransfers, prv_inv_end, inv_inv_end, rec_inv_end, decreases, ideal_use, unit_cost, prv_conversion_factor, rcp_conversion_factor, prv_unit_measure, inv_unit_measure, misc, date_id, year_no, period_no, week_no) FROM stdin;
+\.
+
+
+--
+-- TOC entry 4 (OID 63542)
+-- Name: op_inv_inventory_detail_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY op_inv_inventory_detail
+    ADD CONSTRAINT op_inv_inventory_detail_pkey PRIMARY KEY (inv_id, year_no, period_no, week_no);
+
+
+--
+-- TOC entry 6 (OID 63544)
+-- Name: fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY op_inv_inventory_detail
+    ADD CONSTRAINT fk1 FOREIGN KEY (inv_id) REFERENCES op_grl_cat_inventory(inv_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+

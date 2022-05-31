@@ -1,0 +1,71 @@
+<app_options>
+
+    <app_option id="appParam_webContext" data="/smartE3/images/" />
+    <app_option id="appParam_developerMode" data="false" />
+    <app_option id="appParam_defaultUserId" data="" />
+    <app_option id="appParam_defaultUserPassword" data="" />
+    <app_option id="appParam_isStore" data="true" />
+    <app_option id="appParam_kbip" data="" />
+    <app_option id="appParam_kbport" data="8080" />
+    <app_option id="appParam_kbsuffix" data="/posXmlApiValidator/MessageIncoming" />
+    <app_option id="appParam_remoteIntranetQueryService" data="http://192.168.109.70:7072/servlet/generals.servlets.StoreDataService" />
+    <app_option id="http://192.168.109.70:7072/servlet/generals.servlets.StoreDataService_bkp" data="http://192.168.109.70:7071/servlet/generals.servlets.StoreDataService" />
+    <app_option id="appParam_remoteMasterQueryService" data="http://192.168.110.198:8080/smartE3/DataService" />
+    <app_option id="appParam_validateCFDISAT" data="true" />
+    <app_option id="appParam_area6token" data="vS4R5aJ6rZsduJ8T3XHsSVJhtE4VCokB" />
+    
+    <app_option id="appParam_store_version" data="3.2" />
+    
+    <app_option id="appParam_storesyncfolder" data="\\mexapp25\StoreSync\tmp_files" />
+    <!--app_option id="appParam_remoteIntranetQueryService" data="http://192.168.110.78:8084/eYum/servlet/generals.servlets.StoreDataService" /-->
+    
+    <app_option id="cssEquiv_olapRptLevel01" data="color:black; background-color:#66CCFF;" />
+    <app_option id="cssEquiv_olapRptLevel02" data="color:black; background-color:#CCFFFF;" />
+    <app_option id="cssEquiv_olapRptLevel03" data="color:black; background-color:#CCFAAA;" />
+    <app_option id="cssEquiv_olapRptLevel04" data="color:black; background-color:#FFFFCC;" />
+    <app_option id="cssEquiv_olapRptLevel05" data="color:black; background-color:#E6E6FA;" />
+    <app_option id="cssEquiv_olapRptGreenCell" data="color:white; background-color:green;" />
+    <app_option id="cssEquiv_olapRptRedCell" data="color:white; background-color:red;" />
+    <app_option id="cssEquiv_olapRptYellowCell" data="color:black; background-color:yellow;" />
+    <app_option id="cssEquiv_olapRptBlueCell" data="color:white; background-color:blue;" />
+    <app_option id="cssEquiv_olapRptOrangeCell" data="color:white; background-color:#ff6600;" />
+    <app_option id="cssEquiv_olapRptWhiteCell" data="color:black; background-color:white;" />
+    <app_option id="cssEquiv_olapRptBlackCell" data="color:white; background-color:black;" />
+    <app_option id="cssEquiv_olapRptRedAccentCell" data="color:white; background-color:#d50000;" />
+    <app_option id="cssEquiv_olapRptDeepOrangeCell" data="color:white; background-color:#d84315;" />
+    <app_option id="cssEquiv_olapRptYellowAccentCell" data="color:black; background-color:#ffff00;" />
+    <app_option id="cssEquiv_olapRptLimeCell" data="color:black; background-color:#c6ff00;" />
+    <app_option id="cssEquiv_olapRptLightGreenCell" data="color:black; background-color:#64dd17;" />
+    <app_option id="olapRpt_hiddenDimensions" data="[store_status]" />
+
+    <app_option id="secParam_depIconID1" data="e3/ui/explorer/operations_button.gif" />
+    <app_option id="secParam_depIconID2" data="e3/ui/explorer/marketing_button.gif" />
+    <app_option id="secParam_depIconID3" data="e3/ui/explorer/rdqa_button.gif" />
+    <app_option id="secParam_depIconID4" data="e3/ui/explorer/finance_button.gif" />
+    <app_option id="secParam_depIconID5" data="e3/ui/explorer/rh_button.gif" />
+    
+    <app_option id="abcDParam_validButtonTypes" data="[save],[new],[cancel],[search]" />
+    <app_option id="abcDParam_okIcon" data="e3/ui/templates/approved.png" />
+    <app_option id="abcDParam_saveIcon" data="e3/ui/templates/save.png" />
+    <app_option id="abcDParam_newIcon" data="e3/ui/templates/add_record.png" />
+    <app_option id="abcDParam_cancelIcon" data="e3/ui/templates/cancel_changes.png" />
+    <app_option id="abcDParam_searchIcon" data="e3/ui/templates/search.png" />
+    <app_option id="abcDParam_deleteIcon" data="e3/ui/templates/delete.png" />
+    <app_option id="abcDParam_findIcon" data="e3/ui/templates/find.png" />
+    <app_option id="abcDParam_filterIcon" data="e3/ui/templates/filter.gif" />
+    <app_option id="abcDParam_filterCancelIcon" data="e3/ui/templates/filter_x.gif" />
+    <app_option id="abcDParam_copyIcon" data="e3/ui/templates/copy.png" />
+    <app_option id="abcDParam_testIcon" data="e3/ui/templates/test.png" />
+    <app_option id="abcDParam_gMapsIcon" data="e3/ui/templates/gmaps.png" />
+    
+    <app_option id="abcDParam_saveTitle" data="Guardar cambios" />
+    <app_option id="abcDParam_newTitle" data="Nuevo registro" />
+    <app_option id="abcDParam_cancelTitle" data="Cancelar cambios" />
+    <app_option id="abcDParam_searchTitle" data="Buscar" />
+
+    <app_option id="abcDParam_saveTooltip" data="Guardar todos los cambios" />
+    <app_option id="abcDParam_newTooltip" data="Insertar un nuevo registro" />
+    <app_option id="abcDParam_cancelTooltip" data="Cancelar todos los cambios realizados despues del ultimo guardado" />
+    <app_option id="abcDParam_searchTooltip" data="- sin uso -" />
+
+</app_options>

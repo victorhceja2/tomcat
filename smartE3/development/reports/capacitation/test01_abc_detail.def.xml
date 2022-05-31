@@ -1,0 +1,83 @@
+<solution id = "">
+    <default_data_source type = "RDBS" name = "jdbc/CallCenter" />
+    <fields header_height = "25" header_span_height = "0" save_confirm = "true" embeded_component = "false">
+    </fields>
+
+    <buttons>
+        <button type = "save" title = "Salvar" />
+        <button type = "new"  title = "Nuevo" tooltip = "Insertar nuevo campo"/>
+        <button type = "cancel" title = "Cancel"/>
+    </buttons>
+
+    <queries>
+        <query>
+            <query_def language = "SQL"  type = "main">
+                <![CDATA[
+
+                    select c1,c2,c3
+                    from ss_tmp_deleteme_asap
+                    where c1 = _sql_param_
+
+                ]]>
+            </query_def>
+            <params>
+                <param id = "1">master.field1</param>
+            </params>
+        </query>
+        
+        <insert>
+            <insert_def>
+                <![CDATA[
+                    insert into ss_tmp_deleteme_asap
+                    (c1,c2,c3)
+                    values (_param_1_,_param_2_,_param_3_)
+                ]]>
+            </insert_def>
+            <params>
+                <param id = "1">field.c1</param>
+                <param id = "2">field.c2</param>
+                <param id = "3">field.c3</param>
+            </params>
+        </insert>
+        
+        <update>
+            <update_def>
+                <![CDATA[
+                    update ss_tmp_deleteme_asap
+                    set     c2 = _param_2_,
+                            c3 = _param_3_
+                    where c1 = _param_1_
+                ]]>
+
+            </update_def>
+            <params>
+                <param id = "1">field.c1</param>
+                <param id = "2">field.c2</param>
+                <param id = "3">field.c3</param>
+            </params>
+        </update>
+        
+        <delete>
+            <delete_def>
+                <![CDATA[
+                    delete
+                    from ss_tmp_deleteme_asap
+                    where c1 = _param_1_
+                ]]>
+            </delete_def>
+            <params>
+                <param id = "1">field.c1</param>
+            </params>
+        </delete>
+
+        <after_abc_actions>
+            <after_abc_actions_def>
+
+            </after_abc_actions_def>
+            <params>
+
+            </params>
+        </after_abc_actions>
+        
+    </queries>
+</solution>

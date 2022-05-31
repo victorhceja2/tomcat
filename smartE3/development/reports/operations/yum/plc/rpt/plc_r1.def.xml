@@ -1,0 +1,163 @@
+<solution id = "">
+    <default_data_source type = "OLAP" name = "olap/MEXWSV33" />
+    <options>
+        <option file_url = "development/reports/options/default_options.def.xml" />
+    </options>
+    <fields header_height = "53" header_span_height = "20">
+        <!---->
+        <drillthrough  page = "development/reports/operations/yum/plc/rpt/plc_graphic_01.html" param_field = "CD8" />
+
+
+
+        <field name = "CD0" header_span = "% de Eficiencia de" param1 = "10">
+            <title><![CDATA[Gas en<br> Tanque]]></title>
+            <tool_tip>
+                <![CDATA[
+                   <table><tr><td nowrap>
+                        Eficiencia del porcentaje de gas en el tanque</b><br>
+                        Rango de operación valido:<b> 20 a 100% del lleno total</b> 
+                    </td></tr></table>
+                 ]]>
+            </tool_tip>
+        </field>
+        <field name = "CD1"  header_span = "% de Eficiencia de" param1 = "20">
+            <title><![CDATA[Agua en la<br> Sisterna]]></title>
+            <tool_tip>
+                <![CDATA[
+                   <table><tr><td nowrap>
+                        Eficiencia del porcentaje de agua en la sisterna<br>
+                        Rango de operación valido: <b> 20 a 1000 cm</b>
+                    </td></tr></table>
+                 ]]>
+            </tool_tip>
+        </field>
+        <field name = "CD2"  header_span = "% Eficiencia de Temperaturas" param1 = "30">
+            <title><![CDATA[Camara de<br> Congelaci&oacute;n]]></title>
+            <tool_tip>
+                <![CDATA[
+                   <table><tr><td nowrap>
+                        Eficiencia de temperaturas de la camara de congelaci&oacute;n<br>
+                        Rango de operación valido:<b> -23.30 a -12.20 grados centigrados</b>
+                    </td></tr></table>
+                 ]]>
+            </tool_tip>
+        </field>
+        <field name = "CD3"  header_span = "% Eficiencia de Temperaturas" param1 = "40">
+            <title><![CDATA[Camara de<br> Refrigeraci&oacute;n]]></title>
+            <tool_tip>
+                <![CDATA[
+                   <table><tr><td nowrap>
+                        Eficiencia de temperaturas de la camara de refrigeraci&oacute;n<br>
+                        Rango de operación valido:<b> 0 a 4 grados centigrados</b>
+                    </td></tr></table>
+                 ]]>
+            </tool_tip>
+        </field>
+        <field name = "CD4"  title = "Retarder" header_span = "% Eficiencia de Temperaturas" param1 = "50" >
+            <tool_tip>
+                <![CDATA[
+                   <table><tr><td nowrap>
+                        Eficiencia de temperaturas del retarder<br>
+                        Rango de operación valido:<b> 0 a 4 grados centigrados</b>
+                    </td></tr></table>
+                 ]]>
+            </tool_tip>
+        </field>
+        <field name = "CD5"  header_span = "% Eficiencia de Temperaturas" param1 = "60">
+            <title><![CDATA[Mesa de<br> Preparaci&oacute;n]]></title>
+            <tool_tip>
+                <![CDATA[
+                   <table><tr><td nowrap>
+                        Eficiencia de temperaturas de la mesa de preparaci&oacute;n<br>
+                        Rango de operación valido:<b> 0 a 4 grados centigrados</b>
+                    </td></tr></table>
+                 ]]>
+            </tool_tip>
+        </field>
+        <field name = "CD6"  header_span = "% Efic en Puertas" param1 = "70">
+            <title><![CDATA[Camara<br> Fria]]></title>
+            <tool_tip>
+                <![CDATA[
+                   <table><tr><td nowrap>
+                        Eficiencia en el uso de la puerta de la camara fria<br>
+                        Rango de operación valido:<b> maximo 5 mins abierta</b>
+                    </td></tr></table>
+                 ]]>
+            </tool_tip>
+        </field>
+        <field name = "CD7"  title = "Trasera" header_span = "% Efic en Puertas" param1 = "80">
+            <tool_tip>
+                <![CDATA[
+                   <table><tr><td nowrap>
+                        Eficiencia en el uso de la puerta trasera<br>
+                        Rango de operación valido:<b> maximo 5 mins abierta</b>
+                    </td></tr></table>
+                 ]]>
+            </tool_tip>
+        </field>
+        <field name = "CD8"  title = "" ctrl_field = "true" />
+    </fields>
+    <queries>
+        <query language = "MDX">
+            <string_wrapper>
+                <![CDATA[
+                    <b>Stores afectados: </b> {1} de  {2}, <b>porcentaje: </b>{3}
+                ]]>
+            </string_wrapper>
+            <query_def>
+                <![CDATA[
+                    WITH
+                                    SET org_members AS '{_param_1_}'
+                                    SET time_members AS '{_param_2_}'
+                                    MEMBER [Measures].[affected] AS 'COUNT(FILTER(NONEMPTYCROSSJOIN(NONEMPTYCROSSJOIN( {DESCENDANTS({org_members},[organization].[h].[store],SELF)},{_param_3_}),{time_members}), [Measures].[total_sample]> 0))/time_members.count', FORMAT_STRING = '#'  
+                                    MEMBER [Measures].[all]  AS 'COUNT(CROSSJOIN(NONEMPTYCROSSJOIN(DESCENDANTS({org_members},[Organization].[h].[Store],SELF),{_param_3_}),{time_members}))/time_members.count', FORMAT_STRING = '#'
+                                    MEMBER [Measures].[percentage] AS '([Measures].[affected]/[Measures].[all])', FORMAT_STRING = '0.00%'
+                    SELECT { 
+                                    [Measures].[affected],
+                                    [Measures].[all], 
+                                    [Measures].[percentage] 
+                    } ON COLUMNS 
+                    FROM [op_plc_data]
+                ]]>
+            </query_def>
+            <params>
+                <param id = "1" show_in_header = "false">tree_organization.olap_value</param>
+                <param id = "2" show_in_header = "false">tree_time.olap_value|cmb_to</param>
+                <param id = "3" show_in_header = "false">cmb_org_status</param>
+            </params>
+        </query>
+        <query language = "MDX" type = "data_grid">
+            <query_def>
+                <![CDATA[
+                
+                    WITH 
+                            SET time_set AS '{_param_2_}'
+                            SET sensor_set AS '{    [op_plc_sensor].[sensor_id].&[10],[op_plc_sensor].[sensor_id].&[20],[op_plc_sensor].[sensor_id].&[30],[op_plc_sensor].[sensor_id].&[40],
+                                                                       [op_plc_sensor].[sensor_id].&[50],[op_plc_sensor].[sensor_id].&[60],[op_plc_sensor].[sensor_id].&[70],[op_plc_sensor].[sensor_id].&[80]}'
+                            MEMBER [time].[h].[TOTAL] AS 'SUM({time_set})'
+                            MEMBER [measures].[ok_idx]  AS '1-IIF([Measures].[total_sample]>0,[Measures].[out_range]/[Measures].[total_sample],0)', FORMAT_STRING = '#.00%' + IIF([measures].[ok_idx]<.5,'|style=olapRptRedCell','')
+                            MEMBER [measures].[dt_params] AS 'IIF([time].[h].CurrentMember.Level.Name<>"(all)" AND [organization].[h].CurrentMember.Level.Name = "store",[time].[h].CurrentMember.UniqueName,null)'
+                    SELECT {
+                    CROSSJOIN({[measures].[ok_idx]},{sensor_set})
+                    ,CROSSJOIN({[measures].[dt_params]},{[op_plc_sensor]})
+                    }ON COLUMNS,{
+                    CROSSJOIN(
+                                    {NONEMPTYCROSSJOIN(
+                                                   {DESCENDANTS({_param_1_},_param_4_,SELF_AND_BEFORE)}
+                                    ,{_param_5_})}
+                    ,{_param_6_})
+                    }ON ROWS
+                    FROM [op_plc_data]
+                    
+                ]]>
+            </query_def>
+            <params>
+                <param id = "1">tree_organization.olap_value</param>
+                <param id = "2">tree_time.olap_value|cmb_to</param>
+                <param id = "4" type = "server_side" server_param = "olap_level_detail" client_param  = "chk_org_detail">chk_org_detail.last_true_value</param>
+                <param id = "5">cmb_org_status</param>
+                <param id = "6" show_in_header = "false" type = "olap_time_set" linked_dimension = "time" only_totals = "chk_only_totals">tree_time.olap_value|cmb_to</param>
+            </params>
+        </query>
+    </queries>
+</solution>

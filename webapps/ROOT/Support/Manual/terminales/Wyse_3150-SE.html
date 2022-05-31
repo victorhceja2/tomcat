@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<link href="/CSS/GeneralStandardsYum.css" type="text/css" rel="stylesheet">
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+</HEAD>
+<BODY class="text">
+<div class="detail-desc" align="center">Configurar terminales Wyse 3150-SE y S50 (x150)</div>
+<P ><BR>
+</P>
+<P ><IMG SRC="img/wyse_3150seD.png" NAME="wyse_3150" ALIGN=BOTTOM WIDTH=366 HEIGHT=555 BORDER=0></P>
+<P ><BR>
+</P>
+<P ><BR>
+</P>
+<P >El password del modelo 3150 es:
+Administrator para la cuenta del Administrator.</P>
+<P >El modelo S50 no usa passwords en la
+configuración actual, esta cerrada hasta que se reinicialice a los
+valores de fabrica.</P>
+<br>Instrucciones detalladas para configurar las terminales:
+<br>Modelo 3150:
+<OL>
+	<LI><P ><B>Estando en la pantalla
+	Winterm Connection Manager, borrar las sesiones de default (si es
+	que están), seleccionándolas con el Mouse y haciendo clic en el
+	botón &quot;Delete&quot; abajo a la derecha.</B></P>
+	<LI><P ><B>Hacer clic en el botón
+	&quot;Control Panel&quot; y después en &quot;Network&quot;.</B></P>
+	<OL>
+		<LI><P >Entrar en &quot;Built in
+		Ethernet Port&quot; y seleccionar &quot;Specify an IP address.</P>
+		<LI><P >Poner un número como
+		192.168.1.1 en &quot;IP Address&quot; y 255.255.255.0 en &quot;Subnet
+		Mask&quot;. Dar &quot;OK&quot;.</P>
+		<LI><P >Deseleccionar donde dice
+		&quot;Check Network on BOOT&quot; y dar OK.</P>
+		<LI><P >Al final dar &quot;X&quot;
+		para regresar al &quot;Connection Manager&quot;</P>
+	</OL>
+	<LI><P ><B>Dar clic en &quot;Add&quot;,
+	seleccionar &quot;Terminal Emulation&quot; y dar &quot;OK&quot;.</B></P>
+	<LI><P ><B>En &quot;Connection Name&quot;
+	poner Yum.</B></P>
+	<OL>
+		<LI><P >En &quot;Emulation&quot;
+		seleccionar &quot;IBM3151&quot;. Dar Next.</P>
+		<LI><P >Seleccionar &quot;Serial&quot;
+		y &quot;Connect to:&quot; debe ser COM1:.</P>
+		<LI><P >En Configure poner &quot;Flow
+		Control&quot; en None (subiendo la flecha). Dar OK.</P>
+		<LI><P >Dar &quot;Next&quot; , otra
+		vez &quot;Next&quot;, otra vez &quot;Next&quot;, otra vez &quot;Next&quot;,
+		otra vez &quot;Next&quot; (5 veces) y &quot;Finish&quot;.</P>
+		<LI><P >Debe regresar al &quot;Connection
+		Manager&quot; y tener una linea que empieza con Yum.</P>
+	</OL>
+	<LI><P ><B>Dar doble click sobre la
+	linea que dice Yum.</B></P>
+	<OL>
+		<LI><P >Cuando se abra el emulador,
+		seleccionar &quot;Settings&quot; y despues donde dice &quot;IBM
+		3151&quot;.</P>
+		<LI><P >Deshabilitar &quot;Auto Wrap&quot;
+		y dar OK.</P>
+		<LI><P >Seleccionar &quot;File&quot; y
+		dar &quot;Save Session&quot;.</P>
+		<LI><P >Seleccionar &quot;File&quot; y
+		dar &quot;Exit&quot;.</P>
+		<LI><P >En el &quot;Connection
+		Manager&quot; seleccionar la linea Yum y dar click en &quot;Edit&quot;
+		y dar &quot;Next&quot; 4 veces hasta estar en &quot;TE Client
+		Connection Wizard - GUI Overrides&quot;.</P>
+		<LI><P >Dar click en &quot;Disable
+		Elements&quot; y seleccionar &quot;Disable All&quot;. Dar OK.</P>
+		<LI><P ><SPAN LANG="en-US">Seleccionar
+		&quot;Disable Status Bar&quot;, &quot;Disable Scroll Bar&quot; y
+		&quot;Disable</SPAN> <SPAN LANG="en-US">Clipboard Accelerators&quot;.</SPAN></P>
+		<LI><P >Dar &quot;Next&quot; 2 veces y
+		OK.</P>
+	</OL>
+	<LI><P ><B>En el &quot;Connection
+	Manager&quot; dar click al boton del &quot;Control Panel&quot;.</B></P>
+	<OL>
+		<LI><P >Dar click a &quot;Security&quot;.</P>
+		<LI><P >En el centro, seleccionar la
+		linea que dice &quot;Administrator&quot; y despues dar click en
+		&quot;Modify User&quot;, poner un &quot;Password&quot; (como por
+		ejemplo: Administrator) y el mismo en &quot;Confirm Password&quot;,
+		(Apuntar y no olvidar esta clave), dar OK.</P>
+		<LI><P >Dar click en &quot;Add User&quot;.
+		Poner un usuario en &quot;User Name&quot; como Yum y opcionalmente
+		ponerle &quot;Password&quot; (no olvidar clave).</P>
+		<LI><P >Checar que &quot;Guest&quot;
+		este seleccionado y deseleccionar &quot;Allow Access to Connection
+		Manager&quot;.</P>
+		<LI><P >Despues seleccionar la linea
+		con la session que creamos que pudiera llamarse Yum del lado
+		izquierdo al centro.</P>
+		<LI><P >Hacer click en &quot;Assign&quot;
+		para que se copie del lado derecho y despues se da click en &quot;Toggle
+		AutoStart&quot; para que del lado derecho la columna &quot;AutoStart&quot;
+		diga &quot;Yes&quot;. Dar OK.</P>
+		<LI><P >Estaremos de regreso en la
+		pantalla &quot;Security&quot;, seleccionar &quot;Security Enable&quot;
+		hasta arriba a la izquierda y &quot;AutoLogin Enable&quot;
+		seleccionando el usuario que creamos con la flechahacia abajo en
+		&quot;User Name&quot;.</P>
+		<LI><P ><B>Muy Importante</B>: Podemos
+		deseleccionar opcionalmente&quot;Reset HotKey Enable&quot;, con lo
+		que &quot;ya no funcionara la g al booteo&quot; para inicializar en
+		modo default de fabrica a la terminal, pero si por alguna razon se
+		olvidan los Passwords, ya no se podra reinicializar la terminal y
+		solo se podra recargar con &quot;Rapport&quot; o &quot;Simple
+		Imager&quot;. Dar OK.</P>
+		<LI><P >Hacer clic en “Display”
+		quitar la palomita de “Enable Energy Saber” Dar O.K. y O.K.</P>
+	</OL>
+	<LI><P ><B>Rebootear y probar que
+	funciona.</B></P>
+	<LI><P ><B>Si se desea entrar como
+	&quot;Administrator&quot;, teclear ALT-F4 y el usuario Administrator
+	y su Password cuando aparece el cuadro gris y empieza una cuenta de
+	5 segundos.</B></P>
+</OL>
+<P ><BR>
+</P>
+<P ><BR>
+</P>
+</BODY>
+</HTML>

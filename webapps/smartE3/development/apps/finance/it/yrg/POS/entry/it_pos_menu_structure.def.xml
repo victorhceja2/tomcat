@@ -1,0 +1,14 @@
+<xml_def data_source_name = "jdbc/YRG" id="fn_trp_cat_service">
+    <queries>
+        <query id = "tree_data" language = "SQL"  type = "main" connection_pool = "jdbc">
+            <query_def>
+                SELECT xml_data 
+                FROM it_pos_fn_get_tree_abc_struct(_param_1_) 
+                ORDER BY sorter
+            </query_def>
+            <params>
+                <param id = "1">cmb_config.value</param>
+            </params>
+        </query>
+    </queries>
+</xml_def>

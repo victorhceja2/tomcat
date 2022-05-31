@@ -1,0 +1,70 @@
+<html>    
+    <head>
+    </head>
+    <body onLoad="javascript:executeAppletCommand();">
+        <script>
+
+            var gsCommand = window.parent.command;
+            var gsFilesPath = window.parent.filesPath;
+            var gsUserId = window.parent.userId;
+            var gsBody = window.parent.body;
+            var gsSubject= window.parent.subject;
+            var gsTo= window.parent.to;
+            var gsCC = window.parent.cc;
+            var gsBCc = window.parent.bcc;
+
+            
+            function exec(psCommand,psFilesPath,psUserId,psBody,psSubject,psTo,psCc,psBCc) {
+               
+                psCommand = replaceAll(psCommand,"\"","_trivox_v2_ctrl_char_");
+                psFilesPath = replaceAll(psFilesPath,"\"","_trivox_v2_ctrl_char_");
+                psUserId = replaceAll(psUserId,"\"","_trivox_v2_ctrl_char_");
+                psBody = replaceAll(replaceAll(psBody,"\"","_trivox_v2_ctrl_char_"),"\n","_trivox_v2_ctrl_char1_");
+                psSubject = replaceAll(psSubject,"\"","_trivox_v2_ctrl_char_");
+                psTo = replaceAll(psTo,"\"","_trivox_v2_ctrl_char_");
+                psCc = replaceAll(psCc,"\"","_trivox_v2_ctrl_char_");
+                                                         
+                var applet = '';
+                applet+='<applet id ="aplSignedEmailApplet"  codebase = "/smartE3/development/apps/finance/it/vox/applets" name = "aplSignedEmailApplet" code="SignedEmailApplet.class" archive="SignedEmailApplet.jar" width="270" height="160">';
+                applet+='   <param name="psCommand" value="' + psCommand + '">';
+                applet+='   <param name="psFilesPath" value="' + psFilesPath + '">';
+                applet+='   <param name="psUserId" value="' + psUserId + '">';
+                applet+='   <param name="psBody" value="' + psBody + '">';
+                applet+='   <param name="psSubject" value="' + psSubject + '">';
+                applet+='   <param name="psTo" value="' + psTo + '">';
+                applet+='   <param name="psCc" value="' + psCc + '">';
+                applet+='   <param name ="psBCc" value ="' + psBCc + '">';
+                applet+='</applet>';
+		var body = document.getElementsByTagName("body")[0];
+                var div = document.createElement("div");
+                div.innerHTML = applet;
+                body.appendChild(div);
+            }
+
+            function executeAppletCommand() {
+                /*
+                var lsCommand = document.getElementById("txtCommand").value;
+                var lsParam = document.getElementById("txtParam").value;
+                */
+                exec(gsCommand,gsFilesPath,gsUserId,gsBody,gsSubject,gsTo,gsCC,gsBCc);
+            }
+
+            function replaceAll( text, busca, reemplaza ){
+                while (text.toString().indexOf(busca) != -1) text = text.toString().replace(busca,reemplaza);
+
+                return text;
+            }
+
+
+        </script>
+        <!--
+            <input id ="txtCommand" name ="txtCommand" type = "text" value = "\\\\192.168.101.226\\_CompartirTodos\\openOutlook.bat" size = "120">
+            <textarea id ="txtParam" name ="txtParam" rows = "10" cols = "80">este es un texto de prueba</textarea>    
+            <input type = "button" value = "test" onClick = "javascript:executeAppletCommand();">
+        -->
+    </body>
+</html>
+
+
+
+

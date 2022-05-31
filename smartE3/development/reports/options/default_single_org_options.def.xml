@@ -1,0 +1,5 @@
+<options_definition width = "360"  title = "Opciones">
+    <option_group title = "Organización" left = "90%" right = "*" tree_controls = "true">
+        <option name = "tree_organization"  type="tree"  friendly_name = "Arbol de organización" file_url = "resources/xml/organization.data.xml" search_controls = "true" align = "left"  defaults = "_app_user_data.org_levels_granted" selection_style="single"/>
+    </option_group>
+</options_definition>

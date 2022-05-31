@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SMTPS>
+  <smtp1>
+    <host host="smtp.kfc.com.mx" port="25" user="" passw="" domain="yum.com" auth="no">YUM</host>
+    <receiver  domain="yum.com" ></receiver>
+  </smtp1>
+</SMTPS>

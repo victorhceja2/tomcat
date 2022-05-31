@@ -1,0 +1,16 @@
+
+************************************
+Iniciando depuracion de 08-08-26
+************************************
+1.- Obteniendo las remisiones que se deben eliminar porque no tienen recepcion y llevan mas de 20 dias en el sistema. 
+
+Las remisiones a eliminar son las siguientes: 
+
+2.- Obteniendo las ordenes que se deben eliminar porque no tienen recepcion y llevan mas de 20 dias en el sistema. 
+
+Las ordenes a eliminar son las siguientes: 
+
+
+************************************
+Finalizando depuracion de 08-08-26
+************************************

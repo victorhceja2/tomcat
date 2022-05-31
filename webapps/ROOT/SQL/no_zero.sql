@@ -1,0 +1,4 @@
+CREATE OR REPLACE FUNCTION no_zero(integer, integer)
+  RETURN integer AS 
+  'SELECT (CASE WHEN $1 = 0 THEN $2 ELSE $1 END)'
+  LANGUAGE 'sql' VOLATILE;

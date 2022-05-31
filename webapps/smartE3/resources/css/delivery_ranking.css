@@ -1,0 +1,107 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/03/2017, 10:21:14 AM
+    Author     : DAB1379
+*/
+@font-face {
+           font-family: myFirstFont;
+            src: url(sansation_light.woff);
+        }
+        body{
+            background-color: #E6E6E6;
+            font-family: myFirstFont;
+        }
+ .position{
+            width:10%;
+            color:gray;
+            font-size:80px;
+            font-weight: bold;
+            text-align: center;
+        }
+ .store{
+            width:50%;
+            color:gray;
+            font-size:25px;
+            font-weight: bold;
+            text-align: center;
+            
+        }
+        .pie{
+            width:10%;
+            height: 80%;
+        }
+        .pie div{
+            width:100%;
+            height: 90%;
+        }
+        .diag{
+            width:5%;
+        }
+         .img{
+            width:10%;
+            font-size:30px;
+            color:#23c1fc;
+            font-weight: bold;
+        }
+        .per{
+            font-size:30px;
+            color:gray;
+            width:8%;
+            font-weight: bold;
+        }
+        .red{
+            color:#FF0000;
+        }
+        .green{
+            color:#01DF01;
+            
+        }
+        .header{
+                        
+                        background: red; /* Old browsers */
+                        background: -moz-linear-gradient(top, red 0%,  #E6E6E6 100%); /* FF3.6+ */
+                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,red),  color-stop(100%,#E6E6E6)); /* Chrome,Safari4+ */
+                        background: -webkit-linear-gradient(top, #1e5799 0%,#E6E6E6 100%); /* Chrome10+,Safari5.1+ */
+                        background: -o-linear-gradient(top, red 0%,#E6E6E6 100%); /* Opera 11.10+ */
+                        background: -ms-linear-gradient(top, red 0%,#E6E6E6 100%); /* IE10+ */
+                        background: linear-gradient(to bottom, red 0%,#E6E6E6 100%); /* W3C */
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E6E6E6', endColorstr='red',GradientType=0 ); /* IE6-9 */
+                        /*color:#A4A4A4;*/
+                        color:white;
+                        font-weight: bold;
+                        font-size:30px;
+                        font-family: myFirstFont; 
+                         
+                  }   
+        .post{
+            width:10%;
+            background-image: url("/smartE3/images/e3/ui/wco/post.png");
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-size:     contain;   
+            text-align: center;
+            font-size:40px;
+            font-weight: bold;
+            
+        }
+        .post span{
+            top:0px;
+            padding-top: 0px;
+            font-size:20px;  
+        }
+        .row{
+           border:1px solid gray;
+          
+        }
+        .selected{
+            background-color: #CEECF5;
+             border-radius: 15px 0px 10px 0px;
+            -webkit-box-shadow: 11px 13px 32px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 11px 13px 32px 0px rgba(0,0,0,0.75);
+            box-shadow: 11px 13px 32px 0px rgba(0,0,0,0.75);
+
+        }

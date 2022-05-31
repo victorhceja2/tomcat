@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <style>
+		 
+	
+	    </style>  
+            <title>World Class Operations</title>
+            <link rel="icon" href="/smartE3/images/e3/ui/wco/user.png" type="image/x-icon" />
+            <link rel="stylesheet" type="text/css" href="/smartE3/resources/css/posit_generals.css" media="screen" />
+	    <script type="text/javascript" src="/smartE3/resources/js/jquery/jquery-1.6.2.min.js"></script>
+            <script type="text/javascript" src="/smartE3/resources/js/generals/utils.js"></script>
+            <script type="text/javascript" src="/smartE3/resources/js/justgage/justgage.1.0.1.min.js"></script>
+            <script type="text/javascript" src="/smartE3/resources/js/justgage/raphael.2.1.2.min.js"></script>
+            <script type="text/javascript" src="/smartE3/resources/js/justgage/justgage.js"></script>
+            <script type="text/javascript" src="/smartE3/resources/js/generals/wco_ph_dashboard.js"></script>
+            <script>
+             var moAppHandler = new AppHandler();
+             moAppHandler.init();
+                  
+            function adjustZoom(piZoom){  
+                document.body.style.zoom=""+piZoom.trim()+"%";
+            }
+            
+            </script>
+    </head>
+    <body style="background:#F2F2F2" onload="setIntitialData()" onresize="resizeTable();">
+        <div id="divMainTable" style="background: white">
+        <table id="tdMainTable" style="width:100%;background: white">
+            <tr class="gradient_red">
+                <td colspan="2" align="center">
+                    <table style="width: 100%">
+                         <tr>
+                            <td width="100" rowspan="2">
+                            <img id="imgHeader" src="/smartE3/images/e3/ui/wco/help.png" width="100px" />
+                            </td>
+                            <td rowspan="2" width="500px">
+                                DASHBOARD
+                            </td>
+                            <td id="tdStoreName">
+                                
+                            </td>
+                            <td width="70" rowspan="2" align="rigth">
+                                <img  src="/smartE3/images/e3/ui/wco/clock_pos.png" width="40px" />
+                            </td>
+                            <td  rowspan="2" id="tdHour" width="250">
+                                <font size="7px">0:00</font> 
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr id="tdOrderContainer">
+              
+                <td >
+                    
+                    <table id="tblOrders" style="background: white;width: 100%;height:100%;overflow-y: auto; border-collapse: collapse;" align="top">
+                        <tr>
+                            <td>
+                                <table  class="dash-table letter" width="100%">
+                                    <tr class="cout_theader big_header">
+                                        <td colspan="4">
+                                            <img src="/smartE3/images/e3/ui/wco/moto.png" width="80"/>DELIVERY
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                       <td class="letter">
+                                            <span id="deli_30_per" class="final_value value_green">0</span>
+                                            <br>
+                                            ENTREGA <<br>30 MIN
+                                       </td>
+                                        <td class="letter">
+                                            <span id="deli_per" class="final_value value_green">0</span>
+                                            <br>
+                                            ENTREGA <<br> T.PROMESA
+                                       </td>
+                                       <td class="letter">
+                                           <span id="del_avg" class="final_value value_green">0</span>
+                                           <br>
+                                           TIEMPO PROMEDIO<br>
+                                           (MIN)
+                                       </td>
+                                       <td  class="letter">
+                                           <span id="promise_time" class="final_value value_green">0</span>
+                                           <br>
+                                           TIEMPO PROMESA<br>
+                                           (MIN)
+                                       </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;
+                                <br>
+                            </td>
+                        </tr>
+                          <tr>
+                            <td>
+                                &nbsp;
+                                <br>
+                            </td>
+                        </tr>
+                            <tr>
+                            <td>
+                                &nbsp;
+                                <br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table class="dash-table letter" width="100%">
+                                    <tr class="cout_theader big_header">
+                                        <td colspan="3">
+                                            <img src="/smartE3/images/e3/ui/explorer/pps.png" width="80"/>PREPARACION
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="letter">
+                                            <span id="prod_per" class="final_value value_green">0</span>
+                                            <!--div style=" height:250px" id="prod_per"></div--><br>
+                                            % PREPARACION <br>< 14(min)
+                                           
+                                       </td>
+                                       <td class="letter">
+                                           <span id="prod_avg" class="final_value value_green">0</span>
+                                           <br>
+                                           TIEMPO PROMEDIO
+                                           <br>MIN
+                                       </td>
+                                       <td  class="letter">
+                                           <span id="order_prod" class="final_value value_green">0</span>
+                                           <br>
+                                           EN PRODUCCION
+                                       </td>
+                                    </tr>
+                                </table>
+                            </td>
+                           
+                        </tr>
+                    </table>
+                    <script>
+                        resizeTable();
+                    </script>    
+                </td>
+                
+            </tr>
+            
+
+        </table>
+            </div>
+    </body>
+</html>

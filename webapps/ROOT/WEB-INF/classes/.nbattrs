@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE attributes PUBLIC "-//NetBeans//DTD DefaultAttributes 1.0//EN" "http://www.netbeans.org/dtds/attributes-1_0.dtd">
+<attributes version="1.0">
+    <fileobject name="generals">
+        <attr name="OpenIDE-Folder-Order" stringvalue="servlets/ClientData.java/DBConnection.java/DBServerDef.java/ExceptionHandler.java/EyumDBConnection.java/FormatString.java/HtmlAppHandler.java/LDAPSession.java/ReportHeader.java/ReportParameters.java/ReportTable.java/SqlServerConnection.java/OlapServerDef.java/UserData.java/UserSecurityData.java"/>
+    </fileobject>
+</attributes>

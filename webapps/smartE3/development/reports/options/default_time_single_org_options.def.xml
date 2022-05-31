@@ -1,0 +1,8 @@
+<options_definition width = "360"  title = "Opciones">
+    <option_group title = "Organización" left = "90%" right = "*" tree_controls = "true">
+        <option name = "tree_organization"  type="tree"  friendly_name = "Arbol de organización" file_url = "resources/xml/organization.data.xml" search_controls = "true" align = "left"  defaults = "_app_user_data.org_levels_granted" selection_style="single"/>
+    </option_group>
+    <option_group title = "Tiempo" left = "70%" right = "*">
+        <option name = "tree_time"  friendly_name = "Arbol de tiempo" type="tree" file_url = "resources/xml/time.data.xml" search_controls = "true" align = "left" selection_style="single"/>
+    </option_group>
+</options_definition>

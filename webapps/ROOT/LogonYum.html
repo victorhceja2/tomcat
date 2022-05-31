@@ -1,0 +1,84 @@
+<!--
+##########################################################################################################
+# Nombre Archivo  : LogonYum.html
+# Compañia        : Yum Brands Intl
+# Autor           : JPG
+# Objetivo        : Pantalla principal de Login 
+# Fecha Creacion  : 29/Enero/2004
+# Inc/requires    : 
+# Modificaciones  :
+# Fecha           Programador     Observaciones
+# _____________________________________________
+##########################################################################################################
+-->
+
+<html>
+    <head>
+        <title>Acceso a e-Premium</title>
+        <link rel='stylesheet' href='/CSS/GeneralStandardsYum.css' type='text/css'>
+    </head>
+
+    <body bgcolor='#1C3D79' onLoad='initialize()'>
+        <script language='JavaScript'>
+
+            function initialize() { 
+                document.frmLogon.txtUser.focus();
+            }
+
+        </script>
+
+        <p align='center'>
+            <img border='0' src='/Images/Generals/FrontPage.jpg'>
+        </p>
+
+        <p align='center' class='titleOptions'>
+            <i>
+                Bienvenidos a 'e-Premium'!
+            </i>
+            <br><br>
+        </p>
+
+        <center>
+            <table id = 'tblInfo' border = '0'>
+                <tr>
+                    <td align = 'left'>
+                        <font face='Verdana' color='#FFFFFF' size='2'>
+                            <b>Importante:</b> Si es de un Centro de Contribución<br>
+                            proporcione su usuario y contraseña que utiliza para<br>
+                            entrar al Mail y de click al boton Accesar.<br>
+                            De lo contrario proporcione el usuario y contraseña<br>
+                            que utiliza para entrar a la red y de click al boton Accesar.
+                        </font>
+                    <td>
+                </tr>
+            </table>
+
+            <form name='frmLogon' method='post' action='/ValidateLogonYum.jsp'>
+
+                <table id = 'tblLogon' border = '0' cellspacing='5'> 
+                    <tr>
+                        <td class='entryOptions'>
+                            Usuario:
+                        </td>
+                        <td>
+                            <input type='text' name='txtUser' size='20'>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td class = 'entryOptions'>
+                            Contraseña:
+                        </td>
+                        <td>
+                            <input type='password' name='txtPassword' size='20'>
+                        </td>
+                    </tr>
+                </table>
+
+                <p align='center'>
+                    <input type='submit' value='Accesar' name='cmdAccess'>
+                </p>
+            </form>
+        </center>
+    </body>
+</html>

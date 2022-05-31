@@ -1,0 +1,190 @@
+<%!
+    String[][] getLongPhone()
+    {
+        String lsQueryP;
+        lsQueryP = "SELECT long_phone,manager_line FROM op_call_conf ORDER BY date_id DESC LIMIT 1";
+        return moAbcUtils.queryToMatrix(lsQueryP);
+    }
+
+    String calculateLada()
+    {
+        String lsQueryL;
+        lsQueryL = "SELECT LENGTH(lada)+1 FROM op_call_conf ORDER BY date_id DESC LIMIT 1";
+        //query = Str.getFormatted(query, new Object[]{});                
+        return moAbcUtils.queryToString(lsQueryL);
+    }
+
+    /*String getDate(String lsYear, String lsPeriod, String lsWeek, String lsDay)
+    {*/
+        /*String lsQueryD="";
+        if(!lsDay.equals("0"))
+        {
+            lsQueryD += "(SELECT date_id FROM ss_cat_time WHERE year_no="+msYear+" ";
+        
+            if(!msPeriod.equals("0"))
+                lsQueryD += " AND period_no="+msPeriod +" ";
+
+            if(!msWeek.equals("0"))
+                lsQueryD += " AND week_no="+msWeek+" ";
+
+            if(!lsDay.equals("0"))
+                lsQueryD += " AND EXTRACT(day from date_id) = " + lsDay;
+
+            lsQueryD += ") ";
+
+            return moAbcUtils.queryToString(lsQueryD);
+        }else{
+    return "0";
+        }
+    }*/
+   
+    String getDatesFormatted (String psCurrentYear, String psPeriod, String psWeek, String msDay)
+    {
+        String laDates[][], lsDatesFormatted = "";
+        String lsDatesQry = "SELECT SUBSTR(date_id, 1,10) AS date_id,'' FROM ss_cat_time WHERE year_no="+msYear+" ";
+        if(!msPeriod.equals("0"))
+              lsDatesQry += " AND period_no="+msPeriod +" ";
+
+        if(!msWeek.equals("0"))
+              lsDatesQry += " AND week_no="+msWeek+" ";
+
+        if(!msDay.equals("0"))
+              lsDatesQry += " AND EXTRACT(day from date_id) = " +msDay;
+
+	laDates = moAbcUtils.queryToMatrix(lsDatesQry);
+
+	if (laDates.length > 1){
+	      for(int i=0; i<laDates.length; i++){
+		    if ( i < 6 ){
+                        lsDatesFormatted += laDates[i][0]+"','"; 
+		    }else{
+                        lsDatesFormatted += laDates[i][0]; 
+		    }
+	      }
+	}else{
+              lsDatesFormatted = laDates[0][0]; 
+	}
+System.out.println("lsDatesFormatted: "+lsDatesFormatted);
+        return lsDatesFormatted;
+    }
+   
+    String getDataset(String psCurrentYear, String psPeriod, String psWeek, String msDay, String psDatesFormatted)
+    {
+
+        String laLengthPhone[][];
+        String lsLongLada;
+        
+        lsLongLada = calculateLada();
+        laLengthPhone = getLongPhone();
+
+        String lsQuery;
+        lsQuery = "SELECT a.phone,CAST(c.ord_time AS CHAR(8)),CAST(a.hour_b AS CHAR(8)), CAST(a.hour_b+(a.duration_call)::INTERVAL AS CHAR(8)), ";
+        lsQuery += "CAST(a.duration_call AS CHAR(8)), '0',CAST(c.ord_time+(delivery_time)::INTERVAL AS CHAR(8)),CAST(delivery_time AS CHAR(8)), CAST(disp_time AS CHAR(8)), ";
+        lsQuery += "CAST(c.cash_time AS CHAR(8)), CAST(trip_tickets AS CHAR(1)), CAST(a.date_id AS CHAR(10)), CAST(b.gc_sequence AS CHAR(3)) FROM op_call_conm a ";
+        lsQuery += "INNER JOIN gc_delivery b ON ";
+        lsQuery += "(a.date_id=b.date_id AND SUBSTR(a.phone,"+lsLongLada+","+laLengthPhone[0][0]+")=b.client) ";
+        lsQuery += "INNER JOIN gc_guest_checks c ON ";
+        lsQuery += "(c.gc_sequence=b.gc_sequence AND c.date_id=b.date_id AND c.date_id = a.date_id) ";
+        lsQuery += "WHERE a.phone IN ";
+        lsQuery += "(SELECT phone FROM op_call_conm WHERE ";
+        lsQuery += "type_call = 'I' AND phone <> 'IN' AND date_id IN ";
+
+        lsQuery += "( '"+psDatesFormatted+"' ) ";
+
+        lsQuery += "GROUP BY phone HAVING COUNT(phone) > 1 ) ";
+        lsQuery += "AND b.client IN ";
+        lsQuery += "(SELECT client FROM gc_delivery WHERE ";
+        lsQuery += "date_id IN ";
+
+        lsQuery += "( '"+psDatesFormatted+"' ) ";
+
+        lsQuery += "GROUP BY client HAVING COUNT(client) = 1 ) ";
+        lsQuery += "AND a.date_id IN ";
+        
+        lsQuery += "( '"+psDatesFormatted+"' ) ";
+
+        lsQuery += "UNION SELECT '<b class=bsTotals>Totales </b>','','','','','','','','','','','','' ";
+        lsQuery += "ORDER BY phone, hour_b, date_id";
+
+        return moAbcUtils.getJSResultSet(lsQuery);
+    }
+
+    String getDataset1(String psCurrentYear1, String psPeriod1, String psWeek1, String msDay1, String psDatesFormatted)
+    {
+
+        String laLengthPhone1[][];
+        String lsLongLada1;
+        
+        lsLongLada1 = calculateLada();
+        laLengthPhone1 = getLongPhone();
+
+        String lsvQuery;
+  
+        String lsMinDate = psDatesFormatted.substring(0,10);
+	System.out.println("lsMinDate: "+lsMinDate);
+  
+        lsvQuery = "SELECT name,b.client,'1',dwel_desc,CAST(d_sold_avg AS CHAR(6)),CAST(last_gc_date AS CHAR(10)), CAST(hour_b AS CHAR(8)), ";
+	lsvQuery += "CAST(hour_b+(duration_call)::INTERVAL AS CHAR(8)), CAST(duration_call AS CHAR(8)),CAST(a.date_id AS CHAR(10)) ";
+        lsvQuery += "FROM op_call_conm a ";
+        lsvQuery += "INNER JOIN sus_clients b ON ";
+        lsvQuery += "(SUBSTR(phone,"+lsLongLada1+","+laLengthPhone1[0][0]+")=client) ";
+        lsvQuery += "INNER JOIN sus_dweling c ON (b.dwel_code = c.dwel_code)";
+        lsvQuery += "WHERE date_id IN ";
+
+        lsvQuery += "( '"+psDatesFormatted+"' ) ";
+
+        lsvQuery += "AND last_gc_date < ('"+lsMinDate+"') ";
+        //lsvQuery += "AND d_sold_avg > 0 ";
+        lsvQuery += "AND phone_line <> "+laLengthPhone1[0][1]+" ";
+        lsvQuery += "AND name <> 'UNK' ";
+
+        lsvQuery += "AND b.client NOT IN (SELECT client FROM gc_delivery WHERE date_id IN ";
+
+        lsvQuery += "( '"+psDatesFormatted+"' ) ";
+
+        lsvQuery += " ) ";
+        lsvQuery += "UNION SELECT '','<b class=bsTotals>Totales </b>','<b class=bsTotals>Llamadas ' || CAST(count(phone) AS CHAR(3)) || '</b>', ";
+        lsvQuery += "'<b class=bsTotals>' || CAST(sum(duration_call) AS CHAR(8)) || '</b>','','','','','','' ";
+        lsvQuery += "FROM op_call_conm a ";
+        lsvQuery += "INNER JOIN sus_clients b ON ";
+        lsvQuery += "(SUBSTR(phone,"+lsLongLada1+","+laLengthPhone1[0][0]+")=client) ";
+        lsvQuery += "WHERE date_id IN ";
+
+        lsvQuery += "( '"+psDatesFormatted+"' ) ";
+
+        lsvQuery += "AND last_gc_date < ('"+lsMinDate+"') ";
+        //lsvQuery += "AND d_sold_avg > 0 ";
+        lsvQuery += "AND phone_line <> "+laLengthPhone1[0][1]+" ";
+        lsvQuery += "AND name <> 'UNK' ";
+
+        lsvQuery += "AND b.client NOT IN (SELECT client FROM gc_delivery WHERE date_id IN ";
+
+        lsvQuery += "( '"+psDatesFormatted+"' ) ";
+
+        lsvQuery += " ) ORDER BY name DESC ";
+
+        return moAbcUtils.getJSResultSet(lsvQuery);
+    }
+
+    void updateConm(String psDate){
+        
+        String lsDate;
+        String lsQry = "SELECT SUBSTR(NOW(),3,8);";
+        lsDate = moAbcUtils.queryToString(lsQry);
+	lsDate = ""+lsDate.substring(0,2).concat(lsDate.substring(3,5)).concat(lsDate.substring(6,8))+"";
+        String lsParamDate="";
+        lsParamDate= ""+psDate.substring(2,4).concat(psDate.substring(5,7)).concat(psDate.substring(8,10))+"";
+
+        String laCommand[];
+        try{
+            if(lsDate.equals(lsParamDate)){
+                laCommand = new String[]{"/usr/bin/ph/databases/call/bin/call_pop.s",lsParamDate};
+                Process process = Runtime.getRuntime().exec(laCommand);
+                process.waitFor();
+            }
+	}
+        catch(Exception e){
+            System.out.println("Exception de exec e ... " + e.toString());
+        }
+     }//Fin metodo updateConm()
+%>

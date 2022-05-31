@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <style>
+		 
+	
+	    </style>  
+            <title>World Class Operations</title>
+            <link rel="icon" href="/smartE3/images/e3/ui/wco/user.png" type="image/x-icon" />
+            <link rel="stylesheet" type="text/css" href="/smartE3/resources/css/posit_generals.css" media="screen" />
+	    <script type="text/javascript" src="/smartE3/resources/js/jquery/jquery-1.6.2.min.js"></script>
+            <script type="text/javascript" src="/smartE3/resources/js/generals/utils.js"></script>
+            <script type="text/javascript" src="/smartE3/resources/js/generals/wco_drivers.js"></script>
+            <script>
+             var moAppHandler = new AppHandler();
+             moAppHandler.init();
+                  
+            function adjustZoom(piZoom){  
+                document.body.style.zoom=""+piZoom.trim()+"%";
+            }
+            
+            </script>
+    </head>
+    <body style="background:#F2F2F2" onload="setIntitialData()" onresize="resizeTable();">
+        <div id="divMainTable" style="background: white">
+        <table id="tdMainTable" style="width:100%;background: white">
+            <tr class="gradient_red">
+                <td colspan="2" align="center">
+                    <table style="width: 100%">
+                         <tr>
+                            <td width="100" rowspan="2">
+                            <img id="imgHeader" src="/smartE3/images/e3/ui/wco/help.png" width="100px" />
+                            </td>
+                            <td rowspan="2" width="500px">
+                                LIDERES EN REPARTO
+                            </td>
+                            <td width="70" rowspan="2" align="rigth">
+                                <img  src="/smartE3/images/e3/ui/wco/clock_pos.png" width="40px" />
+                            </td>
+                            <td  rowspan="2" id="tdHour" width="250">
+                                <font size="7px">0:00</font> 
+                            </td>
+                        </tr>
+                        <!--tr>
+                         
+                            <td width="60" align="rigth">
+                                <img id="imgHeader" src="smartE3/images/e3/ui/wco/fp.png" width="60px" />
+                                <font size="3px">Número<br>(Huella)</font>
+                               
+                            </td>
+                          
+                            <td width="50" align="left">
+                               <img id="imgHeader" src="smartE3/images/e3/ui/wco/plan.png" width="70px" />
+                                <font size="3px">Número(Horarios)</font>
+                            </td>
+                        </tr-->
+                      
+                    </table>
+                </td>
+            </tr>
+            <tr id="tdOrderContainer">
+              
+                <td >
+                    
+                    <table id="tblRep" style="background: white;width: 100%;height:100%;overflow-y: auto; border-collapse: collapse;" align="top">
+                        <thead>
+                            <tr class="cout_theader">
+                                <td>REPARTIDOR</td>
+                                <td>TOT/T.P.</td>
+                                <td>% EN T.PROMESA</td>
+                                <td>T. PROMEDIO(min)</td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <script>
+                        resizeTable();
+                    </script>    
+                </td>
+                
+            </tr>
+            
+
+        </table>
+            </div>
+    </body>
+</html>

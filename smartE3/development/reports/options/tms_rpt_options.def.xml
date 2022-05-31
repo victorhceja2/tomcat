@@ -1,0 +1,28 @@
+<options_definition width = "400" height="700" title = "Opciones">
+    <option_group title = "Organización" left = "90%" right = "*" tree_controls = "true">
+        <option name = "tree_organization"  type="tree" width = "300" friendly_name = "Arbol de organización" file_url = "resources/xml/organization.data.xml" search_controls = "true" align = "left" defaults = "_app_user_data.org_levels_granted" default_selection = "true" required="true" selection_style="multiple" selection_appereance="checkbox" show_partial_selection="false" cascade_selection="false"/>
+    </option_group>
+	
+    <option_group title = "Tiempo" left = "90%" right = "*" tree_controls = "false">
+        <option name = "tree_time"  friendly_name = "Arbol de tiempo" type="tree" width = "300" file_url = "resources/xml/time.data.xml" search_controls = "true" align = "left" selection_style="multiple" selection_appereance="checkbox" show_partial_selection="false" cascade_selection="false" default_selection = "false"/>
+    </option_group>
+    <option_group title = "Filtros" left = "100%" right = "*">
+        <option name = "cmb_status_id" type="combobox" width = "300" friendly_name = "Status de reporte" title = "Selecciona el status" align = "left" required="true" multi_selection="true">
+            <maps>
+                <sql_map>
+                    SELECT status_id, [status_desc]
+                    FROM YRG.dbtms.dbo.fn_tms_vw_report_status
+                </sql_map>
+            </maps>
+        </option>
+        <option name = "cmb_type_id" type="combobox" width = "300" friendly_name = "Tipo de reporte" title = "Selecciona el tipo" align = "left" required="true" multi_selection="true">
+            <maps>
+                <sql_map>
+                    SELECT [type_id], [type_desc]
+                    FROM YRG.dbtms.dbo.fn_tms_vw_report_type
+                </sql_map>
+            </maps>
+        </option>
+    </option_group>
+	
+</options_definition>

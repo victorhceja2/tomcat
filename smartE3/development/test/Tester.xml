@@ -1,0 +1,116 @@
+  <solution id = "">      
+    <default_data_source type = "RDBS" name = "jdbc/EYUMV2" />      
+    <options>           
+        <option file_url = "development/reports/options/default_options.def.xml" />      
+    </options>       
+    <fields header_height = "45" header_span_height = "0" use_level_styles = "false">    
+        <field name = "brand_id" align = "left" width="50" frozen="true">              
+            <title>                  <![CDATA[                      <b>MARCA</b>                  ]]>              </title>          
+        </field>          
+        <field name = "region_desc" align = "left" width="150" frozen="true">              
+            <title>                  <![CDATA[                      <b>REGION</b>                  ]]>              </title>          
+        </field>          
+        <field name = "area_desc" align = "left"  width="150" frozen="true">              
+            <title>                  <![CDATA[                      <b>ÁREA</b>                  ]]>              </title>          
+        </field>          
+        <field name = "store_id" align = "left"  width="50" frozen="true">              
+            <title>                  <![CDATA[                      <b>CC</b>                  ]]>              </title>          
+        </field>    
+        <field name = "station_desc" align = "left"   width="150">              
+            <title>                  <![CDATA[                      <b>ESTACIÓN</b>                  ]]>              </title>          
+        </field>        
+        <field name = "h11" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>11</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h115" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>11:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h12" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>12</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h125" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>12:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h13" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>13</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h135" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>13:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h14" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>14</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h145" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>14:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h15" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>15</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h155" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>15:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h16" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>16</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h165" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>16:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h17" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>17</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h175" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>13:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h18" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>18</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h185" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>18:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h19" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>19</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h195" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>19:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h20" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>20</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h205" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>20:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h21" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>21</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h215" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>21:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h22" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>22</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h225" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>22:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h23" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>23</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h235" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>23:30</b>                  ]]>              </title>          
+        </field>    
+        <field name = "h24" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>24</b>                  ]]>              </title>          
+        </field>    
+        <field name = "orderer" align = "left"   width="30">              
+            <title>                  <![CDATA[                      <b>ORDENADOR</b>                  ]]>              </title>          
+        </field>      
+    </fields>        
+    <queries>          
+        <query language = "SQL" >              
+            <query_def>                  <![CDATA[              EXEC op_esp_sp_rpt_massive_ideal_template_generator '_param_1_','_param_2_'                                      ]]>              </query_def>              
+            <params>      
+                <param id="1">tree_organization.sql_value</param>                  
+                <param id="2">tree_time.sql_value</param>              
+            </params>          
+        </query>      
+    </queries>  
+</solution>  

@@ -1,0 +1,21 @@
+<options_definition width = "360"  title = "Opciones">
+    <option_group title = "Organización" left = "90%" right = "*" tree_controls = "true">
+        <option name = "tree_organization"  type="tree"  friendly_name = "Arbol de organización" file_url = "resources/xml/organization.data.xml" search_controls = "true" align = "left"  defaults = "_app_user_data.org_levels_granted" />
+        <option name = "chk_org_detail"  type="checkbox"  friendly_name = "Nivel de detalle de organización" align = "right" check_with_tree  = "tree_organization">
+            <checks>
+                <check id = "10" value = "[organization].[h].[company]">Marca</check>
+                <check id = "20" value = "[organization].[h].[region]">Region</check>
+                <check id = "30" value = "[organization].[h].[zone]">Zona</check>
+                <check id = "40" value = "[organization].[h].[area]">Area</check>
+                <check id = "50" value = "[organization].[h].[store]">Restaurante</check>
+            </checks>
+        </option>
+        <option name = "cmb_org_status"  type="combobox" friendly_name = "Status de organizaci&amp;oacute;n" width = "80" align = "right">
+            <maps>
+                <map id = "[store_status].[h]">TODOS</map>
+                <map id = "[store_status].[h].[SAME]">SAME</map>
+                <map id = "[store_status].[h].[NEW]">NEW</map>
+            </maps>
+        </option>
+    </option_group>
+</options_definition>

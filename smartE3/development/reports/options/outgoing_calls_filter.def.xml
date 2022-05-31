@@ -1,0 +1,26 @@
+
+<options_definition height = "450" width = "360"  title = "Opciones">
+    <option_group title = "Tiempo" left = "70%" right = "*">
+        <option name = "tree_time"  friendly_name = "Arbol de tiempo" type="tree" file_url = "resources/xml/time.data.xml" search_controls = "true" align = "left"/>
+        <option name = "cmb_time"   friendly_name = "Nivel de tiempo" title = "periodo" type="combobox" width = "80" align = "right" select_with_tree = "tree_time" />
+        <option name = "cmb_from"   friendly_name = "Periodo del" title = "del" type="combobox" width = "95" align = "right"  />
+        <option name = "cmb_to"   friendly_name = "Periodo al" title = "al" type="combobox" width = "95" align = "right"   parent = "cmb_time" twin = "cmb_from"  fill_with_tree = "tree_time" tree_propertie = "olap_value"/>
+        <option name = "chk_only_totals"  friendly_name = "Solo totales" type="checkbox" align = "right" required = "false">
+            <checks>
+                <check id = "1" value = "[time].[h].[TOTAL]">Solo Totales</check>
+            </checks>
+        </option>
+    </option_group>
+  <option_group title = "Otras opciones" left = "100%" right = "*">
+        <option name = "cmb_group"   friendly_name = "Grupo" title = "Grupo" type="combobox" width = "200" align = "left">
+            <maps>
+                <sql_map>
+                SELECT group_id
+                    , group_name
+                FROM dbccot.dbo.it_ccs_cat_group_outgonig_calls
+                ORDER BY  1
+                </sql_map>
+            </maps>
+        </option>
+  </option_group>
+</options_definition>

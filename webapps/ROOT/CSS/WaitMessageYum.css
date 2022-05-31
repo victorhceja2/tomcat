@@ -1,0 +1,14 @@
+
+        .wait-gso{
+                position:absolute;
+                visibility:hidden;
+                height:auto;
+                background-color:#6B5D9C;
+                border:4px #FFCB31 solid;
+                text-align:center;
+                color:white;
+                font-family:Arial;
+                font-size:12pt;
+                z-index:10000
+         }
+

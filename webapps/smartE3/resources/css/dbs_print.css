@@ -1,0 +1,233 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10/12/2015, 10:03:57 AM
+    Author     : DAB1379
+*/
+body{
+    zoom:0.90;
+}
+
+           .mainTable{
+                padding-top: 30px;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+           .mainTr{
+	            height: 40%;
+	            text-align: center;
+	        }
+	       .mainFooter{
+	             height: 20%;
+	             text-align: center;
+		    }
+		   .mainTd{
+		         width: 33%;
+		         margin-left:auto;
+		         margin-right:auto;
+		         text-align: center;
+		    }
+		  .grayBold{
+		         font-size: 35px;
+		         font-weight: bold;
+		         color: gray;
+		         font-family: Arial;
+		  }
+                  
+         .gradient{
+                        
+                 /*
+                        background: white; 
+                        background: -moz-linear-gradient(top, white 0%,  #E6E6E6 100%); 
+                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white),  color-stop(100%,#E6E6E6)); 
+                        background: -webkit-linear-gradient(top, #1e5799 0%,#E6E6E6 100%); 
+                        background: -o-linear-gradient(top, white 0%,#E6E6E6 100%); 
+                        background: -ms-linear-gradient(top, white 0%,#E6E6E6 100%); 
+                        background: linear-gradient(to bottom, white 0%,#E6E6E6 100%); 
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E6E6E6', endColorstr='white',GradientType=0 );
+                        */          /*color:#A4A4A4;*/
+                        color:gray;
+                        font-weight: bold;
+                        font-size:47px;
+                        font-family: Tahoma; 
+                         
+                  }   
+                    .employee{
+                        
+                           /*
+                        background: white; 
+                        background: -moz-linear-gradient(top, white 0%,  #E6E6E6 100%); 
+                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white),  color-stop(100%,#E6E6E6)); 
+                        background: -webkit-linear-gradient(top, #1e5799 0%,#E6E6E6 100%); 
+                        background: -o-linear-gradient(top, white 0%,#E6E6E6 100%); 
+                        background: -ms-linear-gradient(top, white 0%,#E6E6E6 100%); 
+                        background: linear-gradient(to bottom, white 0%,#E6E6E6 100%); 
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E6E6E6', endColorstr='white',GradientType=0 );
+                        */
+                        /*color:#A4A4A4;*/
+                        color:gray;
+                        font-weight: bold;
+                        font-size:25px;
+                        font-family: Tahoma; 
+                         
+                         
+                  }   
+                  .employee-detail{
+                        color:gray;
+                        font-weight: bold;
+                        font-size:15px;
+                        font-family: Tahoma; 
+                        border:1px solid gray; 
+                  }
+                  .gradient-border{
+                   
+                        color:gray;
+                        font-weight: bold;
+                        font-size:35px;
+                        font-family: Tahoma; 
+                         border:4px solid gray; 
+                  }
+                     .bashboard-border-prod{
+                        color:#00BFFF;
+                        font-weight: bold;
+                        font-size:20px;
+                        font-family: Tahoma; 
+                         
+                         font-family: myFirstFont;
+                  }
+                  .bashboard-border{
+                        
+                       
+                        color:#00BFFF;
+                        font-weight: bold;
+                        font-size:20px;
+                        font-family: Tahoma; 
+                         border:4px solid gray;
+                         font-family: myFirstFont;
+                  }
+                  .bashboard-border-sublevel{
+                        
+                      
+                        color:gray;
+                        font-weight: bold;
+                        font-size:18px;
+                        font-family: Tahoma; 
+                         border:4px solid gray; 
+                         font-family: myFirstFont;
+                  }
+                  .redvalue{
+                      color:white;
+                      background-color:red;
+                      font-size:37px;
+                      font-family: Tahoma; 
+                      text-align: center;
+                  }
+                  .greenvalue{
+                      color:black;
+                      background-color:#40FF00;
+                      font-size:37px;
+                      font-family: Tahoma; 
+                      text-align: center;
+                  }
+                   .rednovalue{
+                      color:red;
+                  }
+                  .greennovalue{
+                      color:#40FF00;
+                  }
+                  .dash-table{
+                      text-align:center;border-radius: 10px;border: solid gray 1px;
+                  }
+                  .dash-header{
+                      width:90%;background-color: white;border-radius: 10px;color:orangered;border:3px solid orangered;
+                      font-weight: bold;font-size:25px
+                  }
+                  
+        @font-face {
+           font-family: myFirstFont;
+            src: url(sansation_light.woff);
+        }
+        .detail{
+            border:1px solid gray; 
+            font-size:37px;
+            font-family: Tahoma; 
+            color:gray;
+            text-align: center;
+                  }
+                  
+            .detail-mini{
+            font-size:13px;
+            font-family: Tahoma; 
+            color:gray;
+            text-align: left;
+                  }
+            .txt_admin{
+                border:1px solid gray;
+                color:gray;
+                height:30px;
+                font-size:20px;
+            }
+            
+            .tbl-main{
+                width: 500px;
+                heigth:100%;
+                background-color: white;
+                
+                border:1px solid white;
+            }
+            
+             .name-admin{
+                color:gray;
+                font-family: Tahoma;
+                font-size:20px;
+                font-weight: normal;
+                text-align: center;
+            }
+             .blocked {
+                 background-image: url("../images/blocked.png");
+                width: 100%;
+                height: 100%;
+                overflow: hidden; 
+                top: 0px;
+                left: 0px;
+                z-index: 10000;
+                text-align: center;
+                position:absolute; 
+                /*background-color: #848484
+                opacity:0.8;
+                filter:alpha(opacity=80);*/
+                text-align: center;
+                }
+                
+                
+                      #divLogin{
+                      
+                        margin-top:200px;
+                        width:300px;
+                        height:auto;
+                        /*
+                        background: white; 
+                        background: -moz-linear-gradient(top, white 0%,  #E6E6E6 100%); 
+                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white),  color-stop(100%,#E6E6E6)); 
+                        background: -webkit-linear-gradient(top, #1e5799 0%,#E6E6E6 100%); 
+                        background: -o-linear-gradient(top, white 0%,#E6E6E6 100%); 
+                        background: -ms-linear-gradient(top, white 0%,#E6E6E6 100%); 
+                        background: linear-gradient(to bottom, white 0%,#E6E6E6 100%); 
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E6E6E6', endColorstr='white',GradientType=0 );
+                        */
+                        border:1px gray solid;
+                        text-align:center;
+                        color:white;
+                        font-family:Arial;
+                        font-size:12pt;
+                        filter:alpha(opacity=90); 
+                        border-radius: 5px;
+                        filter:progid:DXImageTransform.Microsoft.Alpha(opacity=90);
+                        -moz-opacity:1;
+                        z-index:1000;
+                        
+                    }

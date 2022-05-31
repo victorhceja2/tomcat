@@ -1,0 +1,133 @@
+<solution id = "">
+    <default_data_source type = "RDBS" name = "jdbc/eyumDBConnectionPool" />
+    <fields header_height = "25" header_span_height = "0" save_confirm = "true" embeded_component = "false">
+        <field name="company_id" type="text" length="20" frozen = "true" ctrl_field = "true"  />
+        <field name="company_desc" title = "Nombre" type="text" length="10" frozen = "true" required = "true" />
+        <field name="service_id" title = "Servicio" length="40" required = "true" >
+            <maps>
+                <sql_map>
+                    select service_id,service_desc
+                    from fn_trp_cat_service
+                    where   status = 1
+                </sql_map>
+            </maps>
+        </field>
+        <field name="description" title = "Descripción" type = "text_area" text_length = "256" required = "true" width = "256" />
+        <field name="first_contact" title = "Contacto" type = "date" required = "false" />
+        <field name="status" title = "Activa?" type = "checkbox" required = "false" />
+        <field name="hour" title = "Hora" type = "time" required = "true" width = "60"/>
+        <field name="entero" title = "Entero" type = "integer" required = "true" />
+        <field name="flotante" title = "Flotante    " type = "float" required = "true" />
+    </fields>
+
+    <buttons>
+        <button type = "save" />
+        <button type = "new"  title = "Nueva compa&amp;ntilde;ia" tooltip = "Insertar una nueva compañia"/>
+        <button type = "cancel" />
+    </buttons>
+
+    <!--
+        <row_actions>
+            <row_action type = "0" friendly_desc = "Sin Acción" icon = "e3/ui/templates/delete.png"  db_action = "">
+                <tooltip><![CDATA[ <b>Dar click para borrar compañia</b> - Marcar esta compañia para ser borrada ]]></tooltip>
+            </row_action>
+
+            <row_action type = "1" friendly_desc = "Agregar compañia" icon = "e3/ui/templates/add_record.png"  db_action = "insert">
+                <tooltip><![CDATA[ <b>Dar click para cancelar nuevo</b> - No crear esta compañia ]]></tooltip>
+            </row_action>
+
+            <row_action type = "2" friendly_desc = "Eliminar compañia" icon = "e3/ui/templates/deleted.png"  db_action = "delete">
+                <tooltip><![CDATA[ <b>Dar click para cancelar borrado</b> - No borrar esta compañia ]]></tooltip>
+            </row_action>
+
+            <row_action type = "3" friendly_desc = "Actualizar compañia" icon = "e3/ui/templates/edited.png"  db_action = "update">
+                <tooltip><![CDATA[ <b>Dar click para cancelar edicion </b> - No realizar cambios a esta compañia ]]></tooltip>
+            </row_action>
+
+            <row_action type = "4" friendly_desc = "Cancelar" icon = "e3/ui/templates/deleted.png"  db_action = "">
+                <tooltip><![CDATA[ <b>Dar click para cancelar borrado</b> - No borrar esta compañia ]]></tooltip>
+            </row_action>
+        </row_actions>
+    -->
+
+    <queries>
+        <query>
+            <query_def language = "SQL"  type = "main">
+                <![CDATA[
+                    select   company_id,company_desc,service_id,description,
+                             convert(varchar,first_contact,112) as first_contact, 
+                             status, substring(convert(varchar,hour,114),1,5) as hour,
+                             entero, flotante
+                    from fn_trp_cat_company
+                    --where   company_id = _sql_param_
+                    order by company_id
+                ]]>
+            </query_def>
+            <params>
+            </params>
+        </query>
+        
+        <insert>
+            <insert_def>
+                    INSERT INTO fn_trp_cat_company
+                    (company_desc,service_id,description, first_contact, status, hour, entero, flotante)
+                    VALUES (_param_2_,_param_3_,_param_4_,_param_5_,_param_6_,_param_7_,_param_8_,_param_9_ )
+            </insert_def>
+            <params>
+                <param id = "2">field.company_desc</param>
+                <param id = "3">field.service_id</param>
+                <param id = "4">field.description</param>
+                <param id = "5">field.first_contact</param>
+                <param id = "6">field.status</param>
+                <param id = "7">field.hour</param>
+                <param id = "8">field.entero</param>
+                <param id = "9">field.flotante</param>
+            </params>
+        </insert>
+        
+        <update>
+            <update_def>
+                    UPDATE fn_trp_cat_company
+                    SET company_desc = _param_2_,
+                             service_id = _param_3_,
+                             description = _param_4_,
+                             first_contact = _param_5_,
+                             status = _param_6_,
+                             hour = _param_7_,
+                             entero = _param_8_,
+                             flotante = _param_9_
+                     WHERE  company_id = _param_1_
+            </update_def>
+            <params>
+                <param id = "1">field.company_id</param>
+                <param id = "2">field.company_desc</param>
+                <param id = "3">field.service_id</param>
+                <param id = "4">field.description</param>
+                <param id = "5">field.first_contact</param>
+                <param id = "6">field.status</param>
+                <param id = "7">field.hour</param>
+                <param id = "8">field.entero</param>
+                <param id = "9">field.flotante</param>
+            </params>
+        </update>
+        
+        <delete>
+            <delete_def>
+                DELETE FROM fn_trp_cat_company WHERE company_id = _param_1_
+            </delete_def>
+            <params>
+                <param id = "1">field.company_id</param>
+            </params>
+        </delete>
+        
+        <after_abc_actions>
+            <after_abc_actions_def>
+
+            </after_abc_actions_def>
+            <params>
+
+            </params>
+        </after_abc_actions>
+        
+    </queries>
+</solution>

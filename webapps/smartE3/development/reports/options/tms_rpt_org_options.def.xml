@@ -1,0 +1,5 @@
+<options_definition width = "400" height="700" title = "Opciones">
+    <option_group title = "Organización" left = "90%" right = "*" tree_controls = "true">
+        <option name = "tree_organization"  type="tree" width = "300" friendly_name = "Arbol de organización" file_url = "resources/xml/organization.data.xml" search_controls = "true" align = "left" defaults = "_app_user_data.org_levels_granted" default_selection = "false" required="true" selection_style="multiple" selection_appereance="checkbox" show_partial_selection="false" cascade_selection="false"/>
+    </option_group>
+</options_definition>

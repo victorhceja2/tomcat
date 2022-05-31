@@ -1,0 +1,11 @@
+DROP TABLE op_grl_set_date;
+CREATE TABLE op_grl_set_date
+(
+  date_id timestamp without time zone NOT NULL,
+  date_limit date DEFAULT '1970-01-01' NOT NULL,
+  time_less time DEFAULT '00:00:00' NOT NULL,
+    
+  PRIMARY KEY (date_id)
+);
+delete from op_grl_set_date;
+INSERT INTO op_grl_set_date VALUES ('2012-12-25 12:00:00','2012-12-25','12:00:00');

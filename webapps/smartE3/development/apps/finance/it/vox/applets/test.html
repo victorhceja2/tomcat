@@ -1,0 +1,65 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+
+            function exec(command,userId, param,subject,to,cc) {
+                command = replaceAll(command,"\"","_trivox_v2_ctrl_char_");
+                userId = replaceAll(userId,"\"","_trivox_v2_ctrl_char_");
+				param = replaceAll(replaceAll(param,"\"","_trivox_v2_ctrl_char_"),"\n","_trivox_v2_ctrl_char1_");
+				subject = replaceAll(subject,"\"","_trivox_v2_ctrl_char_");
+				to = replaceAll(to,"\"","_trivox_v2_ctrl_char_");
+				cc = replaceAll(cc,"\"","_trivox_v2_ctrl_char_");
+                
+                var applet = '';
+                applet+='<applet id ="aplSignedEmailApplet"  name = "aplSignedEmailApplet" code="SignedEmailApplet.class" archive="SignedEmailApplet.jar" width="270" height="160">';
+                applet+='   <param name="command" value="' + command + '">';
+                applet+='   <param name="user_id" value="' + userId + '">';
+				applet+='   <param name="param1" value="' + param + '">';
+				applet+='   <param name="param2" value="' + subject + '">';
+				applet+='   <param name="param3" value="' + to + '">';
+				applet+='   <param name="param4" value="' + cc + '">';
+                applet+='</applet>';
+
+                //alert(applet);
+				
+                var body = document.getElementsByTagName("body")[0];
+                var div = document.createElement("div");
+                div.innerHTML = applet;
+                body.appendChild(div);
+            }
+
+            function testAppletCommand() {
+                var lsCommand = document.getElementById("txtCommand").value;
+                var lsParam = document.getElementById("txtParam").value;
+                //var loApplet = document.getElementById("aplSignedEmailApplet");
+                //loApplet.executeVbs();
+                //exec("\\\\192.168.101.226\\_CompartirTodos\\openOutlook.vbs");
+                //C:\\_CompartirTodos\\openOutlook.bat
+
+                exec(lsCommand,"RXP4386", lsParam,"subject de prueba 1","rubi.patlan@hotmail.com","rubi.patlan@hotmail.com;rubipatlan@hotmail.com");
+            }
+
+            function replaceAll( text, busca, reemplaza ){
+                while (text.toString().indexOf(busca) != -1) text = text.toString().replace(busca,reemplaza);
+
+                return text;
+            }
+
+
+        </script>
+
+        <input id ="txtCommand" name ="txtCommand" type = "text" value = "" size = "120">
+        <textarea id ="txtParam" name ="txtParam" rows = "10" cols = "80"></textarea>
+        <!--
+            <input id ="txtParam" name ="txtParam" type = "text" value = "" size = "120">
+        -->
+        <input type = "button" value = "test" onClick = "javascript:testAppletCommand();">
+
+    </body>
+</html>
+
+
+
+

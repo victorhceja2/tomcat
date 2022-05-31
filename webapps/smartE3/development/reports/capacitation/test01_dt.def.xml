@@ -1,0 +1,24 @@
+<solution id = "" execute_onload = "true">
+    <default_data_source type = "RDBS" name = "jdbc/CallCenter" />
+    <options>
+    </options>
+    <fields header_height = "45" header_span_height = "0" use_level_styles = "true">
+        <field name = "store_id" align = "left" frozen = "true" />
+    </fields>
+    <queries>
+        <query language = "SQL" >
+            <query_def>
+                <![CDATA[
+                
+                    select store_id,store_desc,cia_id,map_id,server_ip,server_port, store_desc,cia_id,map_id,server_ip,server_port
+                    from it_ccs_cat_store
+                    where	store_id in (_param_1_)
+                
+                ]]>
+            </query_def>
+            <params>
+                <param id = "1">master.field1</param>
+            </params>
+        </query>
+    </queries>
+</solution>

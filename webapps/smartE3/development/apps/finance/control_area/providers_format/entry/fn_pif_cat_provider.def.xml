@@ -1,0 +1,95 @@
+<solution id="fn_pif_cat_provider">
+    <form columns = "2">
+        <field type = "spacer"  height = "10" end_row = "true" />
+        <field type = "textbox" name="ctrl_field_01" title = "Departamento solicitante" length = "32" colspan = "1" />
+        <field type = "checkbox" name="just_one_payment" colspan = "1" end_row = "true" >
+            <checks>
+                <check id = "1" value = "1">Pago unico</check>
+            </checks>
+        </field>
+
+        <field type = "spacer" height = "10" end_row = "true" />
+        
+        <field type = "textbox" name="provider_name" title = "Nombre o razón social" wrap_title = "true"  length = "64"  colspan = "1" end_row = "true"/>
+        <!--
+        <field type = "section" name = "sec1" title = "I. Datos generales del proveedor" item_ids = "provider_name,street,location,cp,city,state" />
+        <field type = "textbox" name="street" title = "Calle"  length = "32"  colspan = "3" />
+        <field type = "textbox" name="location" title = "Colonia"  length = "32"  colspan = "3" end_row = "true" />
+        <field type = "textbox" name="cp" title = "C.P."  length = "5"  />
+        <field type = "textbox" name="city" title = "ciudad"  />
+        <field type = "textbox" name="state" title = "estado"  />
+        -->
+        
+    </form>
+    
+    <buttons>
+        <button type = "save" label = "Guardar cambios" tool_tip = "Guardar todos los cambios" confirm = "true" />
+        <button type = "new" label = "Nueva compa&amp;ntilde;ia" tool_tip = "Insertar una nueva compañia" />
+        <button type = "cancel" label = "Cancelar cambios" tool_tip = "Cancelar todos los cambios realizados despues del ultimo guardado" />
+    </buttons>
+    
+    <operations>
+        <operation type = "insert" /> 
+        <operation type  = "delete" confirm = "true" /> 
+        <operation type  = "update" /> 
+    </operations>
+    
+    <queries>
+        <query language = "SQL"  type = "main" connection_pool = "jdbc">
+            <query_def>
+                select company_id,company_desc,service_id,description
+                from fn_trp_cat_company
+                order by company_id
+            </query_def>
+            <params>
+            </params>
+        </query>
+        
+        <insert>
+            <insert_def>
+                INSERT INTO fn_trp_cat_company 
+                (company_desc,service_id,description)
+                VALUES ('_param_2_','_param_3_','_param_4_')
+            </insert_def>
+            <params>
+                <param id = "1">field.company_id</param>
+                <param id = "2">field.company_desc</param>
+                <param id = "3">field.service_id</param>
+                <param id = "4">field.description</param>
+            </params>
+        </insert>
+        
+        <update>
+            <update_def>
+                UPDATE fn_trp_cat_company
+                SET company_desc = '_param_2_',
+                         service_id = '_param_3_',
+                         description = '_param_4_'
+                 WHERE  company_id = '_param_1_'
+            </update_def>
+            <params>
+                <param id = "1">field.company_id</param>
+                <param id = "2">field.company_desc</param>
+                <param id = "3">field.service_id</param>
+                <param id = "4">field.description</param>
+            </params>
+        </update>
+        
+        <delete>
+            <delete_def>
+                DELETE FROM fn_trp_cat_company WHERE company_id = '_param_1_'
+            </delete_def>
+            <params>
+                <param id = "1">field.company_id</param>
+            </params>
+        </delete>
+        
+        <after_abc_actions>
+            <after_abc_actions_def>
+            </after_abc_actions_def>
+            <params>
+            </params>
+        </after_abc_actions>
+        
+    </queries>
+</data_source>

@@ -1,0 +1,132 @@
+<solution id = "">
+    <options>
+        <option file_url = "development/reports/options/default_options.def.xml" />
+    </options>
+    <fields header_height = "60" header_span_height = "20">
+        <drillthrough  action = "/smartE3/development/reports/operations/yum/plc/rpt/plc_graphic_01.html" param_field = "CD18" />
+        <field name = "CD0" header_span = "Varios" param1 = "10">
+            <title><![CDATA[Gas en<br> Tanque]]></title>
+        </field>
+        <field name = "CD1"  header_span = "Varios" param1 = "20">
+            <title><![CDATA[Agua en la<br> Sisterna]]></title>
+        </field>
+        <field name = "CD2"  header_span = "Temperaturas" param1 = "30">
+            <title><![CDATA[Camara de<br> Congelaci&oacute;n]]></title>
+        </field>
+        <field name = "CD3"  header_span = "Temperaturas" param1 = "40">
+            <title><![CDATA[Camara de<br> Refrigeraci&oacute;n]]></title>
+        </field>
+        
+         <field name = "CD4"  header_span = "Puertas" param1 = "70">
+            <title><![CDATA[Camara<br> Fria]]></title>
+        </field>
+        <field name = "CD5"  header_span = "Puertas" param1 = "71">
+            <title><![CDATA[Camara<br> Congelaci&oacute;n]]></title>
+        </field>
+        <field name = "CD6"  title = "Proveedores" header_span = "Puertas" param1 = "81" />
+        
+        <field name = "CD7" header_span = "Lamparas" param1 = "160">
+            <title><![CDATA[Imagen del<br>Coronel<br>de la entrada]]></title>
+        </field>
+        <field name = "CD8"  header_span = "Lamparas" param1 = "161">
+            <title><![CDATA[Mansarda de<br>puerta<br>principal]]></title>
+        </field>
+        <field name = "CD9"  header_span = "Lamparas" param1 = "162">
+            <title><![CDATA[Chickylandia]]></title>
+        </field>
+        <field name = "CD10"  header_span = "Lamparas" param1 = "165">
+            <title><![CDATA[Cubeta<br>KFC]]></title>
+        </field>
+        <field name = "CD11"  header_span = "Lamparas" param1 = "168">
+            <title><![CDATA[Luz de<br>salida]]></title>
+        </field>
+        <field name = "CD12"  header_span = "Lamparas" param1 = "169">
+            <title><![CDATA[Poste de acceso<br>estacionamiento]]></title>
+        </field>
+        <field name = "CD13"  header_span = "Lamparas(Autoexpress)" param1 = "163">
+            <title><![CDATA[Luz de<br>carril 1]]></title>
+        </field>
+        <field name = "CD14"  header_span = "Lamparas(Autoexpress)" param1 = "164">
+            <title><![CDATA[Luz de<br>carril 2]]></title>
+        </field>
+        <field name = "CD15"  header_span = "Lamparas(acceso  a proveedores)" param1 = "166">
+            <title><![CDATA[Letrero<br>KFC]]></title>
+        </field>
+        <field name = "CD16"  header_span = "Lamparas(acceso  a proveedores)" param1 = "167">
+            <title><![CDATA[Poste<br>de luz]]></title>
+        </field>
+        <field name = "CD17"  ctrl_field = "false" />
+    </fields>
+    <queries>
+        <query language = "MDX">
+            <string_wrapper>
+                <![CDATA[
+                    <b>Stores afectados: </b> {1} de  {2}, <b>porcentaje: </b>{3}
+                ]]>
+            </string_wrapper>
+            <query_def>
+                <![CDATA[
+                    WITH
+                                    SET org_members AS '{_param_1_}'
+                                    SET time_members AS '{_param_2_}'
+                                    MEMBER [Measures].[affected] AS 'COUNT(FILTER(NONEMPTYCROSSJOIN(NONEMPTYCROSSJOIN( {DESCENDANTS({org_members},[organization].[h].[store],SELF)},{_param_3_}),{time_members}), [Measures].[total_sample]> 0))/time_members.count', FORMAT_STRING = '#'  
+                                    MEMBER [Measures].[all]  AS 'COUNT(CROSSJOIN(NONEMPTYCROSSJOIN(DESCENDANTS({org_members},[Organization].[h].[Store],SELF),{_param_3_}),{time_members}))/time_members.count', FORMAT_STRING = '#'
+                                    MEMBER [Measures].[percentage] AS '([Measures].[affected]/[Measures].[all])', FORMAT_STRING = '0.00%'
+                    SELECT { 
+                                    [Measures].[affected],
+                                    [Measures].[all], 
+                                    [Measures].[percentage] 
+                    } ON COLUMNS 
+                    FROM [op_plc_data]
+                ]]>
+            </query_def>
+            <params>
+                <param id = "1" show_in_header = "false">tree_organization.olap_value</param>
+                <param id = "2" show_in_header = "false">tree_time.olap_value|cmb_to</param>
+                <param id = "3" show_in_header = "false">cmb_org_status</param>
+            </params>
+        </query>
+        <query language = "MDX" type = "data_grid">
+            <query_def>
+                <![CDATA[
+                
+                    WITH
+                    SET org_set AS '{_param_1_}'
+                    SET time_set AS '{_param_2_}'
+                    SET general_set AS '{    [op_plc_sensor].[sensor_id].&[10],[op_plc_sensor].[sensor_id].&[20],[op_plc_sensor].[sensor_id].&[30],[op_plc_sensor].[sensor_id].&[40],
+                                                                       [op_plc_sensor].[sensor_id].&[70],[op_plc_sensor].[sensor_id].&[71],[op_plc_sensor].[sensor_id].&[81]}'
+                                                                       
+                    SET lamp_set AS '{    [op_plc_sensor].[sensor_id].&[160],[op_plc_sensor].[sensor_id].&[161],[op_plc_sensor].[sensor_id].&[162],[op_plc_sensor].[sensor_id].&[165],[op_plc_sensor].[sensor_id].&[168],
+                                                               [op_plc_sensor].[sensor_id].&[169],[op_plc_sensor].[sensor_id].&[163],[op_plc_sensor].[sensor_id].&[164],[op_plc_sensor].[sensor_id].&[166],[op_plc_sensor].[sensor_id].&[167]}'
+                                                               
+                    MEMBER [time].[h].[TOTAL] AS 'SUM({time_set})'
+                    MEMBER [measures].[general_idx]  AS '1-IIF([Measures].[total_sample]>0,[Measures].[out_range]/[Measures].[total_sample],0)', FORMAT_STRING = '#.00%' + IIF([measures].[general_idx]<.5,'|style=olapRptRedCell','')
+                    MEMBER [measures].[lamp_usage_idx]  AS 'IIF([Measures].[max]>0,[Measures].[min]/[Measures].[max],0)', FORMAT_STRING = '#.00%' + IIF([measures].[lamp_usage_idx]>.26,'|style=olapRptRedCell','')
+                    MEMBER [measures].[dt_time_params] AS 'IIF([time].[h].CurrentMember.Level.Name<>"(all)" AND [organization].[h].CurrentMember.Level.Name = "store",IIF([time].[h].CurrentMember.Level.Name="date",[time].[h].CurrentMember.Name,[time].[h].CurrentMember.UniqueName),null)'
+                    MEMBER [measures].[dt_org_params] AS 'IIF([time].[h].CurrentMember.Level.Name<>"(all)" AND [organization].[h].CurrentMember.Level.Name = "store",[organization].[h].CurrentMember.UniqueName,null)'
+                    
+                    SELECT {
+                        CROSSJOIN({[measures].[general_idx]},{general_set}),
+                        CROSSJOIN({[measures].[lamp_usage_idx]},{lamp_set}),
+                        CROSSJOIN({[measures].[dt_time_params],[measures].[dt_org_params]},{[op_plc_sensor]})
+                    }ON COLUMNS,{
+                    CROSSJOIN(
+                                    {NONEMPTYCROSSJOIN(
+                                                   {DESCENDANTS({org_set},_param_4_,SELF_AND_BEFORE)}
+                                    ,{_param_5_})}
+                    ,{_param_6_})
+                    }ON ROWS
+                    FROM [op_plc_data]
+                    
+                ]]>
+            </query_def>
+            <params>
+                <param id = "1">tree_organization.olap_value</param>
+                <param id = "2">tree_time.olap_value|cmb_to</param>
+                <param id = "4" type = "server_side" server_param = "olap_level_detail" client_param  = "chk_org_detail">chk_org_detail.last_true_value</param>
+                <param id = "5">cmb_org_status</param>
+                <param id = "6" show_in_header = "false" type = "olap_time_set" linked_dimension = "time" only_totals = "chk_only_totals">tree_time.olap_value|cmb_to</param>
+            </params>
+        </query>
+    </queries>
+</solution>

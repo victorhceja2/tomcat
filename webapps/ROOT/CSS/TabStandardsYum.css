@@ -1,0 +1,130 @@
+DIV.tabBox {
+				
+}
+DIV.tabArea {
+	PADDING-RIGHT: 0px; 
+	PADDING-LEFT: 0px; 
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 10pt; 
+	FONT-FAMILY: Verdana, Arial;
+	PADDING-BOTTOM: 3px; 
+	PADDING-TOP: 0px
+}
+A.tab {
+	BORDER-RIGHT: gainsboro 2px solid; 
+	PADDING-RIGHT: 1em; 
+	BORDER-TOP: white 2px solid; 
+	PADDING-LEFT: 1em; 
+	Z-INDEX: 100; 
+	PADDING-BOTTOM: 2px; 
+	BORDER-LEFT: white 2px solid; 
+	PADDING-TOP: 2px; 
+	BORDER-BOTTOM: gray 0px solid; 
+	POSITION: relative; 
+	TOP: 3px; 
+	BACKGROUND-COLOR: WhiteSmoke; 
+	TEXT-DECORATION: none; 
+	moz-border-radius: .75em .75em 0em 0em; 
+	border-radius-topleft: .75em; 
+	border-radius-topright: .75em
+}
+A.tab {
+	COLOR: gray
+}
+A.tab:visited {
+	COLOR: gray
+}
+A.tab:hover {
+	BORDER-LEFT-COLOR: Lavender; 
+	BORDER-BOTTOM-COLOR: gray; 
+	COLOR: black; 
+	BORDER-TOP-COLOR: Lavender; 
+	BACKGROUND-COLOR: LightSteelBlue; 
+	BORDER-RIGHT-COLOR: gray
+}
+A.activeTab {
+	BORDER-LEFT-COLOR: white; 
+	BORDER-BOTTOM-COLOR: gray; 
+	COLOR: black; 
+	BORDER-TOP-COLOR: white; 
+	BACKGROUND-COLOR: gainsboro; 
+	BORDER-RIGHT-COLOR: gray
+}
+A.activeTab:hover {
+	BORDER-LEFT-COLOR: Lavender; 
+	BORDER-BOTTOM-COLOR: gray; 
+	COLOR: black; 
+	BORDER-TOP-COLOR: Lavender; 
+	BACKGROUND-COLOR: LightSteelBlue; 
+	BORDER-RIGHT-COLOR: gray
+}
+A.activeTab:visited {
+	BORDER-LEFT-COLOR: white; 
+	BORDER-BOTTOM-COLOR: gray; 
+	COLOR: black; 
+	BORDER-TOP-COLOR: white; 
+	BACKGROUND-COLOR: gainsboro; 
+	BORDER-RIGHT-COLOR: gray
+}
+A.activeTab {
+	Z-INDEX: 102; 
+	PADDING-BOTTOM: 4px; 
+	TOP: 1px
+}
+DIV.simpleBorder
+		{
+		border-left: white 2px solid; 
+		border-top: white 2px solid; 
+		border-right: gray 2px solid; 
+		border-bottom: gray 2px solid; 
+		padding-left: 0.2em; 
+		padding-top: 0.4em; 
+		padding-right: 0.4em; 
+		padding-bottom: 0.4em; 
+		Z-INDEX: 101; 
+		POSITION: relative; 
+		BACKGROUND-COLOR: gainsboro; 
+		}
+DIV.tabMain {
+	BORDER-RIGHT: gray 2px solid; 
+	PADDING-RIGHT: 0.5em; 
+	BORDER-TOP: white 2px solid; 
+	PADDING-LEFT: 0.5em; 
+	Z-INDEX: 101; 
+	PADDING-BOTTOM: 0.5em; 
+	BORDER-LEFT: white 2px solid; 
+	PADDING-TOP: 0.5em; 
+	BORDER-BOTTOM: gray 2px solid; 
+	POSITION: relative; 
+	BACKGROUND-COLOR: gainsboro; 
+	moz-border-radius: 0em .5em .5em 0em; 
+	border-radius-topright: .5em; 
+	border-radius-bottomright: .5em
+}
+DIV.tabIframeWrapper {
+
+}
+IFRAME.tabContent {
+	BORDER-RIGHT: white 2px solid; 
+	BORDER-TOP: gray 2px solid; 
+	BORDER-LEFT: gray 2px solid; 
+	BORDER-BOTTOM: white 2px solid; 
+	BACKGROUND-COLOR: gainsboro
+}
+H4#title {
+	BORDER-RIGHT: #b090e0 1px solid; 
+	PADDING-RIGHT: 0.5em; 
+	BORDER-TOP: #7050a0 1px solid; 
+	MARGIN-TOP: 0em; 
+	PADDING-LEFT: 0.5em; 
+	FONT-WEIGHT: bold; 
+	MARGIN-BOTTOM: 0.5em; 
+	PADDING-BOTTOM: 2px; 
+	BORDER-LEFT: #7050a0 1px solid; 
+	COLOR: #d0b0ff; 
+	PADDING-TOP: 2px; 
+	BORDER-BOTTOM: #b090e0 1px solid; 
+	BACKGROUND-COLOR: #503080
+}
+
+

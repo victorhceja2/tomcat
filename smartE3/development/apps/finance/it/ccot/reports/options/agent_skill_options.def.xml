@@ -1,0 +1,19 @@
+<options_definition width = "360" height="400" title = "Opciones">     
+    <option_group title = "Perfiles" width="230"  >
+    <option name = "tree_skill"  width="200" friendly_name = "Perfiles" type="tree" sql_query = "SELECT * FROM dbo.it_ccs_vw_tree_skill_xml ORDER BY sorter" search_controls = "true" align = "left"/>
+    </option_group> 
+    <option_group title = "Grupos" >
+    <option name = "cmb_group"  type="combobox" friendly_name = "Grupo" width = "200" align = "left" default = "AND 1=1 ">               
+        <maps>
+            <sql_map>
+                SELECT value,name FROM (
+                SELECT 'AND 1=1 ' AS value,'TODOS' AS name,-1 AS sorter
+                UNION
+                SELECT 'AND b.dbid = '+CAST(dbid AS VARCHAR),name,2 AS sorter
+                FROM OPENQUERY(AHEEVA,'SELECT * FROM aheevaccs.cfg_agent_group WHERE state = 1')
+                ) AS gm1 ORDER BY sorter
+            </sql_map>
+        </maps>          
+    </option>  
+    </option_group> 
+</options_definition>

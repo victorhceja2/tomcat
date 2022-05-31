@@ -1,0 +1,88 @@
+=head2 Fri Feb  8 10:50:22 2008: C<Module> L<Archive::Zip|Archive::Zip>
+
+=over 4
+
+=item *
+
+C<installed into: /usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/share/perl/5.8.4>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.23>
+
+=item *
+
+C<EXE_FILES: bin/crc32>
+
+=back
+
+=head2 Fri Feb  8 10:54:31 2008: C<Module> L<XML::Parser|XML::Parser>
+
+=over 4
+
+=item *
+
+C<installed into: /usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/share/perl/5.8.4>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 2.36>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Fri Feb  8 11:08:07 2008: C<Module> L<XML::Twig|XML::Twig>
+
+=over 4
+
+=item *
+
+C<installed into: /usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/share/perl/5.8.4>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 3.32>
+
+=item *
+
+C<EXE_FILES: tools/xml_pp/xml_pp tools/xml_grep/xml_grep tools/xml_split/xml_split tools/xml_merge/xml_merge tools/xml_spellcheck/xml_spellcheck>
+
+=back
+
+=head2 Fri Feb  8 12:11:25 2008: C<Module> L<OpenOffice::OODoc|OpenOffice::OODoc>
+
+=over 4
+
+=item *
+
+C<installed into: /usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/share/perl/5.8.4>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 2.035>
+
+=item *
+
+C<EXE_FILES: examples/oohighlight examples/oofilesearch examples/text2ooo examples/text2table examples/oo2pod examples/oobuild examples/oometadoc examples/oofindbasic examples/oosearch examples/oo_set_fields examples/oo_set_title>
+
+=back
+

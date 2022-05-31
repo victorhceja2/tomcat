@@ -1,0 +1,13 @@
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/bin/xml_grep
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/bin/xml_merge
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/bin/xml_pp
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/bin/xml_spellcheck
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/bin/xml_split
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/man/man1/xml_grep.1p
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/man/man1/xml_merge.1p
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/man/man1/xml_pp.1p
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/man/man1/xml_spellcheck.1p
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/man/man1/xml_split.1p
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/man/man3/XML::Twig.3pm
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/share/perl/5.8.4/XML/Twig.pm
+/usr/local/tomcat/webapps/ROOT/Scripts/perl/lib/share/perl/5.8.4/XML/Twig/XPath.pm

@@ -1,0 +1,33 @@
+<html>    
+    <head>
+        <title></title>
+    </head>
+    <body onLoad="javascript:executeAppletCommand();">
+        <script>
+            function exec() {
+                var applet = '';
+                applet+='<applet id ="aplReadAheeva"  codebase = "/smartE3/development/apps/finance/it/ccot/applets" name = "aplReadAheeva" code="ReadAheeva.class" archive="ReadAheeva.jar" width="270" height="160">';
+                applet+='   <param name="psFilePath" value="C:\\Logs\\CallerID.txt">';
+                applet+='</applet>';
+
+                //alert(applet);
+				
+                var body = document.getElementsByTagName("body")[0];
+                var div = document.createElement("div");
+                div.innerHTML = applet;
+                body.appendChild(div);
+
+                //setTimeout("alert(window.parent._e3_ccot_new_call_data_)",5000);
+            }
+
+            function executeAppletCommand() {
+                exec();
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
